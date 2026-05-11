@@ -1,17 +1,16 @@
-// ─── LINKS DE NAVEGACIÓN ──────────────────────────────────────────
-// href  → ancla en Home (scroll)
-// to    → ruta de React Router (página propia)
-// Cuando una sección pase a ser página, reemplazar href por to.
+// ─── LINKS DE NAVEGACIÓN ──────────────────────────────────────────────
+// to   → ruta interna de React Router
+// href → URL externa (abre en la misma pestaña con rel noopener cuando es externo)
 
 export const NAV_LINKS = [
-  { href: '#bodega',  label: 'La Bodega' },
-  { href: '#vinos',   label: 'Vinos'     },
-  { to: '/nosotros',  label: 'Nosotros'  },
-  { href: '#visita',  label: 'Visitas'   },
-  { href: '#contacto',label: 'Contacto'  },
+  { to: '/bodega',   label: 'La Bodega' },
+  { to: '/tienda',   label: 'Vinos'     },
+  { to: '/nosotros', label: 'Nosotros'  },
+  { to: '/visita',   label: 'Visitas'   },
+  { to: '/contacto', label: 'Contacto'  },
 ]
 
-// URLs externas — cambiar aquí si cambian los enlaces
+// URLs externas — solo para links de compra y redes sociales
 export const LINKS = {
   tienda:     'https://elhatoyelgarabato.com/tienda/',
   bodegaWeb:  'https://elhatoyelgarabato.com/bodega-y-vinas/',

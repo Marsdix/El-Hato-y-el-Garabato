@@ -1,8 +1,8 @@
 import ArrowRight from '../ui/ArrowRight'
 import { BtnGhost } from '../ui/Button'
 import { VINOS } from '../../data/vinos'
-import { LINKS } from '../../data/navigation'
 
+const FEATURED = VINOS.filter(v => v.featured)
 const DELAY_CLASS = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3']
 
 export default function VinosGrid() {
@@ -10,16 +10,15 @@ export default function VinosGrid() {
     <section className="section vinos-section" id="vinos">
       <div className="vinos-header reveal">
         <h2>Nuestros<br /><em>vinos</em></h2>
-        <BtnGhost href={LINKS.tienda}>
+        <BtnGhost to="/tienda">
           Ver toda la colección <ArrowRight />
         </BtnGhost>
       </div>
 
       <div className="vinos-grid">
-        {VINOS.map((vino, i) => (
+        {FEATURED.map((vino, i) => (
           <div className={`vino-card reveal ${DELAY_CLASS[i] ?? ''}`} key={vino.id}>
             <div className="vino-card-inner">
-              {/* IMAGEN VINO: {vino.nombre} → ver src/data/vinos.js para cambiar */}
               <img className="vino-card-img" src={vino.imagen} alt={vino.nombre} />
               <div className="vino-overlay" />
               <div className="vino-content">

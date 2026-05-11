@@ -1,37 +1,77 @@
-// ─── CATÁLOGO DE VINOS ────────────────────────────────────────────
-// Para añadir un vino nuevo: copia uno de los objetos y rellena los campos.
-// Las imágenes deben estar en public/images/ y la ruta será /images/nombre.jpg
-// Proporción recomendada: vertical 3:4, mínimo 800×1066px, JPEG.
+// ─── CATÁLOGO DE VINOS ────────────────────────────────────────────────
+// featured: true → aparece en la grid de Home (los primeros 3)
+// Todos aparecen en la página /tienda
+// Las imágenes vienen del servidor de WordPress hasta que se localicen en assets
 
 export const VINOS = [
   {
-    id: 'eclectico-barrica',
-    tag: 'Tinto · Barrica',
-    nombre: 'Ecléctico Barrica',
-    varietal: 'Juan García · Rufete · Bruñal',
-    href: 'https://elhatoyelgarabato.com/tienda/',
-    // IMAGEN: foto de la botella "Ecléctico Barrica" en bodega o sobre fondo neutro
-    // → reemplazar por /images/vino-eclectico-barrica.jpg
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/06/vinos-1024x577.jpeg',
-  },
-  {
-    id: 'de-buena-jera',
-    tag: 'Tinto · Crianza',
-    nombre: 'De Buena Jera',
+    id: 'cotexa-2020',
+    tag: 'Tinto · Juan García',
+    nombre: 'Cotexa 2020',
     varietal: 'Juan García · Viñas centenarias',
-    href: 'https://elhatoyelgarabato.com/tienda/',
-    // IMAGEN ⚠️: actualmente usa foto del equipo — cambiar
-    // → reemplazar por /images/vino-de-buena-jera.jpg
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg',
+    precio: '14,00',
+    href: 'https://elhatoyelgarabato.com/producto/cotexa-2020/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/Silueta-Cotexa-rojo-2-scaled-1-400x400.jpg',
+    featured: true,
   },
   {
-    id: 'eclectico-coleccion',
-    tag: 'Colección · Microelaboraciones',
-    nombre: 'Ecléctico Colección',
-    varietal: 'Rufete Blanco · Malvasía · Puesta del Sol',
-    href: 'https://elhatoyelgarabato.com/tienda/',
-    // IMAGEN ⚠️: actualmente usa la foto del hero — cambiar
-    // → reemplazar por /images/vino-eclectico-coleccion.jpg
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg',
+    id: 'de-buena-jera-2022',
+    tag: 'Tinto · Crianza',
+    nombre: 'De Buena Jera 2022',
+    varietal: 'Juan García · Ecológico',
+    precio: '30,00',
+    href: 'https://elhatoyelgarabato.com/producto/de-buena-jera-2018/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/de-buena-jera-1-400x400.jpeg',
+    featured: true,
+  },
+  {
+    id: 'eclectico-lias-2023',
+    tag: 'Blanco · Sobre lías',
+    nombre: 'Ecléctico, lias. 2023',
+    varietal: 'Puesta en Cruz · Sin filtrar',
+    precio: '14,00',
+    href: 'https://elhatoyelgarabato.com/producto/eclectico-lias-2022/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/2-2-400x400.jpg',
+    featured: true,
+  },
+  {
+    id: 'eclectico-barrica-2023',
+    tag: 'Blanco · Barrica',
+    nombre: 'Ecléctico. Blanco Barrica 2023',
+    varietal: 'Puesta en Cruz · Roble francés',
+    precio: '17,00',
+    href: 'https://elhatoyelgarabato.com/producto/eclectico-blanco-con-crianza-en-barrica-de-roble-frances/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/3-2-400x400.jpg',
+    featured: false,
+  },
+  {
+    id: 'li-2022',
+    tag: 'Tinto · Ecológico',
+    nombre: 'Li 2022',
+    varietal: 'Juan García · Ecológico',
+    precio: '14,00',
+    href: 'https://elhatoyelgarabato.com/producto/li/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/1-2-400x400.jpg',
+    featured: false,
+  },
+  {
+    id: 'otro-cuento-2023',
+    tag: 'Blanco · Ecológico',
+    nombre: 'Otro cuento 2023',
+    varietal: 'Doña Blanca · Ecológico',
+    precio: '17,50',
+    href: 'https://elhatoyelgarabato.com/producto/otro-cuento-2021/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/silueta-otro-cuento-amarillo-1-scaled-1-400x400.jpg',
+    featured: false,
+  },
+  {
+    id: 'sin-blanca-2018',
+    tag: 'Tinto',
+    nombre: 'Sin Blanca 2018',
+    varietal: 'Juan García',
+    precio: '17,50',
+    href: 'https://elhatoyelgarabato.com/producto/sin-blanca-2018/',
+    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/sin-blanca-400x400.jpg',
+    featured: false,
   },
 ]

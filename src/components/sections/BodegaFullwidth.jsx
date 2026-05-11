@@ -1,5 +1,4 @@
 import { BtnPrimary } from '../ui/Button'
-import { LINKS } from '../../data/navigation'
 
 export default function BodegaFullwidth() {
   return (
@@ -37,7 +36,7 @@ export default function BodegaFullwidth() {
             <span>aditivos</span>
           </div>
         </div>
-        <BtnPrimary href={LINKS.bodegaWeb}>Conocer la bodega</BtnPrimary>
+        <BtnPrimary to="/bodega">Conocer la bodega</BtnPrimary>
       </div>
     </div>
   )
