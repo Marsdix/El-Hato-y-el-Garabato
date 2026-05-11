@@ -1,0 +1,1158 @@
+/* ─── RESET & ROOT ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Backgrounds — paleta clara */
+  --bg:        #faf8f3;
+  --bg-alt:    #f0e8d8;
+  --bg-dark:   #2d1a14;   /* solo para sección quote */
+
+  /* Texto */
+  --text:      #1c1510;
+  --text-2:    #5a4f48;
+  --text-3:    #9a9085;
+
+  /* Acento dorado */
+  --gold:      #c8a255;
+  --gold-text: #8a6510;   /* dorado con contraste suficiente sobre fondo claro */
+
+  /* UI */
+  --border:    rgba(100, 70, 40, 0.14);
+
+  /* Tipografías */
+  --ff-serif: 'Cormorant Garamond', Georgia, serif;
+  --ff-caps:  'Cinzel', serif;
+  --ff-sans:  'Jost', sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── CURSOR PERSONALIZADO ─────────────────────────────────────── */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(200, 162, 85, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s var(--ease-out);
+}
+
+/* ─── NAVEGACIÓN ───────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 28px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, padding 0.4s ease, border-color 0.5s ease;
+}
+nav.scrolled {
+  background: rgba(250, 248, 243, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 18px 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--ff-caps);
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1.3;
+  transition: color 0.5s ease;
+}
+nav.scrolled .nav-logo { color: var(--gold-text); }
+.nav-logo span {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.4em;
+  transition: color 0.5s ease;
+}
+nav.scrolled .nav-logo span { color: var(--text-3); }
+
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+nav.scrolled .nav-links a { color: var(--text-2); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.35s var(--ease-out);
+}
+.nav-links a:hover { color: var(--gold); }
+nav.scrolled .nav-links a:hover { color: var(--gold-text); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--gold);
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.nav-cta:hover { background: #dab870; }
+
+/* ─── HERO ─────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  /* ═══════════════════════════════════════════════════════════════
+     IMAGEN HERO
+     Reemplazar la URL por una foto panorámica actualizada de las
+     viñas o el paisaje de los Arribes del Duero.
+     Tamaño recomendado: mínimo 1920×1080px, formato JPEG.
+  ═══════════════════════════════════════════════════════════════ */
+  background: url('https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg')
+    center 30% / cover no-repeat;
+  transform: scale(1.08);
+  transition: transform 8s ease;
+}
+.hero.loaded .hero-bg { transform: scale(1); }
+.hero-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(10, 6, 4, 0.82) 0%, rgba(10, 6, 4, 0.45) 55%, transparent 100%),
+    linear-gradient(to top, rgba(10, 6, 4, 0.88) 0%, transparent 50%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 0 60px 90px;
+  max-width: 720px;
+}
+.hero-eyebrow {
+  font-family: var(--ff-sans);
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease 0.3s, transform 0.9s var(--ease-out) 0.3s;
+}
+.hero h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: #fff;
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease 0.5s, transform 1s var(--ease-out) 0.5s;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-desc {
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 420px;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease 0.8s, transform 0.9s var(--ease-out) 0.8s;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease 1s, transform 0.9s var(--ease-out) 1s;
+}
+.hero.loaded .hero-eyebrow,
+.hero.loaded h1,
+.hero.loaded .hero-desc,
+.hero.loaded .hero-actions { opacity: 1; transform: translateY(0); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px; right: 60px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 1s ease 1.4s;
+}
+.hero.loaded .hero-scroll { opacity: 1; }
+.hero-scroll span {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  writing-mode: vertical-rl;
+}
+.scroll-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ─── BOTONES ───────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--gold);
+  padding: 16px 36px;
+  text-decoration: none;
+  border: none;
+  cursor: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.btn-primary:hover { background: #dab870; transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.btn-ghost svg { transition: transform 0.3s ease; }
+.btn-ghost:hover { color: var(--gold-text); }
+.btn-ghost:hover svg { transform: translateX(4px); }
+
+/* Variante clara: sobre fondos oscuros (hero, bodega fullwidth) */
+.btn-ghost-light {
+  color: rgba(255, 255, 255, 0.7);
+}
+.btn-ghost-light:hover { color: var(--gold); }
+
+/* ─── SECCIÓN PRENSA ────────────────────────────────────────────── */
+.press {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 60px;
+  overflow: hidden;
+}
+.press-label {
+  text-align: center;
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 24px;
+}
+.press-track {
+  display: flex;
+  gap: 56px;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+.press-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.press-logo {
+  font-family: var(--ff-caps);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.press-dot { color: var(--gold); font-size: 8px; }
+
+/* ─── LAYOUTS COMUNES ───────────────────────────────────────────── */
+.section { padding: 120px 60px; }
+.section-label {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 28px;
+}
+.divider {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+
+/* ─── INTRO (BODEGA) ────────────────────────────────────────────── */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.intro-text h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+.intro-text h2 em { font-style: italic; color: var(--gold-text); }
+.intro-text p {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.intro-image { position: relative; }
+.intro-image img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+}
+.intro-image::before {
+  content: '';
+  position: absolute;
+  top: -20px; left: -20px;
+  width: 60%; height: 60%;
+  border: 1px solid rgba(200, 162, 85, 0.35);
+  z-index: -1;
+}
+.intro-stat {
+  position: absolute;
+  bottom: -30px; right: -30px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 28px 36px;
+  text-align: center;
+}
+.intro-stat strong {
+  display: block;
+  font-family: var(--ff-serif);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--gold-text);
+  line-height: 1;
+}
+.intro-stat span {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ─── VINOS ─────────────────────────────────────────────────────── */
+.vinos-section { background: var(--bg-alt); }
+.vinos-header {
+  max-width: 1200px;
+  margin: 0 auto 70px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.vinos-header h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.05;
+}
+.vinos-header h2 em { font-style: italic; color: var(--gold-text); }
+.vinos-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.vino-card { position: relative; overflow: hidden; cursor: none; }
+.vino-card-inner {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.vino-card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.8s var(--ease-out);
+}
+.vino-card:hover .vino-card-img { transform: scale(1); }
+.vino-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10, 6, 4, 0.9) 0%, rgba(10, 6, 4, 0.2) 60%, transparent 100%);
+  transition: background 0.5s ease;
+}
+.vino-card:hover .vino-overlay {
+  background: linear-gradient(to top, rgba(10, 6, 4, 0.95) 0%, rgba(10, 6, 4, 0.45) 70%, rgba(10, 6, 4, 0.08) 100%);
+}
+.vino-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 36px 32px;
+}
+.vino-tag {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.vino-name {
+  font-family: var(--ff-serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+.vino-varietal {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+}
+.vino-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-sans);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-out);
+}
+.vino-card:hover .vino-cta { opacity: 1; transform: translateY(0); }
+
+/* ─── CITA ───────────────────────────────────────────────────────── */
+.quote-section {
+  padding: 100px 60px;
+  background: var(--bg-dark);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quote-section::before {
+  content: '"';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--ff-serif);
+  font-size: 400px;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: var(--ff-serif);
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 900px;
+  margin: 0 auto 32px;
+  line-height: 1.4;
+  position: relative; z-index: 1;
+}
+.quote-source {
+  font-family: var(--ff-sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  position: relative; z-index: 1;
+}
+
+/* ─── BODEGA FULLWIDTH ──────────────────────────────────────────── */
+.bodega {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.bodega-bg {
+  position: absolute; inset: 0;
+  /* ═══════════════════════════════════════════════════════════════
+     IMAGEN BODEGA FULLWIDTH
+     Reemplazar la URL por una foto aérea, exterior o de las viñas
+     en diferentes estaciones. Horizontal, mínimo 1920×1080px.
+  ═══════════════════════════════════════════════════════════════ */
+  background: url('https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg')
+    center / cover no-repeat;
+}
+.bodega-vignette {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 6, 4, 0.02) 0%,
+    rgba(10, 6, 4, 0.55) 50%,
+    rgba(10, 6, 4, 0.92) 100%
+  );
+}
+.bodega-content {
+  position: relative; z-index: 2;
+  margin-left: auto;
+  padding: 0 60px;
+  max-width: 560px;
+  text-align: right;
+}
+.bodega-content .section-label { color: var(--gold); margin-bottom: 24px; }
+.bodega-content h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.0;
+  margin-bottom: 24px;
+}
+.bodega-content h2 em { font-style: italic; color: var(--gold); }
+.bodega-content p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+.stats-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 48px;
+  margin-bottom: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.stat-item { text-align: right; }
+.stat-item strong {
+  display: block;
+  font-family: var(--ff-serif);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-item span {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── EQUIPO ────────────────────────────────────────────────────── */
+.equipo-section { padding: 120px 60px; background: var(--bg); }
+.equipo-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.equipo-image img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  display: block;
+}
+.equipo-text h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+.equipo-text h2 em { font-style: italic; color: var(--gold-text); }
+.equipo-text p {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.feature-list {
+  list-style: none;
+  margin: 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--ff-sans);
+  font-size: 13px;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+}
+.feature-list li::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── VISITA ────────────────────────────────────────────────────── */
+.visita-section {
+  position: relative;
+  padding: 120px 60px;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+.visita-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%; height: 100%;
+  /* ═══════════════════════════════════════════════════════════════
+     IMAGEN VISITA (fondo decorativo derecha)
+     Reemplazar la URL por una foto de la experiencia enoturística:
+     cata, paseo por viñas, maridaje o paisaje de Arribes.
+  ═══════════════════════════════════════════════════════════════ */
+  background: url('https://elhatoyelgarabato.com/wp-content/uploads/2024/09/46-1024x819-1.png')
+    center / cover no-repeat;
+  opacity: 0.18;
+}
+.visita-section::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%; height: 100%;
+  background:
+    linear-gradient(to right, var(--bg-alt) 0%, transparent 30%),
+    linear-gradient(to top, var(--bg-alt) 0%, transparent 30%);
+}
+.visita-inner {
+  position: relative; z-index: 2;
+  max-width: 600px;
+}
+.visita-inner h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.0;
+  margin-bottom: 28px;
+}
+.visita-inner h2 em { font-style: italic; color: var(--gold-text); }
+.visita-inner > p {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.85;
+  margin-bottom: 48px;
+  max-width: 460px;
+}
+.visita-options {
+  margin-bottom: 48px;
+  border: 1px solid var(--border);
+}
+.visita-option {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.3s ease;
+  cursor: none;
+}
+.visita-option:last-child { border-bottom: none; }
+.visita-option:hover { background: rgba(200, 162, 85, 0.06); }
+.visita-option-num {
+  font-family: var(--ff-serif);
+  font-size: 32px;
+  color: rgba(200, 162, 85, 0.4);
+  line-height: 1;
+  min-width: 40px;
+}
+.visita-option-text strong {
+  display: block;
+  font-family: var(--ff-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.visita-option-text span { font-size: 12px; color: var(--text-3); }
+
+/* ─── CONTACTO ──────────────────────────────────────────────────── */
+.contacto-section { padding: 120px 60px; background: var(--bg); }
+.contacto-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+.contacto-left h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+.contacto-left h2 em { font-style: italic; color: var(--gold-text); }
+.contact-items { display: flex; flex-direction: column; gap: 28px; }
+.contact-item { display: flex; flex-direction: column; gap: 4px; }
+.contact-item label {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.contact-item a, .contact-item p {
+  font-family: var(--ff-serif);
+  font-size: 17px;
+  color: var(--text-2);
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+.contact-item a:hover { color: var(--gold-text); }
+.contacto-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.contacto-right .section-label { margin-bottom: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group input,
+.form-group textarea {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--ff-serif);
+  font-size: 15px;
+  padding: 14px 18px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-3); font-style: italic; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ─── FOOTER ────────────────────────────────────────────────────── */
+footer {
+  background: #1c1510;
+  border-top: 1px solid rgba(200, 162, 85, 0.15);
+  padding: 70px 60px 40px;
+}
+.footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(200, 162, 85, 0.1);
+  margin-bottom: 40px;
+}
+.footer-brand .brand-name {
+  font-family: var(--ff-caps);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.footer-brand p { font-size: 13px; color: rgba(255, 255, 255, 0.38); line-height: 1.8; max-width: 280px; }
+.footer-col h4 {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a {
+  font-family: var(--ff-serif);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.38);
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-copy { font-size: 11px; color: rgba(255, 255, 255, 0.22); letter-spacing: 0.1em; }
+.social-links { display: flex; gap: 24px; }
+.social-links a {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.social-links a:hover { color: var(--gold); }
+
+/* ─── ANIMACIONES REVEAL ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.30s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ─── SCROLLBAR & SELECCIÓN ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::selection { background: var(--gold); color: var(--text); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 20px 30px; }
+  nav.scrolled { padding: 14px 30px; }
+  .nav-links { display: none; }
+
+  .hero-content { padding: 0 30px 70px; }
+  .hero-scroll { right: 30px; }
+
+  .section { padding: 80px 30px; }
+  .press { padding: 30px; }
+  .intro { grid-template-columns: 1fr; gap: 60px; }
+  .intro-stat { position: static; margin-top: 24px; display: inline-block; }
+  .vinos-grid { grid-template-columns: 1fr; }
+
+  .bodega-content { padding: 0 30px; max-width: 100%; }
+
+  .equipo-section { padding: 80px 30px; }
+  .equipo-inner { grid-template-columns: 1fr; gap: 50px; }
+
+  .visita-section { padding: 80px 30px; }
+  .visita-section::before,
+  .visita-section::after { display: none; }
+
+  .contacto-section { padding: 80px 30px; }
+  .contacto-inner { grid-template-columns: 1fr; gap: 60px; }
+
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  footer { padding: 50px 30px 30px; }
+}
+
+/* ─── CARGA DE PÁGINA (Suspense fallback) ─────────────────────── */
+.page-loading {
+  height: 100vh;
+  background: var(--bg);
+}
+
+/* ─── 404 ────────────────────────────────────────────────────────── */
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 60px;
+  gap: 20px;
+}
+.not-found h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+}
+.not-found p {
+  font-size: 15px;
+  color: var(--text-2);
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PÁGINA SOBRE NOSOTROS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── HERO DE PÁGINAS INTERNAS ──────────────────────────────────── */
+.page-hero {
+  position: relative;
+  height: 65vh;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+.page-hero:hover .page-hero-bg { transform: scale(1); }
+.page-hero-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(10, 6, 4, 0.78) 0%, rgba(10, 6, 4, 0.38) 55%, transparent 100%),
+    linear-gradient(to top, rgba(10, 6, 4, 0.85) 0%, transparent 55%);
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 60px 80px;
+  max-width: 720px;
+}
+.page-hero-eyebrow {
+  font-family: var(--ff-sans);
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.page-hero h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: #fff;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+
+/* ─── MEDIOS (logos de prensa) ───────────────────────────────────── */
+.medios-section {
+  padding: 100px 60px;
+  background: var(--bg);
+}
+.medios-inner { max-width: 1100px; margin: 0 auto; }
+.medios-header { margin-bottom: 60px; }
+.medios-header h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+}
+.medios-header h2 em { font-style: italic; color: var(--gold-text); }
+
+.medios-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+.medio-logo {
+  aspect-ratio: 1;
+  background: var(--bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: background 0.3s ease;
+}
+.medio-logo:hover { background: #e8dfc8; }
+.medio-logo img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.4s ease;
+}
+.medio-logo:hover img { filter: grayscale(0) opacity(1); }
+
+/* ─── FICHAS DEL EQUIPO ─────────────────────────────────────────── */
+.miembro-section {
+  display: flex;
+  min-height: 560px;
+}
+.miembro-section--inv { flex-direction: row-reverse; }
+
+.miembro-imagen {
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+.miembro-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s var(--ease-out);
+}
+.miembro-section:hover .miembro-imagen img { transform: scale(1.03); }
+
+.miembro-content {
+  flex: 0 0 50%;
+  background: var(--bg-alt);
+  padding: 80px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.miembro-section--inv .miembro-content { background: var(--bg); }
+
+.miembro-rol { margin-bottom: 8px !important; }
+.miembro-nombre {
+  font-family: var(--ff-serif);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+.miembro-bio { display: flex; flex-direction: column; gap: 14px; }
+.miembro-bio p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.85;
+}
+.miembro-bio--destacado {
+  font-family: var(--ff-serif);
+  font-size: 16px !important;
+  font-style: italic;
+  color: var(--text) !important;
+}
+
+/* ─── CTA FINAL ──────────────────────────────────────────────────── */
+.nosotros-cta {
+  padding: 120px 60px;
+  background: var(--bg-dark);
+  text-align: center;
+}
+.nosotros-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.nosotros-cta .section-label { color: var(--gold); }
+.nosotros-cta h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.nosotros-cta h2 em { font-style: italic; color: var(--gold); }
+.nosotros-cta .btn-ghost {
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 0 !important;
+}
+.nosotros-cta .btn-ghost:hover { color: var(--gold); }
+.nosotros-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ─── RESPONSIVE (Sobre Nosotros) ────────────────────────────────── */
+@media (max-width: 900px) {
+  .page-hero-content { padding: 0 30px 60px; }
+  .medios-section { padding: 70px 30px; }
+  .medios-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .miembro-section { flex-direction: column; }
+  .miembro-section--inv { flex-direction: column; }
+  .miembro-imagen { flex: 0 0 auto; aspect-ratio: 3/2; }
+  .miembro-content { flex: 0 0 auto; padding: 50px 30px; }
+
+  .nosotros-cta { padding: 80px 30px; }
+  .nosotros-cta-actions { flex-direction: column; gap: 16px; }
+}
