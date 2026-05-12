@@ -1,7 +1,9 @@
 import { BODEGA_VINAS } from '../../data/bodega'
+import { IMAGES } from '../../data/images'
 
 export default function BodegaVinasSection() {
-  const { parrafos, stats, variedadesTintas, variedadesBlancas, imagen } = BODEGA_VINAS
+  const { parrafos, stats, variedadesTintas, variedadesBlancas } = BODEGA_VINAS
+  const imagen = IMAGES.bodega.vinas
 
   return (
     <section className="bodega-vinas-section">

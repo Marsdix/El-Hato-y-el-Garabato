@@ -1,6 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import TiendaSection from '../components/sections/TiendaSection'
+import { IMAGES } from '../data/images'
 
 export default function Tienda() {
   useScrollReveal()
@@ -10,7 +11,7 @@ export default function Tienda() {
       <PageHero
         eyebrow="Colección de vinos"
         title={<>Nuestros<br /><em>vinos.</em></>}
-        backgroundImage="https://elhatoyelgarabato.com/wp-content/uploads/2024/06/vinos-1024x577.jpeg"
+        backgroundImage={IMAGES.tienda.hero}
         imagePosition="50% 40%"
       />
       <TiendaSection />

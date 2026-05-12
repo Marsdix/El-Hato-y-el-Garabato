@@ -1,5 +1,4 @@
 import { BtnPrimary } from '../ui/Button'
-import { LINKS } from '../../data/navigation'
 
 const OPCIONES = [
   {
@@ -48,7 +47,7 @@ export default function VisitaSection() {
           ))}
         </div>
         <div className="reveal">
-          <BtnPrimary href={LINKS.visita}>Información y reserva</BtnPrimary>
+          <BtnPrimary to="/visita">Información y reserva</BtnPrimary>
         </div>
       </div>
     </section>

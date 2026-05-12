@@ -1,7 +1,9 @@
 // ─── CATÁLOGO DE VINOS ────────────────────────────────────────────────
 // featured: true → aparece en la grid de Home (los primeros 3)
 // Todos aparecen en la página /tienda
-// Las imágenes vienen del servidor de WordPress hasta que se localicen en assets
+// Imágenes gestionadas en src/data/images.js → IMAGES.vinos
+
+import { IMAGES } from './images'
 
 export const VINOS = [
   {
@@ -11,7 +13,7 @@ export const VINOS = [
     varietal: 'Juan García · Viñas centenarias',
     precio: '14,00',
     href: 'https://elhatoyelgarabato.com/producto/cotexa-2020/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/Silueta-Cotexa-rojo-2-scaled-1-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.cotexa,
     featured: true,
   },
   {
@@ -21,7 +23,7 @@ export const VINOS = [
     varietal: 'Juan García · Ecológico',
     precio: '30,00',
     href: 'https://elhatoyelgarabato.com/producto/de-buena-jera-2018/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/de-buena-jera-1-400x400.jpeg',
+    imagen: IMAGES.tienda.vinos.deBuenaJera,
     featured: true,
   },
   {
@@ -31,7 +33,7 @@ export const VINOS = [
     varietal: 'Puesta en Cruz · Sin filtrar',
     precio: '14,00',
     href: 'https://elhatoyelgarabato.com/producto/eclectico-lias-2022/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/2-2-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.eclecticoLias,
     featured: true,
   },
   {
@@ -41,7 +43,7 @@ export const VINOS = [
     varietal: 'Puesta en Cruz · Roble francés',
     precio: '17,00',
     href: 'https://elhatoyelgarabato.com/producto/eclectico-blanco-con-crianza-en-barrica-de-roble-frances/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/3-2-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.eclecticoBarrica,
     featured: false,
   },
   {
@@ -51,7 +53,7 @@ export const VINOS = [
     varietal: 'Juan García · Ecológico',
     precio: '14,00',
     href: 'https://elhatoyelgarabato.com/producto/li/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/1-2-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.li,
     featured: false,
   },
   {
@@ -61,7 +63,7 @@ export const VINOS = [
     varietal: 'Doña Blanca · Ecológico',
     precio: '17,50',
     href: 'https://elhatoyelgarabato.com/producto/otro-cuento-2021/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/silueta-otro-cuento-amarillo-1-scaled-1-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.otroCuento,
     featured: false,
   },
   {
@@ -71,7 +73,7 @@ export const VINOS = [
     varietal: 'Juan García',
     precio: '17,50',
     href: 'https://elhatoyelgarabato.com/producto/sin-blanca-2018/',
-    imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/07/sin-blanca-400x400.jpg',
+    imagen: IMAGES.tienda.vinos.sinBlanca,
     featured: false,
   },
 ]

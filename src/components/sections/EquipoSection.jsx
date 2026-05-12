@@ -1,5 +1,5 @@
 import { BtnPrimary } from '../ui/Button'
-import { LINKS } from '../../data/navigation'
+import { IMAGES } from '../../data/images'
 
 export default function EquipoSection() {
   return (
@@ -27,17 +27,12 @@ export default function EquipoSection() {
               'Embotellado sin filtrar',
             ].map(item => <li key={item}>{item}</li>)}
           </ul>
-          <BtnPrimary href={LINKS.equipo}>Conocer el equipo</BtnPrimary>
+          <BtnPrimary to="/nosotros">Conocer el equipo</BtnPrimary>
         </div>
 
         <div className="equipo-image reveal-right">
-          {/*
-            IMAGEN EQUIPO
-            Guardar en public/images/equipo.jpg
-            Foto actual del equipo en la bodega, viñas o vendimia (5:4)
-          */}
           <img
-            src="https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg"
+            src={IMAGES.nosotros.equipoGrupo}
             alt="El equipo de El Hato y el Garabato"
           />
         </div>

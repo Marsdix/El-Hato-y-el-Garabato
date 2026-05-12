@@ -15,5 +15,4 @@ export const BODEGA_VINAS = {
   ],
   variedadesTintas:  ['Juan García', 'Bruñal', 'Bastardo', 'Tinto Geromo', 'Mandón'],
   variedadesBlancas: ['Doña Blanca', 'Puesta en Cruz'],
-  imagen: 'https://elhatoyelgarabato.com/wp-content/uploads/2024/09/jose-en-vinas.png',
 }

@@ -1,13 +1,10 @@
 import { BtnPrimary } from '../ui/Button'
+import { IMAGES } from '../../data/images'
 
 export default function BodegaFullwidth() {
   return (
     <div className="bodega">
-      {/*
-        IMAGEN BODEGA FULLWIDTH — cambiar URL en App.css → .bodega-bg → background: url(...)
-        Guardar en public/images/bodega-panoramica.jpg (horizontal, mínimo 1920×1080px)
-      */}
-      <div className="bodega-bg" />
+      <div className="bodega-bg" style={{ backgroundImage: `url(${IMAGES.home.bodegaPanoramica})` }} />
       <div className="bodega-vignette" />
 
       <div className="bodega-content reveal-right">

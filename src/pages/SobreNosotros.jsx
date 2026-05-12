@@ -1,9 +1,9 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
-import { BtnPrimary } from '../components/ui/Button'
+import { BtnPrimary, BtnGhost } from '../components/ui/Button'
 import { EQUIPO } from '../data/equipo'
 import { MEDIOS } from '../data/medios'
-import { LINKS } from '../data/navigation'
+import { IMAGES } from '../data/images'
 
 // ─── SECCIÓN MEDIOS ───────────────────────────────────────────────
 function MediosSection() {
@@ -39,7 +39,7 @@ function MiembroSection({ miembro }) {
           src={miembro.imagen}
           alt={`${miembro.nombre} — ${miembro.rol}`}
           loading="lazy"
-          style={{ objectPosition: miembro.imagenPos }}
+          style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
         />
       </div>
 
@@ -70,10 +70,8 @@ function CtaFinal() {
         <p className="section-label">¿Hablamos?</p>
         <h2>¿Tienes alguna duda?<br /><em>Aquí estamos.</em></h2>
         <div className="nosotros-cta-actions">
-          <BtnPrimary href={LINKS.tienda}>Ver nuestros vinos</BtnPrimary>
-          <a href="/#contacto" className="btn-ghost btn-ghost-light">
-            Contactar con nosotros
-          </a>
+          <BtnPrimary to="/tienda">Ver nuestros vinos</BtnPrimary>
+          <BtnGhost to="/contacto">Contactar con nosotros</BtnGhost>
         </div>
       </div>
     </section>
@@ -86,14 +84,10 @@ export default function SobreNosotros() {
 
   return (
     <>
-      {/*
-        IMAGEN HERO SOBRE NOSOTROS
-        Guardar en public/images/quienes-somos.jpg (mínimo 1920×1280px)
-      */}
       <PageHero
         eyebrow="Quiénes somos"
         title={<>Las personas<br /><em>detrás del vino.</em></>}
-        backgroundImage="https://elhatoyelgarabato.com/wp-content/uploads/2024/06/quienes-somos.jpg"
+        backgroundImage={IMAGES.nosotros.hero}
         imagePosition="62% 53%"
       />
 

@@ -16,29 +16,29 @@ export default function Footer() {
         <div className="footer-col">
           <h4>La Bodega</h4>
           <ul>
-            <li><a href={LINKS.equipo}    rel="noopener noreferrer">Nosotros</a></li>
-            <li><a href={LINKS.bodegaWeb} rel="noopener noreferrer">Bodega y Viñas</a></li>
-            <li><a href={LINKS.visita}    rel="noopener noreferrer">Visitas</a></li>
-            <li><a href={LINKS.blog}      rel="noopener noreferrer">Blog</a></li>
+            <li><Link to="/nosotros">Nosotros</Link></li>
+            <li><Link to="/bodega">Bodega y Viñas</Link></li>
+            <li><Link to="/visita">Visitas</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Vinos</h4>
           <ul>
-            <li><a href={LINKS.tienda}    rel="noopener noreferrer">Tienda online</a></li>
-            <li><a href={LINKS.maridajes} rel="noopener noreferrer">Maridajes</a></li>
-            <li><a href={LINKS.tienda}    rel="noopener noreferrer">Ecléctico Barrica</a></li>
-            <li><a href={LINKS.tienda}    rel="noopener noreferrer">De Buena Jera</a></li>
+            <li><Link to="/tienda">Tienda online</Link></li>
+            <li><Link to="/maridajes">Maridajes</Link></li>
+            <li><Link to="/tienda">Ecléctico Barrica</Link></li>
+            <li><Link to="/tienda">De Buena Jera</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href={LINKS.legal}      rel="noopener noreferrer">Aviso legal</a></li>
-            <li><a href={LINKS.terminos}   rel="noopener noreferrer">Términos y condiciones</a></li>
-            <li><a href={LINKS.contactoCH} rel="noopener noreferrer">Contacto</a></li>
+            <li><Link to="/aviso-legal">Aviso legal</Link></li>
+            <li><Link to="/terminos">Términos y condiciones</Link></li>
+            <li><Link to="/contacto">Contacto</Link></li>
           </ul>
         </div>
       </div>

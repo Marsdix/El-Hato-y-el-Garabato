@@ -64,6 +64,8 @@ La separación entre **datos** (`/data`), **lógica** (`/hooks`) y **presentaci�
 | `/tienda` | Catálogo de vinos | ✅ Completa |
 | `/visita` | Enoturismo | ✅ Completa |
 | `/contacto` | Contacto + Mapa | ✅ Completa |
+| `/aviso-legal` | Aviso legal | ✅ Completa |
+| `/terminos` | Términos y condiciones | ✅ Completa |
 
 > La página de **Tienda** es un catálogo estático en React. El proceso de compra se realiza en WooCommerce mediante enlaces externos, ya que migrar el carrito requeriría un backend.
 

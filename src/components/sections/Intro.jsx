@@ -1,19 +1,14 @@
 import { BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
-import { LINKS } from '../../data/navigation'
+import { IMAGES } from '../../data/images'
 
 export default function Intro() {
   return (
     <section className="section" id="bodega">
       <div className="intro">
         <div className="intro-image reveal-left">
-          {/*
-            IMAGEN BODEGA (intro)
-            Guardar en public/images/bodega-interior.jpg
-            Proporción vertical recomendada: 4:5
-          */}
           <img
-            src="https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg"
+            src={IMAGES.home.bodegaInterior}
             alt="La bodega El Hato y el Garabato"
           />
           <div className="intro-stat">
@@ -40,7 +35,7 @@ export default function Intro() {
             bodega, donde la intervención mínima y el respeto por la tradición
             definen cada botella.
           </p>
-          <BtnGhost href={LINKS.bodegaWeb} style={{ marginTop: 12 }}>
+          <BtnGhost to="/bodega" style={{ marginTop: 12 }}>
             Explorar la bodega <ArrowRight />
           </BtnGhost>
         </div>

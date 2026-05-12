@@ -153,8 +153,9 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
      viñas o el paisaje de los Arribes del Duero.
      Tamaño recomendado: mínimo 1920×1080px, formato JPEG.
   ═══════════════════════════════════════════════════════════════ */
-  background: url('https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg')
-    center 30% / cover no-repeat;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
   transform: scale(1.08);
   transition: transform 8s ease;
 }
@@ -549,8 +550,9 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
      Reemplazar la URL por una foto aérea, exterior o de las viñas
      en diferentes estaciones. Horizontal, mínimo 1920×1080px.
   ═══════════════════════════════════════════════════════════════ */
-  background: url('https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg')
-    center / cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .bodega-vignette {
   position: absolute; inset: 0;
@@ -962,6 +964,15 @@ footer {
   color: var(--text-2);
   margin-bottom: 12px;
 }
+.not-found-path {
+  font-family: var(--ff-sans);
+  font-size: 13px;
+  background: var(--bg-alt);
+  color: var(--gold-text);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
 
 /* ═══════════════════════════════════════════════════════════════════
    PÁGINA SOBRE NOSOTROS
@@ -1063,6 +1074,7 @@ footer {
 .miembro-imagen {
   flex: 0 0 50%;
   overflow: hidden;
+  background: var(--bg);
 }
 .miembro-imagen img {
   width: 100%;
@@ -1070,6 +1082,9 @@ footer {
   object-fit: cover;
   display: block;
   transition: transform 0.8s var(--ease-out);
+}
+.miembro-imagen img[style*="contain"] {
+  object-position: 50% 15%;
 }
 .miembro-section:hover .miembro-imagen img { transform: scale(1.03); }
 
@@ -1303,15 +1318,35 @@ footer {
 
 .tienda-card-img-wrap {
   display: block;
+  position: relative;
   overflow: hidden;
   aspect-ratio: 1;
   background: var(--bg-alt);
+}
+.tienda-card-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-alt);
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+.tienda-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(100, 70, 40, 0.18);
+  pointer-events: none;
+  z-index: 2;
 }
 .tienda-card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 28px;
+  padding: 36px;
+  filter: saturate(0.88) contrast(1.04);
   transition: transform 0.6s var(--ease-out);
 }
 .tienda-card:hover .tienda-card-img-wrap img { transform: scale(1.06); }
@@ -1485,6 +1520,63 @@ footer {
   filter: grayscale(20%) contrast(95%);
 }
 
+/* ─── PÁGINAS LEGALES ────────────────────────────────────────────── */
+.legal-section {
+  padding: 100px 40px 120px;
+  background: var(--color-bg);
+}
+
+.legal-content {
+  max-width: 780px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.legal-content h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, #e8e0d8);
+}
+
+.legal-content h4:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.legal-content p {
+  margin-bottom: 1rem;
+}
+
+.legal-content ul,
+.legal-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-content a:hover {
+  opacity: 0.75;
+}
+
 /* ─── RESPONSIVE (páginas nuevas) ───────────────────────────────── */
 @media (max-width: 900px) {
   .bodega-vinas-section { padding: 80px 30px; }
@@ -1499,4 +1591,6 @@ footer {
   .visita-exp-card             { padding: 36px 28px 44px; }
 
   .map-section iframe { height: 300px; }
+
+  .legal-section  { padding: 60px 24px 80px; }
 }
