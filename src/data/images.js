@@ -26,8 +26,8 @@ export const IMAGES = {
       "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg",
     equipo: {
       jose: "src/assets/images/Jose.jpg",
-      liliana: "src/assets/images/LilianaModificado.png",
-      luisfer: "src/assets/images/Luisfer.png",
+      liliana: "src/assets/images/LilianaCoche.png",
+      luisfer: "src/assets/images/Luisfer.JPG",
     },
     medios: {
       robertParker:
@@ -79,7 +79,7 @@ export const IMAGES = {
 
   // ── CONTACTO ( /contacto ) ────────────────────────────────────────
   contacto: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg",
+    hero: "src/assets/images/PilarValbuena-22072025-DSC_3904.jpg",
   },
 
   // ── AVISO LEGAL ( /aviso-legal ) ──────────────────────────────────
