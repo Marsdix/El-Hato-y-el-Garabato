@@ -1,10 +1,11 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import PageHero from '../components/layout/PageHero'
-import BodegaVinasSection from '../components/sections/BodegaVinasSection'
-import { IMAGES } from '../data/images'
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import PageHero from "../components/layout/PageHero";
+import BodegaVinasSection from "../components/sections/BodegaVinasSection";
+import BodegaFullwidth from "../components/sections/BodegaFullwidth";
+import { IMAGES } from "../data/images";
 
 export default function BodegaYVinas() {
-  useScrollReveal()
+  useScrollReveal();
 
   return (
     <>

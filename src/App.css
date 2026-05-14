@@ -136,6 +136,87 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
 }
 .nav-cta:hover { background: #dab870; }
 
+/* ─── HAMBURGER ─────────────────────────────────────────────────── */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+nav.scrolled .hamburger { color: var(--text); }
+.hamburger:hover { color: var(--gold); }
+nav.scrolled .hamburger:hover { color: var(--gold-text); }
+
+/* ─── OVERLAY ───────────────────────────────────────────────────── */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 6, 4, 0.45);
+  z-index: 998;
+  cursor: pointer;
+}
+
+/* ─── DRAWER ────────────────────────────────────────────────────── */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  z-index: 999;
+  padding: 100px 40px 50px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: transform 0.45s var(--ease-out), visibility 0.45s;
+}
+.nav-drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-drawer ul { list-style: none; flex: 1; }
+.nav-drawer ul li a {
+  display: block;
+  font-family: var(--ff-caps);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.nav-drawer ul li a:hover {
+  color: var(--gold-text);
+  padding-left: 8px;
+}
+.nav-drawer-cta {
+  display: block;
+  margin-top: 40px;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--gold);
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.nav-drawer-cta:hover { background: #dab870; }
+
 /* ─── HERO ─────────────────────────────────────────────────────── */
 .hero {
   position: relative;
@@ -158,10 +239,12 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
   background-repeat: no-repeat;
   transform: scale(1.08);
   transition: transform 8s ease;
+  pointer-events: none;
 }
 .hero.loaded .hero-bg { transform: scale(1); }
 .hero-vignette {
   position: absolute; inset: 0;
+  pointer-events: none;
   background:
     linear-gradient(to right, rgba(10, 6, 4, 0.82) 0%, rgba(10, 6, 4, 0.45) 55%, transparent 100%),
     linear-gradient(to top, rgba(10, 6, 4, 0.88) 0%, transparent 50%);
@@ -794,6 +877,7 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group input,
 .form-group textarea {
+  width: 100%;
   background: var(--bg-alt);
   border: 1px solid var(--border);
   color: var(--text);
@@ -809,6 +893,9 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--text-3); font-style: italic; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
 
 /* ─── FOOTER ────────────────────────────────────────────────────── */
 footer {
@@ -878,8 +965,9 @@ footer {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  pointer-events: none;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .reveal-delay-1 { transition-delay: 0.15s; }
 .reveal-delay-2 { transition-delay: 0.30s; }
 .reveal-delay-3 { transition-delay: 0.45s; }
@@ -888,15 +976,17 @@ footer {
   opacity: 0;
   transform: translateX(-40px);
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  pointer-events: none;
 }
-.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
 .reveal-right {
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  pointer-events: none;
 }
-.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
 /* ─── SCROLLBAR & SELECCIÓN ──────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
@@ -905,10 +995,20 @@ footer {
 ::selection { background: var(--gold); color: var(--text); }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+}
+
 @media (max-width: 900px) {
   nav { padding: 20px 30px; }
   nav.scrolled { padding: 14px 30px; }
-  .nav-links { display: none; }
 
   .hero-content { padding: 0 30px 70px; }
   .hero-scroll { right: 30px; }
@@ -993,10 +1093,12 @@ footer {
   background-repeat: no-repeat;
   transform: scale(1.04);
   transition: transform 8s ease;
+  pointer-events: none;
 }
 .page-hero:hover .page-hero-bg { transform: scale(1); }
 .page-hero-vignette {
   position: absolute; inset: 0;
+  pointer-events: none;
   background:
     linear-gradient(to right, rgba(10, 6, 4, 0.78) 0%, rgba(10, 6, 4, 0.38) 55%, transparent 100%),
     linear-gradient(to top, rgba(10, 6, 4, 0.85) 0%, transparent 55%);
@@ -1599,4 +1701,38 @@ footer {
   .map-section iframe { height: 300px; }
 
   .legal-section  { padding: 60px 24px 80px; }
+}
+
+/* ─── MÓVIL PEQUEÑO (<480px) ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  nav { padding: 16px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+  .nav-logo { font-size: 11px; }
+  .nav-cta { padding: 8px 14px; font-size: 10px; }
+
+  .section { padding: 60px 20px; }
+  .hero-content { padding: 0 20px 60px; }
+  .page-hero-content { padding: 0 20px 50px; }
+  .quote-section { padding: 70px 20px; }
+  .nosotros-cta { padding: 70px 20px; }
+  .not-found { padding: 100px 20px; }
+
+  .bodega-vinas-section { padding: 60px 20px; }
+  .bodega-vinas-stats { grid-template-columns: 1fr; gap: 0; }
+  .bodega-stat { padding: 16px 0; border-bottom: 1px solid var(--border); }
+
+  .medios-grid { grid-template-columns: repeat(2, 1fr); }
+  .miembro-content { padding: 40px 24px; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+
+  .nav-drawer { padding: 90px 28px 40px; }
+  .nav-drawer ul li a { font-size: 12px; padding: 16px 0; }
+}
+
+/* ─── DISPOSITIVOS TÁCTILES ───────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  a, button, .btn-primary, .nav-cta, .vino-card { cursor: pointer; }
 }
