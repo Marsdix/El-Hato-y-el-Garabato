@@ -9,6 +9,14 @@ export default function BodegaVinasSection() {
     <section className="bodega-vinas-section">
       <div className="bodega-vinas-inner">
 
+        <div className="bodega-vinas-image reveal-left">
+          <img
+            src={imagen}
+            alt="Jose trabajando en las viñas de El Hato y el Garabato"
+            loading="lazy"
+          />
+        </div>
+
         <div className="bodega-vinas-text">
           <div className="divider reveal" />
           <p className="section-label reveal">Las Viñas · Arribes del Duero</p>
@@ -50,14 +58,6 @@ export default function BodegaVinasSection() {
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="bodega-vinas-image reveal-right">
-          <img
-            src={imagen}
-            alt="Jose trabajando en las viñas de El Hato y el Garabato"
-            loading="lazy"
-          />
         </div>
 
       </div>

@@ -1181,11 +1181,11 @@ footer {
   background: var(--bg);
 }
 .bodega-vinas-inner {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 52% 1fr;
+  gap: 80px;
   align-items: start;
 }
 .bodega-vinas-h2 {
@@ -1262,10 +1262,14 @@ footer {
   background: var(--bg-alt);
 }
 
-.bodega-vinas-image { position: relative; }
+.bodega-vinas-image {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
 .bodega-vinas-image img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   object-fit: cover;
   display: block;
 }
@@ -1273,7 +1277,7 @@ footer {
   content: '';
   position: absolute;
   top: -20px;
-  right: -20px;
+  left: -20px;
   width: 60%;
   height: 60%;
   border: 1px solid rgba(200, 162, 85, 0.35);
@@ -1582,6 +1586,8 @@ footer {
   .bodega-vinas-section { padding: 80px 30px; }
   .bodega-vinas-inner   { grid-template-columns: 1fr; gap: 50px; }
   .bodega-vinas-stats   { gap: 16px; }
+  .bodega-vinas-image   { position: static; }
+  .bodega-vinas-image img { aspect-ratio: 16/9; }
 
   .tienda-section { padding: 80px 30px; }
   .tienda-grid    { grid-template-columns: 1fr; }

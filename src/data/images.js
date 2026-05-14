@@ -54,8 +54,7 @@ export const IMAGES = {
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
     hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/bodega-vina.jpg",
-    vinas:
-      "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/jose-en-vinas.png",
+    vinas: "src/assets/images/JoseConViña.JPG",
   },
 
   // ── TIENDA ( /tienda ) ────────────────────────────────────────────
