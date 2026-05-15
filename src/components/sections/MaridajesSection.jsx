@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MARIDAJES, CATEGORIAS } from '../../data/maridajes'
 
@@ -113,6 +113,17 @@ export default function MaridajesSection() {
   const vinosFiltrados = filtros.size === 0
     ? MARIDAJES
     : MARIDAJES.filter(v => v.categorias.some(c => filtros.has(c)))
+
+  // useScrollReveal sólo corre al montar la página. Cuando el filtro cambia,
+  // React crea nuevos nodos que nunca pasan por el IntersectionObserver y
+  // se quedan con opacity:0. Este efecto añade 'visible' tras cada cambio de filtro.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      document.querySelectorAll('.maridaje-card:not(.visible)')
+        .forEach(el => el.classList.add('visible'))
+    })
+    return () => cancelAnimationFrame(id)
+  }, [filtros])
 
   return (
     <section className="maridajes-section">
