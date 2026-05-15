@@ -94,6 +94,7 @@ export const TRANSLATIONS = {
     'contacto.form.asunto':   'Asunto',
     'contacto.form.mensaje':  'Tu mensaje…',
     'contacto.form.submit':   'Enviar mensaje',
+    'contacto.address.value': 'Calle Palazuelo, 4 · 49230 Formariz · Zamora · España',
 
     // ── BodegaVinasSection ─────────────────────────────────────────
     'bodega.label':    'Las Viñas · Arribes del Duero',
@@ -185,6 +186,22 @@ export const TRANSLATIONS = {
     'maridajes.cerrar':        'Cerrar vídeo',
     'maridajes.pronto':        'Vídeo próximamente',
     'maridajes.empty':         'No hay vinos para esta combinación.',
+    'maridajes.video.aria':    'Vídeo',
+
+    // ── Navbar aria ────────────────────────────────────────────────
+    'nav.aria.lang':   'Cambiar idioma',
+    'nav.aria.theme':  'Cambiar tema',
+
+    // ── Mapa ───────────────────────────────────────────────────────
+    'map.aria':        'Localización de la bodega',
+    'map.band':        'Arribes del Duero · Zamora · España',
+    'map.gmaps':       'Abrir en Google Maps',
+    'map.popup.title': 'El Hato y el Garabato',
+    'map.popup.addr':  'Calle Palazuelo 4<br>49230 Formariz · Zamora',
+
+    // ── Imágenes alt ───────────────────────────────────────────────
+    'intro.img.alt':  'La bodega El Hato y el Garabato',
+    'equipo.img.alt': 'El equipo de El Hato y el Garabato',
   },
 
   en: {
@@ -282,6 +299,7 @@ export const TRANSLATIONS = {
     'contacto.form.asunto':   'Subject',
     'contacto.form.mensaje':  'Your message…',
     'contacto.form.submit':   'Send message',
+    'contacto.address.value': 'Calle Palazuelo, 4 · 49230 Formariz · Zamora · Spain',
 
     // ── BodegaVinasSection ─────────────────────────────────────────
     'bodega.label':    'The Vines · Arribes del Duero',
@@ -373,5 +391,21 @@ export const TRANSLATIONS = {
     'maridajes.cerrar':        'Close video',
     'maridajes.pronto':        'Video coming soon',
     'maridajes.empty':         'No wines match this filter.',
+    'maridajes.video.aria':    'Video',
+
+    // ── Navbar aria ────────────────────────────────────────────────
+    'nav.aria.lang':   'Change language',
+    'nav.aria.theme':  'Change theme',
+
+    // ── Map ────────────────────────────────────────────────────────
+    'map.aria':        'Winery location',
+    'map.band':        'Arribes del Duero · Zamora · Spain',
+    'map.gmaps':       'Open in Google Maps',
+    'map.popup.title': 'El Hato y el Garabato',
+    'map.popup.addr':  'Calle Palazuelo 4<br>49230 Formariz · Zamora',
+
+    // ── Image alt texts ────────────────────────────────────────────
+    'intro.img.alt':  'El Hato y el Garabato winery',
+    'equipo.img.alt': 'El Hato y el Garabato team',
   },
 }

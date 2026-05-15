@@ -29,7 +29,7 @@ export default function ContactoSection() {
             </div>
             <div className="contact-item">
               <label>{t('contacto.address.label')}</label>
-              <p>Calle Palazuelo, 4<br />49230 Formariz · Zamora</p>
+              <p>{t('contacto.address.value')}</p>
             </div>
           </div>
         </div>

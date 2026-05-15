@@ -82,7 +82,7 @@ function MaridajeCard({ vino, language, t }) {
           <div className="maridaje-video-wrap">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${vino.videoId}?autoplay=1`}
-              title={`Vídeo — ${vino.nombre}`}
+              title={`${t('maridajes.video.aria')} — ${vino.nombre}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -28,7 +28,7 @@ export default function EquipoSection() {
         <div className="equipo-image reveal-right">
           <img
             src={IMAGES.nosotros.equipoGrupo}
-            alt="El equipo de El Hato y el Garabato"
+            alt={t('equipo.img.alt')}
           />
         </div>
       </div>

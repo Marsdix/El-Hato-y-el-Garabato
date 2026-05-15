@@ -12,7 +12,7 @@ export default function Intro() {
         <div className="intro-image reveal-left">
           <img
             src={IMAGES.home.bodegaInterior}
-            alt="La bodega El Hato y el Garabato"
+            alt={t('intro.img.alt')}
           />
           <div className="intro-stat">
             <strong>100</strong>
