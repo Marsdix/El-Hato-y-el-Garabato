@@ -1716,15 +1716,15 @@ footer {
 /* ─── PÁGINA MARIDAJES ───────────────────────────────────────────── */
 .maridajes-section {
   padding: 80px 60px 120px;
-  background: var(--bg);
+  background: var(--bg-alt);
 }
 
+/* Filtros */
 .maridajes-filter-wrap {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto 56px;
   text-align: center;
 }
-
 .maridajes-filter-label {
   font-family: var(--ff-caps);
   font-size: 10px;
@@ -1733,14 +1733,12 @@ footer {
   color: var(--text-3);
   margin-bottom: 20px;
 }
-
 .maridajes-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
 }
-
 .maridaje-chip {
   background: transparent;
   border: 1px solid var(--border);
@@ -1754,88 +1752,96 @@ footer {
   padding: 8px 18px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-.maridaje-chip:hover {
-  border-color: var(--gold);
-  color: var(--text);
-}
-.maridaje-chip.active {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--bg-dark);
-  font-weight: 600;
-}
+.maridaje-chip:hover  { border-color: var(--gold); color: var(--text); }
+.maridaje-chip.active { background: var(--gold); border-color: var(--gold); color: var(--bg-dark); }
 
+/* Grid — mismas medidas que tienda */
 .maridajes-grid {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 2px;
 }
 
+/* Tarjeta */
 .maridaje-card {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 2px;
+  background: var(--bg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+  transition: transform 0.4s var(--ease-out);
 }
-.maridaje-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(100, 70, 40, 0.1);
-}
+.maridaje-card:hover { transform: translateY(-4px); }
 
-.maridaje-card-img-wrap {
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  border-bottom: 1px solid var(--border);
+/* Imagen — idéntica a tienda-card-img-wrap */
+.maridaje-img-wrap {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--bg-alt);
 }
-.maridaje-card-img {
+.maridaje-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-alt);
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+.maridaje-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(100, 70, 40, 0.18);
+  pointer-events: none;
+  z-index: 2;
+}
+.maridaje-img-wrap img {
   width: 100%;
-  max-width: 160px;
-  height: 180px;
+  height: 100%;
   object-fit: contain;
+  padding: 36px;
+  filter: saturate(0.88) contrast(1.04);
+  transition: transform 0.6s var(--ease-out);
 }
+.maridaje-card:hover .maridaje-img-wrap img { transform: scale(1.06); }
 
-.maridaje-card-body {
-  padding: 24px 26px 22px;
+/* Cuerpo */
+.maridaje-body {
+  padding: 24px 28px 26px;
+  border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-
-.maridaje-card-tipo {
-  font-family: var(--ff-caps);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+.maridaje-tipo {
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
+  color: var(--gold-text);
+  margin-bottom: 8px;
 }
-
-.maridaje-card-nombre {
+.maridaje-nombre {
   font-family: var(--ff-serif);
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 300;
   color: var(--text);
+  line-height: 1.15;
   margin-bottom: 14px;
-  line-height: 1.3;
 }
-
-.maridaje-card-tags {
+.maridaje-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
-
 .maridaje-tag {
-  background: var(--bg);
+  background: var(--bg-alt);
   border: 1px solid var(--border);
   font-family: var(--ff-sans);
   font-size: 9px;
@@ -1843,36 +1849,29 @@ footer {
   text-transform: uppercase;
   color: var(--text-3);
   padding: 3px 10px;
-  border-radius: 1px;
 }
-
-.maridaje-card-platos {
+.maridaje-platos {
   font-family: var(--ff-serif);
-  font-size: 0.98rem;
+  font-size: 0.97rem;
   line-height: 1.75;
   color: var(--text-2);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   flex: 1;
 }
-
-.maridaje-card-temp {
+.maridaje-temp {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 9px;
   border-top: 1px solid var(--border);
-  padding-top: 16px;
+  padding-top: 14px;
   margin-bottom: 18px;
   font-family: var(--ff-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   line-height: 1.6;
   color: var(--text-3);
 }
-.maridaje-temp-icon {
-  color: var(--gold);
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-.maridaje-card-temp strong {
+.maridaje-temp svg { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+.maridaje-temp strong {
   display: block;
   font-family: var(--ff-caps);
   font-size: 9px;
@@ -1882,25 +1881,55 @@ footer {
   margin-bottom: 3px;
 }
 
-.maridaje-card-cta {
+/* Footer de la tarjeta */
+.maridaje-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.maridaje-btn-tienda {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
+.maridaje-btn-video {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
   font-family: var(--ff-caps);
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-text);
-  text-decoration: none;
-  border: 1px solid rgba(200,162,85,0.4);
-  padding: 9px 16px;
-  border-radius: 2px;
-  align-self: flex-start;
+  color: var(--text-2);
+  padding: 8px 14px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-.maridaje-card-cta:hover {
-  background: rgba(200,162,85,0.1);
+.maridaje-btn-video:hover,
+.maridaje-btn-video.active {
+  background: var(--bg-alt);
   border-color: var(--gold);
+  color: var(--gold-text);
+}
+
+/* Video embebido */
+.maridaje-video-wrap {
+  margin-top: 18px;
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #000;
+}
+.maridaje-video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .maridajes-empty {
@@ -1909,7 +1938,7 @@ footer {
   font-size: 1.1rem;
   color: var(--text-3);
   padding: 60px 0;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

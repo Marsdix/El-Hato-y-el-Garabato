@@ -181,6 +181,8 @@ export const TRANSLATIONS = {
     'maridajes.filter':        'Filtrar por tipo de comida',
     'maridajes.todos':         'Todos los vinos',
     'maridajes.comprar':       'Ver en tienda',
+    'maridajes.video':         'Ver vídeo',
+    'maridajes.cerrar':        'Cerrar vídeo',
     'maridajes.empty':         'No hay vinos para esta combinación.',
   },
 
@@ -366,6 +368,8 @@ export const TRANSLATIONS = {
     'maridajes.filter':        'Filter by food type',
     'maridajes.todos':         'All wines',
     'maridajes.comprar':       'View in shop',
+    'maridajes.video':         'Watch video',
+    'maridajes.cerrar':        'Close video',
     'maridajes.empty':         'No wines match this filter.',
   },
 }

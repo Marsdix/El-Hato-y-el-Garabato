@@ -1,41 +1,134 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MARIDAJES, CATEGORIAS } from '../../data/maridajes'
 
-function ThermometerIcon() {
+function MaridajeCard({ vino, language, t }) {
+  const [videoVisible, setVideoVisible] = useState(false)
+
+  const cats = vino.categorias.map(id => CATEGORIAS.find(c => c.id === id))
+
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
-    </svg>
+    <article className="maridaje-card reveal">
+      {/* Imagen — mismo tratamiento que tienda */}
+      <a href={vino.href} target="_blank" rel="noopener noreferrer"
+         className="maridaje-img-wrap" aria-label={vino.nombre}>
+        <img src={vino.imagen} alt={vino.nombre} loading="lazy" />
+      </a>
+
+      <div className="maridaje-body">
+        <p className="maridaje-tipo">{vino.tipo[language]}</p>
+        <h3 className="maridaje-nombre">{vino.nombre}</h3>
+
+        <div className="maridaje-tags">
+          {cats.map(cat => (
+            <span key={cat.id} className="maridaje-tag">{cat.label[language]}</span>
+          ))}
+        </div>
+
+        <p className="maridaje-platos">{vino.platos[language]}</p>
+
+        <div className="maridaje-temp">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+          </svg>
+          <div>
+            <strong>{vino.temperatura.label[language]}</strong>
+            <span>{vino.temperatura.desc[language]}</span>
+          </div>
+        </div>
+
+        <div className="maridaje-footer">
+          <a href={vino.href} target="_blank" rel="noopener noreferrer"
+             className="btn-ghost maridaje-btn-tienda">
+            {t('maridajes.comprar')}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </a>
+
+          {vino.videoId && (
+            <button
+              className={`maridaje-btn-video${videoVisible ? ' active' : ''}`}
+              onClick={() => setVideoVisible(v => !v)}
+              aria-expanded={videoVisible}
+            >
+              {videoVisible ? (
+                <>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                  {t('maridajes.cerrar')}
+                </>
+              ) : (
+                <>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                  {t('maridajes.video')}
+                </>
+              )}
+            </button>
+          )}
+        </div>
+
+        {vino.videoId && videoVisible && (
+          <div className="maridaje-video-wrap">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${vino.videoId}?autoplay=1`}
+              title={`Vídeo — ${vino.nombre}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
+    </article>
   )
 }
 
 export default function MaridajesSection() {
   const { t, language } = useLanguage()
-  const [filtro, setFiltro] = useState('todos')
+  const [filtros, setFiltros] = useState(new Set())
 
-  const vinosFiltrados = filtro === 'todos'
+  const toggleFiltro = (id) => {
+    setFiltros(prev => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  const limpiar = () => setFiltros(new Set())
+
+  const vinosFiltrados = filtros.size === 0
     ? MARIDAJES
-    : MARIDAJES.filter(v => v.categorias.includes(filtro))
+    : MARIDAJES.filter(v => v.categorias.some(c => filtros.has(c)))
 
   return (
-    <section className="section maridajes-section">
+    <section className="maridajes-section">
+      {/* Filtros */}
       <div className="maridajes-filter-wrap">
         <p className="maridajes-filter-label">{t('maridajes.filter')}</p>
         <div className="maridajes-chips">
           <button
-            className={`maridaje-chip${filtro === 'todos' ? ' active' : ''}`}
-            onClick={() => setFiltro('todos')}
+            className={`maridaje-chip${filtros.size === 0 ? ' active' : ''}`}
+            onClick={limpiar}
           >
             {t('maridajes.todos')}
           </button>
           {CATEGORIAS.map(cat => (
             <button
               key={cat.id}
-              className={`maridaje-chip${filtro === cat.id ? ' active' : ''}`}
-              onClick={() => setFiltro(cat.id)}
+              className={`maridaje-chip${filtros.has(cat.id) ? ' active' : ''}`}
+              onClick={() => toggleFiltro(cat.id)}
             >
               {cat.label[language]}
             </button>
@@ -43,57 +136,11 @@ export default function MaridajesSection() {
         </div>
       </div>
 
+      {/* Grid */}
       <div className="maridajes-grid">
-        {vinosFiltrados.map(vino => {
-          const cats = vino.categorias.map(id =>
-            CATEGORIAS.find(c => c.id === id)
-          )
-          return (
-            <article key={vino.id} className="maridaje-card reveal">
-              <div className="maridaje-card-img-wrap">
-                <img src={vino.imagen} alt={vino.nombre} className="maridaje-card-img" />
-              </div>
-
-              <div className="maridaje-card-body">
-                <p className="maridaje-card-tipo">{vino.tipo[language]}</p>
-                <h3 className="maridaje-card-nombre">{vino.nombre}</h3>
-
-                <div className="maridaje-card-tags">
-                  {cats.map(cat => (
-                    <span key={cat.id} className="maridaje-tag">
-                      {cat.label[language]}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="maridaje-card-platos">{vino.platos[language]}</p>
-
-                <div className="maridaje-card-temp">
-                  <span className="maridaje-temp-icon"><ThermometerIcon /></span>
-                  <div>
-                    <strong>{vino.temperatura.label[language]}</strong>
-                    <span>{vino.temperatura.desc[language]}</span>
-                  </div>
-                </div>
-
-                <a
-                  href={vino.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="maridaje-card-cta"
-                >
-                  {t('maridajes.comprar')}
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                    strokeLinejoin="round" aria-hidden="true">
-                    <line x1="7" y1="17" x2="17" y2="7"/>
-                    <polyline points="7 7 17 7 17 17"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-          )
-        })}
+        {vinosFiltrados.map(vino => (
+          <MaridajeCard key={vino.id} vino={vino} language={language} t={t} />
+        ))}
       </div>
 
       {vinosFiltrados.length === 0 && (

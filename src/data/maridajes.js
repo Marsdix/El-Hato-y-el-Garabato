@@ -32,6 +32,11 @@ const TEMP = {
   },
 }
 
+// ─── VIDEO IDs de YouTube ──────────────────────────────────────────
+// Añade el ID del vídeo de cada vino (la parte después de "?v=" en la URL)
+// Ejemplo: https://www.youtube.com/watch?v=dQw4w9WgXcQ → videoId: 'dQw4w9WgXcQ'
+// Deja null si el vino no tiene vídeo todavía.
+
 export const MARIDAJES = [
   {
     id:          'cotexa-2020',
@@ -45,6 +50,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.fresco,
     href:        'https://elhatoyelgarabato.com/producto/cotexa-2020/',
+    videoId:     null,
   },
   {
     id:          'de-buena-jera-2022',
@@ -58,6 +64,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.ligero,
     href:        'https://elhatoyelgarabato.com/producto/de-buena-jera-2018/',
+    videoId:     null,
   },
   {
     id:          'eclectico-barrica-2023',
@@ -71,6 +78,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/eclectico-blanco-con-crianza-en-barrica-de-roble-frances/',
+    videoId:     null,
   },
   {
     id:          'eclectico-lias-2023',
@@ -84,6 +92,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/eclectico-lias-2022/',
+    videoId:     null,
   },
   {
     id:          'li-2022',
@@ -97,6 +106,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.fresco,
     href:        'https://elhatoyelgarabato.com/producto/li/',
+    videoId:     null,
   },
   {
     id:          'otro-cuento-2023',
@@ -110,6 +120,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/otro-cuento-2021/',
+    videoId:     null,
   },
   {
     id:          'sin-blanca-2018',
@@ -123,5 +134,6 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.ligero,
     href:        'https://elhatoyelgarabato.com/producto/sin-blanca-2018/',
+    videoId:     null,
   },
 ]
