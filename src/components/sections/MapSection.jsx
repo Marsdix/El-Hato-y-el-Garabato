@@ -4,7 +4,7 @@ import L from 'leaflet'
 
 const LAT  = 41.34664
 const LNG  = -6.29119
-const ZOOM = 15
+const ZOOM = 17
 
 const TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
 const ATTR     = '&copy; <a href="https://www.openstreetmap.org/copyright" tabindex="-1">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" tabindex="-1">CARTO</a>'
@@ -32,10 +32,10 @@ export default function MapSection() {
 
     const icon = L.divIcon({
       className: '',
-      html: '<div class="map-pin"></div>',
-      iconSize:    [22, 22],
-      iconAnchor:  [11, 22],
-      popupAnchor: [0, -24],
+      html: '<div class="map-pin">🍇</div>',
+      iconSize:    [32, 32],
+      iconAnchor:  [16, 32],
+      popupAnchor: [0, -36],
     })
 
     L.marker([LAT, LNG], { icon })
