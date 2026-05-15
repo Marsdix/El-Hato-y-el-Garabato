@@ -1755,7 +1755,8 @@ footer {
 /* ─── PÁGINA MARIDAJES ───────────────────────────────────────────── */
 .maridajes-section {
   padding: 80px 60px 120px;
-  background: var(--bg-alt);
+  background: var(--bg);
+  border-top: 2px solid var(--border);
 }
 
 /* Filtros */

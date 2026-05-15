@@ -13,8 +13,8 @@ export default function Maridajes() {
       <PageHero
         eyebrow={t('page.maridajes.eyebrow')}
         title={<>{t('page.maridajes.title.1')}<br /><em>{t('page.maridajes.title.em')}</em></>}
-        backgroundImage={IMAGES.tienda.hero}
-        imagePosition="50% 60%"
+        backgroundImage={IMAGES.home.bodegaPanoramica}
+        imagePosition="50% 55%"
       />
       <MaridajesSection />
     </>
