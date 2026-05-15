@@ -1205,6 +1205,60 @@ footer {
 }
 .medio-logo:hover img { filter: grayscale(0) opacity(1); }
 
+/* ─── NOSOTROS INTRO ────────────────────────────────────────────── */
+.nosotros-intro {
+  background: var(--bg);
+  padding: 100px 60px;
+  border-bottom: 1px solid var(--border);
+}
+.nosotros-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.nosotros-intro-h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 16px 0 24px;
+}
+.nosotros-intro-h2 em { font-style: italic; color: var(--gold-text); }
+.nosotros-intro-desc {
+  font-family: var(--ff-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-2);
+  margin-bottom: 28px;
+}
+.nosotros-intro-feats {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nosotros-intro-feats li {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nosotros-intro-feats li span { color: var(--gold); flex-shrink: 0; }
+.nosotros-intro-photo { overflow: hidden; }
+.nosotros-intro-photo img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
 /* ─── FICHAS DEL EQUIPO ─────────────────────────────────────────── */
 .miembro-section {
   display: flex;
@@ -1303,6 +1357,9 @@ footer {
   .page-hero-content { padding: 0 30px 60px; }
   .medios-section { padding: 70px 30px; }
   .medios-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .nosotros-intro { padding: 70px 30px; }
+  .nosotros-intro-inner { grid-template-columns: 1fr; gap: 40px; }
 
   .miembro-section { flex-direction: column; }
   .miembro-section--inv { flex-direction: column; }

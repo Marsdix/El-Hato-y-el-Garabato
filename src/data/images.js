@@ -103,6 +103,12 @@ export const IMAGES = {
     },
   },
 
+  // ── MARIDAJES ( /maridajes ) ─────────────────────────────────────
+  // Para cambiar la imagen: sustituye imgVinas por otro import de arriba
+  maridajes: {
+    hero: imgVinas,
+  },
+
   // ── VISITA ( /visita ) ────────────────────────────────────────────
   visita: {
     hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/DSC_6673-1.jpg",
