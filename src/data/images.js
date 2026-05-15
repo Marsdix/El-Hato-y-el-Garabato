@@ -1,65 +1,100 @@
 // ═══════════════════════════════════════════════════════════════════
 //  IMÁGENES DEL PROYECTO — archivo único organizado por página
-//  Modifica aquí para cambiar cualquier imagen sin buscar en el código
+//  Las imágenes locales se importan para que Vite las procese
+//  correctamente (rutas con hash, base URL, etc.)
 // ═══════════════════════════════════════════════════════════════════
-//
-//  Para usar una imagen propia:
-//  1. Guarda el archivo en  public/images/nombre.jpg
-//  2. Cambia la URL por     '/images/nombre.jpg'
-//
-//  Cada página tiene su propia sección: cambiar una imagen
-//  no afecta a ninguna otra aunque compartan el mismo archivo.
+
+// ── Home ─────────────────────────────────────────────────────────
+import imgDuero           from '../assets/images/Duero.png'
+import imgVinas           from '../assets/images/Viñas.jpg'
+
+// ── Nosotros / Equipo ─────────────────────────────────────────────
+import imgJose            from '../assets/images/Jose.JPG'
+import imgLiliana         from '../assets/images/LilianaCoche.png'
+import imgLuisfer         from '../assets/images/Luisfer.JPG'
+
+// ── Nosotros / Medios ─────────────────────────────────────────────
+import imgRobertParker    from '../assets/images/robert-winePeriodico.png'
+import imgTraveler        from '../assets/images/travelerPeriodico.png'
+import imgPenin           from '../assets/images/peninPeriodico.png'
+import imgElPais          from '../assets/images/el-paisPeriodico.png'
+import imgPlanetaVino     from '../assets/images/planeta-vinoPeriodico.png'
+import imgLaVanguardia    from '../assets/images/la-vanguardiaPeriodico.jpg'
+import imgSobremesa       from '../assets/images/sobremesaPeriodico.png'
+import imgAbc             from '../assets/images/abcPeriodico.jpg'
+import imgSpanishWine     from '../assets/images/spanish-winePeriodico.png'
+import imgHola            from '../assets/images/holaPeriodico.jpg'
+
+// ── Bodega ────────────────────────────────────────────────────────
+import imgJoseConVina     from '../assets/images/JoseConViña.JPG'
+
+// ── Tienda ────────────────────────────────────────────────────────
+import imgCotexaTumbada   from '../assets/images/CotexaTumbada.jpeg'
+import imgCotexa          from '../assets/images/Cotexa.png'
+import imgDeBuenaJera     from '../assets/images/DeBuenaJera.png'
+import imgEclecticoLias   from '../assets/images/EclecticoLias.png'
+import imgEclecticoBlanco from '../assets/images/EclecticoBlanco.png'
+import imgLi              from '../assets/images/Li.png'
+import imgOtroCuento      from '../assets/images/OtroCuento.png'
+import imgSinBlanca       from '../assets/images/SinBlanca.png'
+
+// ── Contacto ──────────────────────────────────────────────────────
+import imgContactoHero    from '../assets/images/PilarValbuena-22072025-DSC_3904.jpg'
+
+// ── Páginas legales ───────────────────────────────────────────────
+import imgLogoArribes     from '../assets/images/LogoArribesPared.png'
+import imgLogoHato        from '../assets/images/LogoHatoPared.png'
+
 // ═══════════════════════════════════════════════════════════════════
 
 export const IMAGES = {
   // ── HOME ( / ) ───────────────────────────────────────────────────
   home: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg",
-    bodegaInterior: "src/assets/images/Duero.png",
-    bodegaPanoramica: "src/assets/images/Viñas.jpg",
+    hero:             "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg",
+    bodegaInterior:   imgDuero,
+    bodegaPanoramica: imgVinas,
   },
 
   // ── NOSOTROS ( /nosotros ) ────────────────────────────────────────
   nosotros: {
     hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/quienes-somos.jpg",
-    equipoGrupo:
-      "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg",
+    equipoGrupo: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg",
     equipo: {
-      jose: "src/assets/images/Jose.jpg",
-      liliana: "src/assets/images/LilianaCoche.png",
-      luisfer: "src/assets/images/Luisfer.JPG",
+      jose:    imgJose,
+      liliana: imgLiliana,
+      luisfer: imgLuisfer,
     },
     medios: {
-      robertParker: "src/assets/images/robert-winePeriodico.png",
-      traveler: "src/assets/images/travelerPeriodico.png",
-      penin: "src/assets/images/peninPeriodico.png",
-      elPais: "src/assets/images/el-paisPeriodico.png",
-      planetaVino: "src/assets/images/planeta-vinoPeriodico.png",
-      laVanguardia: "src/assets/images/la-vanguardiaPeriodico.jpg",
-      sobremesa: "src/assets/images/sobremesaPeriodico.png",
-      abc: "src/assets/images/abcPeriodico.jpg",
-      spanishWine: "src/assets/images/spanish-winePeriodico.png",
-      hola: "src/assets/images/holaPeriodico.jpg",
+      robertParker: imgRobertParker,
+      traveler:     imgTraveler,
+      penin:        imgPenin,
+      elPais:       imgElPais,
+      planetaVino:  imgPlanetaVino,
+      laVanguardia: imgLaVanguardia,
+      sobremesa:    imgSobremesa,
+      abc:          imgAbc,
+      spanishWine:  imgSpanishWine,
+      hola:         imgHola,
     },
   },
 
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/bodega-vina.jpg",
-    vinas: "src/assets/images/JoseConViña.JPG",
+    hero:  "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/bodega-vina.jpg",
+    vinas: imgJoseConVina,
   },
 
   // ── TIENDA ( /tienda ) ────────────────────────────────────────────
   tienda: {
-    hero: "src/assets/images/CotexaTumbada.jpeg",
+    hero: imgCotexaTumbada,
     vinos: {
-      cotexa: "src/assets/images/Cotexa.png",
-      deBuenaJera: "src/assets/images/DeBuenaJera.png",
-      eclecticoLias: "src/assets/images/EclecticoLias.png",
-      eclecticoBarrica: "src/assets/images/EclecticoBlanco.png",
-      li: "src/assets/images/Li.png",
-      otroCuento: "src/assets/images/OtroCuento.png",
-      sinBlanca: "src/assets/images/SinBlanca.png",
+      cotexa:          imgCotexa,
+      deBuenaJera:     imgDeBuenaJera,
+      eclecticoLias:   imgEclecticoLias,
+      eclecticoBarrica: imgEclecticoBlanco,
+      li:              imgLi,
+      otroCuento:      imgOtroCuento,
+      sinBlanca:       imgSinBlanca,
     },
   },
 
@@ -70,16 +105,16 @@ export const IMAGES = {
 
   // ── CONTACTO ( /contacto ) ────────────────────────────────────────
   contacto: {
-    hero: "src/assets/images/PilarValbuena-22072025-DSC_3904.jpg",
+    hero: imgContactoHero,
   },
 
   // ── AVISO LEGAL ( /aviso-legal ) ──────────────────────────────────
   avisoLegal: {
-    hero: "src/assets/images/LogoArribesPared.png",
+    hero: imgLogoArribes,
   },
 
   // ── TÉRMINOS Y CONDICIONES ( /terminos ) ──────────────────────────
   terminos: {
-    hero: "src/assets/images/LogoHatoPared.png",
+    hero: imgLogoHato,
   },
-};
+}
