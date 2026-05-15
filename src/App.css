@@ -920,7 +920,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
 
 /* ─── FOOTER ────────────────────────────────────────────────────── */
 footer {
-  background: #1c1510;
+  background: #2d1a0f;
   border-top: 1px solid rgba(200, 162, 85, 0.15);
   padding: 70px 60px 40px;
 }
@@ -2322,7 +2322,7 @@ html[data-theme="dark"] nav.scrolled {
 
 /* ── Footer (hardcoded en claro) ── */
 html[data-theme="dark"] footer {
-  background: #110c08;
+  background: #1d1008;
   border-top-color: rgba(200, 162, 85, 0.12);
 }
 
