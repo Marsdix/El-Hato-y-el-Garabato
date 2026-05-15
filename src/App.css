@@ -1194,7 +1194,9 @@ footer {
   padding: 24px;
   transition: background 0.3s ease;
 }
-.medio-logo:hover { background: #e8dfc8; }
+.medio-logo:hover,
+.medio-logo--link:hover { background: #e8dfc8; }
+.medio-logo--link { cursor: pointer; }
 .medio-logo img {
   width: 100%;
   max-width: 120px;

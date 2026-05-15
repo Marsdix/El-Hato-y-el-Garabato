@@ -18,11 +18,25 @@ function MediosSection() {
           <h2>{t('nosotros.medios.title')} <em>{t('nosotros.medios.title.em')}</em></h2>
         </div>
         <div className="medios-grid reveal">
-          {MEDIOS.map(medio => (
-            <div className="medio-logo" key={medio.nombre} title={medio.nombre}>
-              <img src={medio.logo} alt={medio.nombre} loading="lazy" />
-            </div>
-          ))}
+          {MEDIOS.map(medio => {
+            const inner = <img src={medio.logo} alt={medio.nombre} loading="lazy" />
+            return medio.href ? (
+              <a
+                key={medio.nombre}
+                href={medio.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="medio-logo medio-logo--link"
+                title={medio.nombre}
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={medio.nombre} className="medio-logo" title={medio.nombre}>
+                {inner}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
