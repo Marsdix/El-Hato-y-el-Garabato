@@ -948,17 +948,35 @@ footer {
   justify-content: space-between;
 }
 .footer-copy { font-size: 11px; color: rgba(255, 255, 255, 0.22); letter-spacing: 0.1em; }
-.social-links { display: flex; gap: 24px; }
-.social-links a {
-  font-family: var(--ff-sans);
-  font-size: 9px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.22);
-  text-decoration: none;
-  transition: color 0.3s ease;
+
+/* Iconos de redes sociales en el footer */
+.footer-social {
+  display: flex;
+  gap: 6px;
+  margin-top: 28px;
 }
-.social-links a:hover { color: var(--gold); }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(200, 162, 85, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.footer-social a span {
+  font-family: var(--ff-caps);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer-social a:hover {
+  color: var(--gold);
+  border-color: rgba(200, 162, 85, 0.55);
+  background: rgba(200, 162, 85, 0.06);
+}
 
 /* ─── ANIMACIONES REVEAL ─────────────────────────────────────────── */
 .reveal {
