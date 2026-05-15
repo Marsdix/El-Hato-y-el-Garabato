@@ -10,7 +10,7 @@ import imgVinas           from '../assets/images/Viñas.jpg'
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
 import imgJose            from '../assets/images/Jose.JPG'
-import imgLiliana         from '../assets/images/LilianaCoche.jpg'
+import imgLiliana         from '../assets/images/LilianaCoche.png'
 import imgLuisfer         from '../assets/images/Luisfer.JPG'
 
 // ── Nosotros / Medios ─────────────────────────────────────────────
@@ -39,7 +39,7 @@ import imgOtroCuento      from '../assets/images/OtroCuento.png'
 import imgSinBlanca       from '../assets/images/SinBlanca.png'
 
 // ── Contacto ──────────────────────────────────────────────────────
-import imgContactoHero    from '../assets/images/PilarValbuena-22072025-DSC_3904.jpg'
+import imgContactoHero    from '../assets/images/LiJoseVeraCoche.jpg'
 
 // ── Páginas legales ───────────────────────────────────────────────
 import imgLogoArribes     from '../assets/images/LogoArribesPared.png'
