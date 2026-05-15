@@ -6,20 +6,12 @@ const LAT  = 41.34664
 const LNG  = -6.29119
 const ZOOM = 15
 
-const TILES = {
-  light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-  dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-}
-const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright" tabindex="-1">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" tabindex="-1">CARTO</a>'
-
-function getTheme() {
-  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
-}
+const TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+const ATTR     = '&copy; <a href="https://www.openstreetmap.org/copyright" tabindex="-1">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" tabindex="-1">CARTO</a>'
 
 export default function MapSection() {
   const containerRef = useRef(null)
   const mapRef       = useRef(null)
-  const tileRef      = useRef(null)
 
   useEffect(() => {
     if (mapRef.current) return
@@ -32,22 +24,11 @@ export default function MapSection() {
     })
     mapRef.current = map
 
-    const applyTile = (theme) => {
-      if (tileRef.current) tileRef.current.remove()
-      tileRef.current = L.tileLayer(TILES[theme], {
-        attribution: ATTR,
-        subdomains: 'abcd',
-        maxZoom: 20,
-      }).addTo(map)
-    }
-
-    applyTile(getTheme())
-
-    const observer = new MutationObserver(() => applyTile(getTheme()))
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    })
+    L.tileLayer(TILE_URL, {
+      attribution: ATTR,
+      subdomains: 'abcd',
+      maxZoom: 20,
+    }).addTo(map)
 
     const icon = L.divIcon({
       className: '',
@@ -65,7 +46,6 @@ export default function MapSection() {
       )
 
     return () => {
-      observer.disconnect()
       map.remove()
       mapRef.current = null
     }

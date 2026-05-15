@@ -2336,6 +2336,22 @@ html[data-theme="dark"] .map-location-band {
   background: #110c08;
 }
 
+/* ── Mapa oscuro: filtro solo sobre los tiles, no el marcador ── */
+html[data-theme="dark"] .map-leaflet .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(195deg) brightness(0.78) saturate(0.72) contrast(0.92);
+}
+html[data-theme="dark"] .leaflet-control-zoom a {
+  background: #1d1510 !important;
+  border-color: rgba(200,162,85,0.25) !important;
+}
+html[data-theme="dark"] .leaflet-control-attribution {
+  background: rgba(20, 13, 8, 0.88) !important;
+  color: rgba(255,255,255,0.35) !important;
+}
+html[data-theme="dark"] .leaflet-control-attribution a {
+  color: var(--gold) !important;
+}
+
 /* ── Press ticker ── */
 html[data-theme="dark"] .press {
   background: var(--bg-alt);
