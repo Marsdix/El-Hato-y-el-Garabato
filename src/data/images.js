@@ -5,12 +5,12 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
-import imgDuero           from '../assets/images/Duero.png'
+import imgDuero           from '../assets/images/Duero.jpg'
 import imgVinas           from '../assets/images/Viñas.jpg'
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
 import imgJose            from '../assets/images/Jose.JPG'
-import imgLiliana         from '../assets/images/LilianaCoche.png'
+import imgLiliana         from '../assets/images/LilianaCoche.jpg'
 import imgLuisfer         from '../assets/images/Luisfer.JPG'
 
 // ── Nosotros / Medios ─────────────────────────────────────────────
