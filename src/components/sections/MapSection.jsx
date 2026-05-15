@@ -23,8 +23,11 @@ export default function MapSection() {
     const map = L.map(containerRef.current, {
       center: [LAT, LNG],
       zoom: ZOOM,
+      minZoom: 5,
       scrollWheelZoom: false,
       zoomControl: true,
+      maxBounds: [[-85, -180], [85, 180]],
+      maxBoundsViscosity: 1.0,
     })
     mapRef.current = map
 
@@ -32,6 +35,7 @@ export default function MapSection() {
       attribution: ATTR,
       subdomains: 'abcd',
       maxZoom: 20,
+      noWrap: true,
     }).addTo(map)
 
     const icon = L.divIcon({
