@@ -1,0 +1,351 @@
+export const TRANSLATIONS = {
+  es: {
+    // ── Navbar ─────────────────────────────────────────────────────
+    'nav.store':     'Tienda Online',
+    'nav.open':      'Abrir menú',
+    'nav.close':     'Cerrar menú',
+    'nav.dark':      'Oscuro',
+    'nav.light':     'Claro',
+    'nav.la-bodega': 'La Bodega',
+    'nav.vinos':     'Vinos',
+    'nav.nosotros':  'Nosotros',
+    'nav.visitas':   'Visitas',
+    'nav.contacto':  'Contacto',
+
+    // ── Hero (Home) ────────────────────────────────────────────────
+    'hero.eyebrow':      'Parque Natural · Arribes del Duero · Zamora',
+    'hero.title.1':      'Donde el',
+    'hero.title.2':      'camino',
+    'hero.title.em':     'termina.',
+    'hero.desc':         'Vinos de variedades ancestrales, viñas centenarias y elaboración artesanal en el confín ibérico.',
+    'hero.cta.discover': 'Descubrir nuestros vinos',
+    'hero.cta.bodega':   'Conocer la bodega',
+    'hero.scroll':       'Scroll',
+
+    // ── Intro (Home) ───────────────────────────────────────────────
+    'intro.label':   'La Bodega · Arribes del Duero',
+    'intro.title.1': 'Un rincón donde',
+    'intro.title.2': 'el Duero se hace',
+    'intro.title.em':'frontera.',
+    'intro.p1':      'Situada en el Parque Natural Arribes del Duero, dentro de la Reserva de la Biosfera Meseta Ibérica, nuestra bodega nace de 8 hectáreas de viñas viejas de entre 80 y 120 años.',
+    'intro.p2':      'Una antigua casa de labranza restaurada alberga nuestra pequeña bodega, donde la intervención mínima y el respeto por la tradición definen cada botella.',
+    'intro.cta':     'Explorar la bodega',
+    'intro.stat':    'años de viñas',
+
+    // ── VinosGrid (Home) ───────────────────────────────────────────
+    'vinos.title':    'Nuestros',
+    'vinos.title.em': 'vinos',
+    'vinos.cta':      'Ver toda la colección',
+    'vinos.ver':      'Ver vino',
+
+    // ── Quote ──────────────────────────────────────────────────────
+    'quote.text':   '«Hay una historia detrás de nuestros vinos, y queremos compartirla.»',
+    'quote.source': 'El Hato y el Garabato · Formariz, Zamora',
+
+    // ── BodegaFullwidth (Home) ─────────────────────────────────────
+    'bodega.fw.label':        'Arribes del Duero',
+    'bodega.fw.title.1':      '8 hectáreas.',
+    'bodega.fw.title.em':     'Viñas viejas.',
+    'bodega.fw.title.3':      'Baja intervención.',
+    'bodega.fw.desc':         'Elaboramos pocas botellas para poder trabajar directamente en el proceso, desde la viña a la botella, de forma artesanal, cuidando con nuestras manos cada paso.',
+    'bodega.fw.stat.ha':      'hectáreas',
+    'bodega.fw.stat.anos':    'años de viñas',
+    'bodega.fw.stat.aditivos':'aditivos',
+    'bodega.fw.cta':          'Conocer la bodega',
+
+    // ── EquipoSection (Home) ───────────────────────────────────────
+    'equipo.label':   'Las personas detrás del vino',
+    'equipo.title.1': 'Un proyecto',
+    'equipo.title.em':'familiar',
+    'equipo.title.3': 'y artesanal.',
+    'equipo.desc':    'Somos una bodega minúscula con un equipo familiar. Elaborar pocas botellas nos permite estar presentes en cada paso, desde que brota la primera hoja hasta que el corcho sella la historia.',
+    'equipo.feat.1':  'Viticultura orgánica certificada',
+    'equipo.feat.2':  'Sin aditivos ni tecnología enológica',
+    'equipo.feat.3':  'Variedades ancestrales y autóctonas',
+    'equipo.feat.4':  'Poca analítica, mucha intuición',
+    'equipo.feat.5':  'Embotellado sin filtrar',
+    'equipo.cta':     'Conocer el equipo',
+
+    // ── VisitaSection (Home) ───────────────────────────────────────
+    'visita.label':        'Enoturismo · Arribes del Duero',
+    'visita.title':        'Una visita',
+    'visita.title.em':     'única.',
+    'visita.desc':         'Ven a conocer una zona y variedades únicas, experimentar un enoturismo diferente y vivir una experiencia relajada en nuestras viñas y bodega.',
+    'visita.opt.1.title':  'Visita a la bodega y viñedo',
+    'visita.opt.1.desc':   'Recorrido completo por las instalaciones y cata de vinos',
+    'visita.opt.2.title':  'Paseo entre viñas centenarias',
+    'visita.opt.2.desc':   'Caminata guiada por los pagos históricos de Arribes',
+    'visita.opt.3.title':  'Maridaje con productos locales',
+    'visita.opt.3.desc':   'Experiencia gastronómica con elaboraciones de la comarca',
+    'visita.cta':          'Información y reserva',
+
+    // ── ContactoSection ────────────────────────────────────────────
+    'contacto.label':         'Estamos aquí',
+    'contacto.title.1':       'Hablemos',
+    'contacto.title.2':       'de',
+    'contacto.title.em':      'vino.',
+    'contacto.email.label':   'Correo electrónico',
+    'contacto.phone.label':   'Teléfono',
+    'contacto.address.label': 'Dirección',
+    'contacto.form.label':    'Envíanos un mensaje',
+    'contacto.form.nombre':   'Nombre',
+    'contacto.form.email':    'Correo electrónico',
+    'contacto.form.asunto':   'Asunto',
+    'contacto.form.mensaje':  'Tu mensaje…',
+    'contacto.form.submit':   'Enviar mensaje',
+
+    // ── BodegaVinasSection ─────────────────────────────────────────
+    'bodega.label':    'Las Viñas · Arribes del Duero',
+    'bodega.title':    'Viñas',
+    'bodega.title.em': 'centenarias.',
+    'bodega.tintas':   'Variedades tintas',
+    'bodega.blancas':  'Variedades blancas',
+    'bodega.img.alt':  'Jose trabajando en las viñas de El Hato y el Garabato',
+
+    // ── TiendaSection ──────────────────────────────────────────────
+    'tienda.label':    'Colección completa',
+    'tienda.title':    'Nuestros',
+    'tienda.title.em': 'vinos',
+    'tienda.ver':      'Ver vino',
+
+    // ── VisitaExperienciasSection ──────────────────────────────────
+    'visita.exp.label':       'Enoturismo · Arribes del Duero',
+    'visita.exp.title':       'Elige tu',
+    'visita.exp.title.em':    'experiencia.',
+    'visita.exp.details.aria':'Detalles de la visita',
+    'visita.exp.precio.unit': '€ / persona',
+    'visita.exp.reservar':    'Reservar visita',
+
+    // ── Press ──────────────────────────────────────────────────────
+    'press.label': 'Presencia en medios',
+
+    // ── Footer ─────────────────────────────────────────────────────
+    'footer.brand.desc':    'Nuestros vinos representan las variedades típicas de esta zona donde el camino termina. Parque Natural Arribes del Duero, Zamora.',
+    'footer.col1.title':    'La Bodega',
+    'footer.col1.nosotros': 'Nosotros',
+    'footer.col1.bodega':   'Bodega y Viñas',
+    'footer.col1.visitas':  'Visitas',
+    'footer.col1.blog':     'Blog',
+    'footer.col2.title':    'Vinos',
+    'footer.col2.tienda':   'Tienda online',
+    'footer.col2.maridajes':'Maridajes',
+    'footer.col3.title':    'Legal',
+    'footer.col3.aviso':    'Aviso legal',
+    'footer.col3.terminos': 'Términos y condiciones',
+    'footer.col3.contacto': 'Contacto',
+    'footer.copy':          '© 2025 El Hato y el Garabato · Formariz, Zamora',
+
+    // ── 404 ────────────────────────────────────────────────────────
+    'notfound.label': '404',
+    'notfound.title': 'Página pendiente',
+    'notfound.cta':   'Volver al inicio',
+
+    // ── Page heroes ────────────────────────────────────────────────
+    'page.bodega.eyebrow':    'Bodega y Viñas',
+    'page.bodega.title.1':    'Arribes del Duero.',
+    'page.bodega.title.em':   'Duero Internacional.',
+    'page.nosotros.eyebrow':  'Quiénes somos',
+    'page.nosotros.title.1':  'Las personas',
+    'page.nosotros.title.em': 'detrás del vino.',
+    'page.tienda.eyebrow':    'Colección de vinos',
+    'page.tienda.title.1':    'Nuestros',
+    'page.tienda.title.em':   'vinos.',
+    'page.visita.eyebrow':    'Enoturismo',
+    'page.visita.title.1':    'Reserva tu',
+    'page.visita.title.em':   'visita.',
+    'page.contacto.eyebrow':  'Contacto',
+    'page.contacto.title.1':  'Estamos',
+    'page.contacto.title.em': 'aquí.',
+    'page.aviso.eyebrow':     'Legal',
+    'page.aviso.title.1':     'Aviso',
+    'page.aviso.title.em':    'legal.',
+    'page.terminos.eyebrow':  'Legal',
+    'page.terminos.title.1':  'Términos y',
+    'page.terminos.title.em': 'condiciones.',
+
+    // ── SobreNosotros ──────────────────────────────────────────────
+    'nosotros.medios.label':    'Reconocimientos',
+    'nosotros.medios.title':    'En los',
+    'nosotros.medios.title.em': 'medios',
+    'nosotros.cta.label':       '¿Hablamos?',
+    'nosotros.cta.title.1':     '¿Tienes alguna duda?',
+    'nosotros.cta.title.em':    'Aquí estamos.',
+    'nosotros.cta.vinos':       'Ver nuestros vinos',
+    'nosotros.cta.contacto':    'Contactar con nosotros',
+  },
+
+  en: {
+    // ── Navbar ─────────────────────────────────────────────────────
+    'nav.store':     'Online Store',
+    'nav.open':      'Open menu',
+    'nav.close':     'Close menu',
+    'nav.dark':      'Dark',
+    'nav.light':     'Light',
+    'nav.la-bodega': 'The Winery',
+    'nav.vinos':     'Wines',
+    'nav.nosotros':  'About Us',
+    'nav.visitas':   'Visits',
+    'nav.contacto':  'Contact',
+
+    // ── Hero (Home) ────────────────────────────────────────────────
+    'hero.eyebrow':      'Natural Park · Arribes del Duero · Zamora',
+    'hero.title.1':      'Where the',
+    'hero.title.2':      'road',
+    'hero.title.em':     'ends.',
+    'hero.desc':         'Wines from ancestral varieties, century-old vines and artisan craft at the edge of the Iberian Peninsula.',
+    'hero.cta.discover': 'Discover our wines',
+    'hero.cta.bodega':   'Explore the winery',
+    'hero.scroll':       'Scroll',
+
+    // ── Intro (Home) ───────────────────────────────────────────────
+    'intro.label':   'The Winery · Arribes del Duero',
+    'intro.title.1': 'A corner where',
+    'intro.title.2': 'the Duero becomes',
+    'intro.title.em':'a border.',
+    'intro.p1':      'Located in the Arribes del Duero Natural Park, within the Meseta Ibérica Biosphere Reserve, our winery was born from 8 hectares of old vines between 80 and 120 years old.',
+    'intro.p2':      'A restored old farmhouse houses our small winery, where minimal intervention and respect for tradition define every bottle.',
+    'intro.cta':     'Explore the winery',
+    'intro.stat':    'years of vines',
+
+    // ── VinosGrid (Home) ───────────────────────────────────────────
+    'vinos.title':    'Our',
+    'vinos.title.em': 'wines',
+    'vinos.cta':      'View full collection',
+    'vinos.ver':      'View wine',
+
+    // ── Quote ──────────────────────────────────────────────────────
+    'quote.text':   '«There is a story behind our wines, and we want to share it.»',
+    'quote.source': 'El Hato y el Garabato · Formariz, Zamora',
+
+    // ── BodegaFullwidth (Home) ─────────────────────────────────────
+    'bodega.fw.label':        'Arribes del Duero',
+    'bodega.fw.title.1':      '8 hectares.',
+    'bodega.fw.title.em':     'Old vines.',
+    'bodega.fw.title.3':      'Low intervention.',
+    'bodega.fw.desc':         'We make few bottles so we can work directly in the process, from vine to bottle, in an artisanal way, tending each step with our own hands.',
+    'bodega.fw.stat.ha':      'hectares',
+    'bodega.fw.stat.anos':    'years of vines',
+    'bodega.fw.stat.aditivos':'additives',
+    'bodega.fw.cta':          'Discover the winery',
+
+    // ── EquipoSection (Home) ───────────────────────────────────────
+    'equipo.label':   'The people behind the wine',
+    'equipo.title.1': 'A family',
+    'equipo.title.em':'project',
+    'equipo.title.3': 'and artisan craft.',
+    'equipo.desc':    'We are a tiny winery with a family team. Making few bottles allows us to be present at every step, from when the first leaf sprouts until the cork seals the story.',
+    'equipo.feat.1':  'Certified organic viticulture',
+    'equipo.feat.2':  'No additives or oenological technology',
+    'equipo.feat.3':  'Ancestral and native varieties',
+    'equipo.feat.4':  'Little analysis, lots of intuition',
+    'equipo.feat.5':  'Unfiltered bottling',
+    'equipo.cta':     'Meet the team',
+
+    // ── VisitaSection (Home) ───────────────────────────────────────
+    'visita.label':        'Wine Tourism · Arribes del Duero',
+    'visita.title':        'A visit',
+    'visita.title.em':     'like no other.',
+    'visita.desc':         'Come discover a unique area and varieties, experience a different wine tourism and enjoy a relaxed experience among our vines and winery.',
+    'visita.opt.1.title':  'Winery and vineyard visit',
+    'visita.opt.1.desc':   'Full tour of the facilities and wine tasting',
+    'visita.opt.2.title':  'Walk among century-old vines',
+    'visita.opt.2.desc':   'Guided walk through the historic Arribes vineyards',
+    'visita.opt.3.title':  'Pairing with local products',
+    'visita.opt.3.desc':   'Gastronomic experience with local specialties',
+    'visita.cta':          'Information and booking',
+
+    // ── ContactoSection ────────────────────────────────────────────
+    'contacto.label':         'We are here',
+    'contacto.title.1':       "Let's talk",
+    'contacto.title.2':       'about',
+    'contacto.title.em':      'wine.',
+    'contacto.email.label':   'Email',
+    'contacto.phone.label':   'Phone',
+    'contacto.address.label': 'Address',
+    'contacto.form.label':    'Send us a message',
+    'contacto.form.nombre':   'Name',
+    'contacto.form.email':    'Email address',
+    'contacto.form.asunto':   'Subject',
+    'contacto.form.mensaje':  'Your message…',
+    'contacto.form.submit':   'Send message',
+
+    // ── BodegaVinasSection ─────────────────────────────────────────
+    'bodega.label':    'The Vines · Arribes del Duero',
+    'bodega.title':    'Century-old',
+    'bodega.title.em': 'vines.',
+    'bodega.tintas':   'Red varieties',
+    'bodega.blancas':  'White varieties',
+    'bodega.img.alt':  'Jose working in the El Hato y el Garabato vineyards',
+
+    // ── TiendaSection ──────────────────────────────────────────────
+    'tienda.label':    'Full collection',
+    'tienda.title':    'Our',
+    'tienda.title.em': 'wines',
+    'tienda.ver':      'View wine',
+
+    // ── VisitaExperienciasSection ──────────────────────────────────
+    'visita.exp.label':       'Wine Tourism · Arribes del Duero',
+    'visita.exp.title':       'Choose your',
+    'visita.exp.title.em':    'experience.',
+    'visita.exp.details.aria':'Visit details',
+    'visita.exp.precio.unit': '€ / person',
+    'visita.exp.reservar':    'Book visit',
+
+    // ── Press ──────────────────────────────────────────────────────
+    'press.label': 'Press coverage',
+
+    // ── Footer ─────────────────────────────────────────────────────
+    'footer.brand.desc':    'Our wines represent the typical varieties of this area where the road ends. Arribes del Duero Natural Park, Zamora.',
+    'footer.col1.title':    'The Winery',
+    'footer.col1.nosotros': 'About Us',
+    'footer.col1.bodega':   'Winery & Vines',
+    'footer.col1.visitas':  'Visits',
+    'footer.col1.blog':     'Blog',
+    'footer.col2.title':    'Wines',
+    'footer.col2.tienda':   'Online store',
+    'footer.col2.maridajes':'Pairings',
+    'footer.col3.title':    'Legal',
+    'footer.col3.aviso':    'Legal notice',
+    'footer.col3.terminos': 'Terms and conditions',
+    'footer.col3.contacto': 'Contact',
+    'footer.copy':          '© 2025 El Hato y el Garabato · Formariz, Zamora',
+
+    // ── 404 ────────────────────────────────────────────────────────
+    'notfound.label': '404',
+    'notfound.title': 'Page not found',
+    'notfound.cta':   'Back to home',
+
+    // ── Page heroes ────────────────────────────────────────────────
+    'page.bodega.eyebrow':    'Winery & Vines',
+    'page.bodega.title.1':    'Arribes del Duero.',
+    'page.bodega.title.em':   'Duero Internacional.',
+    'page.nosotros.eyebrow':  'Who we are',
+    'page.nosotros.title.1':  'The people',
+    'page.nosotros.title.em': 'behind the wine.',
+    'page.tienda.eyebrow':    'Wine collection',
+    'page.tienda.title.1':    'Our',
+    'page.tienda.title.em':   'wines.',
+    'page.visita.eyebrow':    'Wine Tourism',
+    'page.visita.title.1':    'Book your',
+    'page.visita.title.em':   'visit.',
+    'page.contacto.eyebrow':  'Contact',
+    'page.contacto.title.1':  "We're",
+    'page.contacto.title.em': 'here.',
+    'page.aviso.eyebrow':     'Legal',
+    'page.aviso.title.1':     'Legal',
+    'page.aviso.title.em':    'notice.',
+    'page.terminos.eyebrow':  'Legal',
+    'page.terminos.title.1':  'Terms &',
+    'page.terminos.title.em': 'conditions.',
+
+    // ── SobreNosotros ──────────────────────────────────────────────
+    'nosotros.medios.label':    'Recognition',
+    'nosotros.medios.title':    'In the',
+    'nosotros.medios.title.em': 'press',
+    'nosotros.cta.label':       'Talk to us?',
+    'nosotros.cta.title.1':     'Any questions?',
+    'nosotros.cta.title.em':    "We're here.",
+    'nosotros.cta.vinos':       'See our wines',
+    'nosotros.cta.contacto':    'Contact us',
+  },
+}

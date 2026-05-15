@@ -1,17 +1,18 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function NotFound() {
   const { pathname } = useLocation()
+  const { t } = useLanguage()
 
   return (
     <div className="not-found">
-      <p className="section-label">404</p>
-      <h1>Página pendiente</h1>
+      <p className="section-label">{t('notfound.label')}</p>
+      <h1>{t('notfound.title')}</h1>
       <p>
-        La ruta <code className="not-found-path">{pathname}</code> aún no está
-        implementada en React.
+        <code className="not-found-path">{pathname}</code>
       </p>
-      <Link to="/" className="btn-primary">Volver al inicio</Link>
+      <Link to="/" className="btn-primary">{t('notfound.cta')}</Link>
     </div>
   )
 }

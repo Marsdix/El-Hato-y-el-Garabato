@@ -1,13 +1,16 @@
 import ArrowRight from '../ui/ArrowRight'
 import { VINOS } from '../../data/vinos'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function TiendaSection() {
+  const { t } = useLanguage()
+
   return (
     <section className="tienda-section">
       <div className="tienda-header reveal">
         <div className="divider" />
-        <p className="section-label">Colección completa</p>
-        <h2>Nuestros <em>vinos</em></h2>
+        <p className="section-label">{t('tienda.label')}</p>
+        <h2>{t('tienda.title')} <em>{t('tienda.title.em')}</em></h2>
       </div>
 
       <div className="tienda-grid">
@@ -17,7 +20,7 @@ export default function TiendaSection() {
               href={vino.href}
               className="tienda-card-img-wrap"
               rel="noopener noreferrer"
-              aria-label={`Ver ${vino.nombre} en la tienda`}
+              aria-label={`${t('tienda.ver')} ${vino.nombre}`}
             >
               <img
                 src={vino.imagen}
@@ -26,9 +29,9 @@ export default function TiendaSection() {
               />
             </a>
             <div className="tienda-card-body">
-              <p className="tienda-card-tag">{vino.tag}</p>
+              <p className="tienda-card-tag">{t(vino.tag)}</p>
               <h3 className="tienda-card-nombre">{vino.nombre}</h3>
-              <p className="tienda-card-varietal">{vino.varietal}</p>
+              <p className="tienda-card-varietal">{t(vino.varietal)}</p>
               <div className="tienda-card-footer">
                 <span className="tienda-card-precio">
                   <sup>€</sup>{vino.precio}
@@ -38,7 +41,7 @@ export default function TiendaSection() {
                   className="btn-ghost"
                   rel="noopener noreferrer"
                 >
-                  Ver vino <ArrowRight size={14} />
+                  {t('tienda.ver')} <ArrowRight size={14} />
                 </a>
               </div>
             </div>

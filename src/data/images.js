@@ -30,24 +30,16 @@ export const IMAGES = {
       luisfer: "src/assets/images/Luisfer.JPG",
     },
     medios: {
-      robertParker:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/robert-wine.png",
-      traveler:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/traveler.png",
-      penin:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/penin.png",
-      elPais:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/el-pais.png",
-      planetaVino:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/planeta-vino.png",
-      laVanguardia:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-vanguardia.jpg",
-      sobremesa:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/sobremesa.png",
-      abc: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/abc.jpg",
-      spanishWine:
-        "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/spanish-wine.png",
-      hola: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/hola.jpg",
+      robertParker: "src/assets/images/robert-winePeriodico.png",
+      traveler: "src/assets/images/travelerPeriodico.png",
+      penin: "src/assets/images/peninPeriodico.png",
+      elPais: "src/assets/images/el-paisPeriodico.png",
+      planetaVino: "src/assets/images/planeta-vinoPeriodico.png",
+      laVanguardia: "src/assets/images/la-vanguardiaPeriodico.jpg",
+      sobremesa: "src/assets/images/sobremesaPeriodico.png",
+      abc: "src/assets/images/abcPeriodico.jpg",
+      spanishWine: "src/assets/images/spanish-winePeriodico.png",
+      hola: "src/assets/images/holaPeriodico.jpg",
     },
   },
 
@@ -83,11 +75,11 @@ export const IMAGES = {
 
   // ── AVISO LEGAL ( /aviso-legal ) ──────────────────────────────────
   avisoLegal: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg",
+    hero: "src/assets/images/LogoArribesPared.png",
   },
 
   // ── TÉRMINOS Y CONDICIONES ( /terminos ) ──────────────────────────
   terminos: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/la-bodega-1024x819.jpeg",
+    hero: "src/assets/images/LogoHatoPared.png",
   },
 };

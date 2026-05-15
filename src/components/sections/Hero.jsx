@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { BtnPrimary, BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
 import { IMAGES } from '../../data/images'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     if (document.readyState === 'complete') { setLoaded(true); return }
@@ -19,26 +21,23 @@ export default function Hero() {
       <div className="hero-vignette" />
 
       <div className="hero-content">
-        <p className="hero-eyebrow">Parque Natural · Arribes del Duero · Zamora</p>
+        <p className="hero-eyebrow">{t('hero.eyebrow')}</p>
         <h1>
-          Donde el<br />
-          camino<br />
-          <em>termina.</em>
+          {t('hero.title.1')}<br />
+          {t('hero.title.2')}<br />
+          <em>{t('hero.title.em')}</em>
         </h1>
-        <p className="hero-desc">
-          Vinos de variedades ancestrales, viñas centenarias y elaboración
-          artesanal en el confín ibérico.
-        </p>
+        <p className="hero-desc">{t('hero.desc')}</p>
         <div className="hero-actions">
-          <BtnPrimary to="/tienda">Descubrir nuestros vinos</BtnPrimary>
+          <BtnPrimary to="/tienda">{t('hero.cta.discover')}</BtnPrimary>
           <BtnGhost href="#bodega" light>
-            Conocer la bodega <ArrowRight />
+            {t('hero.cta.bodega')} <ArrowRight />
           </BtnGhost>
         </div>
       </div>
 
       <div className="hero-scroll">
-        <span>Scroll</span>
+        <span>{t('hero.scroll')}</span>
         <div className="scroll-line" />
       </div>
     </section>

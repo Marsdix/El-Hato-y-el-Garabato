@@ -1,21 +1,22 @@
-import { useScrollReveal } from "../hooks/useScrollReveal";
-import PageHero from "../components/layout/PageHero";
-import BodegaVinasSection from "../components/sections/BodegaVinasSection";
-import BodegaFullwidth from "../components/sections/BodegaFullwidth";
-import { IMAGES } from "../data/images";
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import PageHero from '../components/layout/PageHero'
+import BodegaVinasSection from '../components/sections/BodegaVinasSection'
+import { IMAGES } from '../data/images'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function BodegaYVinas() {
-  useScrollReveal();
+  useScrollReveal()
+  const { t } = useLanguage()
 
   return (
     <>
       <PageHero
-        eyebrow="Bodega y Viñas"
+        eyebrow={t('page.bodega.eyebrow')}
         title={
           <>
-            Arribes del Duero.
+            {t('page.bodega.title.1')}
             <br />
-            <em>Duero Internacional.</em>
+            <em>{t('page.bodega.title.em')}</em>
           </>
         }
         backgroundImage={IMAGES.bodega.hero}
@@ -23,5 +24,5 @@ export default function BodegaYVinas() {
       />
       <BodegaVinasSection />
     </>
-  );
+  )
 }

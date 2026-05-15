@@ -1,7 +1,9 @@
 import { BODEGA_VINAS } from '../../data/bodega'
 import { IMAGES } from '../../data/images'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function BodegaVinasSection() {
+  const { t } = useLanguage()
   const { parrafos, stats, variedadesTintas, variedadesBlancas } = BODEGA_VINAS
   const imagen = IMAGES.bodega.vinas
 
@@ -12,37 +14,37 @@ export default function BodegaVinasSection() {
         <div className="bodega-vinas-image reveal-left">
           <img
             src={imagen}
-            alt="Jose trabajando en las viñas de El Hato y el Garabato"
+            alt={t('bodega.img.alt')}
             loading="lazy"
           />
         </div>
 
         <div className="bodega-vinas-text">
           <div className="divider reveal" />
-          <p className="section-label reveal">Las Viñas · Arribes del Duero</p>
+          <p className="section-label reveal">{t('bodega.label')}</p>
           <h2 className="bodega-vinas-h2 reveal">
-            Viñas <em>centenarias.</em>
+            {t('bodega.title')} <em>{t('bodega.title.em')}</em>
           </h2>
 
-          <p className="reveal">{parrafos[0]}</p>
-          <p className="reveal">{parrafos[1]}</p>
+          <p className="reveal">{t(parrafos[0])}</p>
+          <p className="reveal">{t(parrafos[1])}</p>
 
           <div className="bodega-vinas-stats reveal">
             {stats.map(s => (
-              <div className="bodega-stat" key={s.unidad}>
+              <div className="bodega-stat" key={s.unidad.es}>
                 <strong>{s.valor}</strong>
-                <span>{s.unidad}</span>
-                <em>{s.desc}</em>
+                <span>{t(s.unidad)}</span>
+                <em>{t(s.desc)}</em>
               </div>
             ))}
           </div>
 
-          <p className="reveal">{parrafos[2]}</p>
-          <p className="reveal">{parrafos[3]}</p>
-          <p className="reveal">{parrafos[4]}</p>
+          <p className="reveal">{t(parrafos[2])}</p>
+          <p className="reveal">{t(parrafos[3])}</p>
+          <p className="reveal">{t(parrafos[4])}</p>
 
           <div className="variedades-list reveal">
-            <p className="variedades-label">Variedades tintas</p>
+            <p className="variedades-label">{t('bodega.tintas')}</p>
             <div className="variedades-tags">
               {variedadesTintas.map(v => (
                 <span className="variedad-tag" key={v}>{v}</span>
@@ -51,7 +53,7 @@ export default function BodegaVinasSection() {
           </div>
 
           <div className="variedades-list reveal">
-            <p className="variedades-label">Variedades blancas</p>
+            <p className="variedades-label">{t('bodega.blancas')}</p>
             <div className="variedades-tags">
               {variedadesBlancas.map(v => (
                 <span className="variedad-tag" key={v}>{v}</span>

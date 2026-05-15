@@ -1,39 +1,38 @@
 import { BtnPrimary } from '../ui/Button'
 import { IMAGES } from '../../data/images'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function BodegaFullwidth() {
+  const { t } = useLanguage()
+
   return (
     <div className="bodega">
       <div className="bodega-bg" style={{ backgroundImage: `url(${IMAGES.home.bodegaPanoramica})` }} />
       <div className="bodega-vignette" />
 
       <div className="bodega-content reveal-right">
-        <p className="section-label">Arribes del Duero</p>
+        <p className="section-label">{t('bodega.fw.label')}</p>
         <h2>
-          8 hectáreas.<br />
-          <em>Viñas viejas.</em><br />
-          Baja intervención.
+          {t('bodega.fw.title.1')}<br />
+          <em>{t('bodega.fw.title.em')}</em><br />
+          {t('bodega.fw.title.3')}
         </h2>
-        <p>
-          Elaboramos pocas botellas para poder trabajar directamente en el
-          proceso, desde la viña a la botella, de forma artesanal, cuidando
-          con nuestras manos cada paso.
-        </p>
+        <p>{t('bodega.fw.desc')}</p>
         <div className="stats-row">
           <div className="stat-item">
             <strong>8</strong>
-            <span>hectáreas</span>
+            <span>{t('bodega.fw.stat.ha')}</span>
           </div>
           <div className="stat-item">
             <strong>100<sup>+</sup></strong>
-            <span>años de viñas</span>
+            <span>{t('bodega.fw.stat.anos')}</span>
           </div>
           <div className="stat-item">
             <strong>0</strong>
-            <span>aditivos</span>
+            <span>{t('bodega.fw.stat.aditivos')}</span>
           </div>
         </div>
-        <BtnPrimary to="/bodega">Conocer la bodega</BtnPrimary>
+        <BtnPrimary to="/bodega">{t('bodega.fw.cta')}</BtnPrimary>
       </div>
     </div>
   )

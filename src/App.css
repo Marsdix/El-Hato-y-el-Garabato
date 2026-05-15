@@ -1736,3 +1736,112 @@ footer {
   .cursor, .cursor-ring { display: none; }
   a, button, .btn-primary, .nav-cta, .vino-card { cursor: pointer; }
 }
+
+/* ─── NAV CONTROLS (IDIOMA + TEMA) ──────────────────────────────── */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-controls button {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 162, 85, 0.5);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200, 162, 85, 0.9);
+  height: 30px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  line-height: 1;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              color 0.25s ease, box-shadow 0.25s ease;
+}
+nav.scrolled .nav-controls button {
+  background: rgba(200, 162, 85, 0.06);
+  border-color: rgba(139, 101, 16, 0.38);
+  color: var(--gold-text);
+}
+.nav-controls button:hover {
+  background: rgba(200, 162, 85, 0.16);
+  border-color: rgba(200, 162, 85, 0.9);
+  box-shadow: 0 0 14px rgba(200, 162, 85, 0.14);
+  color: var(--gold);
+}
+nav.scrolled .nav-controls button:hover {
+  background: rgba(200, 162, 85, 0.12);
+  border-color: var(--gold-text);
+  color: var(--gold-text);
+  box-shadow: 0 0 14px rgba(139, 101, 16, 0.1);
+}
+
+.nav-drawer-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.nav-drawer-controls button {
+  flex: 1;
+  background: rgba(200, 162, 85, 0.05);
+  border: 1px solid rgba(200, 162, 85, 0.4);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--ff-caps);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  padding: 13px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-drawer-controls button:hover {
+  background: rgba(200, 162, 85, 0.12);
+  border-color: var(--gold);
+  box-shadow: 0 0 18px rgba(200, 162, 85, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .nav-controls { gap: 5px; }
+  .nav-controls button { font-size: 9px; padding: 0 8px; height: 27px; }
+}
+
+/* ─── TEMA OSCURO ─────────────────────────────────────────────────── */
+html[data-theme="dark"] {
+  --bg:        #0f0b07;
+  --bg-alt:    #1a1208;
+  --bg-dark:   #060402;
+  --text:      #e8dfd0;
+  --text-2:    #b8a898;
+  --text-3:    #7a6e62;
+  --gold-text: #c8a255;
+  --border:    rgba(200, 162, 85, 0.16);
+}
+
+html[data-theme="dark"] nav.scrolled {
+  background: rgba(12, 8, 4, 0.97);
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border-color: var(--border);
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: var(--text-3);
+}

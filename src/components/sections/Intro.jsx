@@ -1,8 +1,11 @@
 import { BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
 import { IMAGES } from '../../data/images'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Intro() {
+  const { t } = useLanguage()
+
   return (
     <section className="section" id="bodega">
       <div className="intro">
@@ -13,30 +16,22 @@ export default function Intro() {
           />
           <div className="intro-stat">
             <strong>100</strong>
-            <span>años de viñas</span>
+            <span>{t('intro.stat')}</span>
           </div>
         </div>
 
         <div className="intro-text reveal-right">
           <div className="divider" />
-          <p className="section-label">La Bodega · Arribes del Duero</p>
+          <p className="section-label">{t('intro.label')}</p>
           <h2>
-            Un rincón donde<br />
-            el Duero se hace<br />
-            <em>frontera.</em>
+            {t('intro.title.1')}<br />
+            {t('intro.title.2')}<br />
+            <em>{t('intro.title.em')}</em>
           </h2>
-          <p>
-            Situada en el Parque Natural Arribes del Duero, dentro de la
-            Reserva de la Biosfera Meseta Ibérica, nuestra bodega nace de 8
-            hectáreas de viñas viejas de entre 80 y 120 años.
-          </p>
-          <p>
-            Una antigua casa de labranza restaurada alberga nuestra pequeña
-            bodega, donde la intervención mínima y el respeto por la tradición
-            definen cada botella.
-          </p>
+          <p>{t('intro.p1')}</p>
+          <p>{t('intro.p2')}</p>
           <BtnGhost to="/bodega" style={{ marginTop: 12 }}>
-            Explorar la bodega <ArrowRight />
+            {t('intro.cta')} <ArrowRight />
           </BtnGhost>
         </div>
       </div>

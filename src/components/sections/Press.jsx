@@ -1,11 +1,14 @@
 import { Fragment } from 'react'
 import { PRESS_LOGOS } from '../../data/press'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Press() {
+  const { t } = useLanguage()
   const doubled = [...PRESS_LOGOS, ...PRESS_LOGOS]
+
   return (
     <section className="press">
-      <p className="press-label">Presencia en medios</p>
+      <p className="press-label">{t('press.label')}</p>
       <div className="press-track">
         {doubled.map((logo, i) => (
           <Fragment key={i}>

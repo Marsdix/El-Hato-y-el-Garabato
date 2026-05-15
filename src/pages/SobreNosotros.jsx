@@ -4,16 +4,18 @@ import { BtnPrimary, BtnGhost } from '../components/ui/Button'
 import { EQUIPO } from '../data/equipo'
 import { MEDIOS } from '../data/medios'
 import { IMAGES } from '../data/images'
+import { useLanguage } from '../hooks/useLanguage'
 
 // ─── SECCIÓN MEDIOS ───────────────────────────────────────────────
 function MediosSection() {
+  const { t } = useLanguage()
   return (
     <section className="medios-section">
       <div className="medios-inner">
         <div className="medios-header reveal">
           <div className="divider" />
-          <p className="section-label">Reconocimientos</p>
-          <h2>En los <em>medios</em></h2>
+          <p className="section-label">{t('nosotros.medios.label')}</p>
+          <h2>{t('nosotros.medios.title')} <em>{t('nosotros.medios.title.em')}</em></h2>
         </div>
         <div className="medios-grid reveal">
           {MEDIOS.map(medio => (
@@ -29,6 +31,7 @@ function MediosSection() {
 
 // ─── FICHA DE MIEMBRO ─────────────────────────────────────────────
 function MiembroSection({ miembro }) {
+  const { t } = useLanguage()
   const imgReveal = miembro.invertido ? 'reveal-right' : 'reveal-left'
   const txtReveal = miembro.invertido ? 'reveal-left' : 'reveal-right'
 
@@ -37,7 +40,7 @@ function MiembroSection({ miembro }) {
       <div className={`miembro-imagen ${imgReveal}`}>
         <img
           src={miembro.imagen}
-          alt={`${miembro.nombre} — ${miembro.rol}`}
+          alt={`${miembro.nombre} — ${t(miembro.rol)}`}
           loading="lazy"
           style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
         />
@@ -45,7 +48,7 @@ function MiembroSection({ miembro }) {
 
       <div className={`miembro-content ${txtReveal}`}>
         <div className="divider" />
-        <p className="miembro-rol section-label">{miembro.rol}</p>
+        <p className="miembro-rol section-label">{t(miembro.rol)}</p>
         <h2 className="miembro-nombre">{miembro.nombre}</h2>
         <div className="miembro-bio">
           {miembro.bio.map((parrafo, i) => (
@@ -53,7 +56,7 @@ function MiembroSection({ miembro }) {
               key={i}
               className={parrafo.destacado ? 'miembro-bio--destacado' : ''}
             >
-              {parrafo.texto}
+              {t(parrafo.texto)}
             </p>
           ))}
         </div>
@@ -64,14 +67,15 @@ function MiembroSection({ miembro }) {
 
 // ─── CTA FINAL ────────────────────────────────────────────────────
 function CtaFinal() {
+  const { t } = useLanguage()
   return (
     <section className="nosotros-cta reveal">
       <div className="nosotros-cta-inner">
-        <p className="section-label">¿Hablamos?</p>
-        <h2>¿Tienes alguna duda?<br /><em>Aquí estamos.</em></h2>
+        <p className="section-label">{t('nosotros.cta.label')}</p>
+        <h2>{t('nosotros.cta.title.1')}<br /><em>{t('nosotros.cta.title.em')}</em></h2>
         <div className="nosotros-cta-actions">
-          <BtnPrimary to="/tienda">Ver nuestros vinos</BtnPrimary>
-          <BtnGhost to="/contacto">Contactar con nosotros</BtnGhost>
+          <BtnPrimary to="/tienda">{t('nosotros.cta.vinos')}</BtnPrimary>
+          <BtnGhost to="/contacto">{t('nosotros.cta.contacto')}</BtnGhost>
         </div>
       </div>
     </section>
@@ -81,12 +85,13 @@ function CtaFinal() {
 // ─── PÁGINA ───────────────────────────────────────────────────────
 export default function SobreNosotros() {
   useScrollReveal()
+  const { t } = useLanguage()
 
   return (
     <>
       <PageHero
-        eyebrow="Quiénes somos"
-        title={<>Las personas<br /><em>detrás del vino.</em></>}
+        eyebrow={t('page.nosotros.eyebrow')}
+        title={<>{t('page.nosotros.title.1')}<br /><em>{t('page.nosotros.title.em')}</em></>}
         backgroundImage={IMAGES.nosotros.hero}
         imagePosition="62% 53%"
       />
