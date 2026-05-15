@@ -49,7 +49,7 @@ function MaridajeCard({ vino, language, t }) {
             </svg>
           </a>
 
-          {vino.videoId && (
+          {vino.videoId ? (
             <button
               className={`maridaje-btn-video${videoVisible ? ' active' : ''}`}
               onClick={() => setVideoVisible(v => !v)}
@@ -73,6 +73,8 @@ function MaridajeCard({ vino, language, t }) {
                 </>
               )}
             </button>
+          ) : vino.videoProximo && (
+            <span className="maridaje-pronto">{t('maridajes.pronto')}</span>
           )}
         </div>
 

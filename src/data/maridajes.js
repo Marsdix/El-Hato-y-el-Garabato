@@ -50,7 +50,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.fresco,
     href:        'https://elhatoyelgarabato.com/producto/cotexa-2020/',
-    videoId:     null,
+    videoId:     'rBJWLmlmStY',
   },
   {
     id:          'de-buena-jera-2022',
@@ -65,6 +65,7 @@ export const MARIDAJES = [
     temperatura: TEMP.ligero,
     href:        'https://elhatoyelgarabato.com/producto/de-buena-jera-2018/',
     videoId:     null,
+    videoProximo: true,
   },
   {
     id:          'eclectico-barrica-2023',
@@ -78,7 +79,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/eclectico-blanco-con-crianza-en-barrica-de-roble-frances/',
-    videoId:     null,
+    videoId:     'he0BloXmpB8',
   },
   {
     id:          'eclectico-lias-2023',
@@ -92,7 +93,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/eclectico-lias-2022/',
-    videoId:     null,
+    videoId:     'L85aIN5SiUA',
   },
   {
     id:          'li-2022',
@@ -106,7 +107,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.fresco,
     href:        'https://elhatoyelgarabato.com/producto/li/',
-    videoId:     null,
+    videoId:     'Rmh69hj_3JM',
   },
   {
     id:          'otro-cuento-2023',
@@ -120,7 +121,7 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.frio,
     href:        'https://elhatoyelgarabato.com/producto/otro-cuento-2021/',
-    videoId:     null,
+    videoId:     'Qdwwtp59JcE',
   },
   {
     id:          'sin-blanca-2018',
@@ -134,6 +135,6 @@ export const MARIDAJES = [
     },
     temperatura: TEMP.ligero,
     href:        'https://elhatoyelgarabato.com/producto/sin-blanca-2018/',
-    videoId:     null,
+    videoId:     'IVIocLwZbVw',
   },
 ]

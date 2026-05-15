@@ -1916,6 +1916,22 @@ footer {
   color: var(--gold-text);
 }
 
+/* Badge "próximamente" */
+.maridaje-pronto {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ff-caps);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  padding: 5px 10px;
+  opacity: 0.75;
+}
+
 /* Video embebido */
 .maridaje-video-wrap {
   margin-top: 18px;

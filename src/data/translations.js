@@ -183,6 +183,7 @@ export const TRANSLATIONS = {
     'maridajes.comprar':       'Ver en tienda',
     'maridajes.video':         'Ver vídeo',
     'maridajes.cerrar':        'Cerrar vídeo',
+    'maridajes.pronto':        'Vídeo próximamente',
     'maridajes.empty':         'No hay vinos para esta combinación.',
   },
 
@@ -370,6 +371,7 @@ export const TRANSLATIONS = {
     'maridajes.comprar':       'View in shop',
     'maridajes.video':         'Watch video',
     'maridajes.cerrar':        'Close video',
+    'maridajes.pronto':        'Video coming soon',
     'maridajes.empty':         'No wines match this filter.',
   },
 }
