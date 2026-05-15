@@ -391,28 +391,15 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   margin-bottom: 28px;
 }
 
-/* Viewport con fade en bordes */
+/* Fade en bordes para que el bucle sea imperceptible */
 .press-viewport {
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 .press-track {
   display: flex;
   align-items: center;
-  gap: 0;
   width: max-content;
   animation: marquee 28s linear infinite;
   will-change: transform;
@@ -427,51 +414,22 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
 .press-entry {
   display: inline-flex;
   align-items: center;
-  gap: 40px;
-  padding: 0 40px;
+  gap: 48px;
+  padding: 0 48px;
 }
-
-/* Ítem genérico */
-.press-item {
-  display: inline-flex;
-  align-items: center;
-  transition: opacity 0.3s ease;
-}
-.press-item--link {
-  cursor: pointer;
-  text-decoration: none;
-}
-.press-item--link:hover .press-logo-img  { filter: grayscale(0) opacity(1); }
-.press-item--link:hover .press-logo-text { color: var(--gold-text); }
-
-/* Logo imagen */
-.press-logo-img {
-  height: 28px;
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
-  filter: grayscale(1) opacity(0.45);
-  transition: filter 0.35s ease;
-}
-.press-item:not(.press-item--link) .press-logo-img {
-  filter: grayscale(1) opacity(0.45);
-}
-
-/* Logo texto (cuando no hay imagen) */
-.press-logo-text {
+.press-logo {
   font-family: var(--ff-caps);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--text-3);
   white-space: nowrap;
-  transition: color 0.3s ease;
 }
-
-.press-dot {
-  color: var(--gold);
-  font-size: 7px;
-  opacity: 0.5;
+.press-logo--link {
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
+.press-logo--link:hover { color: var(--gold-text); }
+.press-dot { color: var(--gold); font-size: 8px; opacity: 0.6; }
 
 /* ─── LAYOUTS COMUNES ───────────────────────────────────────────── */
 .section { padding: 120px 60px; }
