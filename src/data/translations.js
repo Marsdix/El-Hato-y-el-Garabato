@@ -6,9 +6,10 @@ export const TRANSLATIONS = {
     'nav.close':     'Cerrar menú',
     'nav.dark':      'Oscuro',
     'nav.light':     'Claro',
-    'nav.la-bodega': 'La Bodega',
-    'nav.vinos':     'Vinos',
-    'nav.nosotros':  'Nosotros',
+    'nav.la-bodega':  'La Bodega',
+    'nav.vinos':      'Vinos',
+    'nav.maridajes':  'Maridajes',
+    'nav.nosotros':   'Nosotros',
     'nav.visitas':   'Visitas',
     'nav.contacto':  'Contacto',
 
@@ -172,6 +173,15 @@ export const TRANSLATIONS = {
     'nosotros.cta.title.em':    'Aquí estamos.',
     'nosotros.cta.vinos':       'Ver nuestros vinos',
     'nosotros.cta.contacto':    'Contactar con nosotros',
+
+    // ── Maridajes ──────────────────────────────────────────────────
+    'page.maridajes.eyebrow':  'Guía de maridaje',
+    'page.maridajes.title.1':  'Tu vino,',
+    'page.maridajes.title.em': 'tu mesa.',
+    'maridajes.filter':        'Filtrar por tipo de comida',
+    'maridajes.todos':         'Todos los vinos',
+    'maridajes.comprar':       'Ver en tienda',
+    'maridajes.empty':         'No hay vinos para esta combinación.',
   },
 
   en: {
@@ -181,7 +191,8 @@ export const TRANSLATIONS = {
     'nav.close':     'Close menu',
     'nav.dark':      'Dark',
     'nav.light':     'Light',
-    'nav.la-bodega': 'The Winery',
+    'nav.la-bodega':  'The Winery',
+    'nav.maridajes':  'Pairings',
     'nav.vinos':     'Wines',
     'nav.nosotros':  'About Us',
     'nav.visitas':   'Visits',
@@ -347,5 +358,14 @@ export const TRANSLATIONS = {
     'nosotros.cta.title.em':    "We're here.",
     'nosotros.cta.vinos':       'See our wines',
     'nosotros.cta.contacto':    'Contact us',
+
+    // ── Maridajes ──────────────────────────────────────────────────
+    'page.maridajes.eyebrow':  'Pairing guide',
+    'page.maridajes.title.1':  'Your wine,',
+    'page.maridajes.title.em': 'your table.',
+    'maridajes.filter':        'Filter by food type',
+    'maridajes.todos':         'All wines',
+    'maridajes.comprar':       'View in shop',
+    'maridajes.empty':         'No wines match this filter.',
   },
 }

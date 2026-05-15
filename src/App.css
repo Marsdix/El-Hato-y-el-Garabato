@@ -1713,6 +1713,206 @@ footer {
 }
 .legal-card-body a:hover { opacity: 0.75; }
 
+/* ─── PÁGINA MARIDAJES ───────────────────────────────────────────── */
+.maridajes-section {
+  padding: 80px 60px 120px;
+  background: var(--bg);
+}
+
+.maridajes-filter-wrap {
+  max-width: 1100px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.maridajes-filter-label {
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 20px;
+}
+
+.maridajes-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.maridaje-chip {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  padding: 8px 18px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.maridaje-chip:hover {
+  border-color: var(--gold);
+  color: var(--text);
+}
+.maridaje-chip.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-dark);
+  font-weight: 600;
+}
+
+.maridajes-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.maridaje-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+.maridaje-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(100, 70, 40, 0.1);
+}
+
+.maridaje-card-img-wrap {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.maridaje-card-img {
+  width: 100%;
+  max-width: 160px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.maridaje-card-body {
+  padding: 24px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.maridaje-card-tipo {
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.maridaje-card-nombre {
+  font-family: var(--ff-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.maridaje-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.maridaje-tag {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-family: var(--ff-sans);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 3px 10px;
+  border-radius: 1px;
+}
+
+.maridaje-card-platos {
+  font-family: var(--ff-serif);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.maridaje-card-temp {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-bottom: 18px;
+  font-family: var(--ff-sans);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-3);
+}
+.maridaje-temp-icon {
+  color: var(--gold);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.maridaje-card-temp strong {
+  display: block;
+  font-family: var(--ff-caps);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin-bottom: 3px;
+}
+
+.maridaje-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  text-decoration: none;
+  border: 1px solid rgba(200,162,85,0.4);
+  padding: 9px 16px;
+  border-radius: 2px;
+  align-self: flex-start;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.maridaje-card-cta:hover {
+  background: rgba(200,162,85,0.1);
+  border-color: var(--gold);
+}
+
+.maridajes-empty {
+  text-align: center;
+  font-family: var(--ff-serif);
+  font-size: 1.1rem;
+  color: var(--text-3);
+  padding: 60px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 /* ─── RESPONSIVE (páginas nuevas) ───────────────────────────────── */
 @media (max-width: 900px) {
   .bodega-vinas-section { padding: 80px 30px; }
@@ -1733,6 +1933,13 @@ footer {
   .legal-section  { padding: 60px 20px 80px; }
   .legal-card     { padding: 24px 22px; }
   .legal-intro    { margin-bottom: 32px; font-size: 1rem; }
+
+  .maridajes-section { padding: 60px 30px 80px; }
+  .maridajes-grid    { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .maridajes-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── MÓVIL PEQUEÑO (<480px) ──────────────────────────────────────── */

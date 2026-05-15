@@ -4,8 +4,9 @@
 
 export const NAV_LINKS = [
   { to: '/bodega',   key: 'nav.la-bodega' },
-  { to: '/tienda',   key: 'nav.vinos'     },
-  { to: '/nosotros', key: 'nav.nosotros'  },
+  { to: '/tienda',    key: 'nav.vinos'     },
+  { to: '/maridajes', key: 'nav.maridajes'},
+  { to: '/nosotros',  key: 'nav.nosotros' },
   { to: '/visita',   key: 'nav.visitas'   },
   { to: '/contacto', key: 'nav.contacto'  },
 ]
