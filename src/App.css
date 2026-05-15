@@ -1716,6 +1716,29 @@ footer {
 .map-section {
   border-top: 1px solid var(--border);
 }
+
+/* Banda separadora oscura */
+.map-location-band {
+  background: #1c1510;
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.map-band-text {
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.map-band-dot {
+  color: var(--gold);
+  font-size: 7px;
+  opacity: 0.7;
+}
+
 .map-wrapper {
   position: relative;
 }
