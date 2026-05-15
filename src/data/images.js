@@ -5,82 +5,87 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
-import imgDuero           from '../assets/images/Duero.jpg'
-import imgVinas           from '../assets/images/Viñas.jpg'
+import imgDuero from "../assets/images/Duero.jpg";
+import imgVinas from "../assets/images/Viñas.jpg";
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
-import imgJose            from '../assets/images/Jose.JPG'
-import imgLiliana         from '../assets/images/LilianaCoche.png'
-import imgLuisfer         from '../assets/images/Luisfer.JPG'
+import imgJose from "../assets/images/Jose.JPG";
+import imgLiliana from "../assets/images/LilianaCoche.png";
+import imgLuisfer from "../assets/images/Luisfer.JPG";
 
 // ── Nosotros / Medios ─────────────────────────────────────────────
-import imgRobertParker    from '../assets/images/robert-winePeriodico.png'
-import imgTraveler        from '../assets/images/travelerPeriodico.png'
-import imgPenin           from '../assets/images/peninPeriodico.png'
-import imgElPais          from '../assets/images/el-paisPeriodico.png'
-import imgPlanetaVino     from '../assets/images/planeta-vinoPeriodico.png'
-import imgLaVanguardia    from '../assets/images/la-vanguardiaPeriodico.jpg'
-import imgSobremesa       from '../assets/images/sobremesaPeriodico.png'
-import imgAbc             from '../assets/images/abcPeriodico.jpg'
-import imgSpanishWine     from '../assets/images/spanish-winePeriodico.png'
-import imgHola            from '../assets/images/holaPeriodico.jpg'
+import imgRobertParker from "../assets/images/robert-winePeriodico.png";
+import imgTraveler from "../assets/images/travelerPeriodico.png";
+import imgPenin from "../assets/images/peninPeriodico.png";
+import imgElPais from "../assets/images/el-paisPeriodico.png";
+import imgPlanetaVino from "../assets/images/planeta-vinoPeriodico.png";
+import imgLaVanguardia from "../assets/images/la-vanguardiaPeriodico.jpg";
+import imgSobremesa from "../assets/images/sobremesaPeriodico.png";
+import imgAbc from "../assets/images/abcPeriodico.jpg";
+import imgSpanishWine from "../assets/images/spanish-winePeriodico.png";
+import imgHola from "../assets/images/holaPeriodico.jpg";
+
+// ── Nosotros / Heroes ─────────────────────────────────────────────
+import imgNosotrosHero   from "../assets/images/NosotrosHero.jpg";
+import imgEquipoGrupo    from "../assets/images/EquipoGrupoJose.jpeg";
 
 // ── Bodega ────────────────────────────────────────────────────────
-import imgJoseConVina     from '../assets/images/JoseConViña.JPG'
+import imgBodegaVinaHero from "../assets/images/BodegaVinaHero.jpg";
+import imgJoseConVina    from "../assets/images/JoseConViña.JPG";
 
 // ── Tienda ────────────────────────────────────────────────────────
-import imgCotexaTumbada   from '../assets/images/CotexaTumbada.jpeg'
-import imgCotexa          from '../assets/images/Cotexa.png'
-import imgDeBuenaJera     from '../assets/images/DeBuenaJera.png'
-import imgEclecticoLias   from '../assets/images/EclecticoLias.png'
-import imgEclecticoBlanco from '../assets/images/EclecticoBlanco.png'
-import imgLi              from '../assets/images/Li.png'
-import imgOtroCuento      from '../assets/images/OtroCuento.png'
-import imgSinBlanca       from '../assets/images/SinBlanca.png'
+import imgCotexaTumbada from "../assets/images/CotexaTumbada.jpeg";
+import imgCotexa from "../assets/images/Cotexa.png";
+import imgDeBuenaJera from "../assets/images/DeBuenaJera.png";
+import imgEclecticoLias from "../assets/images/EclecticoLias.png";
+import imgEclecticoBlanco from "../assets/images/EclecticoBlanco.png";
+import imgLi from "../assets/images/Li.png";
+import imgOtroCuento from "../assets/images/OtroCuento.png";
+import imgSinBlanca from "../assets/images/SinBlanca.png";
 
 // ── Contacto ──────────────────────────────────────────────────────
-import imgContactoHero    from '../assets/images/LiJoseVeraCoche.jpg'
+import imgContactoHero from "../assets/images/LiJoseVeraCoche.jpg";
 
 // ── Páginas legales ───────────────────────────────────────────────
-import imgLogoArribes     from '../assets/images/LogoArribesPared.png'
-import imgLogoHato        from '../assets/images/LogoHatoPared.png'
+import imgLogoArribes from "../assets/images/LogoArribesPared.png";
+import imgLogoHato from "../assets/images/LogoHatoPared.png";
 
 // ═══════════════════════════════════════════════════════════════════
 
 export const IMAGES = {
   // ── HOME ( / ) ───────────────────────────────────────────────────
   home: {
-    hero:             "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg",
-    bodegaInterior:   imgDuero,
+    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg",
+    bodegaInterior: imgDuero,
     bodegaPanoramica: imgVinas,
   },
 
   // ── NOSOTROS ( /nosotros ) ────────────────────────────────────────
   nosotros: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/quienes-somos.jpg",
-    equipoGrupo: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/equipo-1024x819.jpeg",
+    hero: imgNosotrosHero,
+    equipoGrupo: imgEquipoGrupo,
     equipo: {
-      jose:    imgJose,
+      jose: imgJose,
       liliana: imgLiliana,
       luisfer: imgLuisfer,
     },
     medios: {
       robertParker: imgRobertParker,
-      traveler:     imgTraveler,
-      penin:        imgPenin,
-      elPais:       imgElPais,
-      planetaVino:  imgPlanetaVino,
+      traveler: imgTraveler,
+      penin: imgPenin,
+      elPais: imgElPais,
+      planetaVino: imgPlanetaVino,
       laVanguardia: imgLaVanguardia,
-      sobremesa:    imgSobremesa,
-      abc:          imgAbc,
-      spanishWine:  imgSpanishWine,
-      hola:         imgHola,
+      sobremesa: imgSobremesa,
+      abc: imgAbc,
+      spanishWine: imgSpanishWine,
+      hola: imgHola,
     },
   },
 
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
-    hero:  "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/bodega-vina.jpg",
+    hero: imgBodegaVinaHero,
     vinas: imgJoseConVina,
   },
 
@@ -88,13 +93,13 @@ export const IMAGES = {
   tienda: {
     hero: imgCotexaTumbada,
     vinos: {
-      cotexa:          imgCotexa,
-      deBuenaJera:     imgDeBuenaJera,
-      eclecticoLias:   imgEclecticoLias,
+      cotexa: imgCotexa,
+      deBuenaJera: imgDeBuenaJera,
+      eclecticoLias: imgEclecticoLias,
       eclecticoBarrica: imgEclecticoBlanco,
-      li:              imgLi,
-      otroCuento:      imgOtroCuento,
-      sinBlanca:       imgSinBlanca,
+      li: imgLi,
+      otroCuento: imgOtroCuento,
+      sinBlanca: imgSinBlanca,
     },
   },
 
@@ -117,4 +122,4 @@ export const IMAGES = {
   terminos: {
     hero: imgLogoHato,
   },
-}
+};
