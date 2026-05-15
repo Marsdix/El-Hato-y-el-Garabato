@@ -2294,28 +2294,117 @@ nav.scrolled .nav-controls button:hover {
 
 /* ─── TEMA OSCURO ─────────────────────────────────────────────────── */
 html[data-theme="dark"] {
-  --bg:        #0f0b07;
-  --bg-alt:    #1a1208;
-  --bg-dark:   #060402;
-  --text:      #e8dfd0;
-  --text-2:    #b8a898;
-  --text-3:    #7a6e62;
-  --gold-text: #c8a255;
-  --border:    rgba(200, 162, 85, 0.16);
+  /* Fondos cálidos — marrones oscuros diferenciados entre sí */
+  --bg:        #1d1510;   /* marrón oscuro base — cálido, no negro frío   */
+  --bg-alt:    #261b11;   /* secciones alternas — claramente diferente     */
+  --bg-dark:   #110c08;   /* elementos más profundos (quote, hero overlay) */
+
+  /* Texto — ivory cálido con buen contraste */
+  --text:      #f0e8d6;   /* ~12:1 sobre --bg  */
+  --text-2:    #c8b498;   /* ~6:1  — secundario legible                   */
+  --text-3:    #8c7c6a;   /* ~3.5:1 — hints y labels                      */
+
+  /* Dorado — un toque más luminoso para destacar sobre fondos oscuros */
+  --gold:      #c8a255;
+  --gold-text: #d4b068;
+
+  /* Borde — más visible en oscuro */
+  --border:    rgba(200, 162, 85, 0.2);
+
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ── Navbar ── */
 html[data-theme="dark"] nav.scrolled {
-  background: rgba(12, 8, 4, 0.97);
+  background: rgba(20, 13, 8, 0.97);
+  backdrop-filter: blur(12px);
 }
 
+/* ── Footer (hardcoded en claro) ── */
+html[data-theme="dark"] footer {
+  background: #110c08;
+  border-top-color: rgba(200, 162, 85, 0.12);
+}
+
+/* ── Quote section ── */
+html[data-theme="dark"] .quote-section {
+  background: #110c08;
+}
+
+/* ── Banda del mapa ── */
+html[data-theme="dark"] .map-location-band {
+  background: #110c08;
+}
+
+/* ── Press ticker ── */
+html[data-theme="dark"] .press {
+  background: var(--bg-alt);
+}
+
+/* ── Logos de medios (hover) ── */
+html[data-theme="dark"] .medio-logo:hover,
+html[data-theme="dark"] .medio-logo--link:hover {
+  background: rgba(200, 162, 85, 0.1);
+}
+html[data-theme="dark"] .medio-logo img {
+  filter: grayscale(1) opacity(0.5) invert(0.1);
+}
+
+/* ── Formulario de contacto ── */
 html[data-theme="dark"] input,
 html[data-theme="dark"] textarea,
 html[data-theme="dark"] select {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text);
   border-color: var(--border);
 }
 html[data-theme="dark"] input::placeholder,
 html[data-theme="dark"] textarea::placeholder {
   color: var(--text-3);
+}
+
+/* ── Tarjetas de maridaje ── */
+html[data-theme="dark"] .maridaje-card {
+  background: var(--bg-alt);
+}
+
+/* ── Chip de filtro activo ── */
+html[data-theme="dark"] .maridaje-chip.active {
+  background: var(--gold);
+  color: #1c1510;
+  border-color: var(--gold);
+}
+
+/* ── Variedad tags y otros chips pequeños ── */
+html[data-theme="dark"] .variedad-tag,
+html[data-theme="dark"] .maridaje-tag {
+  background: rgba(200, 162, 85, 0.12);
+  border-color: rgba(200, 162, 85, 0.25);
+}
+
+/* ── Botón "Ver vídeo" ── */
+html[data-theme="dark"] .maridaje-btn-video {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Tarjetas tienda ── */
+html[data-theme="dark"] .tienda-card-body {
+  background: var(--bg);
+}
+
+/* ── Legal cards ── */
+html[data-theme="dark"] .legal-card {
+  background: var(--bg-alt);
+  border-color: var(--border);
+}
+
+/* ── Social footer ── */
+html[data-theme="dark"] .footer-social a {
+  border-color: rgba(200, 162, 85, 0.15);
+  color: rgba(255, 255, 255, 0.3);
+}
+html[data-theme="dark"] .footer-social a:hover {
+  color: var(--gold);
+  border-color: rgba(200, 162, 85, 0.5);
+  background: rgba(200, 162, 85, 0.07);
 }
