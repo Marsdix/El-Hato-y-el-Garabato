@@ -6,8 +6,8 @@ import { useEffect, useRef } from 'react'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 
-const LAT  = 41.320
-const LNG  = -6.385
+const LAT  = 41.3471546
+const LNG  = -6.2911369
 const ZOOM = 15
 
 export default function MapSection() {
