@@ -5,6 +5,7 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
+import imgHomeHero from "../assets/images/HomeHero.jpg";
 import imgDuero from "../assets/images/Duero.jpg";
 import imgVinas from "../assets/images/Viñas.jpg";
 
@@ -43,6 +44,9 @@ import imgLi from "../assets/images/Li.png";
 import imgOtroCuento from "../assets/images/OtroCuento.png";
 import imgSinBlanca from "../assets/images/SinBlanca.png";
 
+// ── Visita ────────────────────────────────────────────────────────
+import imgVisitaHero from "../assets/images/VisitaHero.jpg";
+
 // ── Contacto ──────────────────────────────────────────────────────
 import imgContactoHero from "../assets/images/LiJoseVeraCoche.jpg";
 
@@ -55,7 +59,7 @@ import imgLogoHato from "../assets/images/LogoHatoPared.png";
 export const IMAGES = {
   // ── HOME ( / ) ───────────────────────────────────────────────────
   home: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/06/slider-home.jpeg",
+    hero: imgHomeHero,
     bodegaInterior: imgDuero,
     bodegaPanoramica: imgVinas,
   },
@@ -111,7 +115,7 @@ export const IMAGES = {
 
   // ── VISITA ( /visita ) ────────────────────────────────────────────
   visita: {
-    hero: "https://elhatoyelgarabato.com/wp-content/uploads/2024/09/DSC_6673-1.jpg",
+    hero: imgVisitaHero,
   },
 
   // ── CONTACTO ( /contacto ) ────────────────────────────────────────

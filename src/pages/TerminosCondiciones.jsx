@@ -1,11 +1,9 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import TerminosSection from '../components/sections/TerminosSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
 
 export default function TerminosCondiciones() {
-  useScrollReveal()
   const { t } = useLanguage()
 
   return (

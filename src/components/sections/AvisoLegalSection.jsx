@@ -156,6 +156,8 @@ const SECTIONS = [
   },
 ];
 
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
+
 export default function AvisoLegalSection() {
   return (
     <section className="legal-section">
@@ -165,17 +167,17 @@ export default function AvisoLegalSection() {
         Si no está de acuerdo con alguna de ellas, le rogamos que se abstenga de
         utilizar este portal.
       </p>
-      <div className="legal-cards">
+      <StaggerList className="legal-cards" as="div" amount={0.1}>
         {SECTIONS.map(({ num, title, content }) => (
-          <div key={num} className="legal-card reveal">
+          <StaggerItem key={num} className="legal-card" as="div">
             <div className="legal-card-header">
               <span className="legal-card-num">{num}</span>
               <h3 className="legal-card-title">{title}</h3>
             </div>
             <div className="legal-card-body">{content}</div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerList>
     </section>
   );
 }

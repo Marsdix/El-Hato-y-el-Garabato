@@ -1,11 +1,9 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import AvisoLegalSection from '../components/sections/AvisoLegalSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
 
 export default function AvisoLegal() {
-  useScrollReveal()
   const { t } = useLanguage()
 
   return (

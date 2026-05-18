@@ -172,6 +172,8 @@ const SECTIONS = [
   },
 ]
 
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
+
 export default function TerminosSection() {
   return (
     <section className="legal-section">
@@ -180,17 +182,17 @@ export default function TerminosSection() {
         El Hato y el Garabato y los usuarios que utilicen este portal o contraten sus productos.
         La utilización del portal supone la aceptación sin reservas de todas y cada una de estas condiciones.
       </p>
-      <div className="legal-cards">
+      <StaggerList className="legal-cards" as="div" amount={0.1}>
         {SECTIONS.map(({ num, title, content }) => (
-          <div key={num} className="legal-card reveal">
+          <StaggerItem key={num} className="legal-card" as="div">
             <div className="legal-card-header">
               <span className="legal-card-num">{num}</span>
               <h3 className="legal-card-title">{title}</h3>
             </div>
             <div className="legal-card-body">{content}</div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerList>
     </section>
   )
 }
