@@ -35,9 +35,9 @@ export const staggerItem = {
 // ─── Page transitions ────────────────────────────────────────────
 
 export const pageVariants = {
-  initial: { opacity: 0, x: 60 },
-  enter:   { opacity: 1, x: 0,   transition: { duration: 0.42, ease: EASE_OUT } },
-  exit:    { opacity: 0, x: -60, transition: { duration: 0.28, ease: EASE_OUT } },
+  initial: { opacity: 0, x: 120 },
+  enter:   { opacity: 1, x: 0,    transition: { duration: 0.45, ease: EASE_OUT } },
+  exit:    { opacity: 0, x: -120, transition: { duration: 0.3,  ease: EASE_OUT } },
 }
 
 export const pageVariantsReduced = {

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useEffect } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const TITLE_1 = 'EL HATO'
 const TITLE_2 = 'Y EL GARABATO'
@@ -38,83 +38,67 @@ function LetterSpan({ char, prefersReduced }) {
 
 export default function SplashScreen({ onComplete }) {
   const prefersReduced = useReducedMotion()
-  const [canExit, setCanExit] = useState(false)
-  const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
-    let done = false
+    let cancelled = false
 
     const minTimer = new Promise(res => setTimeout(res, MIN_DURATION))
     const preload  = Promise.all(PAGES.map(fn => fn().catch(() => {})))
 
     Promise.all([minTimer, preload]).then(() => {
-      if (!done) {
-        done = true
-        setCanExit(true)
-      }
+      if (!cancelled) onComplete()
     })
 
-    return () => { done = true }
-  }, [])
-
-  useEffect(() => {
-    if (canExit && !exiting) {
-      setExiting(true)
-    }
-  }, [canExit, exiting])
+    return () => { cancelled = true }
+  }, [onComplete])
 
   const containerVariants = prefersReduced
     ? {}
     : { hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } } }
 
   return (
-    <AnimatePresence onExitComplete={onComplete}>
-      {!exiting && (
+    <motion.div
+      className="splash-screen"
+      initial={{ opacity: 1 }}
+      exit={
+        prefersReduced
+          ? { opacity: 0, transition: { duration: 0.3 } }
+          : { clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } }
+      }
+    >
+      <div className="splash-content">
         <motion.div
-          key="splash"
-          className="splash-screen"
-          initial={{ opacity: 1 }}
-          exit={
-            prefersReduced
-              ? { opacity: 0, transition: { duration: 0.3 } }
-              : { clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } }
-          }
+          className="splash-title-1"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <div className="splash-content">
-            <motion.div
-              className="splash-title-1"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {TITLE_1.split('').map((char, i) => (
-                <LetterSpan key={i} char={char} prefersReduced={prefersReduced} />
-              ))}
-            </motion.div>
-
-            <div className="splash-divider" />
-
-            <motion.div
-              className="splash-title-2"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {TITLE_2.split('').map((char, i) => (
-                <LetterSpan key={i} char={char} prefersReduced={prefersReduced} />
-              ))}
-            </motion.div>
-
-            <motion.p
-              className="splash-sub"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { delay: 0.9, duration: 0.6 } }}
-            >
-              Bodega · Valdeorras
-            </motion.p>
-          </div>
+          {TITLE_1.split('').map((char, i) => (
+            <LetterSpan key={i} char={char} prefersReduced={prefersReduced} />
+          ))}
         </motion.div>
-      )}
-    </AnimatePresence>
+
+        <div className="splash-divider" />
+
+        <motion.div
+          className="splash-title-2"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {TITLE_2.split('').map((char, i) => (
+            <LetterSpan key={i} char={char} prefersReduced={prefersReduced} />
+          ))}
+        </motion.div>
+
+        <motion.p
+          className="splash-sub"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.9, duration: 0.6 } }}
+        >
+          Bodega · Artesanal
+        </motion.p>
+      </div>
+    </motion.div>
   )
 }

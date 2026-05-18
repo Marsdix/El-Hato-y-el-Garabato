@@ -8,11 +8,13 @@ import { LanguageProvider } from './context/LanguageContext'
 
 function AppWithSplash() {
   const [splashDone, setSplashDone] = useState(
-    () => !!sessionStorage.getItem('splash_shown')
+    () => !import.meta.env.DEV && !!sessionStorage.getItem('splash_shown')
   )
 
   function handleSplashComplete() {
-    sessionStorage.setItem('splash_shown', '1')
+    if (!import.meta.env.DEV) {
+      sessionStorage.setItem('splash_shown', '1')
+    }
     setSplashDone(true)
   }
 
