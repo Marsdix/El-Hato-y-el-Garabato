@@ -1,7 +1,9 @@
 import { BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
+import ScrollReveal from '../ui/ScrollReveal'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
+import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function Intro() {
   const { t } = useLanguage()
@@ -9,7 +11,7 @@ export default function Intro() {
   return (
     <section className="section" id="bodega">
       <div className="intro">
-        <div className="intro-image reveal-left">
+        <ScrollReveal variant={fadeLeft} className="intro-image" amount={0.15}>
           <img
             src={IMAGES.home.bodegaInterior}
             alt={t('intro.img.alt')}
@@ -18,9 +20,9 @@ export default function Intro() {
             <strong>100</strong>
             <span>{t('intro.stat')}</span>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="intro-text reveal-right">
+        <ScrollReveal variant={fadeRight} className="intro-text" amount={0.15}>
           <div className="divider" />
           <p className="section-label">{t('intro.label')}</p>
           <h2>
@@ -33,7 +35,7 @@ export default function Intro() {
           <BtnGhost to="/bodega" style={{ marginTop: 12 }}>
             {t('intro.cta')} <ArrowRight />
           </BtnGhost>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

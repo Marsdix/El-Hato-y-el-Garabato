@@ -1,0 +1,79 @@
+<h2>¿Cómo debe ser la pantalla de bienvenida?</h2>
+<p class="subtitle">Lo primero que ve el visitante mientras la página carga en segundo plano. Dura ~1.5–2 segundos.</p>
+
+<div class="cards">
+
+  <!-- Opción A: Nombre + línea de progreso -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#2d1a14; height:190px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; position:relative; overflow:hidden;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+        <div style="font-family:Georgia,serif; font-size:0.65rem; color:#c8a255; letter-spacing:0.35em; text-transform:uppercase;">El Hato</div>
+        <div style="width:24px; height:1px; background:rgba(200,162,85,0.4);"></div>
+        <div style="font-family:Georgia,serif; font-size:0.65rem; color:#c8a255; letter-spacing:0.35em; text-transform:uppercase;">y el Garabato</div>
+      </div>
+      <!-- Barra de progreso -->
+      <div style="width:80px; height:1px; background:rgba(200,162,85,0.2); position:relative;">
+        <div style="position:absolute; left:0; top:0; height:100%; width:65%; background:#c8a255; transition:width 1.5s;"></div>
+      </div>
+      <div style="font-size:0.45rem; color:rgba(200,162,85,0.4); letter-spacing:0.2em;">BODEGA · VALDEORRAS</div>
+      <div style="position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(to right, transparent, rgba(200,162,85,0.2), transparent);"></div>
+    </div>
+    <div class="card-body">
+      <h3>A · Nombre + línea de progreso</h3>
+      <p>Fondo oscuro de bodega, nombre en Cinzel dorado, y una fina línea que avanza mientras carga. Minimalista, elegante. Sale con un fade.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy limpio · ✓ Rápido de implementar · ✓ No distrae</p>
+    </div>
+  </div>
+
+  <!-- Opción B: Letras que se revelan -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1c1510; height:190px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; position:relative; overflow:hidden;">
+      <!-- Letras con distintas opacidades simulando reveal secuencial -->
+      <div style="display:flex; gap:2px;">
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:1; letter-spacing:0.05em;">E</span>
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:1; letter-spacing:0.05em;">L</span>
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:0.9; letter-spacing:0.05em; margin-left:4px;">H</span>
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:0.7; letter-spacing:0.05em;">A</span>
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:0.5; letter-spacing:0.05em;">T</span>
+        <span style="font-family:Georgia,serif; font-size:1.1rem; color:#c8a255; opacity:0.3; letter-spacing:0.05em;">O</span>
+      </div>
+      <div style="width:30px; height:1px; background:rgba(200,162,85,0.4); margin:4px 0;"></div>
+      <div style="display:flex; gap:2px;">
+        <span style="font-family:Georgia,serif; font-size:0.7rem; color:rgba(200,162,85,0.6); letter-spacing:0.12em;">Y EL GARABATO</span>
+      </div>
+      <div style="position:absolute; bottom:16px; font-size:0.45rem; color:rgba(200,162,85,0.3); letter-spacing:0.25em;">· · ·</div>
+    </div>
+    <div class="card-body">
+      <h3>B · Letras que aparecen una a una</h3>
+      <p>El nombre se va escribiendo letra a letra con un stagger suave. Atrae la atención y da sensación de artesanía y detalle. Sale con slide hacia arriba.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy memorable · ✓ Acorde al carácter de bodega · ○ Un poco más complejo</p>
+    </div>
+  </div>
+
+  <!-- Opción C: Imagen + cortina -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="height:190px; position:relative; overflow:hidden; background:#1a110c;">
+      <!-- Imagen simulada de viñedo -->
+      <div style="position:absolute; inset:0; background:linear-gradient(135deg, #2d1a14 0%, #1a110c 40%, #2d2010 70%, #1c1208 100%); opacity:0.9;"></div>
+      <!-- Textura orgánica simulada -->
+      <div style="position:absolute; inset:0; background:repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,162,85,0.02) 20px, rgba(200,162,85,0.02) 21px);"></div>
+      <!-- Overlay con contenido -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+        <div style="font-family:Georgia,serif; font-size:0.55rem; color:rgba(200,162,85,0.6); letter-spacing:0.4em; text-transform:uppercase;">Bienvenido a</div>
+        <div style="font-family:Georgia,serif; font-size:0.9rem; color:#c8a255; letter-spacing:0.15em; text-align:center; line-height:1.4;">El Hato<br><span style="font-size:0.6rem; letter-spacing:0.3em;">y el Garabato</span></div>
+      </div>
+      <!-- Cortina que sube -->
+      <div style="position:absolute; bottom:0; left:0; right:0; height:35%; background:linear-gradient(to top, #1c1510, transparent);"></div>
+    </div>
+    <div class="card-body">
+      <h3>C · Fondo oscuro texturizado + cortina de salida</h3>
+      <p>Fondo con textura cálida de bodega, nombre centrado, y al terminar una cortina sube revelando la página real debajo. Muy cinematográfico.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Gran impacto · ✓ Conecta con la identidad visual · ○ Más tiempo de pantalla</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem; font-size:0.85rem;">
+  ⚡ Las 3 opciones precargan todas las páginas en segundo plano con <code>import()</code> mientras se muestran. El visitante solo lo ve una vez (sesión).
+</p>

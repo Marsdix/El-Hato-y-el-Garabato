@@ -1,6 +1,8 @@
 import { BtnPrimary } from '../ui/Button'
+import ScrollReveal from '../ui/ScrollReveal'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
+import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function EquipoSection() {
   const { t } = useLanguage()
@@ -8,7 +10,7 @@ export default function EquipoSection() {
   return (
     <section className="equipo-section" id="equipo">
       <div className="equipo-inner">
-        <div className="equipo-text reveal-left">
+        <ScrollReveal variant={fadeLeft} className="equipo-text" amount={0.15}>
           <div className="divider" />
           <p className="section-label">{t('equipo.label')}</p>
           <h2>
@@ -23,14 +25,14 @@ export default function EquipoSection() {
             ))}
           </ul>
           <BtnPrimary to="/nosotros">{t('equipo.cta')}</BtnPrimary>
-        </div>
+        </ScrollReveal>
 
-        <div className="equipo-image reveal-right">
+        <ScrollReveal variant={fadeRight} className="equipo-image" amount={0.15}>
           <img
             src={IMAGES.nosotros.equipoGrupo}
             alt={t('equipo.img.alt')}
           />
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

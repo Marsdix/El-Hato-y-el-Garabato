@@ -1,0 +1,67 @@
+<h2>¿Quieres un indicador de secciones visible?</h2>
+<p class="subtitle">El elemento que "guía" al visitante — le dice dónde está y que hay más por descubrir.</p>
+
+<div class="cards">
+
+  <!-- Opción A: Sin indicador -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; height:170px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+      <div style="display:flex; flex-direction:column; gap:8px; width:80%;">
+        <div style="height:32px; background:#f0e8d8; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#5a4f48; letter-spacing:0.12em;">SECCIÓN 1</div>
+        <div style="height:32px; background:#faf8f3; border:1px solid rgba(100,70,40,0.1); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#9a9085; letter-spacing:0.12em; opacity:0.5; transform:translateY(6px);">SECCIÓN 2 — aparece sola</div>
+        <div style="height:32px; background:#faf8f3; border:1px dashed rgba(100,70,40,0.08); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#9a9085; letter-spacing:0.12em; opacity:0.25;">SECCIÓN 3</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Solo animaciones, sin indicador</h3>
+      <p>Nada extra en pantalla. Las secciones se van revelando solas al llegar al viewport. La experiencia es limpia y el foco va al contenido. El scroll natural basta.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Más limpio · ✓ Sin distracciones · ✓ Menos código</p>
+    </div>
+  </div>
+
+  <!-- Opción B: Puntos laterales (desktop) -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; height:170px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+      <div style="display:flex; flex-direction:column; gap:8px; width:75%;">
+        <div style="height:32px; background:#f0e8d8; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#5a4f48; letter-spacing:0.12em;">SECCIÓN 1</div>
+        <div style="height:32px; background:#faf8f3; border:1px solid rgba(100,70,40,0.1); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#9a9085; letter-spacing:0.12em; opacity:0.5;">SECCIÓN 2</div>
+        <div style="height:32px; background:#faf8f3; border:1px dashed rgba(100,70,40,0.08); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#9a9085; letter-spacing:0.12em; opacity:0.3;">SECCIÓN 3</div>
+      </div>
+      <!-- Puntos laterales -->
+      <div style="position:absolute; right:12px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:7px; align-items:center;">
+        <div style="width:7px; height:7px; border-radius:50%; background:#c8a255; box-shadow:0 0 0 2px rgba(200,162,85,0.2);"></div>
+        <div style="width:5px; height:5px; border-radius:50%; border:1.5px solid rgba(200,162,85,0.5);"></div>
+        <div style="width:5px; height:5px; border-radius:50%; border:1.5px solid rgba(200,162,85,0.3);"></div>
+        <div style="width:5px; height:5px; border-radius:50%; border:1.5px solid rgba(200,162,85,0.2);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · Puntos de navegación laterales</h3>
+      <p>Pequeños puntos dorados en el lateral derecho (solo en desktop). El punto activo se ilumina según la sección visible. Se pueden clicar para saltar directamente.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Orientación clara · ✓ Elegante en desktop · ○ Oculto en móvil (muy bien)</p>
+    </div>
+  </div>
+
+  <!-- Opción C: Barra de progreso top -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; height:170px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+      <!-- Barra progreso top -->
+      <div style="position:absolute; top:0; left:0; right:0; height:2px; background:rgba(100,70,40,0.1);">
+        <div style="height:100%; width:35%; background:linear-gradient(to right, #c8a255, #8a6510);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; width:80%; margin-top:8px;">
+        <div style="height:32px; background:#f0e8d8; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#5a4f48; letter-spacing:0.12em;">SECCIÓN 1 ✓</div>
+        <div style="height:32px; background:#faf8f3; border:1px solid rgba(100,70,40,0.14); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#1c1510; letter-spacing:0.12em;">SECCIÓN 2 ← aquí</div>
+        <div style="height:32px; background:#faf8f3; border:1px dashed rgba(100,70,40,0.08); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#9a9085; letter-spacing:0.12em; opacity:0.4;">SECCIÓN 3</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · Barra de progreso en la parte superior</h3>
+      <p>Una línea dorada fina que crece a lo largo del borde superior de la pantalla mientras bajas. El visitante ve cuánto le queda de página. Funciona en móvil y desktop.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Funciona en móvil · ✓ Muy sutil · ✓ CSS puro (sin JS extra)</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem; font-size:0.85rem;">💡 B y C se pueden combinar — puntos en desktop + barra en móvil.</p>

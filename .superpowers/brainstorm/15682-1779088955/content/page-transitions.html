@@ -1,0 +1,72 @@
+<h2>¿Qué carácter quieres para las transiciones entre páginas?</h2>
+<p class="subtitle">Cuando el visitante navega de Inicio → Tienda → Visita, ¿cómo debería sentirse ese cambio?</p>
+
+<div class="cards">
+
+  <!-- Opción A: Fade suave -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; display:flex; align-items:center; justify-content:center; height:160px; font-family:Georgia,serif; position:relative; overflow:hidden;">
+      <div style="display:flex; gap:0; width:100%; height:100%;">
+        <div style="flex:1; background:#faf8f3; display:flex; align-items:center; justify-content:center; color:#1c1510; font-size:0.75rem; letter-spacing:0.1em; opacity:0.3;">INICIO</div>
+        <div style="width:2px; background:linear-gradient(to bottom, transparent, #c8a255, transparent);"></div>
+        <div style="flex:1; background:#faf8f3; display:flex; align-items:center; justify-content:center; color:#1c1510; font-size:0.75rem; letter-spacing:0.1em; opacity:0.9;">TIENDA</div>
+      </div>
+      <div style="position:absolute; bottom:12px; width:100%; text-align:center; font-size:0.6rem; color:#9a9085; letter-spacing:0.15em;">opacity: 0 → 1 · 500ms</div>
+    </div>
+    <div class="card-body">
+      <h3>A · Fade Clásico</h3>
+      <p>La página actual desaparece suavemente y la nueva aparece en su lugar. Elegante, sin distracciones. La atención va al contenido, no al movimiento.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy elegante · ✓ Fácil de implementar · Neutral (no tiene dirección)</p>
+    </div>
+  </div>
+
+  <!-- Opción B: Cortina vertical -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; display:flex; align-items:center; justify-content:center; height:160px; font-family:Georgia,serif; position:relative; overflow:hidden;">
+      <div style="position:absolute; left:0; top:0; width:55%; height:100%; background:#2d1a14; display:flex; align-items:center; justify-content:center; color:#c8a255; font-size:0.65rem; letter-spacing:0.15em;">CORTINA</div>
+      <div style="position:absolute; right:0; top:0; width:45%; height:100%; background:#faf8f3; display:flex; align-items:center; justify-content:center; color:#1c1510; font-size:0.65rem; letter-spacing:0.1em; opacity:0.6;">NUEVA</div>
+      <div style="position:absolute; bottom:12px; width:100%; text-align:center; font-size:0.6rem; color:#9a9085; letter-spacing:0.15em; z-index:10;">clip-path sweep · 700ms</div>
+    </div>
+    <div class="card-body">
+      <h3>B · Cortina Oscura</h3>
+      <p>Una cortina del color de la bodega (marrón oscuro) cubre la pantalla, luego se retira revelando la nueva página. Da sensación de teatro y profundidad.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy impactante · ✓ Acorde a bodega · ○ Más lento (700-900ms)</p>
+    </div>
+  </div>
+
+  <!-- Opción C: Slide horizontal -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f0e8d8; display:flex; align-items:center; justify-content:center; height:160px; font-family:Georgia,serif; position:relative; overflow:hidden;">
+      <div style="display:flex; width:100%; height:100%;">
+        <div style="flex:1; background:#faf8f3; display:flex; align-items:center; justify-content:center; color:#5a4f48; font-size:0.65rem; letter-spacing:0.1em; transform:translateX(-15px); opacity:0.4;">← INICIO</div>
+        <div style="flex:1; background:#f0e8d8; display:flex; align-items:center; justify-content:center; color:#1c1510; font-size:0.65rem; letter-spacing:0.1em; border-left:1px solid rgba(100,70,40,0.14);">TIENDA →</div>
+      </div>
+      <div style="position:absolute; bottom:12px; width:100%; text-align:center; font-size:0.6rem; color:#9a9085; letter-spacing:0.15em;">translateX · 500ms ease-out</div>
+    </div>
+    <div class="card-body">
+      <h3>C · Slide Horizontal</h3>
+      <p>Las páginas se deslizan como páginas de un libro — la actual sale por la izquierda mientras la nueva entra por la derecha. Da sensación de navegación espacial.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Sentido de orientación · ○ Puede chocar con scroll horizontal · ○ Más agresivo</p>
+    </div>
+  </div>
+
+  <!-- Opción D: Fade + escala sutil -->
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; display:flex; align-items:center; justify-content:center; height:160px; font-family:Georgia,serif; position:relative; overflow:hidden;">
+      <div style="display:flex; gap:20px; width:100%; padding:0 20px; align-items:center; justify-content:center;">
+        <div style="width:80px; height:100px; background:#f0e8d8; border:1px solid rgba(100,70,40,0.14); display:flex; align-items:center; justify-content:center; transform:scale(0.85); opacity:0.3; font-size:0.6rem; color:#5a4f48; letter-spacing:0.08em;">SALIENDO</div>
+        <div style="color:#c8a255; font-size:1rem;">→</div>
+        <div style="width:80px; height:100px; background:#faf8f3; border:1px solid rgba(100,70,40,0.2); display:flex; align-items:center; justify-content:center; transform:scale(1); font-size:0.6rem; color:#1c1510; letter-spacing:0.08em;">ENTRANDO</div>
+      </div>
+      <div style="position:absolute; bottom:12px; width:100%; text-align:center; font-size:0.6rem; color:#9a9085; letter-spacing:0.15em;">scale(0.97) + fade · 450ms</div>
+    </div>
+    <div class="card-body">
+      <h3>D · Fade + Escala Sutil</h3>
+      <p>La página saliente se encoge ligeramente al desaparecer, la entrante crece desde 97% a 100%. Efecto refinado, moderno, sin agresividad.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy moderno · ✓ Rápido (450ms) · ✓ Equilibrio elegancia/dinamismo</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem; font-size:0.85rem;">💡 Puedes combinar: por ejemplo, Cortina al entrar + Fade al salir. Dímelo en el terminal.</p>

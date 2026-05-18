@@ -5,6 +5,8 @@
 //   3. Cambiar el <form> a: <form action={`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`} method="POST">
 
 import { useLanguage } from '../../hooks/useLanguage'
+import ScrollReveal from '../ui/ScrollReveal'
+import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function ContactoSection() {
   const { t } = useLanguage()
@@ -12,7 +14,7 @@ export default function ContactoSection() {
   return (
     <section className="contacto-section" id="contacto">
       <div className="contacto-inner">
-        <div className="contacto-left reveal-left">
+        <ScrollReveal variant={fadeLeft} className="contacto-left" amount={0.15}>
           <div className="divider" />
           <p className="section-label">{t('contacto.label')}</p>
           <h2>{t('contacto.title.1')}<br />{t('contacto.title.2')} <em>{t('contacto.title.em')}</em></h2>
@@ -32,9 +34,9 @@ export default function ContactoSection() {
               <p>{t('contacto.address.value')}</p>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="contacto-right reveal-right">
+        <ScrollReveal variant={fadeRight} className="contacto-right" amount={0.15}>
           <p className="section-label">{t('contacto.form.label')}</p>
           <form>
             <div className="form-row">
@@ -55,7 +57,7 @@ export default function ContactoSection() {
               {t('contacto.form.submit')}
             </button>
           </form>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

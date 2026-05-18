@@ -1,6 +1,8 @@
 import { BtnPrimary } from '../ui/Button'
+import ScrollReveal from '../ui/ScrollReveal'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
+import { fadeRight } from '../../animations/variants'
 
 export default function BodegaFullwidth() {
   const { t } = useLanguage()
@@ -10,7 +12,7 @@ export default function BodegaFullwidth() {
       <div className="bodega-bg" style={{ backgroundImage: `url(${IMAGES.home.bodegaPanoramica})` }} />
       <div className="bodega-vignette" />
 
-      <div className="bodega-content reveal-right">
+      <ScrollReveal variant={fadeRight} className="bodega-content" amount={0.2}>
         <p className="section-label">{t('bodega.fw.label')}</p>
         <h2>
           {t('bodega.fw.title.1')}<br />
@@ -33,7 +35,7 @@ export default function BodegaFullwidth() {
           </div>
         </div>
         <BtnPrimary to="/bodega">{t('bodega.fw.cta')}</BtnPrimary>
-      </div>
+      </ScrollReveal>
     </div>
   )
 }

@@ -1,4 +1,6 @@
 import { BtnPrimary } from '../ui/Button'
+import ScrollReveal from '../ui/ScrollReveal'
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import { useLanguage } from '../../hooks/useLanguage'
 
 const OPCIONES = [
@@ -13,24 +15,28 @@ export default function VisitaSection() {
   return (
     <section className="visita-section" id="visita">
       <div className="visita-inner">
-        <div className="divider reveal" />
-        <p className="section-label reveal">{t('visita.label')}</p>
-        <h2 className="reveal">{t('visita.title')}<br /><em>{t('visita.title.em')}</em></h2>
-        <p className="reveal">{t('visita.desc')}</p>
-        <div className="visita-options reveal">
+        <ScrollReveal amount={0.2}>
+          <div className="divider" />
+          <p className="section-label">{t('visita.label')}</p>
+          <h2>{t('visita.title')}<br /><em>{t('visita.title.em')}</em></h2>
+          <p>{t('visita.desc')}</p>
+        </ScrollReveal>
+
+        <StaggerList className="visita-options" as="div" amount={0.15}>
           {OPCIONES.map(op => (
-            <div className="visita-option" key={op.num}>
+            <StaggerItem className="visita-option" as="div" key={op.num}>
               <span className="visita-option-num">{op.num}</span>
               <div className="visita-option-text">
                 <strong>{t(op.titleKey)}</strong>
                 <span>{t(op.descKey)}</span>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
-        <div className="reveal">
+        </StaggerList>
+
+        <ScrollReveal delay={0.15} amount={0.3}>
           <BtnPrimary to="/visita">{t('visita.cta')}</BtnPrimary>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -1,0 +1,68 @@
+<h2>¿Cómo debe comportarse el scroll dentro de cada página?</h2>
+<p class="subtitle">Esta es la decisión más importante para el "guided scroll". Define cómo la página lleva la vista del visitante.</p>
+
+<div class="cards">
+
+  <!-- Opción A: Scroll libre con reveals -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:0 20px; overflow:hidden; position:relative;">
+      <!-- Simulación de scroll con secciones que aparecen -->
+      <div style="width:90%; height:28px; background:#f0e8d8; border-radius:2px; display:flex; align-items:center; padding-left:10px; font-size:0.55rem; color:#1c1510; letter-spacing:0.1em; opacity:1;">HÉROE — visible</div>
+      <div style="width:90%; height:28px; background:#faf8f3; border:1px solid rgba(100,70,40,0.14); border-radius:2px; display:flex; align-items:center; padding-left:10px; font-size:0.55rem; color:#5a4f48; letter-spacing:0.1em; transform:translateY(6px); opacity:0.4; transition:all 0.5s;">VINOS — apareciendo…</div>
+      <div style="width:90%; height:28px; background:#faf8f3; border:1px dashed rgba(100,70,40,0.14); border-radius:2px; display:flex; align-items:center; padding-left:10px; font-size:0.55rem; color:#9a9085; letter-spacing:0.1em; opacity:0.2;">BODEGA — más abajo</div>
+      <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:3px; align-items:center;">
+        <div style="width:3px; height:40px; background:linear-gradient(to bottom, #c8a255, transparent); border-radius:2px;"></div>
+        <div style="font-size:0.45rem; color:#9a9085; letter-spacing:0.1em; writing-mode:vertical-rl;">SCROLL LIBRE</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Scroll libre + Reveals</h3>
+      <p>El visitante scrollea a su ritmo. Cada sección entra con animaciones (fade-up, clip-path, stagger) cuando llega al viewport. La página "guía" atrayendo los ojos al contenido nuevo.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Más natural · ✓ Funciona en móvil · ✓ No interrumpe el ritmo del usuario</p>
+    </div>
+  </div>
+
+  <!-- Opción B: Scroll snap por secciones -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1c1510; height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0; overflow:hidden; position:relative;">
+      <div style="width:100%; height:60px; background:#2d1a14; border-bottom:1px solid rgba(200,162,85,0.3); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:#c8a255; letter-spacing:0.2em;">HÉROE</div>
+      <div style="width:100%; height:60px; background:#1c1510; border-bottom:1px solid rgba(200,162,85,0.15); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:rgba(200,162,85,0.5); letter-spacing:0.2em;">NUESTROS VINOS</div>
+      <div style="width:100%; height:60px; background:#1a110c; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:rgba(200,162,85,0.25); letter-spacing:0.2em;">LA BODEGA</div>
+      <!-- Indicador snap -->
+      <div style="position:absolute; right:10px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:4px;">
+        <div style="width:6px; height:6px; border-radius:50%; background:#c8a255;"></div>
+        <div style="width:6px; height:6px; border-radius:50%; background:rgba(200,162,85,0.3);"></div>
+        <div style="width:6px; height:6px; border-radius:50%; background:rgba(200,162,85,0.15);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · Scroll Snap Fullscreen</h3>
+      <p>Cada sección ocupa toda la pantalla. Al scrollear, se hace "snap" automático a la siguiente sección completa, como si fuera una presentación. Muy impactante.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Muy cinematográfico · ○ Requiere rediseñar secciones · ✗ Complicado en móvil</p>
+    </div>
+  </div>
+
+  <!-- Opción C: Híbrido — snap suave en Hero + libre después -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#faf8f3; height:180px; display:flex; flex-direction:column; overflow:hidden; position:relative;">
+      <!-- Hero fullscreen -->
+      <div style="width:100%; height:90px; background:linear-gradient(to bottom, #2d1a14, #3d2218); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:#c8a255; letter-spacing:0.2em; position:relative;">
+        HÉROE — FULLSCREEN (snap)
+        <div style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); font-size:0.5rem; color:rgba(200,162,85,0.5); letter-spacing:0.1em;">↓ scroll para continuar</div>
+      </div>
+      <!-- Resto scroll libre -->
+      <div style="flex:1; background:#faf8f3; display:flex; flex-direction:column; gap:3px; padding:6px 16px; justify-content:center;">
+        <div style="height:16px; background:#f0e8d8; border-radius:2px; display:flex; align-items:center; padding-left:8px; font-size:0.5rem; color:#5a4f48; letter-spacing:0.08em;">VINOS — scroll libre con reveals</div>
+        <div style="height:16px; background:#faf8f3; border:1px solid rgba(100,70,40,0.1); border-radius:2px; display:flex; align-items:center; padding-left:8px; font-size:0.5rem; color:#9a9085; letter-spacing:0.08em; opacity:0.6;">BODEGA — scroll libre con reveals</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · Híbrido: Hero snap + scroll libre</h3>
+      <p>El héroe ocupa toda la pantalla con snap (impacto máximo al entrar). Después, el resto de la página usa scroll libre con animaciones por sección. Lo mejor de ambos mundos.</p>
+      <p style="font-size:0.78rem; color:#8a6510; margin-top:0.5rem;">✓ Gran primera impresión · ✓ Cómodo para explorar · ✓ Funciona bien en móvil</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem; font-size:0.85rem;">💡 Mi recomendación para una bodega elegante: <strong>C o A</strong>. La B es muy impactante pero dificulta que el usuario lea textos largos.</p>

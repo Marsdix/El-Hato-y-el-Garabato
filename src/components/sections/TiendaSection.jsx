@@ -1,4 +1,6 @@
 import ArrowRight from '../ui/ArrowRight'
+import ScrollReveal from '../ui/ScrollReveal'
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import { VINOS } from '../../data/vinos'
 import { useLanguage } from '../../hooks/useLanguage'
 
@@ -6,16 +8,16 @@ export default function TiendaSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="tienda-section">
-      <div className="tienda-header reveal">
+    <section className="tienda-section" id="tienda-catalogo">
+      <ScrollReveal className="tienda-header">
         <div className="divider" />
         <p className="section-label">{t('tienda.label')}</p>
         <h2>{t('tienda.title')} <em>{t('tienda.title.em')}</em></h2>
-      </div>
+      </ScrollReveal>
 
-      <div className="tienda-grid">
+      <StaggerList className="tienda-grid" as="div" amount={0.05}>
         {VINOS.map(vino => (
-          <article className="tienda-card reveal" key={vino.id}>
+          <StaggerItem className="tienda-card" as="article" key={vino.id}>
             <a
               href={vino.href}
               className="tienda-card-img-wrap"
@@ -45,9 +47,9 @@ export default function TiendaSection() {
                 </a>
               </div>
             </div>
-          </article>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerList>
     </section>
   )
 }

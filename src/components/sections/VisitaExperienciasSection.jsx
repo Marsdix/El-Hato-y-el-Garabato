@@ -1,4 +1,6 @@
 import { BtnPrimary } from '../ui/Button'
+import ScrollReveal from '../ui/ScrollReveal'
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import { EXPERIENCIAS, VISITA_INTRO } from '../../data/visitas'
 import { useLanguage } from '../../hooks/useLanguage'
 
@@ -6,22 +8,19 @@ export default function VisitaExperienciasSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="visita-experiencias-section">
-      <div className="visita-exp-header reveal">
+    <section className="visita-experiencias-section" id="visita-experiencias">
+      <ScrollReveal className="visita-exp-header">
         <div className="divider" />
         <p className="section-label">{t('visita.exp.label')}</p>
         <h2>{t('visita.exp.title')} <em>{t('visita.exp.title.em')}</em></h2>
         {VISITA_INTRO.map((p, i) => (
           <p key={i}>{t(p)}</p>
         ))}
-      </div>
+      </ScrollReveal>
 
-      <div className="visita-exp-grid">
-        {EXPERIENCIAS.map((exp, i) => (
-          <article
-            className={`visita-exp-card reveal reveal-delay-${i + 1}`}
-            key={exp.id}
-          >
+      <StaggerList className="visita-exp-grid" as="div" amount={0.05}>
+        {EXPERIENCIAS.map((exp) => (
+          <StaggerItem className="visita-exp-card" as="article" key={exp.id}>
             <p className="visita-exp-num">{exp.num}</p>
             <h3 className="visita-exp-titulo">{t(exp.titulo)}</h3>
             <p className="visita-exp-desc">{t(exp.descripcion)}</p>
@@ -38,9 +37,9 @@ export default function VisitaExperienciasSection() {
             </div>
 
             <BtnPrimary href={exp.href}>{t('visita.exp.reservar')}</BtnPrimary>
-          </article>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerList>
     </section>
   )
 }

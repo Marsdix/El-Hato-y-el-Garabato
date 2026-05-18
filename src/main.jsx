@@ -1,13 +1,35 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import { AnimatePresence } from 'framer-motion'
 import './App.css'
 import App from './App.jsx'
+import SplashScreen from './components/layout/SplashScreen'
 import { LanguageProvider } from './context/LanguageContext'
+
+function AppWithSplash() {
+  const [splashDone, setSplashDone] = useState(
+    () => !!sessionStorage.getItem('splash_shown')
+  )
+
+  function handleSplashComplete() {
+    sessionStorage.setItem('splash_shown', '1')
+    setSplashDone(true)
+  }
+
+  return (
+    <AnimatePresence mode="wait">
+      {!splashDone
+        ? <SplashScreen key="splash" onComplete={handleSplashComplete} />
+        : <App key="app" />
+      }
+    </AnimatePresence>
+  )
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LanguageProvider>
-      <App />
+      <AppWithSplash />
     </LanguageProvider>
   </StrictMode>
 )

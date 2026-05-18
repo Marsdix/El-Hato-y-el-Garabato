@@ -1,26 +1,27 @@
 import ArrowRight from '../ui/ArrowRight'
 import { BtnGhost } from '../ui/Button'
+import ScrollReveal from '../ui/ScrollReveal'
+import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import { VINOS } from '../../data/vinos'
 import { useLanguage } from '../../hooks/useLanguage'
 
 const FEATURED = VINOS.filter(v => v.featured)
-const DELAY_CLASS = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3']
 
 export default function VinosGrid() {
   const { t } = useLanguage()
 
   return (
     <section className="section vinos-section" id="vinos">
-      <div className="vinos-header reveal">
+      <ScrollReveal className="vinos-header">
         <h2>{t('vinos.title')}<br /><em>{t('vinos.title.em')}</em></h2>
         <BtnGhost to="/tienda">
           {t('vinos.cta')} <ArrowRight />
         </BtnGhost>
-      </div>
+      </ScrollReveal>
 
-      <div className="vinos-grid">
-        {FEATURED.map((vino, i) => (
-          <div className={`vino-card reveal ${DELAY_CLASS[i] ?? ''}`} key={vino.id}>
+      <StaggerList className="vinos-grid" as="div" amount={0.1}>
+        {FEATURED.map((vino) => (
+          <StaggerItem className="vino-card" key={vino.id} as="div">
             <div className="vino-card-inner">
               <img className="vino-card-img" src={vino.imagen} alt={vino.nombre} />
               <div className="vino-overlay" />
@@ -33,9 +34,9 @@ export default function VinosGrid() {
                 </a>
               </div>
             </div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerList>
     </section>
   )
 }

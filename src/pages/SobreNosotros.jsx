@@ -1,43 +1,44 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import { BtnPrimary, BtnGhost } from '../components/ui/Button'
+import ScrollReveal from '../components/ui/ScrollReveal'
+import { StaggerList, StaggerItem } from '../components/ui/StaggerList'
 import { EQUIPO } from '../data/equipo'
 import { MEDIOS } from '../data/medios'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { useRegisterSections } from '../context/SectionContext'
+import { fadeLeft, fadeRight } from '../animations/variants'
+
+const SECTIONS = [
+  { id: 'medios',  label: 'Medios' },
+  { id: 'equipo-nosotros', label: 'Equipo' },
+  { id: 'nosotros-cta',    label: 'Contacto' },
+]
 
 // ─── SECCIÓN MEDIOS ───────────────────────────────────────────────
 function MediosSection() {
   const { t } = useLanguage()
   return (
-    <section className="medios-section">
+    <section className="medios-section" id="medios">
       <div className="medios-inner">
-        <div className="medios-header reveal">
+        <ScrollReveal className="medios-header">
           <div className="divider" />
           <p className="section-label">{t('nosotros.medios.label')}</p>
           <h2>{t('nosotros.medios.title')} <em>{t('nosotros.medios.title.em')}</em></h2>
-        </div>
-        <div className="medios-grid reveal">
-          {MEDIOS.map(medio => {
-            const inner = <img src={medio.logo} alt={medio.nombre} loading="lazy" />
-            return medio.href ? (
-              <a
-                key={medio.nombre}
-                href={medio.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="medio-logo medio-logo--link"
-                title={medio.nombre}
-              >
-                {inner}
-              </a>
-            ) : (
-              <div key={medio.nombre} className="medio-logo" title={medio.nombre}>
-                {inner}
-              </div>
-            )
-          })}
-        </div>
+        </ScrollReveal>
+        <StaggerList className="medios-grid" as="div" amount={0.1}>
+          {MEDIOS.map(medio => (
+            <StaggerItem key={medio.nombre} as="div" className="medio-logo" title={medio.nombre}>
+              {medio.href ? (
+                <a href={medio.href} target="_blank" rel="noopener noreferrer" aria-label={medio.nombre}>
+                  <img src={medio.logo} alt={medio.nombre} loading="lazy" />
+                </a>
+              ) : (
+                <img src={medio.logo} alt={medio.nombre} loading="lazy" />
+              )}
+            </StaggerItem>
+          ))}
+        </StaggerList>
       </div>
     </section>
   )
@@ -46,21 +47,21 @@ function MediosSection() {
 // ─── FICHA DE MIEMBRO ─────────────────────────────────────────────
 function MiembroSection({ miembro }) {
   const { t } = useLanguage()
-  const imgReveal = miembro.invertido ? 'reveal-right' : 'reveal-left'
-  const txtReveal = miembro.invertido ? 'reveal-left' : 'reveal-right'
+  const imgVariant = miembro.invertido ? fadeRight : fadeLeft
+  const txtVariant = miembro.invertido ? fadeLeft  : fadeRight
 
   return (
     <section className={`miembro-section${miembro.invertido ? ' miembro-section--inv' : ''}`}>
-      <div className={`miembro-imagen ${imgReveal}`}>
+      <ScrollReveal variant={imgVariant} className="miembro-imagen" amount={0.15}>
         <img
           src={miembro.imagen}
           alt={`${miembro.nombre} — ${t(miembro.rol)}`}
           loading="lazy"
           style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
         />
-      </div>
+      </ScrollReveal>
 
-      <div className={`miembro-content ${txtReveal}`}>
+      <ScrollReveal variant={txtVariant} className="miembro-content" amount={0.15}>
         <div className="divider" />
         <p className="miembro-rol section-label">{t(miembro.rol)}</p>
         <h2 className="miembro-nombre">{miembro.nombre}</h2>
@@ -74,7 +75,7 @@ function MiembroSection({ miembro }) {
             </p>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   )
 }
@@ -83,7 +84,7 @@ function MiembroSection({ miembro }) {
 function CtaFinal() {
   const { t } = useLanguage()
   return (
-    <section className="nosotros-cta reveal">
+    <ScrollReveal as="section" className="nosotros-cta" amount={0.3} id="nosotros-cta">
       <div className="nosotros-cta-inner">
         <p className="section-label">{t('nosotros.cta.label')}</p>
         <h2>{t('nosotros.cta.title.1')}<br /><em>{t('nosotros.cta.title.em')}</em></h2>
@@ -92,13 +93,13 @@ function CtaFinal() {
           <BtnGhost to="/contacto">{t('nosotros.cta.contacto')}</BtnGhost>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 
 // ─── PÁGINA ───────────────────────────────────────────────────────
 export default function SobreNosotros() {
-  useScrollReveal()
+  useRegisterSections(SECTIONS)
   const { t } = useLanguage()
 
   return (
@@ -112,9 +113,11 @@ export default function SobreNosotros() {
 
       <MediosSection />
 
-      {EQUIPO.map(miembro => (
-        <MiembroSection key={miembro.id} miembro={miembro} />
-      ))}
+      <div id="equipo-nosotros">
+        {EQUIPO.map(miembro => (
+          <MiembroSection key={miembro.id} miembro={miembro} />
+        ))}
+      </div>
 
       <CtaFinal />
     </>

@@ -1,11 +1,13 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import TiendaSection from '../components/sections/TiendaSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { useRegisterSections } from '../context/SectionContext'
+
+const SECTIONS = [{ id: 'tienda-catalogo', label: 'Catálogo' }]
 
 export default function Tienda() {
-  useScrollReveal()
+  useRegisterSections(SECTIONS)
   const { t } = useLanguage()
 
   return (

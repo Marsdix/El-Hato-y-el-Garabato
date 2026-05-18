@@ -1,11 +1,13 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/layout/PageHero'
 import BodegaVinasSection from '../components/sections/BodegaVinasSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { useRegisterSections } from '../context/SectionContext'
+
+const SECTIONS = [{ id: 'bodega-vinas', label: 'Bodega y Viñas' }]
 
 export default function BodegaYVinas() {
-  useScrollReveal()
+  useRegisterSections(SECTIONS)
   const { t } = useLanguage()
 
   return (
