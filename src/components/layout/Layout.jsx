@@ -6,11 +6,15 @@ import Footer from './Footer'
 import ScrollProgress from './ScrollProgress'
 import { SectionProvider } from '../../context/SectionContext'
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
 export default function Layout() {
   const location = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
 
   return (
