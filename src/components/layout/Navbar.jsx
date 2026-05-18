@@ -1,32 +1,44 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { NAV_LINKS } from '../../data/navigation'
 import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Navbar() {
   const [navScrollY, setNavScrollY] = useState(0)
+  const [scrollDir, setScrollDir] = useState('down')
+  const lastY = useRef(0)
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
   const isHome = location.pathname === '/'
   const { language, theme, toggleLanguage, toggleTheme, t } = useLanguage()
 
   useEffect(() => {
-    const fn = () => setNavScrollY(window.scrollY)
+    const fn = () => {
+      const y = window.scrollY
+      if (y !== lastY.current) {
+        setScrollDir(y > lastY.current ? 'down' : 'up')
+        lastY.current = y
+        setNavScrollY(y)
+      }
+    }
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
   useEffect(() => {
     setNavScrollY(0)
+    lastY.current = 0
     setIsOpen(false)
   }, [location.pathname])
 
   const scrolled = navScrollY > 60
-  const t250 = Math.min(1, navScrollY / 280)
+  // Al bajar: se rellena despacio (360px); al subir: desaparece rápido (120px)
+  const range = scrollDir === 'down' ? 360 : 120
+  const tNav = Math.min(1, navScrollY / range)
   const navBg = theme === 'dark'
-    ? `rgba(20, 13, 8, ${(t250 * 0.97).toFixed(3)})`
-    : `rgba(250, 248, 243, ${(t250 * 0.97).toFixed(3)})`
-  const navBlur = t250 > 0.04 ? `blur(${(t250 * 12).toFixed(1)}px)` : undefined
+    ? `rgba(20, 13, 8, ${(tNav * 0.97).toFixed(3)})`
+    : `rgba(250, 248, 243, ${(tNav * 0.97).toFixed(3)})`
+  const navBlur = tNav > 0.04 ? `blur(${(tNav * 12).toFixed(1)}px)` : undefined
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
