@@ -5,22 +5,22 @@ import ScrollReveal from '../ui/ScrollReveal'
 import CountUp from '../ui/CountUp'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useScrollColor } from '../../hooks/useScrollColor'
 import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function Intro() {
   const { t } = useLanguage()
+  const { ref: colorRef, filter } = useScrollColor(1)
 
   return (
     <section className="section" id="bodega">
       <div className="intro">
         <ScrollReveal variant={fadeLeft} className="intro-image" amount={0.15}>
           <motion.img
+            ref={colorRef}
             src={IMAGES.home.bodegaInterior}
             alt={t('intro.img.alt')}
-            initial={{ filter: 'grayscale(0.8)' }}
-            whileInView={{ filter: 'grayscale(0)' }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.6, ease: 'easeOut', delay: 0.25 }}
+            style={{ filter }}
           />
           <div className="intro-stat">
             <strong><CountUp from={20} to={100} duration={2.4} /></strong>

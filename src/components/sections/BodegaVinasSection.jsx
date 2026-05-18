@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { BODEGA_VINAS } from '../../data/bodega'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useScrollColor } from '../../hooks/useScrollColor'
 import ScrollReveal from '../ui/ScrollReveal'
 import CountUp from '../ui/CountUp'
 import { imageRevealUp } from '../../animations/variants'
@@ -10,6 +11,7 @@ export default function BodegaVinasSection() {
   const { t } = useLanguage()
   const { parrafos, stats, variedadesTintas, variedadesBlancas } = BODEGA_VINAS
   const imagen = IMAGES.bodega.vinas
+  const { ref: colorRef, filter } = useScrollColor(1)
 
   return (
     <section className="bodega-vinas-section" id="bodega-vinas">
@@ -17,13 +19,11 @@ export default function BodegaVinasSection() {
 
         <ScrollReveal variant={imageRevealUp} className="bodega-vinas-image" amount={0.15}>
           <motion.img
+            ref={colorRef}
             src={imagen}
             alt={t('bodega.img.alt')}
             loading="lazy"
-            initial={{ filter: 'grayscale(0.65)' }}
-            whileInView={{ filter: 'grayscale(0)' }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.3, ease: 'easeOut', delay: 0.45 }}
+            style={{ filter }}
           />
         </ScrollReveal>
 

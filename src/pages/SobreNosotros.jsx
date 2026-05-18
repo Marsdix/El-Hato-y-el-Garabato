@@ -9,6 +9,7 @@ import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
 import { useRegisterSections } from '../context/SectionContext'
 import { useTilt } from '../hooks/useTilt'
+import { useScrollColor } from '../hooks/useScrollColor'
 import { fadeLeft, fadeRight } from '../animations/variants'
 
 const SECTIONS = [
@@ -50,6 +51,7 @@ function MediosSection() {
 function MiembroSection({ miembro }) {
   const { t } = useLanguage()
   const { rotateX, rotateY, onMouseMove, onMouseLeave } = useTilt(5)
+  const { ref: colorRef, filter } = useScrollColor(1)
   const imgVariant = miembro.invertido ? fadeRight : fadeLeft
   const txtVariant = miembro.invertido ? fadeLeft  : fadeRight
 
@@ -63,14 +65,11 @@ function MiembroSection({ miembro }) {
           style={{ rotateX, rotateY, transformPerspective: 900 }}
         >
           <motion.img
+            ref={colorRef}
             src={miembro.imagen}
             alt={`${miembro.nombre} — ${t(miembro.rol)}`}
             loading="lazy"
-            style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
-            initial={{ filter: 'grayscale(0.7)' }}
-            whileInView={{ filter: 'grayscale(0)' }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
+            style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos, filter }}
           />
         </motion.div>
       </ScrollReveal>
