@@ -1091,6 +1091,33 @@ footer {
   pointer-events: none;
 }
 
+/* ─── VOLVER ARRIBA ─────────────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 190;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.back-to-top:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+  transform: translateY(-3px);
+}
+@media (max-width: 768px) {
+  .back-to-top { bottom: 20px; right: 20px; }
+}
+
 /* ─── PUNTOS DE SECCIÓN ──────────────────────────────────────────── */
 .section-dots {
   position: fixed;

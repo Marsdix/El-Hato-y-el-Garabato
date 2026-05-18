@@ -4,6 +4,7 @@ import Cursor from './Cursor'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollProgress from './ScrollProgress'
+import BackToTop from '../ui/BackToTop'
 import { SectionProvider } from '../../context/SectionContext'
 
 if ('scrollRestoration' in history) {
@@ -26,6 +27,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <BackToTop />
     </SectionProvider>
   )
 }
