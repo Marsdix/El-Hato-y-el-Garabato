@@ -27,7 +27,7 @@ export default function BodegaFullwidth() {
             <span>{t('bodega.fw.stat.ha')}</span>
           </div>
           <div className="stat-item">
-            <strong><CountUp to={100} suffix="+" duration={3} /></strong>
+            <strong><CountUp from={20} to={100} suffix="+" duration={2.5} /></strong>
             <span>{t('bodega.fw.stat.anos')}</span>
           </div>
           <div className="stat-item">

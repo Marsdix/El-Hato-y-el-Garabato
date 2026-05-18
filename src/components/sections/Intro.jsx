@@ -18,12 +18,12 @@ export default function Intro() {
             alt={t('intro.img.alt')}
           />
           <div className="intro-stat">
-            <strong><CountUp to={100} duration={3} /></strong>
+            <strong><CountUp from={20} to={100} duration={2.4} /></strong>
             <span>{t('intro.stat')}</span>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal variant={fadeRight} className="intro-text" amount={0.15}>
+        <ScrollReveal variant={fadeRight} className="intro-text" amount={0.13}>
           <div className="divider" />
           <p className="section-label">{t('intro.label')}</p>
           <h2>
