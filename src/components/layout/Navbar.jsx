@@ -4,22 +4,29 @@ import { NAV_LINKS } from '../../data/navigation'
 import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [navScrollY, setNavScrollY] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
   const isHome = location.pathname === '/'
   const { language, theme, toggleLanguage, toggleTheme, t } = useLanguage()
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60)
+    const fn = () => setNavScrollY(window.scrollY)
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
   useEffect(() => {
-    setScrolled(false)
+    setNavScrollY(0)
     setIsOpen(false)
   }, [location.pathname])
+
+  const scrolled = navScrollY > 60
+  const t250 = Math.min(1, navScrollY / 280)
+  const navBg = theme === 'dark'
+    ? `rgba(20, 13, 8, ${(t250 * 0.97).toFixed(3)})`
+    : `rgba(250, 248, 243, ${(t250 * 0.97).toFixed(3)})`
+  const navBlur = t250 > 0.04 ? `blur(${(t250 * 12).toFixed(1)}px)` : undefined
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
@@ -37,7 +44,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={scrolled ? 'scrolled' : ''}>
+      <nav
+        className={scrolled ? 'scrolled' : ''}
+        style={{ background: navBg, backdropFilter: navBlur }}
+      >
         <Link to="/" className="nav-logo" onClick={() => handleLinkClick('/')}>
           El Hato y el Garabato
           <span>Bodega · Arribes del Duero</span>
