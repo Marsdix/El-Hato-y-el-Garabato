@@ -28,10 +28,17 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false)
 
+  const handleLinkClick = (to) => {
+    if (to === location.pathname) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+    closeMenu()
+  }
+
   return (
     <>
       <nav className={scrolled ? 'scrolled' : ''}>
-        <Link to="/" className="nav-logo">
+        <Link to="/" className="nav-logo" onClick={() => handleLinkClick('/')}>
           El Hato y el Garabato
           <span>Bodega · Arribes del Duero</span>
         </Link>
@@ -39,12 +46,12 @@ export default function Navbar() {
         <ul className="nav-links">
           {NAV_LINKS.map(({ to, key }) => (
             <li key={key}>
-              <Link to={to}>{t(key)}</Link>
+              <Link to={to} onClick={() => handleLinkClick(to)}>{t(key)}</Link>
             </li>
           ))}
         </ul>
 
-        <Link to="/tienda" className="nav-cta">{t('nav.store')}</Link>
+        <Link to="/tienda" className="nav-cta" onClick={() => handleLinkClick('/tienda')}>{t('nav.store')}</Link>
 
         <div className="nav-controls">
           <button onClick={toggleLanguage} aria-label={t('nav.aria.lang')}>
@@ -83,11 +90,11 @@ export default function Navbar() {
         <ul>
           {NAV_LINKS.map(({ to, key }) => (
             <li key={key}>
-              <Link to={to} onClick={closeMenu}>{t(key)}</Link>
+              <Link to={to} onClick={() => handleLinkClick(to)}>{t(key)}</Link>
             </li>
           ))}
         </ul>
-        <Link to="/tienda" className="nav-drawer-cta" onClick={closeMenu}>
+        <Link to="/tienda" className="nav-drawer-cta" onClick={() => handleLinkClick('/tienda')}>
           {t('nav.store')}
         </Link>
         <div className="nav-drawer-controls">
