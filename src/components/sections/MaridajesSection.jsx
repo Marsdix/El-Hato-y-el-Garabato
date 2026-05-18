@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MARIDAJES, CATEGORIAS } from '../../data/maridajes'
 
@@ -140,9 +141,19 @@ export default function MaridajesSection() {
 
       {/* Grid */}
       <div className="maridajes-grid">
-        {vinosFiltrados.map(vino => (
-          <MaridajeCard key={vino.id} vino={vino} language={language} t={t} />
-        ))}
+        <AnimatePresence mode="popLayout">
+          {vinosFiltrados.map(vino => (
+            <motion.div
+              key={vino.id}
+              layout
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+              exit={{ opacity: 0, scale: 0.88, transition: { duration: 0.22, ease: [0.4, 0, 1, 1] } }}
+            >
+              <MaridajeCard vino={vino} language={language} t={t} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       {vinosFiltrados.length === 0 && (
