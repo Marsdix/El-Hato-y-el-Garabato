@@ -22,6 +22,11 @@ export const imageReveal = {
   visible: { clipPath: 'inset(0% 0% 0% 0%)', transition: { duration: 1.0, ease: EASE_OUT } },
 }
 
+export const imageRevealUp = {
+  hidden:  { clipPath: 'inset(0% 0% 100% 0%)' },
+  visible: { clipPath: 'inset(0% 0% 0% 0%)',   transition: { duration: 1.1, ease: EASE_OUT } },
+}
+
 export const staggerContainer = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },

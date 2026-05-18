@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import PageHero from '../components/layout/PageHero'
 import { BtnPrimary, BtnGhost } from '../components/ui/Button'
 import ScrollReveal from '../components/ui/ScrollReveal'
@@ -7,6 +8,7 @@ import { MEDIOS } from '../data/medios'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
 import { useRegisterSections } from '../context/SectionContext'
+import { useTilt } from '../hooks/useTilt'
 import { fadeLeft, fadeRight } from '../animations/variants'
 
 const SECTIONS = [
@@ -47,18 +49,30 @@ function MediosSection() {
 // ─── FICHA DE MIEMBRO ─────────────────────────────────────────────
 function MiembroSection({ miembro }) {
   const { t } = useLanguage()
+  const { rotateX, rotateY, onMouseMove, onMouseLeave } = useTilt(5)
   const imgVariant = miembro.invertido ? fadeRight : fadeLeft
   const txtVariant = miembro.invertido ? fadeLeft  : fadeRight
 
   return (
     <section className={`miembro-section${miembro.invertido ? ' miembro-section--inv' : ''}`}>
       <ScrollReveal variant={imgVariant} className="miembro-imagen" amount={0.15}>
-        <img
-          src={miembro.imagen}
-          alt={`${miembro.nombre} — ${t(miembro.rol)}`}
-          loading="lazy"
-          style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
-        />
+        <motion.div
+          className="miembro-img-tilt"
+          onMouseMove={onMouseMove}
+          onMouseLeave={onMouseLeave}
+          style={{ rotateX, rotateY, transformPerspective: 900 }}
+        >
+          <motion.img
+            src={miembro.imagen}
+            alt={`${miembro.nombre} — ${t(miembro.rol)}`}
+            loading="lazy"
+            style={{ objectFit: miembro.objectFit ?? 'cover', objectPosition: miembro.imagenPos }}
+            initial={{ filter: 'grayscale(0.7)' }}
+            whileInView={{ filter: 'grayscale(0)' }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
+          />
+        </motion.div>
       </ScrollReveal>
 
       <ScrollReveal variant={txtVariant} className="miembro-content" amount={0.15}>

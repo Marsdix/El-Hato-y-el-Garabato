@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
 import ScrollReveal from '../ui/ScrollReveal'
@@ -13,9 +14,13 @@ export default function Intro() {
     <section className="section" id="bodega">
       <div className="intro">
         <ScrollReveal variant={fadeLeft} className="intro-image" amount={0.15}>
-          <img
+          <motion.img
             src={IMAGES.home.bodegaInterior}
             alt={t('intro.img.alt')}
+            initial={{ filter: 'grayscale(0.8)' }}
+            whileInView={{ filter: 'grayscale(0)' }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.6, ease: 'easeOut', delay: 0.25 }}
           />
           <div className="intro-stat">
             <strong><CountUp from={20} to={100} duration={2.4} /></strong>
