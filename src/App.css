@@ -230,21 +230,14 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   overflow: hidden;
 }
 .hero-bg {
-  position: absolute; inset: 0;
-  /* ═══════════════════════════════════════════════════════════════
-     IMAGEN HERO
-     Reemplazar la URL por una foto panorámica actualizada de las
-     viñas o el paisaje de los Arribes del Duero.
-     Tamaño recomendado: mínimo 1920×1080px, formato JPEG.
-  ═══════════════════════════════════════════════════════════════ */
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  bottom: -120px;
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
-  transform: scale(1.08);
-  transition: transform 8s ease;
   pointer-events: none;
 }
-.hero.loaded .hero-bg { transform: scale(1); }
 .hero-vignette {
   position: absolute; inset: 0;
   pointer-events: none;
@@ -1256,14 +1249,13 @@ footer {
   overflow: hidden;
 }
 .page-hero-bg {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  bottom: -80px;
   background-size: cover;
   background-repeat: no-repeat;
-  transform: scale(1.04);
-  transition: transform 8s ease;
   pointer-events: none;
 }
-.page-hero:hover .page-hero-bg { transform: scale(1); }
 .page-hero-vignette {
   position: absolute; inset: 0;
   pointer-events: none;
