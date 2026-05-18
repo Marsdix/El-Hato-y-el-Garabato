@@ -502,7 +502,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   color: var(--gold-text);
   line-height: 1;
 }
-.intro-stat span {
+.intro-stat > span {
   font-family: var(--ff-sans);
   font-size: 9px;
   letter-spacing: 0.3em;
@@ -1487,7 +1487,7 @@ footer {
   color: var(--gold-text);
   line-height: 1;
 }
-.bodega-stat span {
+.bodega-stat > span {
   display: block;
   font-family: var(--ff-sans);
   font-size: 10px;

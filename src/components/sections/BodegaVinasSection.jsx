@@ -2,6 +2,7 @@ import { BODEGA_VINAS } from '../../data/bodega'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
 import ScrollReveal from '../ui/ScrollReveal'
+import CountUp from '../ui/CountUp'
 import { fadeLeft } from '../../animations/variants'
 
 export default function BodegaVinasSection() {
@@ -34,13 +35,18 @@ export default function BodegaVinasSection() {
 
           <ScrollReveal delay={0.1} amount={0.15}>
             <div className="bodega-vinas-stats">
-              {stats.map(s => (
-                <div className="bodega-stat" key={s.unidad.es}>
-                  <strong>{s.valor}</strong>
-                  <span>{t(s.unidad)}</span>
-                  <em>{t(s.desc)}</em>
-                </div>
-              ))}
+              {stats.map(s => {
+                const prefix = s.valor.startsWith('+') ? '+' : undefined
+                const num = parseInt(s.valor.replace('+', ''), 10)
+                const dur = num >= 100 ? 3 : num >= 20 ? 2 : 1.5
+                return (
+                  <div className="bodega-stat" key={s.unidad.es}>
+                    <strong><CountUp to={num} prefix={prefix} duration={dur} /></strong>
+                    <span>{t(s.unidad)}</span>
+                    <em>{t(s.desc)}</em>
+                  </div>
+                )
+              })}
             </div>
           </ScrollReveal>
 

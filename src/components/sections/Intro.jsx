@@ -1,6 +1,7 @@
 import { BtnGhost } from '../ui/Button'
 import ArrowRight from '../ui/ArrowRight'
 import ScrollReveal from '../ui/ScrollReveal'
+import CountUp from '../ui/CountUp'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
 import { fadeLeft, fadeRight } from '../../animations/variants'
@@ -17,7 +18,7 @@ export default function Intro() {
             alt={t('intro.img.alt')}
           />
           <div className="intro-stat">
-            <strong>100</strong>
+            <strong><CountUp to={100} duration={3} /></strong>
             <span>{t('intro.stat')}</span>
           </div>
         </ScrollReveal>
