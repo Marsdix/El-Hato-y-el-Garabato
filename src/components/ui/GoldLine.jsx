@@ -12,7 +12,7 @@ export default function GoldLine() {
 
   const scaleX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
+    [0, 0.22, 0.78, 1],
     prefersReduced ? [1, 1, 1, 1] : [0, 1, 1, 0]
   )
 

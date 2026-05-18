@@ -1,5 +1,7 @@
 import { BtnPrimary } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
 import { fadeLeft, fadeRight } from '../../animations/variants'
@@ -11,13 +13,14 @@ export default function EquipoSection() {
     <section className="equipo-section" id="equipo">
       <div className="equipo-inner">
         <ScrollReveal variant={fadeLeft} className="equipo-text" amount={0.15}>
-          <div className="divider" />
+          <AnimatedDivider />
           <p className="section-label">{t('equipo.label')}</p>
           <h2>
             {t('equipo.title.1')}<br />
             <em>{t('equipo.title.em')}</em><br />
             {t('equipo.title.3')}
           </h2>
+          <GoldLine />
           <p>{t('equipo.desc')}</p>
           <ul className="feature-list">
             {['equipo.feat.1','equipo.feat.2','equipo.feat.3','equipo.feat.4','equipo.feat.5'].map(key => (

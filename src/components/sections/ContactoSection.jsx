@@ -6,6 +6,8 @@
 
 import { useLanguage } from '../../hooks/useLanguage'
 import ScrollReveal from '../ui/ScrollReveal'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function ContactoSection() {
@@ -15,9 +17,10 @@ export default function ContactoSection() {
     <section className="contacto-section" id="contacto">
       <div className="contacto-inner">
         <ScrollReveal variant={fadeLeft} className="contacto-left" amount={0.15}>
-          <div className="divider" />
+          <AnimatedDivider />
           <p className="section-label">{t('contacto.label')}</p>
           <h2>{t('contacto.title.1')}<br />{t('contacto.title.2')} <em>{t('contacto.title.em')}</em></h2>
+          <GoldLine />
           <div className="contact-items">
             <div className="contact-item">
               <label>{t('contacto.email.label')}</label>

@@ -27,12 +27,12 @@ import imgSpanishWine from "../assets/images/spanish-winePeriodico.png";
 import imgHola from "../assets/images/holaPeriodico.jpg";
 
 // ── Nosotros / Heroes ─────────────────────────────────────────────
-import imgNosotrosHero   from "../assets/images/NosotrosHero.jpg";
-import imgEquipoGrupo    from "../assets/images/EquipoGrupoJose.jpeg";
+import imgNosotrosHero from "../assets/images/NosotrosHero.jpg";
+import imgEquipoGrupo from "../assets/images/EquipoGrupoJose.jpeg";
 
 // ── Bodega ────────────────────────────────────────────────────────
 import imgBodegaVinaHero from "../assets/images/BodegaVinaHero.jpg";
-import imgJoseConVina    from "../assets/images/JoseConViña.JPG";
+import imgJoseConVina from "../assets/images/JoseConViña.JPG";
 
 // ── Tienda ────────────────────────────────────────────────────────
 import imgCotexaTumbada from "../assets/images/CotexaTumbada.jpeg";
@@ -45,7 +45,7 @@ import imgOtroCuento from "../assets/images/OtroCuento.png";
 import imgSinBlanca from "../assets/images/SinBlanca.png";
 
 // ── Visita ────────────────────────────────────────────────────────
-import imgVisitaHero from "../assets/images/VisitaHero.jpg";
+import imgVisitaHero from "../assets/images/Barricas.JPG";
 
 // ── Contacto ──────────────────────────────────────────────────────
 import imgContactoHero from "../assets/images/LiJoseVeraCoche.jpg";

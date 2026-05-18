@@ -1,6 +1,8 @@
 import { BtnPrimary } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import { useLanguage } from '../../hooks/useLanguage'
 
 const OPCIONES = [
@@ -16,9 +18,10 @@ export default function VisitaSection() {
     <section className="visita-section" id="visita">
       <div className="visita-inner">
         <ScrollReveal amount={0.2}>
-          <div className="divider" />
+          <AnimatedDivider />
           <p className="section-label">{t('visita.label')}</p>
           <h2>{t('visita.title')}<br /><em>{t('visita.title.em')}</em></h2>
+          <GoldLine />
           <p>{t('visita.desc')}</p>
         </ScrollReveal>
 
