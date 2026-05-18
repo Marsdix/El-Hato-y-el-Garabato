@@ -9,8 +9,8 @@ export default function GoldLine({ delay = 0.45 }) {
       className="gold-line"
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
-      viewport={{ once: true, amount: 0.8 }}
-      transition={prefersReduced ? { duration: 0 } : { duration: 0.75, ease: EASE_OUT, delay }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={prefersReduced ? { duration: 0 } : { duration: 0.9, ease: EASE_OUT, delay }}
     />
   )
 }

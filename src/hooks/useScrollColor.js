@@ -12,11 +12,14 @@ export function useScrollColor(amount = 0.7) {
 
   const grayValue = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
+    [0, 0.38, 0.62, 1],
     prefersReduced ? [0, 0, 0, 0] : [amount, 0, 0, amount]
   )
 
-  const filter = useTransform(grayValue, v => `grayscale(${v.toFixed(3)})`)
+  const filter = useTransform(
+    grayValue,
+    v => `grayscale(${v.toFixed(3)}) contrast(${(1 + v * 0.18).toFixed(3)})`
+  )
 
   return { ref, filter }
 }

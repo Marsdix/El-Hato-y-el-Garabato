@@ -440,15 +440,15 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   margin-bottom: 28px;
 }
 .divider {
-  width: 40px; height: 1px;
+  width: 48px; height: 2px;
   background: var(--gold);
   margin-bottom: 24px;
   transform-origin: left;
 }
 .gold-line {
-  width: 40px; height: 1px;
+  width: 80px; height: 2px;
   background: var(--gold);
-  margin-top: 16px;
+  margin-top: 20px;
   transform-origin: left;
 }
 
