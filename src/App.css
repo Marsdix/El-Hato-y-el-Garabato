@@ -707,7 +707,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   color: var(--gold);
   line-height: 1;
 }
-.stat-item span {
+.stat-item > span {
   font-family: var(--ff-sans);
   font-size: 9px;
   letter-spacing: 0.3em;
