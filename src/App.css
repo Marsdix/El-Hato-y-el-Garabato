@@ -29,6 +29,9 @@
 
 html { font-size: 16px; scroll-behavior: smooth; }
 
+/* Fuerza cursor none en todos los elementos para que el cursor personalizado siempre sea visible */
+*:not(input):not(textarea):not(select) { cursor: none !important; }
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -141,7 +144,7 @@ nav.scrolled .nav-links a:hover { color: var(--gold-text); }
   display: none;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: none;
   font-size: 22px;
   color: rgba(255, 255, 255, 0.85);
   padding: 4px 8px;
@@ -158,7 +161,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   inset: 0;
   background: rgba(10, 6, 4, 0.45);
   z-index: 998;
-  cursor: pointer;
+  cursor: none;
 }
 
 /* ─── DRAWER ────────────────────────────────────────────────────── */
@@ -1105,7 +1108,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: none;
   z-index: 190;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
@@ -1138,7 +1141,7 @@ footer {
   border-radius: 50%;
   border: 1.5px solid rgba(200, 162, 85, 0.35);
   background: transparent;
-  cursor: pointer;
+  cursor: none;
   padding: 0;
   transition: background 0.3s, border-color 0.3s, transform 0.3s;
 }
@@ -1322,7 +1325,7 @@ footer {
 }
 .medio-logo:hover,
 .medio-logo--link:hover { background: #e8dfc8; }
-.medio-logo--link { cursor: pointer; }
+.medio-logo--link { cursor: none; }
 .medio-logo img {
   width: 100%;
   max-width: 120px;
@@ -2075,7 +2078,7 @@ footer {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 2px;
-  cursor: pointer;
+  cursor: none;
   font-family: var(--ff-caps);
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -2233,7 +2236,7 @@ footer {
   gap: 6px;
   background: transparent;
   border: 1px solid var(--border);
-  cursor: pointer;
+  cursor: none;
   font-family: var(--ff-caps);
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -2349,9 +2352,10 @@ footer {
 
 /* ─── DISPOSITIVOS TÁCTILES ───────────────────────────────────────── */
 @media (hover: none) and (pointer: coarse) {
+  *:not(input):not(textarea):not(select) { cursor: auto !important; }
   body { cursor: auto; }
   .cursor, .cursor-ring { display: none; }
-  a, button, .btn-primary, .nav-cta, .vino-card { cursor: pointer; }
+  a, button, [role="button"] { cursor: pointer !important; }
 }
 
 /* ─── NAV CONTROLS (IDIOMA + TEMA) ──────────────────────────────── */
@@ -2365,7 +2369,7 @@ footer {
   backdrop-filter: blur(8px);
   border: 1px solid rgba(200, 162, 85, 0.5);
   border-radius: 3px;
-  cursor: pointer;
+  cursor: none;
   font-family: var(--ff-caps);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -2411,7 +2415,7 @@ nav.scrolled .nav-controls button:hover {
   background: rgba(200, 162, 85, 0.05);
   border: 1px solid rgba(200, 162, 85, 0.4);
   border-radius: 3px;
-  cursor: pointer;
+  cursor: none;
   font-family: var(--ff-caps);
   font-size: 11px;
   letter-spacing: 0.16em;
