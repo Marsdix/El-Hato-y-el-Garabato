@@ -4,6 +4,8 @@ import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useScrollColor } from '../../hooks/useScrollColor'
 import ScrollReveal from '../ui/ScrollReveal'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import CountUp from '../ui/CountUp'
 import { imageRevealUp } from '../../animations/variants'
 
@@ -29,11 +31,12 @@ export default function BodegaVinasSection() {
 
         <div className="bodega-vinas-text">
           <ScrollReveal amount={0.15}>
-            <div className="divider" />
+            <AnimatedDivider />
             <p className="section-label">{t('bodega.label')}</p>
             <h2 className="bodega-vinas-h2">
               {t('bodega.title')} <em>{t('bodega.title.em')}</em>
             </h2>
+            <GoldLine />
             <p>{t(parrafos[0])}</p>
             <p>{t(parrafos[1])}</p>
           </ScrollReveal>

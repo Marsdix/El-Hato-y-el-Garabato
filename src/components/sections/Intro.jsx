@@ -6,6 +6,8 @@ import CountUp from '../ui/CountUp'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useScrollColor } from '../../hooks/useScrollColor'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import { fadeLeft, fadeRight } from '../../animations/variants'
 
 export default function Intro() {
@@ -29,13 +31,14 @@ export default function Intro() {
         </ScrollReveal>
 
         <ScrollReveal variant={fadeRight} className="intro-text" amount={0.13}>
-          <div className="divider" />
+          <AnimatedDivider />
           <p className="section-label">{t('intro.label')}</p>
           <h2>
             {t('intro.title.1')}<br />
             {t('intro.title.2')}<br />
             <em>{t('intro.title.em')}</em>
           </h2>
+          <GoldLine />
           <p>{t('intro.p1')}</p>
           <p>{t('intro.p2')}</p>
           <BtnGhost to="/bodega" style={{ marginTop: 12 }}>

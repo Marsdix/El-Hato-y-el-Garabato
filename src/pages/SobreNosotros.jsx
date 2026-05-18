@@ -10,6 +10,9 @@ import { useLanguage } from '../hooks/useLanguage'
 import { useRegisterSections } from '../context/SectionContext'
 import { useTilt } from '../hooks/useTilt'
 import { useScrollColor } from '../hooks/useScrollColor'
+import AnimatedDivider from '../components/ui/AnimatedDivider'
+import GoldLine from '../components/ui/GoldLine'
+
 import { fadeLeft, fadeRight } from '../animations/variants'
 
 const SECTIONS = [
@@ -25,9 +28,10 @@ function MediosSection() {
     <section className="medios-section" id="medios">
       <div className="medios-inner">
         <ScrollReveal className="medios-header">
-          <div className="divider" />
+          <AnimatedDivider />
           <p className="section-label">{t('nosotros.medios.label')}</p>
           <h2>{t('nosotros.medios.title')} <em>{t('nosotros.medios.title.em')}</em></h2>
+          <GoldLine />
         </ScrollReveal>
         <StaggerList className="medios-grid" as="div" amount={0.1}>
           {MEDIOS.map(medio => (
@@ -75,9 +79,10 @@ function MiembroSection({ miembro }) {
       </ScrollReveal>
 
       <ScrollReveal variant={txtVariant} className="miembro-content" amount={0.15}>
-        <div className="divider" />
+        <AnimatedDivider />
         <p className="miembro-rol section-label">{t(miembro.rol)}</p>
         <h2 className="miembro-nombre">{miembro.nombre}</h2>
+        <GoldLine delay={0.3} />
         <div className="miembro-bio">
           {miembro.bio.map((parrafo, i) => (
             <p

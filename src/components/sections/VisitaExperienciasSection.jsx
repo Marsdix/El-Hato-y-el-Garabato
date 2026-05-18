@@ -1,6 +1,8 @@
 import { BtnPrimary } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
+import AnimatedDivider from '../ui/AnimatedDivider'
+import GoldLine from '../ui/GoldLine'
 import { EXPERIENCIAS, VISITA_INTRO } from '../../data/visitas'
 import { useLanguage } from '../../hooks/useLanguage'
 
@@ -10,9 +12,10 @@ export default function VisitaExperienciasSection() {
   return (
     <section className="visita-experiencias-section" id="visita-experiencias">
       <ScrollReveal className="visita-exp-header">
-        <div className="divider" />
+        <AnimatedDivider />
         <p className="section-label">{t('visita.exp.label')}</p>
         <h2>{t('visita.exp.title')} <em>{t('visita.exp.title.em')}</em></h2>
+        <GoldLine />
         {VISITA_INTRO.map((p, i) => (
           <p key={i}>{t(p)}</p>
         ))}

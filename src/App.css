@@ -443,6 +443,13 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   width: 40px; height: 1px;
   background: var(--gold);
   margin-bottom: 24px;
+  transform-origin: left;
+}
+.gold-line {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin-top: 16px;
+  transform-origin: left;
 }
 
 /* ─── INTRO (BODEGA) ────────────────────────────────────────────── */
