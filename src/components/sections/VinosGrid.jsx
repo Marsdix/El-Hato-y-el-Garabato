@@ -22,18 +22,26 @@ export default function VinosGrid() {
       <StaggerList className="vinos-grid" as="div" amount={0.1}>
         {FEATURED.map((vino) => (
           <StaggerItem className="vino-card" key={vino.id} as="div">
-            <div className="vino-card-inner">
+            <a
+              href={vino.href}
+              className="vino-card-inner"
+              rel="noopener noreferrer"
+              aria-label={vino.nombre}
+            >
               <img className="vino-card-img" src={vino.imagen} alt={vino.nombre} />
               <div className="vino-overlay" />
               <div className="vino-content">
                 <p className="vino-tag">{t(vino.tag)}</p>
                 <h3 className="vino-name">{vino.nombre}</h3>
                 <p className="vino-varietal">{t(vino.varietal)}</p>
-                <a href={vino.href} className="vino-cta" rel="noopener noreferrer">
+                {vino.precio && (
+                  <p className="vino-precio"><sup>€</sup>{vino.precio}</p>
+                )}
+                <span className="vino-cta">
                   {t('vinos.ver')} <ArrowRight size={14} />
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           </StaggerItem>
         ))}
       </StaggerList>
