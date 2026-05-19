@@ -31,10 +31,11 @@ export default function Navbar() {
     setIsOpen(false)
   }, [location.pathname])
 
-  const scrolled = navScrollY > 60
-  // Al bajar: se rellena despacio (360px); al subir: desaparece rápido (120px)
+  // Páginas sin hero (fondo claro desde el inicio) → navbar siempre sólido
+  const isNoHeroPage = /^\/blog\/.+/.test(location.pathname)
+  const scrolled = isNoHeroPage || navScrollY > 60
   const range = scrollDir === 'down' ? 360 : 120
-  const tNav = Math.min(1, navScrollY / range)
+  const tNav = isNoHeroPage ? 1 : Math.min(1, navScrollY / range)
   const navBg = theme === 'dark'
     ? `rgba(20, 13, 8, ${(tNav * 0.97).toFixed(3)})`
     : `rgba(250, 248, 243, ${(tNav * 0.97).toFixed(3)})`

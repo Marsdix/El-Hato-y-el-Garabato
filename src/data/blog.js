@@ -101,14 +101,6 @@ export const BLOG_POSTS = [
           },
         ],
       },
-      {
-        type: 'cta',
-        to:  '/tienda',
-        es:  '¿Quieres conocer los vinos que protagonizan el reportaje? Descubre la gama completa en la tienda.',
-        en:  'Want to discover the wines featured in the article? Explore the full range in our shop.',
-        btnEs: 'Ver los vinos',
-        btnEn: 'See the wines',
-      },
     ],
   },
   {

@@ -235,8 +235,18 @@ export const TRANSLATIONS = {
     'blog.post.vanguardia.excerpt':'La Vanguardia analiza cómo El Hato y el Garabato rompe los estereotipos sobre los vinos del sur peninsular.',
 
     // ── Post de blog (/blog/:id) ───────────────────────────────────
-    'blog.back':           '← Volver al blog',
-    'blog.leer.ext':       'Leer en WordPress',
+    'blog.back':                  '← Volver al blog',
+    'blog.leer.ext':              'Leer en WordPress',
+    'blog.source.title':          'Artículo original',
+    'blog.source.desc':           'Este contenido ha sido publicado originalmente en nuestra web. Puedes leer el artículo completo en el enlace de abajo.',
+    'blog.source.link':           'Leer en elhatoyelgarabato.com',
+    'blog.comments.title':        'Comentarios',
+    'blog.comments.desc':         'Cuéntanos qué te ha parecido.',
+    'blog.comments.nombre':       'Tu nombre',
+    'blog.comments.texto':        'Escribe un comentario…',
+    'blog.comments.submit':       'Enviar comentario',
+    'blog.comments.success':      '¡Gracias por tu comentario! Lo revisaremos y lo publicaremos pronto.',
+    'blog.comments.error':        'Algo ha fallado. Inténtalo de nuevo.',
 
     // ── Detalle de vino (/tienda/:id) ─────────────────────────────
     'vino.comprar':         'Comprar en tienda',
@@ -492,8 +502,18 @@ export const TRANSLATIONS = {
     'blog.post.vanguardia.excerpt':'La Vanguardia analyses how El Hato y el Garabato challenges stereotypes about wines from southern Iberia.',
 
     // ── Blog post (/blog/:id) ──────────────────────────────────────
-    'blog.back':           '← Back to blog',
-    'blog.leer.ext':       'Read on WordPress',
+    'blog.back':                  '← Back to blog',
+    'blog.leer.ext':              'Read on WordPress',
+    'blog.source.title':          'Original article',
+    'blog.source.desc':           'This content was originally published on our website. You can read the full article at the link below.',
+    'blog.source.link':           'Read on elhatoyelgarabato.com',
+    'blog.comments.title':        'Comments',
+    'blog.comments.desc':         'Tell us what you think.',
+    'blog.comments.nombre':       'Your name',
+    'blog.comments.texto':        'Write a comment…',
+    'blog.comments.submit':       'Send comment',
+    'blog.comments.success':      'Thank you for your comment! We\'ll review it and publish it soon.',
+    'blog.comments.error':        'Something went wrong. Please try again.',
 
     // ── Wine detail (/tienda/:id) ──────────────────────────────────
     'vino.comprar':         'Buy online',
