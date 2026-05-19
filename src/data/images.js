@@ -43,7 +43,7 @@ import imgEclecticoBlanco from "../assets/images/EclecticoBlanco.png";
 import imgLi from "../assets/images/Li.png";
 import imgOtroCuento from "../assets/images/OtroCuento.png";
 import imgSinBlanca from "../assets/images/SinBlanca.png";
-import imgVinoDetalleHero from "../assets/images/TiendaHero.jpg";
+import imgVinoDetalleHero from "../assets/images/BodegaVinaHero.jpg";
 
 // ── Visita ────────────────────────────────────────────────────────
 import imgVisitaHero from "../assets/images/Barricas.JPG";
