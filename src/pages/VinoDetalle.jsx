@@ -2,6 +2,7 @@ import { useParams, Navigate } from 'react-router-dom'
 import PageHero from '../components/layout/PageHero'
 import VinoDetalleSection from '../components/sections/VinoDetalleSection'
 import { VINOS } from '../data/vinos'
+import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
 
 export default function VinoDetalle() {
@@ -16,8 +17,8 @@ export default function VinoDetalle() {
       <PageHero
         eyebrow={t('page.vino.eyebrow')}
         title={<>{vino.nombre}</>}
-        backgroundImage={vino.imagen}
-        imagePosition="50% 20%"
+        backgroundImage={IMAGES.vinoDetalle.hero}
+        imagePosition="center"
       />
       <VinoDetalleSection vino={vino} />
     </>

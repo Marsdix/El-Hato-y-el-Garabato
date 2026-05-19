@@ -48,18 +48,17 @@ export default function VinoDetalleSection({ vino }) {
             <p className="section-label">{t('vino.cata.label')}</p>
             <GoldLine />
             <div className="vino-cata-grid">
-              <div className="vino-cata-item">
-                <h3>{t('vino.cata.visual')}</h3>
-                <p>{t(vino.cata.visual)}</p>
-              </div>
-              <div className="vino-cata-item">
-                <h3>{t('vino.cata.olfativa')}</h3>
-                <p>{t(vino.cata.olfativa)}</p>
-              </div>
-              <div className="vino-cata-item">
-                <h3>{t('vino.cata.gustativa')}</h3>
-                <p>{t(vino.cata.gustativa)}</p>
-              </div>
+              {[
+                ['vino.cata.visual',    vino.cata.visual,    '01'],
+                ['vino.cata.olfativa',  vino.cata.olfativa,  '02'],
+                ['vino.cata.gustativa', vino.cata.gustativa, '03'],
+              ].map(([key, val, num]) => (
+                <div className="vino-cata-item" key={key}>
+                  <span className="vino-cata-num">{num}</span>
+                  <h3>{t(key)}</h3>
+                  <p>{t(val)}</p>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </section>
@@ -72,23 +71,21 @@ export default function VinoDetalleSection({ vino }) {
             <AnimatedDivider />
             <p className="section-label">{t('vino.analitica.label')}</p>
             <GoldLine />
-            <table className="vino-analitica-table">
-              <tbody>
-                {[
-                  ['vino.analitica.grado',        vino.analitica.grado],
-                  ['vino.analitica.ph',            vino.analitica.ph],
-                  ['vino.analitica.acidezTotal',   vino.analitica.acidezTotal],
-                  ['vino.analitica.acidezVolatil', vino.analitica.acidezVolatil],
-                  ['vino.analitica.azucar',        vino.analitica.azucar],
-                  ['vino.analitica.so2',           vino.analitica.so2],
-                ].map(([key, val]) => (
-                  <tr key={key}>
-                    <td>{t(key)}</td>
-                    <td>{val}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="vino-analitica-grid">
+              {[
+                ['vino.analitica.grado',        vino.analitica.grado],
+                ['vino.analitica.ph',            vino.analitica.ph],
+                ['vino.analitica.acidezTotal',   vino.analitica.acidezTotal],
+                ['vino.analitica.acidezVolatil', vino.analitica.acidezVolatil],
+                ['vino.analitica.azucar',        vino.analitica.azucar],
+                ['vino.analitica.so2',           vino.analitica.so2],
+              ].filter(([, val]) => val).map(([key, val]) => (
+                <div className="vino-analitica-stat" key={key}>
+                  <span className="vino-analitica-valor">{val}</span>
+                  <span className="vino-analitica-label">{t(key)}</span>
+                </div>
+              ))}
+            </div>
           </ScrollReveal>
         </section>
       )}

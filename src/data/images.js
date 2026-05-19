@@ -5,8 +5,8 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
-import imgHomeHero  from "../assets/images/HomeHero.jpg";
-import imgDuero     from "../assets/images/Duero.jpg";
+import imgHomeHero from "../assets/images/HomeHero.jpg";
+import imgDuero from "../assets/images/Duero.jpg";
 import imgVinas from "../assets/images/Viñas.jpg";
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
@@ -43,6 +43,7 @@ import imgEclecticoBlanco from "../assets/images/EclecticoBlanco.png";
 import imgLi from "../assets/images/Li.png";
 import imgOtroCuento from "../assets/images/OtroCuento.png";
 import imgSinBlanca from "../assets/images/SinBlanca.png";
+import imgVinoDetalleHero from "../assets/images/TiendaHero.jpg";
 
 // ── Visita ────────────────────────────────────────────────────────
 import imgVisitaHero from "../assets/images/Barricas.JPG";
@@ -105,6 +106,18 @@ export const IMAGES = {
       otroCuento: imgOtroCuento,
       sinBlanca: imgSinBlanca,
     },
+  },
+
+  // ── VINO DETALLE ( /tienda/:id ) ─────────────────────────────────
+  // Para cambiar la imagen: sustituye imgBodegaVinaHero por otro import
+  vinoDetalle: {
+    hero: imgVinoDetalleHero,
+  },
+
+  // ── BLOG ( /blog ) ───────────────────────────────────────────────
+  // Para cambiar la imagen: sustituye imgVinas por otro import
+  blog: {
+    hero: imgVinas,
   },
 
   // ── MARIDAJES ( /maridajes ) ─────────────────────────────────────

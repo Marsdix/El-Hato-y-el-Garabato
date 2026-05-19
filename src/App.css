@@ -2235,12 +2235,25 @@ footer {
   gap: 48px;
   margin-top: 40px;
 }
+.vino-cata-item {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+}
+.vino-cata-num {
+  display: block;
+  font-family: var(--ff-caps);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--gold-text);
+  opacity: 0.6;
+  margin-bottom: 14px;
+}
 .vino-cata-item h3 {
   font-family: var(--ff-caps);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-text);
+  color: var(--text);
   margin-bottom: 16px;
 }
 .vino-cata-item p {
@@ -2253,34 +2266,44 @@ footer {
 /* ── Datos analíticos ────────────────────────────────────────────── */
 .vino-analitica-section {
   padding: 80px 60px;
-  max-width: 1400px;
+  background: var(--bg);
+}
+.vino-analitica-inner {
+  max-width: 1280px;
   margin: 0 auto;
 }
-.vino-analitica-inner { max-width: 540px; }
 .vino-analitica-inner .section-label { margin-bottom: 8px; }
-.vino-analitica-table {
-  width: 100%;
+.vino-analitica-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
   margin-top: 40px;
-  border-collapse: collapse;
+  border: 1px solid var(--border);
 }
-.vino-analitica-table td {
-  font-family: var(--ff-sans);
-  font-size: 13.5px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-2);
+.vino-analitica-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 24px;
+  text-align: center;
+  border: 1px solid var(--border);
+  gap: 10px;
 }
-.vino-analitica-table td:first-child {
-  color: var(--text-3);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  width: 55%;
-}
-.vino-analitica-table td:last-child {
-  font-weight: 500;
-  color: var(--text);
+.vino-analitica-valor {
+  font-family: var(--ff-serif);
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--gold-text);
   font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.vino-analitica-label {
+  font-family: var(--ff-caps);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
 }
 
 /* ── Vinos relacionados ──────────────────────────────────────────── */
@@ -2302,21 +2325,23 @@ footer {
 
 /* ── Responsive blog y detalle ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .blog-grid          { grid-template-columns: repeat(2, 1fr); }
-  .vino-detalle-inner { grid-template-columns: 1fr; gap: 48px; }
-  .vino-detalle-img-col { position: static; }
-  .vino-detalle-img   { max-width: 280px; }
-  .vino-cata-grid     { grid-template-columns: 1fr; gap: 32px; }
+  .blog-grid              { grid-template-columns: repeat(2, 1fr); }
+  .vino-detalle-inner     { grid-template-columns: 1fr; gap: 48px; }
+  .vino-detalle-img-col   { position: static; }
+  .vino-detalle-img       { max-width: 280px; }
+  .vino-cata-grid         { grid-template-columns: 1fr; gap: 0; }
+  .vino-analitica-grid    { grid-template-columns: repeat(2, 1fr); }
   .vino-relacionados-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .blog-section       { padding: 80px 24px; }
-  .blog-grid          { grid-template-columns: 1fr; gap: 28px; }
-  .vino-detalle-section { padding: 60px 24px; }
-  .vino-cata-section  { padding: 60px 24px; }
-  .vino-analitica-section { padding: 60px 24px; }
+  .blog-section              { padding: 80px 24px; }
+  .blog-grid                 { grid-template-columns: 1fr; gap: 28px; }
+  .vino-detalle-section      { padding: 60px 24px; }
+  .vino-cata-section         { padding: 60px 24px; }
+  .vino-analitica-section    { padding: 60px 24px; }
+  .vino-analitica-grid       { grid-template-columns: repeat(2, 1fr); }
   .vino-relacionados-section { padding: 60px 24px 80px; }
-  .vino-relacionados-grid { grid-template-columns: 1fr; }
+  .vino-relacionados-grid    { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
