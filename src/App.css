@@ -1862,6 +1862,185 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   BLOG POST (artículo individual)
+   ═══════════════════════════════════════════════════════════════════ */
+.blog-post-section {
+  padding: 80px 0 120px;
+}
+.blog-post-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Cabecera ────────────────────────────────────────────────────── */
+.blog-post-back {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 32px;
+  transition: color 0.25s ease;
+}
+.blog-post-back:hover { color: var(--gold-text); }
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.blog-post-readtime,
+.blog-post-meta time {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+.blog-post-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 300;
+  line-height: 1.18;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.blog-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.blog-post-tag {
+  font-family: var(--ff-sans);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 40px;
+}
+
+/* ── Cuerpo ──────────────────────────────────────────────────────── */
+.blog-post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.blog-post-intro {
+  font-family: var(--ff-serif);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.blog-post-p {
+  font-family: var(--ff-sans);
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: var(--text-2);
+  margin-bottom: 24px;
+}
+
+.blog-post-h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 2px solid var(--gold);
+}
+
+.blog-post-figure {
+  margin: 36px 0;
+}
+.blog-post-figure img {
+  width: 100%;
+  border-radius: 2px;
+  display: block;
+}
+.blog-post-figure figcaption {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+}
+
+.blog-post-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.blog-post-list li {
+  font-family: var(--ff-sans);
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--text-2);
+  padding-left: 24px;
+  position: relative;
+}
+.blog-post-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.blog-post-cta-block {
+  margin: 48px 0;
+  padding: 36px 40px;
+  background: var(--bg-alt);
+  border-left: 2px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+.blog-post-cta-block p {
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Pie ─────────────────────────────────────────────────────────── */
+.blog-post-footer {
+  margin-top: 72px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .blog-post-inner   { padding: 0 20px; }
+  .blog-post-section { padding: 60px 0 80px; }
+  .blog-post-cta-block { padding: 28px 24px; }
+  .blog-post-h2      { padding-left: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    VINO DETALLE
    ═══════════════════════════════════════════════════════════════════ */
 

@@ -234,6 +234,10 @@ export const TRANSLATIONS = {
     'blog.post.vanguardia.title':'El Hato y el Garabato en La Vanguardia: el vino de Arribes que rompe el determinismo latitudinal',
     'blog.post.vanguardia.excerpt':'La Vanguardia analiza cómo El Hato y el Garabato rompe los estereotipos sobre los vinos del sur peninsular.',
 
+    // ── Post de blog (/blog/:id) ───────────────────────────────────
+    'blog.back':           '← Volver al blog',
+    'blog.leer.ext':       'Leer en WordPress',
+
     // ── Detalle de vino (/tienda/:id) ─────────────────────────────
     'vino.comprar':         'Comprar en tienda',
     'vino.cata.label':      'Notas de cata',
@@ -486,6 +490,10 @@ export const TRANSLATIONS = {
     'blog.post.abc.excerpt':     'ABC devotes an article to De Buena Jera, our age-worthy wine made from organic Juan García.',
     'blog.post.vanguardia.title':'El Hato y el Garabato in La Vanguardia: the Arribes wine that defies latitudinal determinism',
     'blog.post.vanguardia.excerpt':'La Vanguardia analyses how El Hato y el Garabato challenges stereotypes about wines from southern Iberia.',
+
+    // ── Blog post (/blog/:id) ──────────────────────────────────────
+    'blog.back':           '← Back to blog',
+    'blog.leer.ext':       'Read on WordPress',
 
     // ── Wine detail (/tienda/:id) ──────────────────────────────────
     'vino.comprar':         'Buy online',

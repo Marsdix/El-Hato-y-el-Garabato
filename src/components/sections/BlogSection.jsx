@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
@@ -7,12 +8,10 @@ import { BLOG_POSTS } from '../../data/blog'
 import { useLanguage } from '../../hooks/useLanguage'
 
 function formatDate(dateStr, language) {
-  const date = new Date(dateStr)
-  return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+  return new Date(dateStr).toLocaleDateString(
+    language === 'es' ? 'es-ES' : 'en-GB',
+    { day: 'numeric', month: 'long', year: 'numeric' }
+  )
 }
 
 export default function BlogSection() {
@@ -28,44 +27,41 @@ export default function BlogSection() {
       </ScrollReveal>
 
       <StaggerList className="blog-grid" as="div" amount={0.06}>
-        {BLOG_POSTS.map(post => (
-          <StaggerItem className="blog-card" as="article" key={post.id}>
-            {post.imagen && (
-              <a
-                href={post.href}
-                className="blog-card-img-wrap"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabIndex={-1}
-                aria-hidden="true"
-              >
-                <img src={post.imagen} alt="" loading="lazy" />
-              </a>
-            )}
-            <div className="blog-card-body">
-              <div className="blog-card-meta">
-                <span className="blog-card-tag">{t(post.cat)}</span>
-                <time className="blog-card-date" dateTime={post.date}>
-                  {formatDate(post.date, language)}
-                </time>
+        {BLOG_POSTS.map(post => {
+          const isInternal = Boolean(post.content)
+          const CardImg = isInternal
+            ? ({ children }) => <Link to={`/blog/${post.id}`} className="blog-card-img-wrap" tabIndex={-1} aria-hidden="true">{children}</Link>
+            : ({ children }) => <a href={post.href} className="blog-card-img-wrap" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">{children}</a>
+
+          return (
+            <StaggerItem className="blog-card" as="article" key={post.id}>
+              {post.imagen && (
+                <CardImg>
+                  <img src={post.imagen} alt="" loading="lazy" />
+                </CardImg>
+              )}
+              <div className="blog-card-body">
+                <div className="blog-card-meta">
+                  <span className="blog-card-tag">{t(post.cat)}</span>
+                  <time className="blog-card-date" dateTime={post.date}>
+                    {formatDate(post.date, language)}
+                  </time>
+                </div>
+                <h3 className="blog-card-title">
+                  {isInternal
+                    ? <Link to={`/blog/${post.id}`}>{t(post.titleKey)}</Link>
+                    : <a href={post.href} target="_blank" rel="noopener noreferrer">{t(post.titleKey)}</a>
+                  }
+                </h3>
+                <p className="blog-card-excerpt">{t(post.excerptKey)}</p>
+                {isInternal
+                  ? <Link to={`/blog/${post.id}`} className="btn-ghost blog-card-link">{t('blog.leer')} <ArrowRight size={14} /></Link>
+                  : <a href={post.href} className="btn-ghost blog-card-link" target="_blank" rel="noopener noreferrer">{t('blog.leer')} <ArrowRight size={14} /></a>
+                }
               </div>
-              <h3 className="blog-card-title">
-                <a href={post.href} target="_blank" rel="noopener noreferrer">
-                  {t(post.titleKey)}
-                </a>
-              </h3>
-              <p className="blog-card-excerpt">{t(post.excerptKey)}</p>
-              <a
-                href={post.href}
-                className="btn-ghost blog-card-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('blog.leer')} <ArrowRight size={14} />
-              </a>
-            </div>
-          </StaggerItem>
-        ))}
+            </StaggerItem>
+          )
+        })}
       </StaggerList>
     </section>
   )
