@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
@@ -21,10 +22,9 @@ export default function TiendaSection() {
       <StaggerList className="tienda-grid" as="div" amount={0.05}>
         {VINOS.map(vino => (
           <StaggerItem className="tienda-card" as="article" key={vino.id}>
-            <a
-              href={vino.href}
+            <Link
+              to={`/tienda/${vino.id}`}
               className="tienda-card-img-wrap"
-              rel="noopener noreferrer"
               aria-label={`${t('tienda.ver')} ${vino.nombre}`}
             >
               <img
@@ -32,7 +32,7 @@ export default function TiendaSection() {
                 alt={vino.nombre}
                 loading="lazy"
               />
-            </a>
+            </Link>
             <div className="tienda-card-body">
               <p className="tienda-card-tag">{t(vino.tag)}</p>
               <h3 className="tienda-card-nombre">{vino.nombre}</h3>
@@ -41,13 +41,9 @@ export default function TiendaSection() {
                 <span className="tienda-card-precio">
                   <sup>€</sup>{vino.precio}
                 </span>
-                <a
-                  href={vino.href}
-                  className="btn-ghost"
-                  rel="noopener noreferrer"
-                >
+                <Link to={`/tienda/${vino.id}`} className="btn-ghost">
                   {t('tienda.ver')} <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
           </StaggerItem>

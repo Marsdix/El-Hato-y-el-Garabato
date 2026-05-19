@@ -3,12 +3,13 @@
 // key → clave de traducción en translations.js
 
 export const NAV_LINKS = [
-  { to: '/bodega',   key: 'nav.la-bodega' },
+  { to: '/bodega',    key: 'nav.la-bodega' },
   { to: '/tienda',    key: 'nav.vinos'     },
-  { to: '/maridajes', key: 'nav.maridajes'},
-  { to: '/nosotros',  key: 'nav.nosotros' },
-  { to: '/visita',   key: 'nav.visitas'   },
-  { to: '/contacto', key: 'nav.contacto'  },
+  { to: '/maridajes', key: 'nav.maridajes' },
+  { to: '/nosotros',  key: 'nav.nosotros'  },
+  { to: '/visita',    key: 'nav.visitas'   },
+  { to: '/blog',      key: 'nav.blog'      },
+  { to: '/contacto',  key: 'nav.contacto'  },
 ]
 
 // URLs externas — únicamente redes sociales

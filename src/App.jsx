@@ -11,6 +11,8 @@ const Contacto      = lazy(() => import('./pages/Contacto'))
 const AvisoLegal         = lazy(() => import('./pages/AvisoLegal'))
 const TerminosCondiciones = lazy(() => import('./pages/TerminosCondiciones'))
 const Maridajes     = lazy(() => import('./pages/Maridajes'))
+const Blog          = lazy(() => import('./pages/Blog'))
+const VinoDetalle   = lazy(() => import('./pages/VinoDetalle'))
 const NotFound      = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -22,8 +24,10 @@ export default function App() {
             <Route path="/"          element={<Home />}          />
             <Route path="/nosotros"  element={<SobreNosotros />} />
             <Route path="/bodega"    element={<BodegaYVinas />}  />
-            <Route path="/tienda"    element={<Tienda />}        />
-            <Route path="/maridajes" element={<Maridajes />}     />
+            <Route path="/tienda"        element={<Tienda />}      />
+            <Route path="/tienda/:id"    element={<VinoDetalle />} />
+            <Route path="/maridajes"     element={<Maridajes />}   />
+            <Route path="/blog"          element={<Blog />}         />
             <Route path="/visita"    element={<VisitaBodega />}  />
             <Route path="/contacto"  element={<Contacto />}      />
             <Route path="/aviso-legal" element={<AvisoLegal />}          />

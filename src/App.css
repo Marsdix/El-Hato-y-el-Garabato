@@ -1754,6 +1754,288 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   BLOG
+   ═══════════════════════════════════════════════════════════════════ */
+.blog-section { padding: 100px 60px; max-width: 1400px; margin: 0 auto; }
+.blog-header  { text-align: center; margin-bottom: 64px; }
+.blog-header h2 { font-size: clamp(28px, 4vw, 46px); font-family: var(--ff-serif); font-weight: 300; }
+.blog-header h2 em { font-style: italic; color: var(--gold-text); }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.blog-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+.blog-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+.blog-card:hover::before { transform: scaleX(1); }
+
+.blog-card-img-wrap {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: var(--bg-alt);
+}
+.blog-card-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.3) saturate(0.9);
+  transition: transform 0.8s var(--ease-out), filter 0.6s ease;
+}
+.blog-card:hover .blog-card-img-wrap img { transform: scale(1.05); filter: grayscale(0) saturate(1); }
+
+.blog-card-body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.blog-card-tag {
+  font-family: var(--ff-caps);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  background: rgba(200,162,85,0.1);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.blog-card-date {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+.blog-card-title {
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+.blog-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.blog-card-title a:hover { color: var(--gold-text); }
+
+.blog-card-excerpt {
+  font-family: var(--ff-sans);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-2);
+  flex: 1;
+}
+
+.blog-card-link {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   VINO DETALLE
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Ficha principal ─────────────────────────────────────────────── */
+.vino-detalle-section { padding: 100px 60px; max-width: 1400px; margin: 0 auto; }
+.vino-detalle-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.vino-detalle-img-col { position: sticky; top: 100px; }
+.vino-detalle-img {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.14));
+}
+
+.vino-detalle-info h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.vino-detalle-varietal {
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 24px;
+}
+.vino-detalle-desc {
+  font-family: var(--ff-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+.vino-detalle-precio-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+.vino-detalle-precio {
+  font-family: var(--ff-serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text);
+}
+.vino-detalle-precio sup {
+  font-size: 16px;
+  vertical-align: top;
+  margin-top: 8px;
+  display: inline-block;
+}
+.vino-back-link {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+.vino-back-link:hover { color: var(--gold-text); }
+
+/* ── Notas de cata ───────────────────────────────────────────────── */
+.vino-cata-section {
+  background: var(--bg-alt);
+  padding: 80px 60px;
+}
+.vino-cata-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.vino-cata-inner .section-label { margin-bottom: 8px; }
+.vino-cata-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 40px;
+}
+.vino-cata-item h3 {
+  font-family: var(--ff-caps);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 16px;
+}
+.vino-cata-item p {
+  font-family: var(--ff-sans);
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--text-2);
+}
+
+/* ── Datos analíticos ────────────────────────────────────────────── */
+.vino-analitica-section {
+  padding: 80px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.vino-analitica-inner { max-width: 540px; }
+.vino-analitica-inner .section-label { margin-bottom: 8px; }
+.vino-analitica-table {
+  width: 100%;
+  margin-top: 40px;
+  border-collapse: collapse;
+}
+.vino-analitica-table td {
+  font-family: var(--ff-sans);
+  font-size: 13.5px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+}
+.vino-analitica-table td:first-child {
+  color: var(--text-3);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: 55%;
+}
+.vino-analitica-table td:last-child {
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Vinos relacionados ──────────────────────────────────────────── */
+.vino-relacionados-section {
+  padding: 80px 60px 100px;
+  background: var(--bg-alt);
+}
+.vino-relacionados-header {
+  max-width: 1400px;
+  margin: 0 auto 48px;
+}
+.vino-relacionados-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Responsive blog y detalle ───────────────────────────────────── */
+@media (max-width: 1024px) {
+  .blog-grid          { grid-template-columns: repeat(2, 1fr); }
+  .vino-detalle-inner { grid-template-columns: 1fr; gap: 48px; }
+  .vino-detalle-img-col { position: static; }
+  .vino-detalle-img   { max-width: 280px; }
+  .vino-cata-grid     { grid-template-columns: 1fr; gap: 32px; }
+  .vino-relacionados-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .blog-section       { padding: 80px 24px; }
+  .blog-grid          { grid-template-columns: 1fr; gap: 28px; }
+  .vino-detalle-section { padding: 60px 24px; }
+  .vino-cata-section  { padding: 60px 24px; }
+  .vino-analitica-section { padding: 60px 24px; }
+  .vino-relacionados-section { padding: 60px 24px 80px; }
+  .vino-relacionados-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    VISITA EXPERIENCIAS
    ═══════════════════════════════════════════════════════════════════ */
 
