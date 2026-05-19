@@ -45,6 +45,9 @@ import imgOtroCuento from "../assets/images/OtroCuento.png";
 import imgSinBlanca from "../assets/images/SinBlanca.png";
 import imgVinoDetalleHero from "../assets/images/TiendaHero.jpg";
 
+// ── Blog ──────────────────────────────────────────────────────────
+import imgBlogHero from "../assets/images/BlogHero.png";
+
 // ── Visita ────────────────────────────────────────────────────────
 import imgVisitaHero from "../assets/images/Barricas.JPG";
 
@@ -115,9 +118,9 @@ export const IMAGES = {
   },
 
   // ── BLOG ( /blog ) ───────────────────────────────────────────────
-  // Para cambiar la imagen: sustituye imgVinas por otro import
+  // Para cambiar la imagen: sustituye imgBlogHero por otro import
   blog: {
-    hero: imgVinas,
+    hero: imgBlogHero,
   },
 
   // ── MARIDAJES ( /maridajes ) ─────────────────────────────────────

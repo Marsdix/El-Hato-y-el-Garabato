@@ -15,7 +15,7 @@ export default function Blog() {
       <PageHero
         eyebrow={t('page.blog.eyebrow')}
         title={<>{t('page.blog.title.1')}<br /><em>{t('page.blog.title.em')}</em></>}
-        backgroundImage={IMAGES.nosotros.medios.planetaVino}
+        backgroundImage={IMAGES.blog.hero}
         imagePosition="50% 30%"
       />
       <BlogSection />
