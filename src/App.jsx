@@ -18,7 +18,7 @@ const NotFound      = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Suspense fallback={<div className="page-loading" />}>
         <Routes>
           <Route element={<Layout />}>

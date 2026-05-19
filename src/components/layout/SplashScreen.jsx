@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { IMAGES } from '../../data/images'
 
 const TITLE_1 = 'EL HATO'
 const TITLE_2 = 'Y EL GARABATO'
@@ -16,6 +17,21 @@ const PAGES = [
   () => import('../../pages/AvisoLegal'),
   () => import('../../pages/TerminosCondiciones'),
 ]
+
+const CRITICAL_IMAGES = [
+  IMAGES.home.hero,
+  IMAGES.tienda.hero,
+]
+
+function preloadImages() {
+  return Promise.all(
+    CRITICAL_IMAGES.map(src => new Promise(res => {
+      const img = new Image()
+      img.onload = img.onerror = res
+      img.src = src
+    }))
+  )
+}
 
 function LetterSpan({ char, prefersReduced }) {
   if (char === ' ') return <span style={{ display: 'inline-block', width: '0.4em' }} />
@@ -45,7 +61,7 @@ export default function SplashScreen({ onComplete }) {
     const minTimer = new Promise(res => setTimeout(res, MIN_DURATION))
     const preload  = Promise.all(PAGES.map(fn => fn().catch(() => {})))
 
-    Promise.all([minTimer, preload]).then(() => {
+    Promise.all([minTimer, preload, preloadImages()]).then(() => {
       if (!cancelled) onComplete()
     })
 

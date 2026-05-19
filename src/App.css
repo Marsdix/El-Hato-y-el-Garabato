@@ -231,6 +231,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   position: absolute;
   top: 0; left: 0; right: 0;
   bottom: -120px;
+  background-color: #0a0604;
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -1207,7 +1208,7 @@ footer {
 /* ─── CARGA DE PÁGINA (Suspense fallback) ─────────────────────── */
 .page-loading {
   height: 100vh;
-  background: var(--bg);
+  background: #0a0604;
 }
 
 /* ─── 404 ────────────────────────────────────────────────────────── */

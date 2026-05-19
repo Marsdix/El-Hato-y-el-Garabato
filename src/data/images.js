@@ -5,8 +5,8 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
-import imgHomeHero from "../assets/images/HomeHero.jpg";
-import imgDuero from "../assets/images/Duero.jpg";
+import imgHomeHero  from "../assets/images/HomeHero.jpg";
+import imgDuero     from "../assets/images/Duero.jpg";
 import imgVinas from "../assets/images/Viñas.jpg";
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
