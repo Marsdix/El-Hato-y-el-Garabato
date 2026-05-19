@@ -3,27 +3,26 @@ import { Link } from 'react-router-dom'
 import ScrollReveal from '../ui/ScrollReveal'
 import { useLanguage } from '../../hooks/useLanguage'
 
+// Devuelve el texto en el idioma pedido, cayendo al español si falta traducción
+const pick = (obj, lang) => (lang === 'en' ? (obj?.en ?? obj?.es) : obj?.es) ?? ''
+
 // ── Renderiza cada bloque de contenido ────────────────────────────
 function Block({ block, language }) {
-  const txt = k => language === 'en' ? block[k === 'es' ? 'en' : k] ?? block.es : block.es
-
   switch (block.type) {
     case 'intro':
-      return <p className="blog-post-intro">{language === 'en' ? block.en : block.es}</p>
+      return <p className="blog-post-intro">{pick(block, language)}</p>
 
     case 'p':
-      return <p className="blog-post-p">{language === 'en' ? block.en : block.es}</p>
+      return <p className="blog-post-p">{pick(block, language)}</p>
 
     case 'h2':
-      return <h2 className="blog-post-h2">{language === 'en' ? block.en : block.es}</h2>
+      return <h2 className="blog-post-h2">{pick(block, language)}</h2>
 
     case 'image':
       return (
         <figure className="blog-post-figure">
-          <img src={block.src} alt={block.caption ? (language === 'en' ? block.caption.en : block.caption.es) : ''} />
-          {block.caption && (
-            <figcaption>{language === 'en' ? block.caption.en : block.caption.es}</figcaption>
-          )}
+          <img src={block.src} alt={block.caption ? pick(block.caption, language) : ''} />
+          {block.caption && <figcaption>{pick(block.caption, language)}</figcaption>}
         </figure>
       )
 
@@ -31,7 +30,7 @@ function Block({ block, language }) {
       return (
         <ul className="blog-post-list">
           {block.items.map((item, i) => (
-            <li key={i}>{language === 'en' ? item.en : item.es}</li>
+            <li key={i}>{pick(item, language)}</li>
           ))}
         </ul>
       )
@@ -170,7 +169,7 @@ export default function BlogPostSection({ post }) {
             )}
             <time dateTime={post.date}>{formatDate(post.date, language)}</time>
           </div>
-          <h1 className="blog-post-title">{t(post.titleKey)}</h1>
+          <h1 className="blog-post-title">{t(post.title)}</h1>
           {post.tags && (
             <div className="blog-post-tags">
               {post.tags.map(tag => (

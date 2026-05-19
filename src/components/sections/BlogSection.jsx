@@ -49,11 +49,11 @@ export default function BlogSection() {
                 </div>
                 <h3 className="blog-card-title">
                   {isInternal
-                    ? <Link to={`/blog/${post.id}`}>{t(post.titleKey)}</Link>
-                    : <a href={post.href} target="_blank" rel="noopener noreferrer">{t(post.titleKey)}</a>
+                    ? <Link to={`/blog/${post.id}`}>{t(post.title)}</Link>
+                    : <a href={post.href} target="_blank" rel="noopener noreferrer">{t(post.title)}</a>
                   }
                 </h3>
-                <p className="blog-card-excerpt">{t(post.excerptKey)}</p>
+                <p className="blog-card-excerpt">{t(post.excerpt)}</p>
                 {isInternal
                   ? <Link to={`/blog/${post.id}`} className="btn-ghost blog-card-link">{t('blog.leer')} <ArrowRight size={14} /></Link>
                   : <a href={post.href} className="btn-ghost blog-card-link" target="_blank" rel="noopener noreferrer">{t('blog.leer')} <ArrowRight size={14} /></a>
