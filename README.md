@@ -41,6 +41,10 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 | `/nosotros` | Quiénes somos | Historia, presencia en medios y equipo de la bodega |
 | `/bodega` | Bodega y Viñas | Instalaciones, estadísticas animadas y proceso de elaboración |
 | `/tienda` | Catálogo | Fichas completas de los 7 vinos; compra enlaza a WooCommerce |
+| `/tienda/:id` | Ficha de vino | Detalle individual con notas de cata y datos analíticos |
+| `/blog` | Blog | Grid de artículos de prensa y posts propios |
+| `/blog/:id` | Post de blog | Plantilla de post con bloques de contenido bilingüe y comentarios |
+| `/maridajes` | Maridajes | Sugerencias de maridaje por categoría con vídeo |
 | `/visita` | Enoturismo | Experiencias disponibles y mapa de localización |
 | `/contacto` | Contacto | Formulario y mapa embebido de Google Maps |
 | `/aviso-legal` | Aviso legal | Página estática |
@@ -62,14 +66,14 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 - **Filtro animado en Maridajes** — `AnimatePresence mode="popLayout"` con transiciones de escala por tarjeta. Solo expande el video de la tarjeta seleccionada.
 
 ### UI y navegación
-- **Splash screen** — pantalla de carga con barra de progreso en la primera visita de la sesión.
+- **Splash screen** — pantalla de carga con animación de letras que precarga JS y las imágenes críticas antes de mostrarse. Solo aparece en la primera visita de la sesión.
 - **Barra de progreso de scroll** — indicador fino en la parte superior que refleja el avance en la página.
 - **Botón volver arriba** — aparece tras 400 px de scroll, animado con Framer Motion.
 - **Cursor personalizado** — anillo que sigue al puntero con suavizado por `requestAnimationFrame`. Escala en elementos interactivos y no interfiere con cursores del sistema.
 - **Scroll al top instantáneo** — al cambiar de página o pulsar una pestaña ya activa en el menú.
 
 ### Internacionalización y tema
-- **Bilingüe ES / EN** — sistema de traducciones propio con `LanguageContext` y hook `useLanguage`. Persistencia en `localStorage`. Cambia idioma sin recargar.
+- **Bilingüe ES / EN** — sistema de traducciones propio con `LanguageContext` y hook `useLanguage`. Persistencia en `localStorage`. Cambia idioma sin recargar. El contenido del blog admite objetos `{es, en}` directamente en los datos, sin tocar el diccionario.
 - **Modo oscuro / claro** — tema completo con variables CSS y atributo `data-theme`. Persiste entre sesiones.
 
 ### Rendimiento
@@ -98,7 +102,8 @@ src/
 │   ├── LanguageContext.jsx        # Idioma y tema (ES/EN, dark/light)
 │   └── SectionContext.jsx         # Secciones activas para indicadores de navegación
 ├── data/                          # Todo el contenido separado del código
-│   ├── vinos.js                   # 7 vinos con flag featured
+│   ├── vinos.js                   # 7 vinos con flag featured, notas de cata y analítica
+│   ├── blog.js                    # Posts del blog con contenido por bloques (ES/EN)
 │   ├── bodega.js                  # Textos y estadísticas de Bodega y Viñas
 │   ├── visitas.js                 # Experiencias de enoturismo
 │   ├── equipo.js                  # Miembros del equipo
@@ -165,3 +170,21 @@ El cliente real es la bodega familiar *El Hato y el Garabato*. Su web original e
 
 **Guillermo** — Alumno de DAW  
 [github.com/Marsdix](https://github.com/Marsdix) · 2025–2026
+
+---
+
+## Imágenes personalizables
+
+Todas las imágenes del proyecto se gestionan en `src/data/images.js`. Para cambiar cualquier hero basta con sustituir el import correspondiente por el de la nueva imagen:
+
+| Sección | Variable |
+|---|---|
+| Home hero | `imgHomeHero` |
+| Nosotros hero | `imgNosotrosHero` |
+| Bodega hero | `imgBodegaVinaHero` |
+| Tienda hero | `imgCotexaTumbada` |
+| Vino detalle hero | `imgVinoDetalleHero` |
+| Blog hero | `imgBlogHero` |
+| Maridajes hero | `imgVinas` |
+| Visita hero | `imgVisitaHero` |
+| Contacto hero | `imgContactoHero` |
