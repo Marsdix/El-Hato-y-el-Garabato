@@ -18,12 +18,12 @@ import imgLuisfer from "../assets/images/Luisfer.JPG";
 import imgRobertParker from "../assets/images/robert-winePeriodico.png";
 import imgTraveler from "../assets/images/travelerPeriodico.png";
 import imgPenin from "../assets/images/peninPeriodico.png";
-import imgElPais from "../assets/images/el-paisPeriodico.png";
+import imgElPais from "../assets/images/ElPaisPeriodico.png";
 import imgPlanetaVino from "../assets/images/planeta-vinoPeriodico.png";
 import imgLaVanguardia from "../assets/images/la-vanguardiaPeriodico.jpg";
 import imgSobremesa from "../assets/images/sobremesaPeriodico.png";
 import imgAbc from "../assets/images/abcPeriodico.jpg";
-import imgSpanishWine from "../assets/images/spanish-winePeriodico.png";
+import imgSpanishWine from "../assets/images/SpanishWinePeriodico.png";
 import imgHola from "../assets/images/holaPeriodico.jpg";
 
 // ── Nosotros / Heroes ─────────────────────────────────────────────
