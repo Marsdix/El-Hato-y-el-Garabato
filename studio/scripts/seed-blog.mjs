@@ -245,13 +245,97 @@ const POSTS = [
       es: 'El Hato y el Garabato en La Vanguardia: el vino de Arribes que rompe el determinismo latitudinal',
       en: 'El Hato y el Garabato in La Vanguardia: the Arribes wine that defies latitudinal determinism',
     },
-    cat:     'blog.cat.prensa',
-    date:    '2026-04-13',
-    excerpt: {
-      es: 'La Vanguardia analiza cómo El Hato y el Garabato rompe los estereotipos sobre los vinos del sur peninsular.',
+    cat:      'blog.cat.prensa',
+    date:     '2026-04-13',
+    readTime: { es: '5 min de lectura' },
+    excerpt:  {
+      es: 'Santi Rivas elige El Hato y el Garabato en La Vanguardia como ejemplo de bodega que convierte una ubicación ignorada en ventaja. El Ecléctico de puesta en cruz, «uno de los mejores blancos de este país por debajo de 20 euros».',
       en: 'La Vanguardia analyses how El Hato y el Garabato challenges stereotypes about wines from southern Iberia.',
     },
     href: 'https://elhatoyelgarabato.com/blog/el-hato-y-el-garabato-en-la-vanguardia/',
+    tags: ['prensa', 'La Vanguardia', 'Santi Rivas', 'DO Arribes', 'Puesta en Cruz', 'Ecléctico', 'Juan García', 'vinos singulares', 'determinismo latitudinal', 'Zamora'],
+    content: keyed([
+      {
+        type: 'intro',
+        es: 'Santi Rivas escoge El Hato y el Garabato en La Vanguardia como el primer ejemplo de bodega que convierte la desventaja de una ubicación ignorada en una ventaja competitiva. El artículo, publicado el 21 de febrero de 2026 en la sección Comer/Beber del diario, plantea un concepto provocador — el determinismo latitudinal — para explicar por qué hay regiones que suman reputación a sus vinos y otras que restan.',
+      },
+      {
+        type: 'p',
+        es: 'De entre todas las bodegas de España que podría haber elegido para ilustrar su tesis, Rivas sitúa a El Hato y el Garabato en primer lugar.',
+      },
+      {
+        type: 'h2',
+        es: '¿Qué es el determinismo latitudinal?',
+      },
+      {
+        type: 'p',
+        es: 'Santi Rivas acuña el término «determinismo latitudinal» para describir un fenómeno que condiciona el mercado del vino español. La idea es directa: no es lo mismo tener la bodega en Rioja o Ribera del Duero — regiones cuyo nombre ya vende — que en una denominación que el consumidor medio no conoce.',
+      },
+      {
+        type: 'p',
+        es: '«Hay regiones que suman reputación a sus bodegas, otras que restan y, por supuesto, también las que ni lo uno ni lo otro. Aunque pueden, las bodegas inmersas en latitudes exitosas o neutras no deberían obviar esta circunstancia, pero para las que están situadas en las menos conocidas, darse cuenta de este contexto es una cuestión de supervivencia para proceder en consecuencia.»',
+      },
+      {
+        type: 'p',
+        es: 'La solución que plantea el artículo es clara: si estás en una zona poco conocida, o te centras en el consumo de cercanía, o apuestas todo a la calidad y a la singularidad para atraer al consumidor iniciado — el único segmento del mercado del vino que crece.',
+      },
+      {
+        type: 'h2',
+        es: '«Uno de los mejores blancos de este país por debajo de 20 euros»',
+      },
+      {
+        type: 'p',
+        es: 'Santi Rivas presenta El Hato y el Garabato como el primero de tres ejemplos de vinos excelentes de regiones ignoradas, y dedica a nuestro Ecléctico de puesta en cruz la frase más contundente del artículo:',
+      },
+      {
+        type: 'p',
+        es: '«Podéis probar cualquiera de sus tintos, pero yo aquí vengo con su puesta en cruz, variedad autóctona que aquí nos deja un blanco salino y vertical, de fruta contenida y bastante suelo. Sin duda, uno de los mejores blancos de este país por debajo de 20 euros.»',
+      },
+      {
+        type: 'p',
+        es: 'La descripción — salino, vertical, con suelo — encaja con lo que siempre hemos buscado en nuestros blancos: vinos que hablen de la tierra de la que vienen sin necesidad de artificios.',
+      },
+      {
+        type: 'h2',
+        es: 'El Hato y el Garabato, un proyecto «muy vigente»',
+      },
+      {
+        type: 'p',
+        es: 'Rivas presenta la bodega con precisión: «En tierras de Zamora y Salamanca se halla esta DO que atesora proyectos muy a tener en cuenta. Uno de ellos es el de El Hato y el Garabato, un proyecto familiar de Liliana Fernández y José Manuel Benéitez (también enólogo de Vía Cénit), orientado a vinos diferenciales, frescos y fluidos. Es decir, de un estilo muy vigente.»',
+      },
+      {
+        type: 'p',
+        es: 'Tres adjetivos que definen lo que hacemos: diferenciales, frescos y fluidos. Y una conclusión que sitúa ese estilo en el centro de lo que el mercado del vino busca hoy.',
+      },
+      {
+        type: 'h2',
+        es: '«¿Quién va a pedir una Juan García en Madrid?»',
+      },
+      {
+        type: 'p',
+        es: 'El artículo formula la pregunta clave para cualquier bodega de los Arribes:',
+      },
+      {
+        type: 'p',
+        es: '«¿Quién va a pedir una Juan García en Madrid? Pues alguien con la suficiente curiosidad y espíritu como para no estar bebiendo siempre lo mismo. Son aquellos que pensamos que en la variedad está la diversión.»',
+      },
+      {
+        type: 'p',
+        es: 'Rivas responde a su propia pregunta: el consumidor iniciado. Ese perfil — curioso, con criterio, que huye de lo predecible — es exactamente a quien van dirigidos nuestros vinos. El artículo convierte lo que podría ser una debilidad comercial (una uva desconocida de una región desconocida) en el argumento de venta más potente: la singularidad.',
+      },
+      {
+        type: 'h2',
+        es: 'Por qué esta mención importa',
+      },
+      {
+        type: 'p',
+        es: 'La Vanguardia es el diario de referencia de Barcelona y uno de los más leídos de España. Su sección Comer/Beber llega a un público amplio que incluye tanto consumidores con criterio como profesionales de la hostelería y la distribución.',
+      },
+      {
+        type: 'p',
+        es: 'Lo que hace especial esta mención no es solo la valoración del vino — «uno de los mejores blancos de este país por debajo de 20 euros» es una afirmación que no se hace a la ligera —, sino la posición que ocupa en el artículo. Santi Rivas elige tres bodegas de toda España para ilustrar su tesis, y El Hato y el Garabato es la primera. No es una mención al paso: es el ejemplo que abre el argumento.',
+      },
+    ]),
   },
 ]
 
