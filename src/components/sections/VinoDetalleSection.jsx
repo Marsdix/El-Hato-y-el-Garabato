@@ -15,7 +15,7 @@ export default function VinoDetalleSection({ vino }) {
   const { t } = useLanguage()
   // Sanity fetch para la lista completa, usada para los vinos relacionados.
   // La ficha principal (vino) viene como prop desde VinoDetalle (page).
-  const todosLosVinos = useSanityFetch(QUERY_VINOS, VINOS)
+  const { data: todosLosVinos } = useSanityFetch(QUERY_VINOS, VINOS)
   const relacionados = todosLosVinos.filter(v => v.id !== vino.id).slice(0, 3)
 
   return (

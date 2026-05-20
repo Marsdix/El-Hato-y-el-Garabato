@@ -20,7 +20,7 @@ export default function BlogSection() {
   const { t, language } = useLanguage()
   // Sanity fetch con los datos estáticos como estado inicial (cero flash de carga).
   // Si Sanity no tiene datos todavía, se usan los datos estáticos de /data/blog.js.
-  const posts = useSanityFetch(QUERY_BLOG, BLOG_POSTS)
+  const { data: posts } = useSanityFetch(QUERY_BLOG, BLOG_POSTS)
 
   return (
     <section className="blog-section" id="blog-articulos">

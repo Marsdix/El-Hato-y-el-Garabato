@@ -1,16 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { client } from '../lib/sanityClient'
 
-/**
- * Fetches data from Sanity and falls back to initialData if:
- *   - the fetch fails, or
- *   - the result is empty (Sanity dataset not yet populated).
- *
- * Uses initialData as the immediate state (zero loading flash).
- * The query is stored in a ref so the effect does not re-run on re-renders.
- */
 export function useSanityFetch(query, initialData) {
   const [data, setData] = useState(initialData)
+  const [loading, setLoading] = useState(true)
   const queryRef = useRef(query)
 
   useEffect(() => {
@@ -23,8 +16,9 @@ export function useSanityFetch(query, initialData) {
             )
         if (hasData) setData(result)
       })
-      .catch(() => {}) // silently fall back to initialData
+      .catch(() => {})
+      .finally(() => setLoading(false))
   }, [])
 
-  return data
+  return { data, loading }
 }

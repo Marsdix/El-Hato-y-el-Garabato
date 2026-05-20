@@ -15,7 +15,7 @@ export default function VisitaExperienciasSection() {
   const { t } = useLanguage()
   // Sanity fetch con los datos estáticos como estado inicial (cero flash de carga).
   // QUERY_VISITAS devuelve { intro, experiencias }; misma forma que VISITAS_INICIAL.
-  const { intro, experiencias } = useSanityFetch(QUERY_VISITAS, VISITAS_INICIAL)
+  const { data: { intro, experiencias } } = useSanityFetch(QUERY_VISITAS, VISITAS_INICIAL)
 
   return (
     <section className="visita-experiencias-section" id="visita-experiencias">

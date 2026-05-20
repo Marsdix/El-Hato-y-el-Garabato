@@ -13,7 +13,7 @@ export default function TiendaSection() {
   const { t } = useLanguage()
   // Sanity fetch con los datos estáticos como estado inicial (cero flash de carga).
   // Si Sanity no tiene datos todavía, se usan los datos estáticos de /data/vinos.js.
-  const vinos = useSanityFetch(QUERY_VINOS, VINOS)
+  const { data: vinos } = useSanityFetch(QUERY_VINOS, VINOS)
 
   return (
     <section className="tienda-section" id="tienda-catalogo">
