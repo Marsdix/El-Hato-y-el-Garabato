@@ -2,6 +2,10 @@
 //  IMÁGENES DEL PROYECTO — archivo único organizado por página
 //  Las imágenes locales se importan para que Vite las procese
 //  correctamente (rutas con hash, base URL, etc.)
+//
+//  WebP automático: si existe <nombre>.webp en assets/images se usa
+//  en lugar del jpg/png original. El fallback es siempre el import
+//  estático de abajo. Para activar solo hay que añadir el .webp.
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
@@ -59,93 +63,102 @@ import imgLogoArribes  from "../assets/images/logo-arribes-pared.png";
 import imgLogoHato     from "../assets/images/logo-hato-pared.png";
 
 // ═══════════════════════════════════════════════════════════════════
+//  WebP automático — carga todos los .webp disponibles en build time.
+//  Si no hay ninguno el objeto queda vacío y se usan los originals.
+// ═══════════════════════════════════════════════════════════════════
+
+const webpFiles = import.meta.glob('../assets/images/*.webp', { eager: true });
+
+// Devuelve la versión .webp si existe, si no el import original.
+function w(original, name) {
+  return webpFiles[`../assets/images/${name}.webp`]?.default ?? original;
+}
+
+// ═══════════════════════════════════════════════════════════════════
 
 export const IMAGES = {
   // ── HOME ( / ) ───────────────────────────────────────────────────
   home: {
-    hero:            imgHomeHero,
-    bodegaInterior:  imgDuero,
-    bodegaPanoramica: imgVinas,
+    hero:             w(imgHomeHero,  'home-hero'),
+    bodegaInterior:   w(imgDuero,     'duero'),
+    bodegaPanoramica: w(imgVinas,     'vinas'),
   },
 
   // ── NOSOTROS ( /nosotros ) ────────────────────────────────────────
   nosotros: {
-    hero:        imgNosotrosHero,
-    equipoGrupo: imgEquipoGrupo,
+    hero:        w(imgNosotrosHero, 'nosotros-hero'),
+    equipoGrupo: w(imgEquipoGrupo,  'equipo-grupo-jose'),
     equipo: {
-      jose:    imgJose,
-      liliana: imgLiliana,
-      luisfer: imgLuisfer,
+      jose:    w(imgJose,    'jose'),
+      liliana: w(imgLiliana, 'liliana-coche'),
+      luisfer: w(imgLuisfer, 'luisfer'),
     },
     medios: {
-      robertParker: imgRobertParker,
-      traveler:     imgTraveler,
-      penin:        imgPenin,
-      elPais:       imgElPais,
-      planetaVino:  imgPlanetaVino,
-      laVanguardia: imgLaVanguardia,
-      sobremesa:    imgSobremesa,
-      abc:          imgAbc,
-      spanishWine:  imgSpanishWine,
-      hola:         imgHola,
+      robertParker: w(imgRobertParker, 'robert-wine-periodico'),
+      traveler:     w(imgTraveler,     'traveler-periodico'),
+      penin:        w(imgPenin,        'penin-periodico'),
+      elPais:       w(imgElPais,       'el-pais-periodico'),
+      planetaVino:  w(imgPlanetaVino,  'planeta-vino-periodico'),
+      laVanguardia: w(imgLaVanguardia, 'la-vanguardia-periodico'),
+      sobremesa:    w(imgSobremesa,    'sobremesa-periodico'),
+      abc:          w(imgAbc,          'abc-periodico'),
+      spanishWine:  w(imgSpanishWine,  'spanish-wine-periodico'),
+      hola:         w(imgHola,         'hola-periodico'),
     },
   },
 
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
-    hero:  imgBodegaHero,
-    vinas: imgJoseConVina,
+    hero:  w(imgBodegaHero,  'bodega-vina-hero'),
+    vinas: w(imgJoseConVina, 'jose-con-viña'),
   },
 
   // ── TIENDA ( /tienda ) ────────────────────────────────────────────
   tienda: {
-    hero: imgTiendaHero,
+    hero: w(imgTiendaHero, 'cotexa-tumbada'),
     vinos: {
-      cotexa:         imgCotexa,
-      deBuenaJera:    imgDeBuenaJera,
-      eclecticoLias:  imgEclecticoLias,
-      eclecticoBarrica: imgEclecticoBlanco,
-      li:             imgLi,
-      otroCuento:     imgOtroCuento,
-      sinBlanca:      imgSinBlanca,
+      cotexa:           w(imgCotexa,          'cotexa'),
+      deBuenaJera:      w(imgDeBuenaJera,      'de-buena-jera'),
+      eclecticoLias:    w(imgEclecticoLias,    'eclectico-lias'),
+      eclecticoBarrica: w(imgEclecticoBlanco,  'eclectico-blanco'),
+      li:               w(imgLi,              'liliana'),
+      otroCuento:       w(imgOtroCuento,       'otro-cuento'),
+      sinBlanca:        w(imgSinBlanca,        'sin-blanca'),
     },
   },
 
   // ── VINO DETALLE ( /tienda/:id ) ─────────────────────────────────
-  // Para cambiar la imagen: sustituye imgVinoDetalleHero por otro import
   vinoDetalle: {
-    hero: imgVinoDetalleHero,
+    hero: w(imgVinoDetalleHero, 'tienda-hero'),
   },
 
   // ── BLOG ( /blog ) ───────────────────────────────────────────────
-  // Para cambiar la imagen: sustituye imgBlogHero por otro import
   blog: {
-    hero: imgBlogHero,
+    hero: w(imgBlogHero, 'blog-hero'),
   },
 
   // ── MARIDAJES ( /maridajes ) ─────────────────────────────────────
-  // Para cambiar la imagen: sustituye imgVinas por otro import de arriba
   maridajes: {
-    hero: imgVinas,
+    hero: w(imgVinas, 'vinas'),
   },
 
   // ── VISITA ( /visita ) ────────────────────────────────────────────
   visita: {
-    hero: imgVisitaHero,
+    hero: w(imgVisitaHero, 'barricas'),
   },
 
   // ── CONTACTO ( /contacto ) ────────────────────────────────────────
   contacto: {
-    hero: imgContactoHero,
+    hero: w(imgContactoHero, 'liliana-jose-vera-coche'),
   },
 
   // ── AVISO LEGAL ( /aviso-legal ) ──────────────────────────────────
   avisoLegal: {
-    hero: imgLogoArribes,
+    hero: w(imgLogoArribes, 'logo-arribes-pared'),
   },
 
   // ── TÉRMINOS Y CONDICIONES ( /terminos ) ──────────────────────────
   terminos: {
-    hero: imgLogoHato,
+    hero: w(imgLogoHato, 'logo-hato-pared'),
   },
 };
