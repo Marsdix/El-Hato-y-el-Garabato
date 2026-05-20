@@ -5,114 +5,114 @@
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Home ─────────────────────────────────────────────────────────
-import imgHomeHero from "../assets/images/HomeHero.jpg";
-import imgDuero from "../assets/images/Duero.jpg";
-import imgVinas from "../assets/images/Viñas.jpg";
+import imgHomeHero     from "../assets/images/home-hero.jpg";
+import imgDuero        from "../assets/images/duero.jpg";
+import imgVinas        from "../assets/images/vinas.jpg";
 
 // ── Nosotros / Equipo ─────────────────────────────────────────────
-import imgJose from "../assets/images/Jose.JPG";
-import imgLiliana from "../assets/images/LilianaCoche.png";
-import imgLuisfer from "../assets/images/Luisfer.JPG";
+import imgJose         from "../assets/images/jose.JPG";
+import imgLiliana      from "../assets/images/liliana-coche.png";
+import imgLuisfer      from "../assets/images/luisfer.JPG";
 
 // ── Nosotros / Medios ─────────────────────────────────────────────
-import imgRobertParker from "../assets/images/robert-winePeriodico.png";
-import imgTraveler from "../assets/images/travelerPeriodico.png";
-import imgPenin from "../assets/images/peninPeriodico.png";
-import imgElPais from "../assets/images/ElPaisPeriodico.png";
-import imgPlanetaVino from "../assets/images/planeta-vinoPeriodico.png";
-import imgLaVanguardia from "../assets/images/la-vanguardiaPeriodico.jpg";
-import imgSobremesa from "../assets/images/sobremesaPeriodico.png";
-import imgAbc from "../assets/images/abcPeriodico.jpg";
-import imgSpanishWine from "../assets/images/SpanishWinePeriodico.png";
-import imgHola from "../assets/images/holaPeriodico.jpg";
+import imgRobertParker from "../assets/images/robert-wine-periodico.png";
+import imgTraveler     from "../assets/images/traveler-periodico.png";
+import imgPenin        from "../assets/images/penin-periodico.png";
+import imgElPais       from "../assets/images/el-pais-periodico.png";
+import imgPlanetaVino  from "../assets/images/planeta-vino-periodico.png";
+import imgLaVanguardia from "../assets/images/la-vanguardia-periodico.jpg";
+import imgSobremesa    from "../assets/images/sobremesa-periodico.png";
+import imgAbc          from "../assets/images/abc-periodico.jpg";
+import imgSpanishWine  from "../assets/images/spanish-wine-periodico.png";
+import imgHola         from "../assets/images/hola-periodico.jpg";
 
 // ── Nosotros / Heroes ─────────────────────────────────────────────
-import imgNosotrosHero from "../assets/images/NosotrosHero.jpg";
-import imgEquipoGrupo from "../assets/images/EquipoGrupoJose.jpeg";
+import imgNosotrosHero from "../assets/images/nosotros-hero.jpg";
+import imgEquipoGrupo  from "../assets/images/equipo-grupo-jose.jpeg";
 
 // ── Bodega ────────────────────────────────────────────────────────
-import imgBodegaVinaHero from "../assets/images/BodegaVinaHero.jpg";
-import imgJoseConVina from "../assets/images/JoseConViña.JPG";
+import imgBodegaHero   from "../assets/images/bodega-vina-hero.JPG";
+import imgJoseConVina  from "../assets/images/jose-con-viña.JPG";
 
-// ── Tienda ────────────────────────────────────────────────────────
-import imgCotexaTumbada from "../assets/images/CotexaTumbada.jpeg";
-import imgCotexa from "../assets/images/Cotexa.png";
-import imgDeBuenaJera from "../assets/images/DeBuenaJera.png";
-import imgEclecticoLias from "../assets/images/EclecticoLias.png";
-import imgEclecticoBlanco from "../assets/images/EclecticoBlanco.png";
-import imgLi from "../assets/images/Li.png";
-import imgOtroCuento from "../assets/images/OtroCuento.png";
-import imgSinBlanca from "../assets/images/SinBlanca.png";
-import imgVinoDetalleHero from "../assets/images/TiendaHero.jpg";
+// ── Tienda / Vinos ────────────────────────────────────────────────
+import imgTiendaHero      from "../assets/images/cotexa-tumbada.jpeg";
+import imgCotexa          from "../assets/images/cotexa.png";
+import imgDeBuenaJera     from "../assets/images/de-buena-jera.png";
+import imgEclecticoLias   from "../assets/images/eclectico-lias.png";
+import imgEclecticoBlanco from "../assets/images/eclectico-blanco.png";
+import imgLi              from "../assets/images/liliana.png";
+import imgOtroCuento      from "../assets/images/otro-cuento.png";
+import imgSinBlanca       from "../assets/images/sin-blanca.png";
+import imgVinoDetalleHero from "../assets/images/tienda-hero.jpg";
 
 // ── Blog ──────────────────────────────────────────────────────────
-import imgBlogHero from "../assets/images/BlogHero.png";
+import imgBlogHero     from "../assets/images/blog-hero.png";
 
 // ── Visita ────────────────────────────────────────────────────────
-import imgVisitaHero from "../assets/images/Barricas.jpg";
+import imgVisitaHero   from "../assets/images/barricas.JPG";
 
 // ── Contacto ──────────────────────────────────────────────────────
-import imgContactoHero from "../assets/images/LiJoseVeraCoche.jpg";
+import imgContactoHero from "../assets/images/liliana-jose-vera-coche.jpg";
 
 // ── Páginas legales ───────────────────────────────────────────────
-import imgLogoArribes from "../assets/images/LogoArribesPared.png";
-import imgLogoHato from "../assets/images/LogoHatoPared.png";
+import imgLogoArribes  from "../assets/images/logo-arribes-pared.png";
+import imgLogoHato     from "../assets/images/logo-hato-pared.png";
 
 // ═══════════════════════════════════════════════════════════════════
 
 export const IMAGES = {
   // ── HOME ( / ) ───────────────────────────────────────────────────
   home: {
-    hero: imgHomeHero,
-    bodegaInterior: imgDuero,
+    hero:            imgHomeHero,
+    bodegaInterior:  imgDuero,
     bodegaPanoramica: imgVinas,
   },
 
   // ── NOSOTROS ( /nosotros ) ────────────────────────────────────────
   nosotros: {
-    hero: imgNosotrosHero,
+    hero:        imgNosotrosHero,
     equipoGrupo: imgEquipoGrupo,
     equipo: {
-      jose: imgJose,
+      jose:    imgJose,
       liliana: imgLiliana,
       luisfer: imgLuisfer,
     },
     medios: {
       robertParker: imgRobertParker,
-      traveler: imgTraveler,
-      penin: imgPenin,
-      elPais: imgElPais,
-      planetaVino: imgPlanetaVino,
+      traveler:     imgTraveler,
+      penin:        imgPenin,
+      elPais:       imgElPais,
+      planetaVino:  imgPlanetaVino,
       laVanguardia: imgLaVanguardia,
-      sobremesa: imgSobremesa,
-      abc: imgAbc,
-      spanishWine: imgSpanishWine,
-      hola: imgHola,
+      sobremesa:    imgSobremesa,
+      abc:          imgAbc,
+      spanishWine:  imgSpanishWine,
+      hola:         imgHola,
     },
   },
 
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
-    hero: imgBodegaVinaHero,
+    hero:  imgBodegaHero,
     vinas: imgJoseConVina,
   },
 
   // ── TIENDA ( /tienda ) ────────────────────────────────────────────
   tienda: {
-    hero: imgCotexaTumbada,
+    hero: imgTiendaHero,
     vinos: {
-      cotexa: imgCotexa,
-      deBuenaJera: imgDeBuenaJera,
-      eclecticoLias: imgEclecticoLias,
+      cotexa:         imgCotexa,
+      deBuenaJera:    imgDeBuenaJera,
+      eclecticoLias:  imgEclecticoLias,
       eclecticoBarrica: imgEclecticoBlanco,
-      li: imgLi,
-      otroCuento: imgOtroCuento,
-      sinBlanca: imgSinBlanca,
+      li:             imgLi,
+      otroCuento:     imgOtroCuento,
+      sinBlanca:      imgSinBlanca,
     },
   },
 
   // ── VINO DETALLE ( /tienda/:id ) ─────────────────────────────────
-  // Para cambiar la imagen: sustituye imgBodegaVinaHero por otro import
+  // Para cambiar la imagen: sustituye imgVinoDetalleHero por otro import
   vinoDetalle: {
     hero: imgVinoDetalleHero,
   },
