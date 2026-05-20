@@ -67,9 +67,9 @@ export default defineType({
     }),
     defineField({
       name: 'href',
-      title: 'Enlace externo (WordPress)',
+      title: 'Enlace externo (artículo original)',
       type: 'url',
-      description: 'Si existe, la tarjeta enlazará aquí cuando no hay contenido interno.',
+      description: 'URL de la publicación original. Si existe y no hay contenido interno, la tarjeta enlazará aquí.',
     }),
     defineField({
       name: 'tags',
