@@ -215,6 +215,8 @@ export const TRANSLATIONS = {
     'blog.cat.prensa':        'Prensa',
     'blog.cat.enoturismo':    'Enoturismo',
     'blog.cat.vinos':         'Vinos',
+    'blog.cat.bodega':        'Bodega',
+    'blog.cat.info':          'Información',
 
     // ── Post de blog (/blog/:id) ───────────────────────────────────
     'blog.back':                  '← Volver al blog',
@@ -464,6 +466,8 @@ export const TRANSLATIONS = {
     'blog.cat.prensa':        'Press',
     'blog.cat.enoturismo':    'Wine Tourism',
     'blog.cat.vinos':         'Wines',
+    'blog.cat.bodega':        'Winery',
+    'blog.cat.info':          'Information',
 
     // ── Blog post (/blog/:id) ──────────────────────────────────────
     'blog.back':                  '← Back to blog',

@@ -31,6 +31,8 @@ export default defineType({
           { title: 'Prensa',      value: 'blog.cat.prensa'     },
           { title: 'Enoturismo',  value: 'blog.cat.enoturismo' },
           { title: 'Vinos',       value: 'blog.cat.vinos'      },
+          { title: 'Bodega',      value: 'blog.cat.bodega'     },
+          { title: 'Información', value: 'blog.cat.info'       },
         ],
       },
       validation: Rule => Rule.required(),
