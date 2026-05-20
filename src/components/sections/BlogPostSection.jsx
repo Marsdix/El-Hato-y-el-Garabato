@@ -200,6 +200,13 @@ export default function BlogPostSection({ post }) {
           )}
         </ScrollReveal>
 
+        {/* ── Imagen de portada ─────────────────────────────────── */}
+        {post.imagen && (
+          <div className="blog-post-cover">
+            <img src={post.imagen} alt={pick(post.title, language)} />
+          </div>
+        )}
+
         {/* ── Cuerpo ────────────────────────────────────────────── */}
         <div className="blog-post-body">
           {post.content.map((block, i) => (

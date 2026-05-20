@@ -217,6 +217,7 @@ export const TRANSLATIONS = {
     'blog.cat.vinos':         'Vinos',
     'blog.cat.bodega':        'Bodega',
     'blog.cat.info':          'Información',
+    'blog.todos':             'Todos',
 
     // ── Post de blog (/blog/:id) ───────────────────────────────────
     'blog.back':                  '← Volver al blog',
@@ -468,6 +469,7 @@ export const TRANSLATIONS = {
     'blog.cat.vinos':         'Wines',
     'blog.cat.bodega':        'Winery',
     'blog.cat.info':          'Information',
+    'blog.todos':             'All',
 
     // ── Blog post (/blog/:id) ──────────────────────────────────────
     'blog.back':                  '← Back to blog',
