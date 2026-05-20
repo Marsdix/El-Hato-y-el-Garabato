@@ -49,7 +49,7 @@ import imgVinoDetalleHero from "../assets/images/TiendaHero.jpg";
 import imgBlogHero from "../assets/images/BlogHero.png";
 
 // ── Visita ────────────────────────────────────────────────────────
-import imgVisitaHero from "../assets/images/Barricas.JPG";
+import imgVisitaHero from "../assets/images/Barricas.jpg";
 
 // ── Contacto ──────────────────────────────────────────────────────
 import imgContactoHero from "../assets/images/LiJoseVeraCoche.jpg";
