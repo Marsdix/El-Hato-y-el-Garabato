@@ -6,9 +6,14 @@ import AnimatedDivider from '../ui/AnimatedDivider'
 import GoldLine from '../ui/GoldLine'
 import { VINOS } from '../../data/vinos'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useSanityFetch } from '../../hooks/useSanityFetch'
+import { QUERY_VINOS } from '../../lib/queries'
 
 export default function TiendaSection() {
   const { t } = useLanguage()
+  // Sanity fetch con los datos estáticos como estado inicial (cero flash de carga).
+  // Si Sanity no tiene datos todavía, se usan los datos estáticos de /data/vinos.js.
+  const vinos = useSanityFetch(QUERY_VINOS, VINOS)
 
   return (
     <section className="tienda-section" id="tienda-catalogo">
@@ -20,7 +25,7 @@ export default function TiendaSection() {
       </ScrollReveal>
 
       <StaggerList className="tienda-grid" as="div" amount={0.05}>
-        {VINOS.map(vino => (
+        {vinos.map(vino => (
           <StaggerItem className="tienda-card" as="article" key={vino.id}>
             <Link
               to={`/tienda/${vino.id}`}

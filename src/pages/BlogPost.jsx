@@ -1,10 +1,14 @@
 import { useParams, Navigate } from 'react-router-dom'
 import BlogPostSection from '../components/sections/BlogPostSection'
 import { BLOG_POSTS } from '../data/blog'
+import { useSanityFetch } from '../hooks/useSanityFetch'
+import { QUERY_BLOG } from '../lib/queries'
 
 export default function BlogPost() {
   const { id } = useParams()
-  const post = BLOG_POSTS.find(p => p.id === id && p.content)
+  // Sanity fetch con fallback a datos estáticos.
+  const posts = useSanityFetch(QUERY_BLOG, BLOG_POSTS)
+  const post = posts.find(p => p.id === id && p.content)
 
   if (!post) return <Navigate to="/blog" replace />
 

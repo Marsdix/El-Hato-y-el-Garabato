@@ -6,6 +6,8 @@ import AnimatedDivider from '../ui/AnimatedDivider'
 import GoldLine from '../ui/GoldLine'
 import { BLOG_POSTS } from '../../data/blog'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useSanityFetch } from '../../hooks/useSanityFetch'
+import { QUERY_BLOG } from '../../lib/queries'
 
 function formatDate(dateStr, language) {
   return new Date(dateStr).toLocaleDateString(
@@ -16,6 +18,9 @@ function formatDate(dateStr, language) {
 
 export default function BlogSection() {
   const { t, language } = useLanguage()
+  // Sanity fetch con los datos estáticos como estado inicial (cero flash de carga).
+  // Si Sanity no tiene datos todavía, se usan los datos estáticos de /data/blog.js.
+  const posts = useSanityFetch(QUERY_BLOG, BLOG_POSTS)
 
   return (
     <section className="blog-section" id="blog-articulos">
@@ -27,7 +32,7 @@ export default function BlogSection() {
       </ScrollReveal>
 
       <StaggerList className="blog-grid" as="div" amount={0.06}>
-        {BLOG_POSTS.map(post => {
+        {posts.map(post => {
           const isInternal = Boolean(post.content)
           const CardImg = isInternal
             ? ({ children }) => <Link to={`/blog/${post.id}`} className="blog-card-img-wrap" tabIndex={-1} aria-hidden="true">{children}</Link>
