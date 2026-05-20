@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
 import { BtnGhost } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
@@ -24,10 +25,9 @@ export default function VinosGrid() {
       <StaggerList className="vinos-grid" as="div" amount={0.1}>
         {FEATURED.map(vino => (
           <StaggerItem className="vino-card" key={vino.id} as="div">
-            <a
-              href={vino.href}
+            <Link
+              to={`/tienda/${vino.id}`}
               className="vino-card-inner"
-              rel="noopener noreferrer"
               aria-label={vino.nombre}
             >
               <img className="vino-card-img" src={vino.imagen} alt={vino.nombre} />
@@ -43,7 +43,7 @@ export default function VinosGrid() {
                   {t('vinos.ver')} <ArrowRight size={14} />
                 </span>
               </div>
-            </a>
+            </Link>
           </StaggerItem>
         ))}
       </StaggerList>
