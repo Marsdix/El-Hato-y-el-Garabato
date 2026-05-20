@@ -4,11 +4,13 @@ import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import { VINOS } from '../../data/vinos'
 import { useLanguage } from '../../hooks/useLanguage'
-
-const FEATURED = VINOS.filter(v => v.featured)
+import { useSanityFetch } from '../../hooks/useSanityFetch'
+import { QUERY_VINOS } from '../../lib/queries'
 
 export default function VinosGrid() {
   const { t } = useLanguage()
+  const { data: vinos } = useSanityFetch(QUERY_VINOS, VINOS)
+  const FEATURED = vinos.filter(v => v.featured)
 
   return (
     <section className="section vinos-section" id="vinos">
@@ -20,7 +22,7 @@ export default function VinosGrid() {
       </ScrollReveal>
 
       <StaggerList className="vinos-grid" as="div" amount={0.1}>
-        {FEATURED.map((vino) => (
+        {FEATURED.map(vino => (
           <StaggerItem className="vino-card" key={vino.id} as="div">
             <a
               href={vino.href}
