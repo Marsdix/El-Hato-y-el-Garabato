@@ -6,10 +6,10 @@ import { useLanguage } from '../../hooks/useLanguage'
 // Devuelve el texto en el idioma pedido, cayendo al español si falta traducción
 const pick = (obj, lang) => (lang === 'en' ? (obj?.en ?? obj?.es) : obj?.es) ?? ''
 
-// Convierte cualquier URL de YouTube a URL de embed
+// Convierte cualquier URL de YouTube a URL de embed (sin cookies)
 function youtubeEmbed(url) {
   const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&?/]+)/)
-  return m ? `https://www.youtube.com/embed/${m[1]}` : url
+  return m ? `https://www.youtube-nocookie.com/embed/${m[1]}` : url
 }
 
 // ── Renderiza cada bloque de contenido ────────────────────────────
@@ -39,6 +39,7 @@ function Block({ block, language, t }) {
             <iframe
               src={youtubeEmbed(block.src)}
               title={block.caption ? pick(block.caption, language) : t('blog.video.caption')}
+              sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -105,6 +106,7 @@ function CommentsSection({ post, t }) {
               value={form.nombre}
               onChange={handleChange}
               placeholder={t('blog.comments.nombre')}
+              maxLength={100}
               required
               disabled={status === 'sending'}
             />
@@ -118,6 +120,7 @@ function CommentsSection({ post, t }) {
               value={form.comentario}
               onChange={handleChange}
               placeholder={t('blog.comments.texto')}
+              maxLength={1500}
               required
               disabled={status === 'sending'}
             />

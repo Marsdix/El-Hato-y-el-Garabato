@@ -164,6 +164,7 @@ export default function CarritoSection() {
                   name="nombre"
                   value={form.nombre}
                   onChange={handleChange}
+                  maxLength={100}
                   required
                   disabled={status === 'sending'}
                 />
@@ -176,6 +177,7 @@ export default function CarritoSection() {
                   name="email"
                   value={form.email}
                   onChange={handleChange}
+                  maxLength={254}
                   required
                   disabled={status === 'sending'}
                 />
@@ -188,6 +190,7 @@ export default function CarritoSection() {
                   rows={3}
                   value={form.notas}
                   onChange={handleChange}
+                  maxLength={1000}
                   disabled={status === 'sending'}
                 />
               </div>

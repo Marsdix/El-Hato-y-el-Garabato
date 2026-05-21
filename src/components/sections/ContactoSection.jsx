@@ -44,17 +44,17 @@ export default function ContactoSection() {
           <form>
             <div className="form-row">
               <div className="form-group">
-                <input type="text" name="nombre" placeholder={t('contacto.form.nombre')} required />
+                <input type="text" name="nombre" placeholder={t('contacto.form.nombre')} maxLength={100} required />
               </div>
               <div className="form-group">
-                <input type="email" name="email" placeholder={t('contacto.form.email')} required />
+                <input type="email" name="email" placeholder={t('contacto.form.email')} maxLength={254} required />
               </div>
             </div>
             <div className="form-group">
-              <input type="text" name="asunto" placeholder={t('contacto.form.asunto')} />
+              <input type="text" name="asunto" placeholder={t('contacto.form.asunto')} maxLength={150} />
             </div>
             <div className="form-group">
-              <textarea name="mensaje" rows="5" placeholder={t('contacto.form.mensaje')} required />
+              <textarea name="mensaje" rows="5" placeholder={t('contacto.form.mensaje')} maxLength={2000} required />
             </div>
             <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: 8 }}>
               {t('contacto.form.submit')}
