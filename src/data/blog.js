@@ -271,7 +271,7 @@ export const BLOG_POSTS = [
     imagen:   'https://cdn.sanity.io/images/rw1g8gn6/production/bf7091809245d9405735c74567feaf91fd97db0b-1024x576.png?auto=format',
     tags:     ['bodega', 'chimenea', 'trucos'],
     content: [
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
+      { type: 'video', src: 'https://www.youtube.com/watch?v=PTyfU_s6qrE' },
       { type: 'intro', es: 'Una de las cosas más geniales de vivir en nuestra casa en la bodega es la chimenea. El tipo de calor que genera es increíble, pero una de las cosas más complicadas es mantenerla limpia.', en: 'One of the best things about living in our house at the winery is the fireplace. The kind of warmth it gives is incredible, but one of the trickiest things is keeping it clean.' },
       { type: 'p', es: 'Nuestra chimenea tiene tres caras de vidrio. Lo que usamos: guantes, galletas para chimenea, el limpiador de Mercadona — el más eficiente de los que hemos probado — y servilletas.', en: 'Our fireplace has three glass panels. What we use: gloves, fireplace logs, a cleaning spray from the supermarket — the most efficient one we\'ve tried — and paper towels.' },
       { type: 'h2', es: 'Cómo hacerlo paso a paso', en: 'How to do it step by step' },
@@ -341,7 +341,6 @@ export const BLOG_POSTS = [
       ] },
       { type: 'h2', es: 'Paso a paso', en: 'Step by step' },
       { type: 'p', es: 'Colocad el envase pegado al libro. Quitad la lámina protectora y apoyad la etiqueta sobre el libro acercándola al envase. Pegad desde el centro hacia los extremos para evitar burbujas.', en: 'Place the container against the book. Remove the backing and rest the label on the book, bringing it towards the container. Stick from the centre outwards to avoid bubbles.' },
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
     ],
   },
 
@@ -362,7 +361,7 @@ export const BLOG_POSTS = [
         { es: 'La más directa: colocar el sacacorchos encima como si el lacre no existiera. La botella queda vestida.', en: 'The most direct: place the corkscrew on top as if the wax did not exist. The bottle stays dressed.' },
         { es: 'La más elegante: pasar el corta cápsulas en la parte superior retirando una tapita de lacre. Esta es la que os veremos hacer cuando nos visitéis.', en: 'The most elegant: run the foil cutter at the top to remove a small disc of wax. This is the method you will see us use when you visit us.' },
       ] },
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
+      { type: 'video', src: 'https://www.youtube.com/watch?v=DjQXjigvoDQ' },
     ],
   },
 
@@ -380,7 +379,6 @@ export const BLOG_POSTS = [
       { type: 'intro', es: 'Voy a contaros cómo abrir una botella desde un punto de vista diferente: yo no disfruto para nada abriendo botellas. Bebiéndolas sí, pero abrirlas… hasta hace nada no entendía por qué me costaba tanto, más allá de disculparme con «es que yo soy zurda». Pues resulta que sí tiene que ver.', en: 'I am going to tell you how to open a bottle from a different perspective: I genuinely do not enjoy opening bottles. Drinking them, yes — but opening them… until not long ago I could not understand why it was such a struggle, beyond blaming it on "I\'m left-handed". Well, it turns out that is actually relevant.' },
       { type: 'p', es: 'Fijaros cómo gira el sacacorchos un diestro y cómo lo tiene que girar un zurdo. Una vez que lo ves, la mecánica cambia completamente.', en: 'Watch how a right-handed person turns the corkscrew and how a left-handed person has to turn it. Once you see it, the mechanics change completely.' },
       { type: 'p', es: 'Si queréis comprar uno, os recomiendo el de dos tiempos — el más utilizado por los profesionales. Añade un punto chic, no ocupa nada en el cajón, es económico y fácil de usar.', en: 'If you want to buy one, I recommend the two-step model — the most widely used by professionals. It adds a touch of chic, takes up no space in the drawer, is affordable and easy to use.' },
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
     ],
   },
 
@@ -396,12 +394,10 @@ export const BLOG_POSTS = [
     tags:     ['variedades minoritarias', 'Juan García', 'Bruñal', 'Puesta en Cruz', 'DO Arribes', 'ITACYL'],
     content: [
       { type: 'intro', es: '¿Sabéis lo que son las variedades de uva ancestrales, únicas, minoritarias y en peligro de extinción? Sobre este tema tenemos un vídeo en el que os lo contamos de forma resumida.', en: 'Do you know what ancestral, unique, minority and endangered grape varieties are? We have a video on this topic where we explain it in summary.' },
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
       { type: 'h2', es: 'El vino debe sus aromas a la variedad', en: 'Wine owes its aromas to the variety' },
       { type: 'p', es: 'Existen 177 variedades de uva aceptadas para vinificación en España. Pese a esa variedad, en Castilla y León más del 87% del territorio está cubierto por solo cinco variedades.', en: 'There are 177 grape varieties accepted for winemaking in Spain. Despite that diversity, in Castilla y León more than 87% of the vineyard area is covered by just five varieties.' },
       { type: 'p', es: 'Arribes es una locura de variedades raras. En esta zona atascada en el pasado tenemos un patrimonio genético de una riqueza incalculable que se va perdiendo año a año. Nosotros intentamos con nuestro proyecto mantener las viñas viejas y estas variedades únicas.', en: 'Arribes is extraordinary for rare varieties. In this area stuck in the past we have a genetic heritage of incalculable richness that is being lost year by year. With our project we are trying to maintain the old vines and these unique varieties.' },
       { type: 'p', es: 'El ITACYL ha localizado, plantado y estudiado para su conservación algunas de estas variedades. Aquí en Arribes está uno de sus viñedos experimentales, con los que colaboramos siempre que nos lo proponen.', en: 'ITACYL has located, planted and studied some of these varieties for conservation. Here in Arribes there is one of their experimental vineyards, with which we collaborate whenever they invite us to.' },
-      { type: 'video', src: 'PENDIENTE_URL_YOUTUBE' },
     ],
   },
 
