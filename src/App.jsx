@@ -14,6 +14,7 @@ const Maridajes     = lazy(() => import('./pages/Maridajes'))
 const Blog          = lazy(() => import('./pages/Blog'))
 const BlogPost      = lazy(() => import('./pages/BlogPost'))
 const VinoDetalle   = lazy(() => import('./pages/VinoDetalle'))
+const Carrito       = lazy(() => import('./pages/Carrito'))
 const NotFound      = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/bodega"    element={<BodegaYVinas />}  />
             <Route path="/tienda"        element={<Tienda />}      />
             <Route path="/tienda/:id"    element={<VinoDetalle />} />
+            <Route path="/carrito"       element={<Carrito />}     />
             <Route path="/maridajes"     element={<Maridajes />}   />
             <Route path="/blog"           element={<Blog />}         />
             <Route path="/blog/:id"      element={<BlogPost />}     />
