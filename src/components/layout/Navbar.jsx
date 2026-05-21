@@ -65,7 +65,7 @@ export default function Navbar() {
       >
         <Link to="/" className="nav-logo" onClick={() => handleLinkClick('/')}>
           El Hato y el Garabato
-          <span>Bodega · Arribes del Duero</span>
+          <span>{t('nav.tagline')}</span>
         </Link>
 
         <ul className="nav-links">

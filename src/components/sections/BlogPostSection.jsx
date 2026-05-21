@@ -13,7 +13,7 @@ function youtubeEmbed(url) {
 }
 
 // ── Renderiza cada bloque de contenido ────────────────────────────
-function Block({ block, language }) {
+function Block({ block, language, t }) {
   switch (block.type) {
     case 'intro':
       return <p className="blog-post-intro">{pick(block, language)}</p>
@@ -38,7 +38,7 @@ function Block({ block, language }) {
           <div className="blog-post-video">
             <iframe
               src={youtubeEmbed(block.src)}
-              title={block.caption ? pick(block.caption, language) : 'Vídeo'}
+              title={block.caption ? pick(block.caption, language) : t('blog.video.caption')}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -211,7 +211,7 @@ export default function BlogPostSection({ post }) {
         <div className="blog-post-body">
           {post.content.map((block, i) => (
             <ScrollReveal key={i} amount={0.15} delay={0.05}>
-              <Block block={block} language={language} />
+              <Block block={block} language={language} t={t} />
             </ScrollReveal>
           ))}
         </div>
