@@ -9,7 +9,7 @@ import { LanguageProvider } from './context/LanguageContext'
 import { CartProvider } from './context/CartContext'
 
 function AppWithSplash() {
-  const [ageOk, setAgeOk] = useState(() => !!localStorage.getItem('hato-age-ok'))
+  const [ageOk, setAgeOk] = useState(false)
   const [splashDone, setSplashDone] = useState(
     () => !import.meta.env.DEV && !!sessionStorage.getItem('splash_shown')
   )

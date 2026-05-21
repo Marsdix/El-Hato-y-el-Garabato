@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../hooks/useLanguage'
 
-const STORAGE_KEY = 'hato-age-ok'
-
 const COPY = {
   brand:    { es: 'El Hato y el Garabato', en: 'El Hato y el Garabato' },
   sub:      { es: 'Bodega · Arribes del Duero', en: 'Winery · Arribes del Duero' },
@@ -28,7 +26,6 @@ export default function AgeGate({ onVerified }) {
   const [blocked, setBlocked] = useState(false)
 
   const handleYes = () => {
-    localStorage.setItem(STORAGE_KEY, '1')
     onVerified()
   }
 
