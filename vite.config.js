@@ -10,9 +10,10 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Separa librerías externas en un chunk propio para mejor caché
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+        manualChunks: (id) => {
+          if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+            return 'vendor'
+          }
         },
       },
     },
