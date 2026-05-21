@@ -5,6 +5,7 @@ import './App.css'
 import App from './App.jsx'
 import SplashScreen from './components/layout/SplashScreen'
 import AgeGate from './components/layout/AgeGate'
+import Cursor from './components/layout/Cursor'
 import { LanguageProvider } from './context/LanguageContext'
 import { CartProvider } from './context/CartContext'
 
@@ -14,7 +15,12 @@ function AppWithSplash() {
     () => !import.meta.env.DEV && !!sessionStorage.getItem('splash_shown')
   )
 
-  if (!ageOk) return <AgeGate onVerified={() => setAgeOk(true)} />
+  if (!ageOk) return (
+    <>
+      <Cursor />
+      <AgeGate onVerified={() => setAgeOk(true)} />
+    </>
+  )
 
   function handleSplashComplete() {
     if (!import.meta.env.DEV) {
