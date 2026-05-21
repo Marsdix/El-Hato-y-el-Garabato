@@ -3,6 +3,7 @@ import ContactoSection from '../components/sections/ContactoSection'
 import MapSection from '../components/sections/MapSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useRegisterSections } from '../context/SectionContext'
 
 const SECTIONS = [{ id: 'contacto', label: 'Contacto' }]
@@ -10,6 +11,7 @@ const SECTIONS = [{ id: 'contacto', label: 'Contacto' }]
 export default function Contacto() {
   useRegisterSections(SECTIONS)
   const { t } = useLanguage()
+  usePageTitle('Contacto', 'Contact')
 
   return (
     <>

@@ -2,6 +2,7 @@ import PageHero from '../components/layout/PageHero'
 import BodegaVinasSection from '../components/sections/BodegaVinasSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useRegisterSections } from '../context/SectionContext'
 
 const SECTIONS = [{ id: 'bodega-vinas', label: 'Bodega y Viñas' }]
@@ -9,6 +10,7 @@ const SECTIONS = [{ id: 'bodega-vinas', label: 'Bodega y Viñas' }]
 export default function BodegaYVinas() {
   useRegisterSections(SECTIONS)
   const { t } = useLanguage()
+  usePageTitle('Bodega y Viñas', 'Winery & Vineyards')
 
   return (
     <>

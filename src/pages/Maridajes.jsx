@@ -2,9 +2,11 @@ import PageHero from '../components/layout/PageHero'
 import MaridajesSection from '../components/sections/MaridajesSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Maridajes() {
   const { t } = useLanguage()
+  usePageTitle('Maridajes', 'Wine Pairings')
 
   return (
     <>

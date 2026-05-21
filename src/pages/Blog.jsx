@@ -2,6 +2,7 @@ import PageHero from '../components/layout/PageHero'
 import BlogSection from '../components/sections/BlogSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useRegisterSections } from '../context/SectionContext'
 
 const SECTIONS = [{ id: 'blog-articulos', label: 'Artículos' }]
@@ -9,6 +10,7 @@ const SECTIONS = [{ id: 'blog-articulos', label: 'Artículos' }]
 export default function Blog() {
   useRegisterSections(SECTIONS)
   const { t } = useLanguage()
+  usePageTitle('Blog', 'Blog')
 
   return (
     <>

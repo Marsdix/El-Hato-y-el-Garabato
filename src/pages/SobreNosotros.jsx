@@ -7,6 +7,7 @@ import { EQUIPO } from '../data/equipo'
 import { MEDIOS } from '../data/medios'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useRegisterSections } from '../context/SectionContext'
 import { useTilt } from '../hooks/useTilt'
 import { useScrollColor } from '../hooks/useScrollColor'
@@ -119,6 +120,7 @@ function CtaFinal() {
 export default function SobreNosotros() {
   useRegisterSections(SECTIONS)
   const { t } = useLanguage()
+  usePageTitle('Sobre Nosotros', 'About Us')
 
   return (
     <>

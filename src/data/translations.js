@@ -95,6 +95,9 @@ export const TRANSLATIONS = {
     'contacto.form.asunto':   'Asunto',
     'contacto.form.mensaje':  'Tu mensaje…',
     'contacto.form.submit':   'Enviar mensaje',
+    'contacto.form.sending':  'Enviando…',
+    'contacto.form.success':  '¡Mensaje recibido! Te responderemos en breve.',
+    'contacto.form.error':    'Algo ha fallado. Inténtalo de nuevo o escríbenos directamente.',
     'contacto.address.value': 'Calle Palazuelo, 4 · 49230 Formariz · Zamora · España',
 
     // ── BodegaVinasSection ─────────────────────────────────────────
@@ -378,6 +381,9 @@ export const TRANSLATIONS = {
     'contacto.form.asunto':   'Subject',
     'contacto.form.mensaje':  'Your message…',
     'contacto.form.submit':   'Send message',
+    'contacto.form.sending':  'Sending…',
+    'contacto.form.success':  'Message received! We will get back to you shortly.',
+    'contacto.form.error':    'Something went wrong. Please try again or contact us directly.',
     'contacto.address.value': 'Calle Palazuelo, 4 · 49230 Formariz · Zamora · Spain',
 
     // ── BodegaVinasSection ─────────────────────────────────────────

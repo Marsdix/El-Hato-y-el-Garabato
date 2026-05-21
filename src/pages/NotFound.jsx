@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function NotFound() {
   const { pathname } = useLocation()
   const { t } = useLanguage()
+  usePageTitle('Página no encontrada', 'Page not found')
 
   return (
     <div className="not-found">

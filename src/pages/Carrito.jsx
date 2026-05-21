@@ -2,9 +2,11 @@ import PageHero from '../components/layout/PageHero'
 import CarritoSection from '../components/sections/CarritoSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Carrito() {
   const { t } = useLanguage()
+  usePageTitle('Carrito', 'Cart')
 
   return (
     <>

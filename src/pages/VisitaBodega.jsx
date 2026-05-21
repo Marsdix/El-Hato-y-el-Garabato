@@ -2,6 +2,7 @@ import PageHero from '../components/layout/PageHero'
 import VisitaExperienciasSection from '../components/sections/VisitaExperienciasSection'
 import { IMAGES } from '../data/images'
 import { useLanguage } from '../hooks/useLanguage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useRegisterSections } from '../context/SectionContext'
 
 const SECTIONS = [{ id: 'visita-experiencias', label: 'Experiencias' }]
@@ -9,6 +10,7 @@ const SECTIONS = [{ id: 'visita-experiencias', label: 'Experiencias' }]
 export default function VisitaBodega() {
   useRegisterSections(SECTIONS)
   const { t } = useLanguage()
+  usePageTitle('Visita la Bodega', 'Visit the Winery')
 
   return (
     <>
