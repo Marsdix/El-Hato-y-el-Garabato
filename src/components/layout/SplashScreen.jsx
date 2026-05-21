@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { IMAGES } from '../../data/images'
 
 const TITLE_1 = 'EL HATO'
-const TITLE_2 = 'Y EL GARABATO'
+const TITLE_2 = 'EL GARABATO'
 const MIN_DURATION = 1800
 
 const PAGES = [
@@ -94,7 +94,15 @@ export default function SplashScreen({ onComplete }) {
           ))}
         </motion.div>
 
-        <div className="splash-divider" />
+        <div className="splash-divider">
+          <span className="splash-divider-line" />
+          <motion.span
+            className="splash-divider-y"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.5 } }}
+          >Y</motion.span>
+          <span className="splash-divider-line" />
+        </div>
 
         <motion.div
           className="splash-title-2"

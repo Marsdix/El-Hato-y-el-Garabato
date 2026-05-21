@@ -1118,10 +1118,23 @@ footer {
   text-transform: uppercase;
 }
 .splash-divider {
-  width: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.5rem auto;
+}
+.splash-divider-line {
+  width: 36px;
   height: 1px;
   background: rgba(200, 162, 85, 0.35);
-  margin: 0.25rem auto;
+  display: block;
+}
+.splash-divider-y {
+  font-family: var(--ff-caps);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(200, 162, 85, 0.55);
+  line-height: 1;
 }
 .splash-sub {
   font-family: var(--ff-sans);
