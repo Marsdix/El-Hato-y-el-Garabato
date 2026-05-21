@@ -3740,3 +3740,118 @@ html[data-theme="dark"] .footer-social a:hover {
   border-color: rgba(200, 162, 85, 0.5);
   background: rgba(200, 162, 85, 0.07);
 }
+
+
+/* ─── AGE GATE ───────────────────────────────────────────────────── */
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.age-gate__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  max-width: 480px;
+  width: 100%;
+}
+
+.age-gate__brand {
+  font-family: var(--ff-caps);
+  font-size: clamp(1.1rem, 4vw, 1.9rem);
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.age-gate__line {
+  width: 40px;
+  height: 1px;
+  background: rgba(200, 162, 85, 0.35);
+  margin: 14px auto;
+}
+
+.age-gate__sub {
+  font-family: var(--ff-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: rgba(200, 162, 85, 0.4);
+  text-transform: uppercase;
+  margin: 0 0 36px;
+}
+
+.age-gate__icon {
+  color: rgba(200, 162, 85, 0.45);
+  margin-bottom: 20px;
+}
+
+.age-gate__question {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 300;
+  color: #f5ede0;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.age-gate__note {
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  color: rgba(245, 237, 224, 0.35);
+  line-height: 1.6;
+  margin: 0 0 36px;
+  max-width: 360px;
+}
+
+.age-gate__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.age-gate__btn-yes,
+.age-gate__btn-no {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Estado bloqueado */
+.age-gate--blocked .age-gate__blocked-icon {
+  color: rgba(200, 162, 85, 0.3);
+  margin-bottom: 24px;
+}
+
+.age-gate--blocked .age-gate__blocked-title {
+  font-family: var(--ff-caps);
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  color: rgba(200, 162, 85, 0.6);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.age-gate--blocked .age-gate__blocked-text {
+  font-family: var(--ff-sans);
+  font-size: 0.82rem;
+  color: rgba(245, 237, 224, 0.4);
+  line-height: 1.7;
+  margin: 0 0 32px;
+  max-width: 340px;
+}
+
+@media (max-width: 480px) {
+  .age-gate__buttons {
+    max-width: 100%;
+  }
+}
