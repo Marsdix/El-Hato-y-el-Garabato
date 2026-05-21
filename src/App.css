@@ -202,9 +202,11 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
   color: var(--gold-text);
   padding-left: 8px;
 }
+.nav-drawer-cart { margin-top: 28px; }
+
 .nav-drawer-cta {
   display: block;
-  margin-top: 40px;
+  margin-top: 16px;
   font-family: var(--ff-sans);
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -218,37 +220,51 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
 }
 .nav-drawer-cta:hover { background: #dab870; }
 
-/* ─── DRAWER: enlace carrito ────────────────────────────────────── */
+/* ─── DRAWER: botón carrito ─────────────────────────────────────── */
 .nav-drawer-cart {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--ff-caps);
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-text);
   text-decoration: none;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-  transition: color 0.3s ease, padding-left 0.3s ease;
-  min-height: 52px;
+  padding: 15px 18px;
+  border: 1px solid rgba(200, 162, 85, 0.45);
+  border-radius: 2px;
+  background: rgba(200, 162, 85, 0.05);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-.nav-drawer-cart:hover { color: var(--gold); padding-left: 8px; }
+.nav-drawer-cart:hover {
+  background: rgba(200, 162, 85, 0.14);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.nav-drawer-cart-icon {
+  flex-shrink: 0;
+  display: block;
+}
+.nav-drawer-cart-label {
+  flex: 1;
+  line-height: 1;
+}
 .nav-drawer-cart-badge {
-  margin-left: auto;
+  flex-shrink: 0;
   background: var(--gold);
-  color: var(--bg-dark);
+  color: #1c1510;
   font-family: var(--ff-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  min-width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5px;
+  padding: 0 6px;
+  line-height: 1;
 }
 
 /* ─── HERO ─────────────────────────────────────────────────────── */
