@@ -88,38 +88,53 @@ export default function CarritoSection() {
   return (
     <section className="carrito-section">
       <div className="carrito-inner">
-        <ScrollReveal className="carrito-header">
+        <div className="carrito-header">
           <Link to="/tienda" className="carrito-back">{t('carrito.back')}</Link>
-          <AnimatedDivider />
-          <p className="section-label">{t('carrito.title')}</p>
-          <GoldLine />
-        </ScrollReveal>
+        </div>
 
         <div className="carrito-layout">
           {/* ── Lista de items ──────────────────────────────────── */}
           <div className="carrito-items">
+            <div className="carrito-items-header" aria-hidden="true">
+              <span>{t('carrito.col.producto')}</span>
+              <span>{t('carrito.col.precio')}</span>
+              <span>{t('carrito.col.cantidad')}</span>
+              <span>{t('carrito.col.total')}</span>
+            </div>
             {items.map(item => (
               <div className="carrito-item" key={item.id}>
-                <img src={item.imagen} alt={item.nombre} className="carrito-item-img" />
-                <div className="carrito-item-info">
-                  <p className="carrito-item-nombre">{item.nombre}</p>
-                  <p className="carrito-item-precio">€ {parseFloat(item.precio).toFixed(2)}</p>
+                <div className="carrito-item-product">
+                  <img src={item.imagen} alt={item.nombre} className="carrito-item-img" />
+                  <div className="carrito-item-info">
+                    <p className="carrito-item-nombre">{item.nombre}</p>
+                    <p className="carrito-item-precio">€ {parseFloat(item.precio).toFixed(2)}</p>
+                  </div>
                 </div>
-                <QtyControl item={item} updateCantidad={updateCantidad} removeItem={removeItem} />
-                <p className="carrito-item-subtotal">
-                  € {(parseFloat(item.precio) * item.cantidad).toFixed(2)}
+                <p className="carrito-item-precio carrito-item-precio--col">
+                  € {parseFloat(item.precio).toFixed(2)}
                 </p>
-                <button
-                  className="carrito-item-remove"
-                  onClick={() => removeItem(item.id)}
-                  aria-label={`Eliminar ${item.nombre}`}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                  </svg>
-                </button>
+                <QtyControl item={item} updateCantidad={updateCantidad} removeItem={removeItem} />
+                <div className="carrito-item-total-col">
+                  <p className="carrito-item-subtotal">
+                    € {(parseFloat(item.precio) * item.cantidad).toFixed(2)}
+                  </p>
+                  <button
+                    className="carrito-item-remove"
+                    onClick={() => removeItem(item.id)}
+                    aria-label={`Eliminar ${item.nombre}`}
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
             ))}
+            <div className="carrito-items-actions">
+              <button className="carrito-clear" onClick={clearCart}>
+                {t('carrito.clear')}
+              </button>
+            </div>
           </div>
 
           {/* ── Resumen + formulario ────────────────────────────── */}

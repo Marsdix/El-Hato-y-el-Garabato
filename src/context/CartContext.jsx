@@ -5,13 +5,13 @@ const CartContext = createContext(null)
 export function CartProvider({ children }) {
   const [items, setItems] = useState([])
 
-  const addItem = useCallback((vino) => {
+  const addItem = useCallback((vino, qty = 1) => {
     setItems(prev => {
       const existing = prev.find(i => i.id === vino.id)
       if (existing) {
-        return prev.map(i => i.id === vino.id ? { ...i, cantidad: i.cantidad + 1 } : i)
+        return prev.map(i => i.id === vino.id ? { ...i, cantidad: i.cantidad + qty } : i)
       }
-      return [...prev, { id: vino.id, nombre: vino.nombre, imagen: vino.imagen, precio: vino.precio, cantidad: 1 }]
+      return [...prev, { id: vino.id, nombre: vino.nombre, imagen: vino.imagen, precio: vino.precio, cantidad: qty }]
     })
   }, [])
 
