@@ -79,7 +79,7 @@ export default function Navbar() {
         <Link to="/tienda" className="nav-cta" onClick={() => handleLinkClick('/tienda')}>{t('nav.store')}</Link>
 
         {count > 0 && (
-          <Link to="/carrito" className="nav-cart" aria-label={`Carrito (${count})`}>
+          <Link to="/carrito" className="nav-cart" aria-label={`${t('nav.cart')} (${count})`}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
               <line x1="3" y1="6" x2="21" y2="6"/>
@@ -130,6 +130,17 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+        {count > 0 && (
+          <Link to="/carrito" className="nav-drawer-cart" onClick={() => handleLinkClick('/carrito')}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            {t('nav.cart')}
+            <span className="nav-drawer-cart-badge">{count}</span>
+          </Link>
+        )}
         <Link to="/tienda" className="nav-drawer-cta" onClick={() => handleLinkClick('/tienda')}>
           {t('nav.store')}
         </Link>

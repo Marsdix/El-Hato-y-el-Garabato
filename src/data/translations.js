@@ -220,6 +220,7 @@ export const TRANSLATIONS = {
     // ── Navbar aria ────────────────────────────────────────────────
     'nav.aria.lang':   'Cambiar idioma',
     'nav.aria.theme':  'Cambiar tema',
+    'nav.cart':        'Carrito',
 
     // ── Mapa ───────────────────────────────────────────────────────
     'map.aria':        'Localización de la bodega',
@@ -477,6 +478,7 @@ export const TRANSLATIONS = {
     // ── Navbar aria ────────────────────────────────────────────────
     'nav.aria.lang':   'Change language',
     'nav.aria.theme':  'Change theme',
+    'nav.cart':        'Cart',
 
     // ── Map ────────────────────────────────────────────────────────
     'map.aria':        'Winery location',
