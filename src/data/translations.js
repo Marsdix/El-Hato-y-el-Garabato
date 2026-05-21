@@ -12,6 +12,7 @@ export const TRANSLATIONS = {
     'nav.nosotros':   'Nosotros',
     'nav.visitas':   'Visitas',
     'nav.contacto':  'Contacto',
+    'nav.tagline':   'Bodega · Arribes del Duero',
 
     // ── Hero (Home) ────────────────────────────────────────────────
     'hero.eyebrow':      'Parque Natural · Arribes del Duero · Zamora',
@@ -219,6 +220,7 @@ export const TRANSLATIONS = {
     // ── Navbar aria ────────────────────────────────────────────────
     'nav.aria.lang':   'Cambiar idioma',
     'nav.aria.theme':  'Cambiar tema',
+    'nav.cart':        'Carrito',
 
     // ── Mapa ───────────────────────────────────────────────────────
     'map.aria':        'Localización de la bodega',
@@ -260,6 +262,7 @@ export const TRANSLATIONS = {
     'blog.comments.submit':       'Enviar comentario',
     'blog.comments.success':      '¡Gracias por tu comentario! Lo revisaremos y lo publicaremos pronto.',
     'blog.comments.error':        'Algo ha fallado. Inténtalo de nuevo.',
+    'blog.video.caption':         'Vídeo',
 
     // ── Detalle de vino (/tienda/:id) ─────────────────────────────
     'vino.comprar':         'Comprar en tienda',
@@ -292,6 +295,7 @@ export const TRANSLATIONS = {
     'nav.nosotros':  'About Us',
     'nav.visitas':   'Visits',
     'nav.contacto':  'Contact',
+    'nav.tagline':   'Winery · Arribes del Duero',
 
     // ── Hero (Home) ────────────────────────────────────────────────
     'hero.eyebrow':      'Natural Park · Arribes del Duero · Zamora',
@@ -474,6 +478,7 @@ export const TRANSLATIONS = {
     // ── Navbar aria ────────────────────────────────────────────────
     'nav.aria.lang':   'Change language',
     'nav.aria.theme':  'Change theme',
+    'nav.cart':        'Cart',
 
     // ── Map ────────────────────────────────────────────────────────
     'map.aria':        'Winery location',
@@ -515,6 +520,7 @@ export const TRANSLATIONS = {
     'blog.comments.submit':       'Send comment',
     'blog.comments.success':      'Thank you for your comment! We\'ll review it and publish it soon.',
     'blog.comments.error':        'Something went wrong. Please try again.',
+    'blog.video.caption':         'Video',
 
     // ── Wine detail (/tienda/:id) ──────────────────────────────────
     'vino.comprar':         'Buy online',
