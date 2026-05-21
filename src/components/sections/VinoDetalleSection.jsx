@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BtnPrimary } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
@@ -8,10 +9,25 @@ import ArrowRight from '../ui/ArrowRight'
 import { VINOS } from '../../data/vinos'
 import { useLanguage } from '../../hooks/useLanguage'
 import { fadeLeft, fadeRight } from '../../animations/variants'
+import { useSanityFetch } from '../../hooks/useSanityFetch'
+import { QUERY_VINOS } from '../../lib/queries'
+import { useCart } from '../../context/CartContext'
 
 export default function VinoDetalleSection({ vino }) {
   const { t } = useLanguage()
-  const relacionados = VINOS.filter(v => v.id !== vino.id).slice(0, 3)
+  const { addItem } = useCart()
+  const [added, setAdded] = useState(false)
+  const [qty, setQty] = useState(1)
+
+  const handleAdd = () => {
+    addItem(vino, qty)
+    setAdded(true)
+    setTimeout(() => { setAdded(false); setQty(1) }, 1800)
+  }
+  // Sanity fetch para la lista completa, usada para los vinos relacionados.
+  // La ficha principal (vino) viene como prop desde VinoDetalle (page).
+  const { data: todosLosVinos } = useSanityFetch(QUERY_VINOS, VINOS)
+  const relacionados = todosLosVinos.filter(v => v.id !== vino.id).slice(0, 3)
 
   return (
     <>
@@ -33,7 +49,30 @@ export default function VinoDetalleSection({ vino }) {
             )}
             <div className="vino-detalle-precio-row">
               <span className="vino-detalle-precio"><sup>€</sup>{vino.precio}</span>
-              <BtnPrimary href={vino.href}>{t('vino.comprar')}</BtnPrimary>
+              <div className="vino-detalle-add-row">
+                {!added && (
+                  <div className="add-cart-stepper add-cart-stepper--lg">
+                    <button onClick={() => setQty(q => Math.max(1, q - 1))} aria-label="Reducir cantidad">−</button>
+                    <span>{qty}</span>
+                    <button onClick={() => setQty(q => Math.min(12, q + 1))} aria-label="Aumentar cantidad">+</button>
+                  </div>
+                )}
+                <button
+                  className={`btn-primary btn-add-cart-detalle${added ? ' added' : ''}`}
+                  onClick={handleAdd}
+                >
+                  {added ? (
+                    <>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                      {t('tienda.añadido')}
+                    </>
+                  ) : (
+                    t('tienda.añadir')
+                  )}
+                </button>
+              </div>
             </div>
             <Link to="/tienda" className="vino-back-link">{t('vino.back')}</Link>
           </ScrollReveal>

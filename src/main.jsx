@@ -5,6 +5,7 @@ import './App.css'
 import App from './App.jsx'
 import SplashScreen from './components/layout/SplashScreen'
 import { LanguageProvider } from './context/LanguageContext'
+import { CartProvider } from './context/CartContext'
 
 function AppWithSplash() {
   const [splashDone, setSplashDone] = useState(
@@ -31,7 +32,9 @@ function AppWithSplash() {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LanguageProvider>
-      <AppWithSplash />
+      <CartProvider>
+        <AppWithSplash />
+      </CartProvider>
     </LanguageProvider>
   </StrictMode>
 )

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
 import ScrollReveal from '../ui/ScrollReveal'
@@ -6,6 +7,16 @@ import AnimatedDivider from '../ui/AnimatedDivider'
 import GoldLine from '../ui/GoldLine'
 import { BLOG_POSTS } from '../../data/blog'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useSanityFetch } from '../../hooks/useSanityFetch'
+import { QUERY_BLOG } from '../../lib/queries'
+
+const CATS = [
+  'blog.cat.prensa',
+  'blog.cat.enoturismo',
+  'blog.cat.vinos',
+  'blog.cat.bodega',
+  'blog.cat.info',
+]
 
 function formatDate(dateStr, language) {
   return new Date(dateStr).toLocaleDateString(
@@ -16,6 +27,10 @@ function formatDate(dateStr, language) {
 
 export default function BlogSection() {
   const { t, language } = useLanguage()
+  const { data: posts } = useSanityFetch(QUERY_BLOG, BLOG_POSTS)
+  const [activeCat, setActiveCat] = useState(null)
+
+  const visiblePosts = activeCat ? posts.filter(p => p.cat === activeCat) : posts
 
   return (
     <section className="blog-section" id="blog-articulos">
@@ -26,8 +41,29 @@ export default function BlogSection() {
         <GoldLine />
       </ScrollReveal>
 
+      {/* ── Filtro por categoría ─────────────────────────────────── */}
+      <ScrollReveal className="blog-filter-wrap">
+        <div className="blog-chips">
+          <button
+            className={`blog-chip${activeCat === null ? ' active' : ''}`}
+            onClick={() => setActiveCat(null)}
+          >
+            {t('blog.todos')}
+          </button>
+          {CATS.filter(cat => posts.some(p => p.cat === cat)).map(cat => (
+            <button
+              key={cat}
+              className={`blog-chip${activeCat === cat ? ' active' : ''}`}
+              onClick={() => setActiveCat(activeCat === cat ? null : cat)}
+            >
+              {t(cat)}
+            </button>
+          ))}
+        </div>
+      </ScrollReveal>
+
       <StaggerList className="blog-grid" as="div" amount={0.06}>
-        {BLOG_POSTS.map(post => {
+        {visiblePosts.map(post => {
           const isInternal = Boolean(post.content)
           const CardImg = isInternal
             ? ({ children }) => <Link to={`/blog/${post.id}`} className="blog-card-img-wrap" tabIndex={-1} aria-hidden="true">{children}</Link>

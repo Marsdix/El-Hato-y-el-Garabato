@@ -6,6 +6,12 @@ import { useLanguage } from '../../hooks/useLanguage'
 // Devuelve el texto en el idioma pedido, cayendo al español si falta traducción
 const pick = (obj, lang) => (lang === 'en' ? (obj?.en ?? obj?.es) : obj?.es) ?? ''
 
+// Convierte cualquier URL de YouTube a URL de embed
+function youtubeEmbed(url) {
+  const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&?/]+)/)
+  return m ? `https://www.youtube.com/embed/${m[1]}` : url
+}
+
 // ── Renderiza cada bloque de contenido ────────────────────────────
 function Block({ block, language }) {
   switch (block.type) {
@@ -22,6 +28,21 @@ function Block({ block, language }) {
       return (
         <figure className="blog-post-figure">
           <img src={block.src} alt={block.caption ? pick(block.caption, language) : ''} />
+          {block.caption && <figcaption>{pick(block.caption, language)}</figcaption>}
+        </figure>
+      )
+
+    case 'video':
+      return (
+        <figure className="blog-post-figure">
+          <div className="blog-post-video">
+            <iframe
+              src={youtubeEmbed(block.src)}
+              title={block.caption ? pick(block.caption, language) : 'Vídeo'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
           {block.caption && <figcaption>{pick(block.caption, language)}</figcaption>}
         </figure>
       )
@@ -178,6 +199,13 @@ export default function BlogPostSection({ post }) {
             </div>
           )}
         </ScrollReveal>
+
+        {/* ── Imagen de portada ─────────────────────────────────── */}
+        {post.imagen && (
+          <div className="blog-post-cover">
+            <img src={post.imagen} alt={pick(post.title, language)} />
+          </div>
+        )}
 
         {/* ── Cuerpo ────────────────────────────────────────────── */}
         <div className="blog-post-body">
