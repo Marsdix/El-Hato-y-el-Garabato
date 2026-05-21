@@ -1217,7 +1217,6 @@ footer {
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-cta   { display: none; }
-  .nav-cart  { display: none; } /* shown in drawer instead */
   .hamburger {
     display: flex !important;
     align-items: center;
@@ -3604,6 +3603,7 @@ nav.scrolled .nav-controls button:hover {
 @media (max-width: 1024px) {
   .nav-controls { gap: 5px; }
   .nav-controls button { font-size: 9px; padding: 0 8px; height: 27px; }
+  .nav-cart { display: none; } /* shown in drawer instead */
 }
 
 /* ─── TEMA OSCURO ─────────────────────────────────────────────────── */
