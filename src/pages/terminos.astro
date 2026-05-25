@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import TerminosClient from '../components/pages/TerminosClient.jsx'
+---
+
+<Layout
+  title="Términos y Condiciones — El Hato y el Garabato"
+  description="Términos y condiciones de compra y uso del sitio web de El Hato y el Garabato."
+>
+  <TerminosClient client:only="react" />
+</Layout>

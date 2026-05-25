@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import HomeClient from '../components/pages/HomeClient.jsx'
+---
+
+<Layout
+  title="El Hato y el Garabato — Bodega Arribes del Duero"
+  description="Vinos artesanales de variedades ancestrales. 8 hectáreas de viñas centenarias en el Parque Natural Arribes del Duero, Zamora."
+>
+  <HomeClient client:only="react" />
+</Layout>

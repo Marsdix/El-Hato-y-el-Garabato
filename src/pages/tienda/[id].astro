@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import VinoDetalleClient from '../../components/pages/VinoDetalleClient.jsx'
+import { VINOS } from '../../data/vinos'
+
+export function getStaticPaths() {
+  return VINOS.map(v => ({ params: { id: v.id } }))
+}
+
+const { id } = Astro.params
+const vino = VINOS.find(v => v.id === id)
+---
+
+<Layout
+  title={`${vino?.nombre ?? id} — El Hato y el Garabato`}
+  description={vino?.descripcion?.es ?? 'Vino artesanal de El Hato y el Garabato, bodega en los Arribes del Duero.'}
+>
+  <VinoDetalleClient client:only="react" vino={vino} />
+</Layout>

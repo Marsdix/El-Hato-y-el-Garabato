@@ -2,20 +2,20 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 
-const Home          = lazy(() => import('./pages/Home'))
-const SobreNosotros = lazy(() => import('./pages/SobreNosotros'))
-const BodegaYVinas  = lazy(() => import('./pages/BodegaYVinas'))
-const Tienda        = lazy(() => import('./pages/Tienda'))
-const VisitaBodega  = lazy(() => import('./pages/VisitaBodega'))
-const Contacto      = lazy(() => import('./pages/Contacto'))
-const AvisoLegal         = lazy(() => import('./pages/AvisoLegal'))
-const TerminosCondiciones = lazy(() => import('./pages/TerminosCondiciones'))
-const Maridajes     = lazy(() => import('./pages/Maridajes'))
-const Blog          = lazy(() => import('./pages/Blog'))
-const BlogPost      = lazy(() => import('./pages/BlogPost'))
-const VinoDetalle   = lazy(() => import('./pages/VinoDetalle'))
-const Carrito       = lazy(() => import('./pages/Carrito'))
-const NotFound      = lazy(() => import('./pages/NotFound'))
+const Home          = lazy(() => import('./react-pages/Home'))
+const SobreNosotros = lazy(() => import('./react-pages/SobreNosotros'))
+const BodegaYVinas  = lazy(() => import('./react-pages/BodegaYVinas'))
+const Tienda        = lazy(() => import('./react-pages/Tienda'))
+const VisitaBodega  = lazy(() => import('./react-pages/VisitaBodega'))
+const Contacto      = lazy(() => import('./react-pages/Contacto'))
+const AvisoLegal         = lazy(() => import('./react-pages/AvisoLegal'))
+const TerminosCondiciones = lazy(() => import('./react-pages/TerminosCondiciones'))
+const Maridajes     = lazy(() => import('./react-pages/Maridajes'))
+const Blog          = lazy(() => import('./react-pages/Blog'))
+const BlogPost      = lazy(() => import('./react-pages/BlogPost'))
+const VinoDetalle   = lazy(() => import('./react-pages/VinoDetalle'))
+const Carrito       = lazy(() => import('./react-pages/Carrito'))
+const NotFound      = lazy(() => import('./react-pages/NotFound'))
 
 export default function App() {
   return (

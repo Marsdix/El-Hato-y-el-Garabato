@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import BodegaClient from '../components/pages/BodegaClient.jsx'
+---
+
+<Layout
+  title="Bodega y Viñas — El Hato y el Garabato"
+  description="Descubre nuestra bodega y las 8 hectáreas de viñas centenarias en el Parque Natural Arribes del Duero, Zamora."
+>
+  <BodegaClient client:only="react" />
+</Layout>

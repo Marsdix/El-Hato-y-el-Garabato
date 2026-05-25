@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import TiendaClient from '../components/pages/TiendaClient.jsx'
+---
+
+<Layout
+  title="Tienda — El Hato y el Garabato"
+  description="Compra nuestros vinos artesanales: Cotexa, De Buena Jera, Ecléctico y más. Variedades ancestrales de los Arribes del Duero."
+>
+  <TiendaClient client:only="react" />
+</Layout>

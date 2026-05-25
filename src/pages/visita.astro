@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import VisitaClient from '../components/pages/VisitaClient.jsx'
+---
+
+<Layout
+  title="Visita la Bodega — El Hato y el Garabato"
+  description="Ven a conocer nuestra bodega en los Arribes del Duero. Visitas guiadas, catas y experiencias únicas en el corazón de Zamora."
+>
+  <VisitaClient client:only="react" />
+</Layout>

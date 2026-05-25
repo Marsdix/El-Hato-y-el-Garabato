@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import BlogClient from '../components/pages/BlogClient.jsx'
+---
+
+<Layout
+  title="Blog — El Hato y el Garabato"
+  description="Artículos sobre vinos, viticultura y la bodega El Hato y el Garabato en los Arribes del Duero."
+>
+  <BlogClient client:only="react" />
+</Layout>

@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import MaridajesClient from '../components/pages/MaridajesClient.jsx'
+---
+
+<Layout
+  title="Maridajes — El Hato y el Garabato"
+  description="Descubre los mejores maridajes para nuestros vinos artesanales de los Arribes del Duero."
+>
+  <MaridajesClient client:only="react" />
+</Layout>

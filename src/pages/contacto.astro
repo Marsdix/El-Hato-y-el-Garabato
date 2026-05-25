@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ContactoClient from '../components/pages/ContactoClient.jsx'
+---
+
+<Layout
+  title="Contacto — El Hato y el Garabato"
+  description="Ponte en contacto con El Hato y el Garabato. Visítanos en los Arribes del Duero o escríbenos."
+>
+  <ContactoClient client:only="react" />
+</Layout>

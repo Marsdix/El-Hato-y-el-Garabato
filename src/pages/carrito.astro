@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CarritoClient from '../components/pages/CarritoClient.jsx'
+---
+
+<Layout
+  title="Carrito — El Hato y el Garabato"
+  description="Tu carrito de compra en El Hato y el Garabato."
+>
+  <CarritoClient client:only="react" />
+</Layout>

@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import BlogPostClient from '../../components/pages/BlogPostClient.jsx'
+import { BLOG_POSTS } from '../../data/blog'
+
+export function getStaticPaths() {
+  return BLOG_POSTS
+    .filter(p => p.content)
+    .map(p => ({ params: { id: p.id } }))
+}
+
+const { id } = Astro.params
+const post = BLOG_POSTS.find(p => p.id === id && p.content)
+const titleEs = post ? (typeof post.title === 'object' ? post.title.es : post.title) : id
+const excerptEs = post ? (typeof post.excerpt === 'object' ? post.excerpt.es : post.excerpt) : ''
+---
+
+<Layout
+  title={`${titleEs} — El Hato y el Garabato`}
+  description={excerptEs}
+>
+  <BlogPostClient client:only="react" post={post} />
+</Layout>

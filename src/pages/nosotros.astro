@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import NosotrosClient from '../components/pages/NosotrosClient.jsx'
+---
+
+<Layout
+  title="Sobre Nosotros — El Hato y el Garabato"
+  description="Conoce el equipo y la historia detrás de El Hato y el Garabato, bodega familiar en los Arribes del Duero."
+>
+  <NosotrosClient client:only="react" />
+</Layout>

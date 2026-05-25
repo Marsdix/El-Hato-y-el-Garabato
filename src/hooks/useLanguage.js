@@ -1,6 +1,2 @@
-import { useContext } from 'react'
-import { LanguageContext } from '../context/LanguageContext'
-
-export function useLanguage() {
-  return useContext(LanguageContext)
-}
+// Re-export from LanguageContext for backward compatibility
+export { useLanguage } from '../context/LanguageContext'
