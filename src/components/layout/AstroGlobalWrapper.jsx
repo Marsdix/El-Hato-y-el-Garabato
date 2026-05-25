@@ -1,16 +1,16 @@
-// Global client-only components: AgeGate, Cursor, SplashScreen, BackToTop, ScrollProgress
-// This component runs only on the client (client:only="react")
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { useStore } from '@nanostores/react'
 import { LanguageProvider } from '../../context/LanguageContext'
 import AgeGate from './AgeGate'
 import Cursor from './Cursor'
 import SplashScreen from '../sections/SplashScreen'
 import BackToTop from '../ui/BackToTop'
 import ScrollProgress from './ScrollProgress'
+import CookieBanner from './CookieBanner'
+import CookieIcon from './CookieIcon'
 import Lenis from 'lenis'
-
-const SESSION_KEY = 'hato-age-verified'
+import { $cookieConsent } from '../../stores/consent'
 
 function LenisManager() {
   const lenisRef = useRef(null)
@@ -46,19 +46,20 @@ function LenisManager() {
 }
 
 export default function AstroGlobalWrapper() {
-  const [splashDone, setSplashDone] = useState(false)
-  const [ageVerified, setAgeVerified] = useState(
-    () => sessionStorage.getItem(SESSION_KEY) === '1'
-  )
+  const [splashDone,       setSplashDone]       = useState(false)
+  const [ageVerified,      setAgeVerified]      = useState(false)
+  const [showCookieBanner, setShowCookieBanner] = useState(false)
+  const consent = useStore($cookieConsent)
 
-  const handleSplashComplete = useCallback(() => {
-    setSplashDone(true)
-  }, [])
+  useEffect(() => {
+    if (ageVerified && consent === null) {
+      setShowCookieBanner(true)
+    }
+  }, [ageVerified, consent])
 
-  const handleAgeVerified = useCallback(() => {
-    sessionStorage.setItem(SESSION_KEY, '1')
-    setAgeVerified(true)
-  }, [])
+  const handleSplashComplete = useCallback(() => setSplashDone(true), [])
+  const handleAgeVerified    = useCallback(() => setAgeVerified(true), [])
+  const handleCookieDecide   = useCallback(() => setShowCookieBanner(false), [])
 
   return (
     <LanguageProvider>
@@ -66,16 +67,32 @@ export default function AstroGlobalWrapper() {
       <ScrollProgress />
       <Cursor />
       <BackToTop />
+
+      {/* 1. Splash screen */}
       <AnimatePresence mode="wait">
         {!splashDone && (
           <SplashScreen key="splash" onComplete={handleSplashComplete} />
         )}
       </AnimatePresence>
+
+      {/* 2. Age gate — siempre, sin sessionStorage */}
       <AnimatePresence>
         {splashDone && !ageVerified && (
           <AgeGate key="age" onVerified={handleAgeVerified} />
         )}
       </AnimatePresence>
+
+      {/* 3. Cookie banner — solo si consent es null */}
+      <AnimatePresence>
+        {ageVerified && showCookieBanner && (
+          <CookieBanner key="cookie-banner" onDecide={handleCookieDecide} />
+        )}
+      </AnimatePresence>
+
+      {/* 4. Icono persistente — visible cuando ya decidió y el banner está cerrado */}
+      {ageVerified && consent !== null && !showCookieBanner && (
+        <CookieIcon onReopen={() => setShowCookieBanner(true)} />
+      )}
     </LanguageProvider>
   )
 }
