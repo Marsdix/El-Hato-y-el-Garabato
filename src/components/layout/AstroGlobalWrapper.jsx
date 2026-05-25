@@ -45,9 +45,12 @@ function LenisManager() {
   return null
 }
 
+const SESSION_SPLASH = 'hato-splash'
+const SESSION_AGE    = 'hato-age-verified'
+
 export default function AstroGlobalWrapper() {
-  const [splashDone,       setSplashDone]       = useState(false)
-  const [ageVerified,      setAgeVerified]      = useState(false)
+  const [splashDone,       setSplashDone]       = useState(() => sessionStorage.getItem(SESSION_SPLASH) === '1')
+  const [ageVerified,      setAgeVerified]      = useState(() => sessionStorage.getItem(SESSION_AGE) === '1')
   const [showCookieBanner, setShowCookieBanner] = useState(false)
   const consent = useStore($cookieConsent)
 
@@ -57,8 +60,16 @@ export default function AstroGlobalWrapper() {
     }
   }, [ageVerified, consent])
 
-  const handleSplashComplete = useCallback(() => setSplashDone(true), [])
-  const handleAgeVerified    = useCallback(() => setAgeVerified(true), [])
+  const handleSplashComplete = useCallback(() => {
+    sessionStorage.setItem(SESSION_SPLASH, '1')
+    setSplashDone(true)
+  }, [])
+
+  const handleAgeVerified = useCallback(() => {
+    sessionStorage.setItem(SESSION_AGE, '1')
+    setAgeVerified(true)
+  }, [])
+
   const handleCookieDecide   = useCallback(() => setShowCookieBanner(false), [])
 
   return (
@@ -75,7 +86,7 @@ export default function AstroGlobalWrapper() {
         )}
       </AnimatePresence>
 
-      {/* 2. Age gate — siempre, sin sessionStorage */}
+      {/* 2. Age gate — una vez por sesión de pestaña */}
       <AnimatePresence>
         {splashDone && !ageVerified && (
           <AgeGate key="age" onVerified={handleAgeVerified} />
