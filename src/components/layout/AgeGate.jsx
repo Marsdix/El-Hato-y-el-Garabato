@@ -64,7 +64,7 @@ export default function AgeGate({ onVerified }) {
   return (
     <div className="age-gate" role="dialog" aria-modal="true">
       {/* Background image */}
-      <div className="age-gate__bg" style={{ backgroundImage: `url(${imgBg})` }} />
+      <div className="age-gate__bg" style={{ backgroundImage: `url('${imgBg}')` }} />
 
       <AnimatePresence mode="wait">
         {!blocked ? (

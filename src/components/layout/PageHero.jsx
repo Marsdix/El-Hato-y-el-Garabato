@@ -26,7 +26,7 @@ export default function PageHero({
       <motion.div
         className="page-hero-bg"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url('${backgroundImage}')`,
           backgroundPosition: imagePosition,
           y: bgY,
         }}

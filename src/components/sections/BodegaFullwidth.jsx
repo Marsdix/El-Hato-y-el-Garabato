@@ -10,7 +10,7 @@ export default function BodegaFullwidth() {
 
   return (
     <div className="bodega">
-      <div className="bodega-bg" style={{ backgroundImage: `url(${IMAGES.home.bodegaPanoramica})` }} />
+      <div className="bodega-bg" style={{ backgroundImage: `url('${IMAGES.home.bodegaPanoramica}')` }} />
       <div className="bodega-vignette" />
 
       <ScrollReveal variant={fadeRight} className="bodega-content" amount={0.2}>

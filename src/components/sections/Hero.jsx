@@ -33,7 +33,7 @@ export default function Hero() {
     <section className={`hero${loaded ? ' loaded' : ''}`} id="hero" ref={heroRef}>
       <motion.div
         className="hero-bg"
-        style={{ backgroundImage: `url(${IMAGES.home.hero})`, y: bgY }}
+        style={{ backgroundImage: `url('${IMAGES.home.hero}')`, y: bgY }}
         initial={{ scale: 1.08 }}
         animate={{ scale: loaded ? 1 : 1.08 }}
         transition={{ duration: 8, ease: 'easeInOut' }}
