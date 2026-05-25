@@ -69,9 +69,16 @@ import imgLogoHato     from "../assets/images/logo-hato-pared.png";
 
 const webpFiles = import.meta.glob('../assets/images/*.webp', { eager: true });
 
+// Astro envuelve los imports de imagen en { src, width, height }.
+// Esta función extrae el string URL en cualquier entorno.
+function toUrl(img) {
+  return (img && typeof img === 'object') ? img.src : img
+}
+
 // Devuelve la versión .webp si existe, si no el import original.
 function w(original, name) {
-  return webpFiles[`../assets/images/${name}.webp`]?.default ?? original;
+  const raw = webpFiles[`../assets/images/${name}.webp`]?.default ?? original;
+  return toUrl(raw);
 }
 
 // ═══════════════════════════════════════════════════════════════════

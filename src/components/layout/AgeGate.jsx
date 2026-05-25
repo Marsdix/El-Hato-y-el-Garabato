@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../hooks/useLanguage'
-import imgBg from '../../assets/images/vinas.jpg'
+import _imgBg from '../../assets/images/vinas.jpg'
+const imgBg = (_imgBg && typeof _imgBg === 'object') ? _imgBg.src : _imgBg
 
 const COPY = {
   brand:    { es: 'El Hato y el Garabato', en: 'El Hato y el Garabato' },
