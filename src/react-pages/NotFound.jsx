@@ -1,5 +1,6 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../hooks/useLanguage'
+import { siteUrl } from '../utils/url'
 import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function NotFound() {
@@ -14,7 +15,7 @@ export default function NotFound() {
       <p>
         <code className="not-found-path">{pathname}</code>
       </p>
-      <Link to="/" className="btn-primary">{t('notfound.cta')}</Link>
+      <a href={siteUrl('')} className="btn-primary">{t('notfound.cta')}</a>
     </div>
   )
 }

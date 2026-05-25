@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
+import { siteUrl } from '../../utils/url'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import AnimatedDivider from '../ui/AnimatedDivider'
@@ -75,13 +75,13 @@ export default function TiendaSection() {
       <StaggerList className="tienda-grid" as="div" amount={0.05}>
         {vinos.map(vino => (
           <StaggerItem className="tienda-card" as="article" key={vino.id}>
-            <Link
-              to={`/tienda/${vino.id}`}
+            <a
+              href={siteUrl(`tienda/${vino.id}`)}
               className="tienda-card-img-wrap"
               aria-label={`${t('tienda.ver')} ${vino.nombre}`}
             >
               <img src={vino.imagen} alt={vino.nombre} loading="lazy" />
-            </Link>
+            </a>
             <div className="tienda-card-body">
               <p className="tienda-card-tag">{t(vino.tag)}</p>
               <h3 className="tienda-card-nombre">{vino.nombre}</h3>
@@ -90,9 +90,9 @@ export default function TiendaSection() {
                 <span className="tienda-card-precio">
                   <sup>€</sup>{vino.precio}
                 </span>
-                <Link to={`/tienda/${vino.id}`} className="btn-ghost">
+                <a href={siteUrl(`tienda/${vino.id}`)} className="btn-ghost">
                   {t('tienda.ver')} <ArrowRight size={14} />
-                </Link>
+                </a>
               </div>
               <AddButton vino={vino} t={t} />
             </div>

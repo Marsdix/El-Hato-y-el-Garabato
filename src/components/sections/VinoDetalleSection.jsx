@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { BtnPrimary } from '../ui/Button'
+import { siteUrl } from '../../utils/url'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import AnimatedDivider from '../ui/AnimatedDivider'
@@ -74,7 +74,7 @@ export default function VinoDetalleSection({ vino }) {
                 </button>
               </div>
             </div>
-            <Link to="/tienda" className="vino-back-link">{t('vino.back')}</Link>
+            <a href={siteUrl('tienda')} className="vino-back-link">{t('vino.back')}</a>
           </ScrollReveal>
         </div>
       </section>
@@ -140,22 +140,22 @@ export default function VinoDetalleSection({ vino }) {
         <StaggerList className="vino-relacionados-grid" as="div" amount={0.08}>
           {relacionados.map(v => (
             <StaggerItem className="tienda-card" as="article" key={v.id}>
-              <Link
-                to={`/tienda/${v.id}`}
+              <a
+                href={siteUrl(`tienda/${v.id}`)}
                 className="tienda-card-img-wrap"
                 aria-label={`${t('tienda.ver')} ${v.nombre}`}
               >
                 <img src={v.imagen} alt={v.nombre} loading="lazy" />
-              </Link>
+              </a>
               <div className="tienda-card-body">
                 <p className="tienda-card-tag">{t(v.tag)}</p>
                 <h3 className="tienda-card-nombre">{v.nombre}</h3>
                 <p className="tienda-card-varietal">{t(v.varietal)}</p>
                 <div className="tienda-card-footer">
                   <span className="tienda-card-precio"><sup>€</sup>{v.precio}</span>
-                  <Link to={`/tienda/${v.id}`} className="btn-ghost">
+                  <a href={siteUrl(`tienda/${v.id}`)} className="btn-ghost">
                     {t('tienda.ver')} <ArrowRight size={14} />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </StaggerItem>

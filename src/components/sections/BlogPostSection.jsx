@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import ScrollReveal from '../ui/ScrollReveal'
+import { siteUrl } from '../../utils/url'
 import { useLanguage } from '../../hooks/useLanguage'
 
 // Devuelve el texto en el idioma pedido, cayendo al español si falta traducción
@@ -183,7 +183,7 @@ export default function BlogPostSection({ post }) {
 
         {/* ── Cabecera ──────────────────────────────────────────── */}
         <ScrollReveal amount={0.2} className="blog-post-header">
-          <Link to="/blog" className="blog-post-back">{t('blog.back')}</Link>
+          <a href={siteUrl('blog')} className="blog-post-back">{t('blog.back')}</a>
           <div className="blog-post-meta">
             <span className="blog-card-tag">{t(post.cat)}</span>
             {post.readTime && (
@@ -231,7 +231,7 @@ export default function BlogPostSection({ post }) {
 
         {/* ── Volver ────────────────────────────────────────────── */}
         <div className="blog-post-footer">
-          <Link to="/blog" className="blog-post-back">{t('blog.back')}</Link>
+          <a href={siteUrl('blog')} className="blog-post-back">{t('blog.back')}</a>
         </div>
       </div>
     </article>

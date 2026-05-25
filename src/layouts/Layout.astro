@@ -1,5 +1,6 @@
 ---
 import '../App.css'
+import { ClientRouter } from 'astro:transitions'
 import AstroNavbarWrapper from '../components/layout/AstroNavbarWrapper.jsx'
 import AstroFooterWrapper from '../components/layout/AstroFooterWrapper.jsx'
 import AstroGlobalWrapper from '../components/layout/AstroGlobalWrapper.jsx'
@@ -49,6 +50,7 @@ const base = import.meta.env.BASE_URL
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
   </head>
   <body>
     <AstroGlobalWrapper client:only="react" />

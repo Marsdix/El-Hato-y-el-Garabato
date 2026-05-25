@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
+import { siteUrl } from '../../utils/url'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
 import AnimatedDivider from '../ui/AnimatedDivider'
@@ -66,7 +66,7 @@ export default function BlogSection() {
         {visiblePosts.map(post => {
           const isInternal = Boolean(post.content)
           const CardImg = isInternal
-            ? ({ children }) => <Link to={`/blog/${post.id}`} className="blog-card-img-wrap" tabIndex={-1} aria-hidden="true">{children}</Link>
+            ? ({ children }) => <a href={siteUrl(`blog/${post.id}`)} className="blog-card-img-wrap" tabIndex={-1} aria-hidden="true">{children}</a>
             : ({ children }) => <a href={post.href} className="blog-card-img-wrap" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">{children}</a>
 
           return (
@@ -85,13 +85,13 @@ export default function BlogSection() {
                 </div>
                 <h3 className="blog-card-title">
                   {isInternal
-                    ? <Link to={`/blog/${post.id}`}>{t(post.title)}</Link>
+                    ? <a href={siteUrl(`blog/${post.id}`)}>{t(post.title)}</a>
                     : <a href={post.href} target="_blank" rel="noopener noreferrer">{t(post.title)}</a>
                   }
                 </h3>
                 <p className="blog-card-excerpt">{t(post.excerpt)}</p>
                 {isInternal
-                  ? <Link to={`/blog/${post.id}`} className="btn-ghost blog-card-link">{t('blog.leer')} <ArrowRight size={14} /></Link>
+                  ? <a href={siteUrl(`blog/${post.id}`)} className="btn-ghost blog-card-link">{t('blog.leer')} <ArrowRight size={14} /></a>
                   : <a href={post.href} className="btn-ghost blog-card-link" target="_blank" rel="noopener noreferrer">{t('blog.leer')} <ArrowRight size={14} /></a>
                 }
               </div>

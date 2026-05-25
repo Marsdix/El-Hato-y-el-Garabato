@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import ArrowRight from '../ui/ArrowRight'
+import { siteUrl } from '../../utils/url'
 import { BtnGhost } from '../ui/Button'
 import ScrollReveal from '../ui/ScrollReveal'
 import { StaggerList, StaggerItem } from '../ui/StaggerList'
@@ -25,8 +25,8 @@ export default function VinosGrid() {
       <StaggerList className="vinos-grid" as="div" amount={0.1}>
         {FEATURED.map(vino => (
           <StaggerItem className="vino-card" key={vino.id} as="div">
-            <Link
-              to={`/tienda/${vino.id}`}
+            <a
+              href={siteUrl(`tienda/${vino.id}`)}
               className="vino-card-inner"
               aria-label={vino.nombre}
             >
@@ -43,7 +43,7 @@ export default function VinosGrid() {
                   {t('vinos.ver')} <ArrowRight size={14} />
                 </span>
               </div>
-            </Link>
+            </a>
           </StaggerItem>
         ))}
       </StaggerList>

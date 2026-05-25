@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
+import { siteUrl } from '../../utils/url'
 import { useLanguage } from '../../hooks/useLanguage'
 import ScrollReveal from '../ui/ScrollReveal'
 import AnimatedDivider from '../ui/AnimatedDivider'
@@ -56,7 +56,7 @@ export default function CarritoSection() {
             <p className="section-label">{t('carrito.title')}</p>
             <GoldLine />
             <p className="carrito-empty-msg">{t('carrito.empty')}</p>
-            <Link to="/tienda" className="btn-primary">{t('carrito.empty.cta')}</Link>
+            <a href={siteUrl('tienda')} className="btn-primary">{t('carrito.empty.cta')}</a>
           </ScrollReveal>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function CarritoSection() {
                 <polyline points="22 4 12 14.01 9 11.01"/>
               </svg>
               <p>{t('carrito.form.success')}</p>
-              <Link to="/tienda" className="btn-ghost">{t('carrito.empty.cta')}</Link>
+              <a href={siteUrl('tienda')} className="btn-ghost">{t('carrito.empty.cta')}</a>
             </div>
           </ScrollReveal>
         </div>
@@ -89,7 +89,7 @@ export default function CarritoSection() {
     <section className="carrito-section">
       <div className="carrito-inner">
         <div className="carrito-header">
-          <Link to="/tienda" className="carrito-back">{t('carrito.back')}</Link>
+          <a href={siteUrl('tienda')} className="carrito-back">{t('carrito.back')}</a>
         </div>
 
         <div className="carrito-layout">

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { siteUrl } from '../../utils/url'
 
 // Uso:
 //   <BtnPrimary href="https://...">Texto</BtnPrimary>   ← link externo
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export function BtnPrimary({ to, href, children, onClick, style, type = 'button' }) {
   if (to) {
-    return <Link to={to} className="btn-primary" style={style}>{children}</Link>
+    return <a href={siteUrl(to)} className="btn-primary" style={style}>{children}</a>
   }
   if (href) {
     const ext = href.startsWith('http')
@@ -35,7 +35,7 @@ export function BtnGhost({ to, href, light, children, style }) {
   const ext = href?.startsWith('http')
 
   if (to) {
-    return <Link to={to} className={cls} style={style}>{children}</Link>
+    return <a href={siteUrl(to)} className={cls} style={style}>{children}</a>
   }
   return (
     <a
