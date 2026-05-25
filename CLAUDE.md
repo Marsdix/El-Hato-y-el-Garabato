@@ -5,148 +5,132 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Quick Commands
 
 ```bash
-npm run dev       # Start Vite dev server (http://localhost:5173)
+npm run dev       # Start Astro dev server (http://localhost:4321)
 npm run build     # Build for production (outputs to dist/)
-npm run preview   # Preview production build locally (port 4173)
+npm run preview   # Preview production build locally
 ```
 
 ## Architecture Overview
 
-**El Hato y el Garabato** is a React + Vite SPA (Single Page Application) that replaces the original WordPress site. It's a course capstone project built for a family winery.
+**El Hato y el Garabato** is an Astro SSG site backed by React components. It's a course capstone project built for a family winery, migrated from a React+Vite SPA.
 
 ### Core Stack
-- **React 18.3** — UI framework with hooks
-- **Vite 5.4** — Bundler with hot module replacement (HMR)
-- **React Router 6.27** — Client-side routing with lazy-loaded pages
+- **Astro 6** — Static site generator; handles routing, builds, and HTML generation
+- **React 18.3** — UI components rendered client-side via `client:only="react"`
+- **Framer Motion** — Animations and page transitions
+- **Lenis** — Smooth scroll
+- **Sanity CMS** — Blog posts and vino data fetched via `@sanity/client`
+- **Nanostores** — Shared client state (cart, UI) between React islands
 - **CSS** — Custom CSS with CSS variables (no Tailwind, no CSS Modules)
 - **Google Fonts** — Cormorant Garamond (serif), Cinzel (caps), Jost (sans)
 
 ### Key Architectural Patterns
 
-#### 1. Lazy Loading & Code Splitting
-Pages are imported with `lazy()` and wrapped in `<Suspense>` in `src/App.jsx`. This creates automatic code chunks per page and improves initial load time. All pages are under `src/pages/`.
+#### 1. Astro Pages + React Islands
+Each route is an `.astro` file in `src/pages/`. The page imports a `*Client.jsx` React component and mounts it with `client:only="react"`. This means all React runs client-side only — no SSR hydration.
 
-```jsx
-const Home = lazy(() => import('./pages/Home'))
-const Tienda = lazy(() => import('./pages/Tienda'))
-// etc.
+```astro
+---
+// src/pages/bodega.astro
+import Layout from '../layouts/Layout.astro'
+import BodegaClient from '../components/pages/BodegaClient.jsx'
+---
+<Layout title="...">
+  <BodegaClient client:only="react" />
+</Layout>
 ```
 
-#### 2. Data Separation
+#### 2. Client Component Wrappers (`src/components/pages/`)
+Each `*Client.jsx` provides the React context tree (Language, Cart, Section) and mounts the page content. Most delegate to a `src/react-pages/` component; `HomeClient` composes sections directly.
+
+```jsx
+// src/components/pages/BodegaClient.jsx
+export default function BodegaClient() {
+  return (
+    <BrowserRouter>
+      <LanguageProvider>
+        <CartProvider>
+          <SectionProvider>
+            <BodegaYVinas />
+          </SectionProvider>
+        </CartProvider>
+      </LanguageProvider>
+    </BrowserRouter>
+  )
+}
+```
+
+#### 3. Global Client Components (`AstroGlobalWrapper`)
+`src/components/layout/AstroGlobalWrapper.jsx` is mounted once in `src/layouts/Layout.astro` with `client:only="react"`. It manages: Lenis smooth scroll, custom cursor, splash screen, age gate, scroll progress bar, and back-to-top button.
+
+#### 4. Data Separation
 Content is strictly separated from components. All data lives in `src/data/`:
-- `vinos.js` — 7 wines with `featured` flag (controls which 3 appear on Home)
+- `vinos.js` — Wine catalog with `featured` flag (controls which appear on Home)
 - `bodega.js`, `visitas.js`, `equipo.js` — Page-specific content
 - `navigation.js` — Nav links and external URLs (Instagram, Facebook, etc.)
 - `images.js` — Central image path management
 - `medios.js`, `press.js` — Winery branding/press references
+- `blog.js`, `maridajes.js`, `translations.js` — Blog, food pairings, i18n strings
 
-Never hardcode content in components. Always import from `/data`.
+Never hardcode content in components. Always import from `src/data/`.
 
-#### 3. Scroll Reveal Animations
-The `useScrollReveal()` hook uses `IntersectionObserver` to trigger CSS animations when elements enter the viewport. Applied to sections on every page.
+#### 5. Sanity CMS
+Blog posts and vino data can come from Sanity. Client is in `src/lib/sanityClient.js`, queries in `src/lib/queries.js`, and the `useSanityFetch` hook in `src/hooks/` handles fetching with loading/error state.
 
-```jsx
-export default function Home() {
-  useScrollReveal()  // Activates .reveal, .reveal-left, .reveal-right classes
-  return (
-    <section>
-      <div className="reveal">Content animates on scroll</div>
-    </section>
-  )
-}
-```
+#### 6. Shared State (Nanostores)
+`src/stores/cart.js` and `src/stores/ui.js` use nanostores for state shared between React islands (e.g., cart count in Navbar while cart logic lives in another island).
 
-CSS classes:
-- `.reveal` — fade in from center
-- `.reveal-left` — slide in from left
-- `.reveal-right` — slide in from right
-- `.reveal-delay-1`, `.reveal-delay-2`, `.reveal-delay-3` — stagger animations
-
-#### 4. Custom Cursor
-The `useCursor()` hook (used once in `Layout.jsx`'s `<Cursor />`) creates a custom cursor with smooth trailing. It scales up on hover over interactive elements (`a`, `button`, `.vino-card`, `.visita-option`).
-
-#### 5. Layout Wrapper
-`Layout.jsx` wraps all routes and manages:
-- Custom cursor (`<Cursor />`)
-- Navigation bar (`<Navbar />`)
-- Page content (`<Outlet />`)
-- Footer (`<Footer />`)
-- Auto-scroll to top on route change
-
-### Directory Structure (Relevant Paths)
+### Directory Structure
 
 ```
 src/
-├── App.jsx                    # Routes & lazy page imports
-├── App.css                    # Global styles, CSS variables, button styles
-├── main.jsx                   # React 18 entry point
+├── layouts/
+│   └── Layout.astro               # Astro layout: head, global wrappers, slot
+├── pages/                         # One .astro file per route
+│   ├── index.astro
+│   ├── tienda/[id].astro          # Dynamic route (vino detail)
+│   ├── blog/[id].astro            # Dynamic route (blog post)
+│   └── 404.astro
 ├── components/
-│   ├── layout/                # Navbar, Footer, Cursor, Layout, PageHero
-│   ├── sections/              # Reusable page sections (Hero, VinosGrid, etc.)
-│   └── ui/                    # Basic components (Button with variants, ArrowRight)
-├── data/                      # All content; never hardcode in components
-├── hooks/                     # useScrollReveal, useCursor
-├── pages/                     # One page per route (lazy-loaded)
-└── assets/images/             # Local images (currently sparse; many from WordPress)
+│   ├── layout/                    # Navbar, Footer, Cursor, AstroGlobalWrapper, etc.
+│   ├── pages/                     # *Client.jsx wrappers (one per route)
+│   ├── sections/                  # Reusable page sections (Hero, VinosGrid, etc.)
+│   └── ui/                        # Button, ArrowRight, ScrollReveal, etc.
+├── react-pages/                   # React page components (used by *Client.jsx wrappers)
+├── context/                       # LanguageContext, CartContext, SectionContext
+├── stores/                        # Nanostores (cart.js, ui.js)
+├── hooks/                         # useCursor, useLanguage, useSanityFetch, etc.
+├── lib/                           # sanityClient.js, queries.js
+├── data/                          # All content — never hardcode in components
+├── animations/                    # Framer Motion variants (variants.js)
+├── utils/                         # url.js helpers
+├── App.css                        # Global styles and CSS variables
+└── assets/images/                 # Local images
 
-vite.config.js                 # Vite config with vendor chunk splitting
-vercel.json                    # Vercel deployment config
-public/_redirects              # SPA routing for Netlify/Cloudflare
+astro.config.mjs                   # Astro config (base URL, React integration)
+vercel.json                        # Vercel deployment config
 ```
 
 ## Routing & Pages
 
-React Router config is in `App.jsx`. All pages use the `Layout` wrapper.
+All routes are Astro pages in `src/pages/`. Each mounts a React `*Client.jsx` island.
 
-| Route | File | Status |
+| Route | Astro file | Client component |
 |---|---|---|
-| `/` | `Home.jsx` | Complete (hero, grid, sections) |
-| `/nosotros` | `SobreNosotros.jsx` | Complete |
-| `/bodega` | `BodegaYVinas.jsx` | Complete |
-| `/tienda` | `Tienda.jsx` | Catalog only; purchases link to WooCommerce |
-| `/visita` | `VisitaBodega.jsx` | Complete (experiences + map) |
-| `/contacto` | `Contacto.jsx` | Form + embedded Google Maps |
-| `/aviso-legal` | `AvisoLegal.jsx` | Static |
-| `/terminos` | `TerminosCondiciones.jsx` | Static |
-| `*` | `NotFound.jsx` | 404 fallback |
-
-## Component Patterns
-
-### Section Components (`src/components/sections/`)
-Sections are self-contained chunks of a page. Each section:
-- Has a className of `section` (for common spacing)
-- Often has an id for analytics or hash navigation
-- Is composed into pages (not routes)
-
-Example:
-```jsx
-// src/components/sections/VinosGrid.jsx
-export default function VinosGrid() {
-  return (
-    <section className="section vinos-section" id="vinos">
-      <h2>Nuestros vinos</h2>
-      {/* content */}
-    </section>
-  )
-}
-
-// Used in Home.jsx
-import VinosGrid from '../components/sections/VinosGrid'
-export default function Home() {
-  useScrollReveal()
-  return (
-    <>
-      <Hero />
-      <VinosGrid />
-      {/* more sections */}
-    </>
-  )
-}
-```
-
-### UI Components (`src/components/ui/`)
-- `Button.jsx` exports `BtnPrimary` and `BtnGhost` — flexible components that work with `to` (React Router link), `href` (external), or `onClick` callback
-- `ArrowRight.jsx` — small inline icon component
+| `/` | `index.astro` | `HomeClient.jsx` |
+| `/nosotros` | `nosotros.astro` | `NosotrosClient.jsx` |
+| `/bodega` | `bodega.astro` | `BodegaClient.jsx` |
+| `/tienda` | `tienda.astro` | `TiendaClient.jsx` |
+| `/tienda/:id` | `tienda/[id].astro` | `VinoDetalleClient.jsx` |
+| `/visita` | `visita.astro` | `VisitaClient.jsx` |
+| `/contacto` | `contacto.astro` | `ContactoClient.jsx` |
+| `/blog` | `blog.astro` | `BlogClient.jsx` |
+| `/blog/:id` | `blog/[id].astro` | `BlogPostClient.jsx` |
+| `/carrito` | `carrito.astro` | `CarritoClient.jsx` |
+| `/maridajes` | `maridajes.astro` | `MaridajesClient.jsx` |
+| `/aviso-legal` | `aviso-legal.astro` | `AvisoLegalClient.jsx` |
+| `/terminos` | `terminos.astro` | `TerminosClient.jsx` |
+| `*` | `404.astro` | — |
 
 ## CSS Architecture
 
@@ -155,7 +139,7 @@ export default function Home() {
 :root {
   --bg:        #faf8f3;
   --bg-alt:    #f0e8d8;
-  --bg-dark:   #2d1a14;      /* quote section only */
+  --bg-dark:   #2d1a14;
   --text:      #1c1510;
   --text-2:    #5a4f48;
   --text-3:    #9a9085;
@@ -169,7 +153,7 @@ export default function Home() {
 }
 ```
 
-All styles are in a single `src/App.css` file organized into sections. Use CSS variables for colors and fonts. Avoid inline styles except for dynamic animations. No Tailwind or CSS Modules.
+All styles are in `src/App.css` (imported in `Layout.astro`). Use CSS variables for colors and fonts. No Tailwind or CSS Modules.
 
 ## Deployment
 
@@ -178,39 +162,34 @@ All styles are in a single `src/App.css` file organized into sections. Use CSS v
 npm run build
 ```
 
-Configured for three platforms:
-1. **Vercel** — Uses `vercel.json` for SPA routing (auto-configured)
-2. **Netlify / Cloudflare Pages** — Uses `public/_redirects` for SPA routing
-3. Any static host supporting SPAs
-
-Vite's `vite.config.js` splits vendor code (`react`, `react-dom`, `react-router-dom`) into a separate chunk for better browser caching.
+- **Vercel** — Uses `vercel.json`. Primary deployment target.
+- **GitHub Pages** — `astro.config.mjs` sets `base` to `/El-Hato-y-el-Garabato` when `GITHUB_ACTIONS=true`.
 
 ## Important Notes
 
 ### Images
-Currently, product/media images are served from WordPress CDN (`wp-content/uploads/`). The plan is to migrate them to `src/assets/images/` — see `src/data/images.js` which centralizes all image paths.
+Images live in `src/assets/images/`. All paths are centralized in `src/data/images.js` — never hardcode image paths in components.
 
 ### Tienda (Shop)
-The shop page (`/tienda`) is a static React catalog. Purchases redirect to WooCommerce (external links in vino objects). Full e-commerce integration would require a backend.
+`/tienda` is a static catalog. Individual vino pages at `/tienda/:id` are statically generated. Purchases link out to WooCommerce (external URLs in vino data objects).
 
 ### Contact Form
-Currently uses Google Maps iframe (no API key) and a contact form. See `ContactoSection.jsx` for Formspree integration option (requires backend or third-party service).
+`ContactoSection.jsx` uses a Google Maps iframe and a contact form. Formspree integration is an option (see `.env.example`).
 
-### Browser Compatibility
-Targets modern browsers supporting ES2020. IntersectionObserver (scroll reveals) and requestAnimationFrame (cursor tracking) are used.
+### i18n
+Language switching is handled by `LanguageContext` + `src/data/translations.js`. The `useLanguage()` hook provides `t('key')` throughout React components.
 
 ## Git & Versioning
 
-This is a course capstone project (Técnico Superior en Desarrollo de Aplicaciones Web). Code follows React and Vite best practices. Key files:
-- `README.md` — Project overview and deployment instructions
-- `.env.example` — Template for environment variables (contact form service)
+Course capstone project (Técnico Superior en Desarrollo de Aplicaciones Web). Key files:
+- `README.md` — Project overview
+- `.env.example` — Template for environment variables
 
-## Style Guide Summary
+## Style Guide
 
-- **Component naming:** PascalCase (e.g., `VinosGrid.jsx`)
-- **Data files:** camelCase exports (e.g., `VINOS`, `NAV_LINKS`)
-- **CSS classes:** kebab-case (e.g., `.vino-card`, `.reveal-left`)
-- **Files:** PascalCase for components, lowercase for hooks/utils
+- **Component naming:** PascalCase (`VinosGrid.jsx`)
+- **Data files:** UPPER_CASE exports (`VINOS`, `NAV_LINKS`)
+- **CSS classes:** kebab-case (`.vino-card`, `.reveal-left`)
+- **Files:** PascalCase for components, lowercase for hooks/utils/data
 - **Comments:** Spanish in data files, English/Spanish in code as context requires
 - **No hardcoding:** All content goes to `src/data/`
-
