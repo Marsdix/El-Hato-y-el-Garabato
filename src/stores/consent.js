@@ -16,7 +16,7 @@ export function setConsent(value) {
   $cookieConsent.set(value)
   if (!isBrowser) return
   localStorage.setItem('hato-consent', String(value))
-  if (!value) {
+  if (value === false) {
     localStorage.removeItem('hato-lang')
     localStorage.removeItem('hato-theme')
     localStorage.removeItem('hato-cart')
