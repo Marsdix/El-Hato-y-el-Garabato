@@ -164,7 +164,7 @@ export const TRANSLATIONS = {
     'footer.col3.aviso':    'Aviso legal',
     'footer.col3.terminos': 'Términos y condiciones',
     'footer.col3.contacto': 'Contacto',
-    'footer.copy':          '© 2025 El Hato y el Garabato · Formariz, Zamora',
+    'footer.copy':          '© 2026 El Hato y el Garabato · Formariz, Zamora',
 
     // ── 404 ────────────────────────────────────────────────────────
     'notfound.label': '404',
@@ -425,7 +425,7 @@ export const TRANSLATIONS = {
     'footer.col3.aviso':    'Legal notice',
     'footer.col3.terminos': 'Terms and conditions',
     'footer.col3.contacto': 'Contact',
-    'footer.copy':          '© 2025 El Hato y el Garabato · Formariz, Zamora',
+    'footer.copy':          '© 2026 El Hato y el Garabato · Formariz, Zamora',
 
     // ── 404 ────────────────────────────────────────────────────────
     'notfound.label': '404',

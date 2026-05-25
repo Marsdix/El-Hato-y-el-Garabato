@@ -118,13 +118,7 @@ export default function Footer() {
               <a href={siteUrl("visita")}>{t("footer.col1.visitas")}</a>
             </li>
             <li>
-              <a
-                href="https://elhatoyelgarabato.com/blog/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("footer.col1.blog")}
-              </a>
+              <a href={siteUrl("blog")}>{t("footer.col1.blog")}</a>
             </li>
           </ul>
         </div>
@@ -139,22 +133,10 @@ export default function Footer() {
               <a href={siteUrl("maridajes")}>{t("footer.col2.maridajes")}</a>
             </li>
             <li>
-              <a
-                href="https://elhatoyelgarabato.com/producto/eclectico-blanco-con-crianza-en-barrica-de-roble-frances/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ecléctico Barrica
-              </a>
+              <a href={siteUrl("tienda/eclectico-barrica-2023")}>Ecléctico Barrica</a>
             </li>
             <li>
-              <a
-                href="https://elhatoyelgarabato.com/producto/de-buena-jera-2018/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                De Buena Jera
-              </a>
+              <a href={siteUrl("tienda/de-buena-jera-2022")}>De Buena Jera</a>
             </li>
           </ul>
         </div>
@@ -176,7 +158,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p className="footer-copy">{t("footer.copy")}</p>
+        <p className="footer-copy">© {new Date().getFullYear()} {t("footer.copy")}</p>
       </div>
     </footer>
   );
