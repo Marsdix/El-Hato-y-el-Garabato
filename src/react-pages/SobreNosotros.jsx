@@ -35,17 +35,24 @@ function MediosSection() {
           <GoldLine />
         </ScrollReveal>
         <StaggerList className="medios-grid" as="div" amount={0.1}>
-          {MEDIOS.map(medio => (
-            <StaggerItem key={medio.nombre} as="div" className="medio-logo" title={medio.nombre}>
-              {medio.href ? (
-                <a href={medio.href} target="_blank" rel="noopener noreferrer" aria-label={medio.nombre}>
+          {MEDIOS.map(medio => {
+            const isExternal = medio.href && medio.href.startsWith('http')
+            return (
+              <StaggerItem key={medio.nombre} as="div" className="medio-logo" title={medio.nombre}>
+                {medio.href ? (
+                  <a
+                    href={medio.href}
+                    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    aria-label={medio.nombre}
+                  >
+                    <img src={medio.logo} alt={medio.nombre} loading="lazy" />
+                  </a>
+                ) : (
                   <img src={medio.logo} alt={medio.nombre} loading="lazy" />
-                </a>
-              ) : (
-                <img src={medio.logo} alt={medio.nombre} loading="lazy" />
-              )}
-            </StaggerItem>
-          ))}
+                )}
+              </StaggerItem>
+            )
+          })}
         </StaggerList>
       </div>
     </section>

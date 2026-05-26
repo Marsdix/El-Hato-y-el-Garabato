@@ -21,7 +21,7 @@ import imgLuisfer      from "../assets/images/luisfer.JPG";
 // ── Nosotros / Medios ─────────────────────────────────────────────
 import imgRobertParker from "../assets/images/robert-wine-periodico.png";
 import imgTraveler     from "../assets/images/traveler-periodico.png";
-import imgPenin        from "../assets/images/penin-periodico.png";
+import imgJamesSuckling from "../assets/images/james-suckling.png";
 import imgElPais       from "../assets/images/el-pais-periodico.png";
 import imgPlanetaVino  from "../assets/images/planeta-vino-periodico.png";
 import imgLaVanguardia from "../assets/images/la-vanguardia-periodico.jpg";
@@ -103,7 +103,7 @@ export const IMAGES = {
     medios: {
       robertParker: w(imgRobertParker, 'robert-wine-periodico'),
       traveler:     w(imgTraveler,     'traveler-periodico'),
-      penin:        w(imgPenin,        'penin-periodico'),
+      jamesSuckling: w(imgJamesSuckling, 'james-suckling'),
       elPais:       w(imgElPais,       'el-pais-periodico'),
       planetaVino:  w(imgPlanetaVino,  'planeta-vino-periodico'),
       laVanguardia: w(imgLaVanguardia, 'la-vanguardia-periodico'),
