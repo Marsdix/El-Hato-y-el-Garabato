@@ -26,7 +26,7 @@ export const EXPERIENCIAS = [
       { es: 'Duración estimada: 1 hora', en: 'Estimated duration: 1 hour' },
     ],
     precio: 18,
-    href: 'https://elhatoyelgarabato.com/visitas/visita-bodega/',
+    href: '/visita/bodega',
   },
   {
     id: 'visita-vina-bodega',
@@ -41,6 +41,6 @@ export const EXPERIENCIAS = [
       { es: 'Duración estimada: 2 horas',               en: 'Estimated duration: 2 hours'             },
     ],
     precio: 25,
-    href: 'https://elhatoyelgarabato.com/visitas/visita-vina-y-bodega/',
+    href: '/visita/vina-bodega',
   },
 ]

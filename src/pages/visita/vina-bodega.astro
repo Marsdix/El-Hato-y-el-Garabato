@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ReservaVinaBodegaClient from '../../components/pages/ReservaVinaBodegaClient.jsx'
+---
+
+<Layout
+  title="Reserva Visita Viña y Bodega — El Hato y el Garabato"
+  description="Reserva tu visita al viñedo y bodega El Hato y el Garabato. Cata entre viñas centenarias en los Arribes del Duero."
+>
+  <ReservaVinaBodegaClient client:only="react" />
+</Layout>
