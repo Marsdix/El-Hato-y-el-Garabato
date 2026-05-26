@@ -47,7 +47,7 @@ export default function VisitaExperienciasSection() {
               <span>{t('visita.exp.precio.unit')}</span>
             </div>
 
-            <BtnPrimary href={exp.href}>{t('visita.exp.reservar')}</BtnPrimary>
+            <BtnPrimary to={exp.href}>{t('visita.exp.reservar')}</BtnPrimary>
           </StaggerItem>
         ))}
       </StaggerList>
