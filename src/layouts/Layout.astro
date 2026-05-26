@@ -53,7 +53,7 @@ const base = import.meta.env.BASE_URL
     <ClientRouter />
   </head>
   <body>
-    <AstroGlobalWrapper client:only="react" />
+    <AstroGlobalWrapper client:only="react" transition:persist />
     <AstroNavbarWrapper client:only="react" />
     <main>
       <slot />
