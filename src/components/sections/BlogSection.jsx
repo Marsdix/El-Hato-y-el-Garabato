@@ -62,7 +62,7 @@ export default function BlogSection() {
         </div>
       </ScrollReveal>
 
-      <StaggerList className="blog-grid" as="div" amount={0.06}>
+      <StaggerList className="blog-grid" as="div" amount={0.06} key={activeCat ?? 'todos'}>
         {visiblePosts.map(post => {
           const isInternal = Boolean(post.content)
           const CardImg = isInternal
