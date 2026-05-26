@@ -67,6 +67,7 @@ export default function Navbar() {
       <nav
         className={scrolled ? "scrolled" : ""}
         style={{ background: navBg, backdropFilter: navBlur }}
+        aria-label="Navegación principal"
       >
         <a href={siteUrl("")} className="nav-logo" onClick={(e) => handleLinkClick(e, "/")}>
           El Hato y el Garabato

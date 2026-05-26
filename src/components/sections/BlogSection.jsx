@@ -74,6 +74,10 @@ export default function BlogSection() {
         </div>
       </ScrollReveal>
 
+      <p className="sr-only" aria-live="polite" aria-atomic="true">
+        {visiblePosts.length} {visiblePosts.length === 1 ? 'artículo' : 'artículos'}
+      </p>
+
       <div className="blog-grid">
         <AnimatePresence mode="popLayout">
           {visiblePosts.map(post => {

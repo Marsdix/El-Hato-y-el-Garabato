@@ -1,6 +1,47 @@
 /* ─── RESET & ROOT ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ─── ACCESIBILIDAD ─────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: #1c1510;
+  padding: 10px 20px;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+/* Inputs usan border-color como indicador de foco — sin doble outline */
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.carrito-field input:focus-visible,
+.carrito-field textarea:focus-visible,
+.blog-comments-field input:focus-visible,
+.blog-comments-field textarea:focus-visible { outline: none; }
+
 :root {
   /* Backgrounds — paleta clara */
   --bg:        #faf8f3;
@@ -959,7 +1000,7 @@ nav.scrolled .hamburger:hover { color: var(--gold-text); }
 .contacto-left h2 em { font-style: italic; color: var(--gold-text); }
 .contact-items { display: flex; flex-direction: column; gap: 28px; }
 .contact-item { display: flex; flex-direction: column; gap: 4px; }
-.contact-item label {
+.contact-item-label {
   font-family: var(--ff-sans);
   font-size: 9px;
   letter-spacing: 0.4em;

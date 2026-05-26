@@ -44,17 +44,17 @@ export default function ContactoSection() {
           <GoldLine />
           <div className="contact-items">
             <div className="contact-item">
-              <label>{t('contacto.email.label')}</label>
+              <span className="contact-item-label">{t('contacto.email.label')}</span>
               <a href="mailto:pedidos@elhatoyelgarabato.com">
                 pedidos@elhatoyelgarabato.com
               </a>
             </div>
             <div className="contact-item">
-              <label>{t('contacto.phone.label')}</label>
+              <span className="contact-item-label">{t('contacto.phone.label')}</span>
               <a href="tel:+34685501561">+34 685 50 15 61</a>
             </div>
             <div className="contact-item">
-              <label>{t('contacto.address.label')}</label>
+              <span className="contact-item-label">{t('contacto.address.label')}</span>
               <p>{t('contacto.address.value')}</p>
             </div>
           </div>
@@ -75,14 +75,18 @@ export default function ContactoSection() {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
+                  <label htmlFor="contacto-nombre" className="sr-only">{t('contacto.form.nombre')}</label>
                   <input
+                    id="contacto-nombre"
                     type="text" name="nombre" placeholder={t('contacto.form.nombre')}
                     value={form.nombre} onChange={handleChange}
                     maxLength={100} required disabled={status === 'sending'}
                   />
                 </div>
                 <div className="form-group">
+                  <label htmlFor="contacto-email" className="sr-only">{t('contacto.form.email')}</label>
                   <input
+                    id="contacto-email"
                     type="email" name="email" placeholder={t('contacto.form.email')}
                     value={form.email} onChange={handleChange}
                     maxLength={254} required disabled={status === 'sending'}
@@ -90,14 +94,18 @@ export default function ContactoSection() {
                 </div>
               </div>
               <div className="form-group">
+                <label htmlFor="contacto-asunto" className="sr-only">{t('contacto.form.asunto')}</label>
                 <input
+                  id="contacto-asunto"
                   type="text" name="asunto" placeholder={t('contacto.form.asunto')}
                   value={form.asunto} onChange={handleChange}
                   maxLength={150} disabled={status === 'sending'}
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="contacto-mensaje" className="sr-only">{t('contacto.form.mensaje')}</label>
                 <textarea
+                  id="contacto-mensaje"
                   name="mensaje" rows="5" placeholder={t('contacto.form.mensaje')}
                   value={form.mensaje} onChange={handleChange}
                   maxLength={2000} required disabled={status === 'sending'}
