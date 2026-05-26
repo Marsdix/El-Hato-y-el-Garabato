@@ -251,6 +251,7 @@ export const TRANSLATIONS = {
     'blog.cat.bodega':        'Bodega',
     'blog.cat.info':          'Información',
     'blog.todos':             'Todos',
+    'blog.empty':             'No hay artículos para esta selección.',
 
     // ── Post de blog (/blog/:id) ───────────────────────────────────
     'blog.back':                  '← Volver al blog',
@@ -512,6 +513,7 @@ export const TRANSLATIONS = {
     'blog.cat.bodega':        'Winery',
     'blog.cat.info':          'Information',
     'blog.todos':             'All',
+    'blog.empty':             'No articles match your selection.',
 
     // ── Blog post (/blog/:id) ──────────────────────────────────────
     'blog.back':                  '← Back to blog',
