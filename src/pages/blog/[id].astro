@@ -2,16 +2,20 @@
 import Layout from '../../layouts/Layout.astro'
 import BlogPostClient from '../../components/pages/BlogPostClient.jsx'
 import { BLOG_POSTS } from '../../data/blog'
+import { client } from '../../lib/sanityClient'
+import { QUERY_BLOG } from '../../lib/queries'
 
-export function getStaticPaths() {
-  return BLOG_POSTS
-    .filter(p => p.content)
-    .map(p => ({ params: { id: p.id } }))
+export async function getStaticPaths() {
+  let posts = BLOG_POSTS.filter(p => p.content)
+  try {
+    const result = await client.fetch(QUERY_BLOG)
+    if (Array.isArray(result) && result.length) posts = result.filter(p => p.content)
+  } catch {}
+  return posts.map(p => ({ params: { id: p.id }, props: { post: p } }))
 }
 
-const { id } = Astro.params
-const post = BLOG_POSTS.find(p => p.id === id && p.content)
-const titleEs = post ? (typeof post.title === 'object' ? post.title.es : post.title) : id
+const { post } = Astro.props
+const titleEs = post ? (typeof post.title === 'object' ? post.title.es : post.title) : Astro.params.id
 const excerptEs = post ? (typeof post.excerpt === 'object' ? post.excerpt.es : post.excerpt) : ''
 ---
 

@@ -2,17 +2,23 @@
 import Layout from '../../layouts/Layout.astro'
 import VinoDetalleClient from '../../components/pages/VinoDetalleClient.jsx'
 import { VINOS } from '../../data/vinos'
+import { client } from '../../lib/sanityClient'
+import { QUERY_VINOS } from '../../lib/queries'
 
-export function getStaticPaths() {
-  return VINOS.map(v => ({ params: { id: v.id } }))
+export async function getStaticPaths() {
+  let vinos = VINOS
+  try {
+    const result = await client.fetch(QUERY_VINOS)
+    if (Array.isArray(result) && result.length) vinos = result
+  } catch {}
+  return vinos.map(v => ({ params: { id: v.id }, props: { vino: v } }))
 }
 
-const { id } = Astro.params
-const vino = VINOS.find(v => v.id === id)
+const { vino } = Astro.props
 ---
 
 <Layout
-  title={`${vino?.nombre ?? id} — El Hato y el Garabato`}
+  title={`${vino?.nombre ?? Astro.params.id} — El Hato y el Garabato`}
   description={vino?.descripcion?.es ?? 'Vino artesanal de El Hato y el Garabato, bodega en los Arribes del Duero.'}
 >
   <VinoDetalleClient client:only="react" vino={vino} />
