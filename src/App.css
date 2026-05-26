@@ -3430,6 +3430,14 @@ nav.scrolled .nav-cart {
   margin: 0 auto;
 }
 
+.blog-empty {
+  text-align: center;
+  font-family: var(--ff-serif);
+  font-size: 1.1rem;
+  color: var(--text-3);
+  padding: 60px 0;
+}
+
 /* ─── RESPONSIVE (páginas nuevas) ───────────────────────────────── */
 @media (max-width: 900px) {
   .bodega-vinas-section { padding: 80px 30px; }
@@ -3535,6 +3543,13 @@ nav.scrolled .nav-cart {
     min-height: 44px;
     font-size: 20px;
   }
+}
+
+/* ─── NAV RIGHT (agrupa controles + burger) ─────────────────────── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ─── NAV CONTROLS (IDIOMA + TEMA) ──────────────────────────────── */
