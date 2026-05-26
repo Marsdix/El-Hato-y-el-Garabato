@@ -48,6 +48,8 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 | `/blog/:id` | Post de blog | Plantilla de post con bloques de contenido bilingüe |
 | `/maridajes` | Maridajes | Sugerencias de maridaje por categoría con vídeo |
 | `/visita` | Enoturismo | Experiencias disponibles y mapa de localización |
+| `/visita/bodega` | Reserva visita bodega | Formulario de reserva para visita de 1 h con cata guiada |
+| `/visita/vina-bodega` | Reserva visita viña + bodega | Formulario de reserva para visita de 2 h con recorrido por el viñedo |
 | `/contacto` | Contacto | Formulario funcional (Formspree) y mapa embebido de Google Maps |
 | `/carrito` | Carrito | Gestión de pedidos con formulario de envío a Formspree |
 | `/aviso-legal` | Aviso legal | Página estática bilingüe |
@@ -69,7 +71,7 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
   - Tilt 3D al mover el ratón sobre las fotos de equipo (`useTilt` con Framer Motion springs).
   - Zoom + marco dorado al hover en tarjetas de vino y maridajes.
 - **CountUp animado** — estadísticas numéricas cuentan desde un valor inicial con easing cúbico al entrar en pantalla.
-- **Filtro animado en Maridajes** — `AnimatePresence mode="popLayout"` con transiciones de escala por tarjeta.
+- **Filtro multi-selección animado** — blog y maridajes usan `AnimatePresence mode="popLayout"` con transiciones de escala por tarjeta. El blog permite seleccionar varias categorías simultáneamente.
 
 ### UI y navegación
 - **Splash screen** — pantalla de carga con animación de letras. Solo aparece en la primera visita de la sesión.
@@ -86,6 +88,16 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 ### Formularios
 - **Contacto funcional** — envía a [Formspree](https://formspree.io) si `VITE_FORMSPREE_ID` está configurado; si no, abre el cliente de correo con los campos pre-rellenados (`mailto:` fallback).
 - **Carrito / Pedidos** — los pedidos se envían por email con el detalle de productos, cantidades, total y datos del comprador.
+- **Reservas de visita** — formularios dedicados para cada experiencia enoturística; envían a Formspree o abren `mailto:` como fallback.
+
+### Accesibilidad (WCAG AA)
+- **Skip link** — enlace "Saltar al contenido" visible al recibir foco de teclado.
+- **Focus visible global** — outline dorado en todos los elementos interactivos con `:focus-visible`.
+- **ARIA semántico** — `role="dialog"` / `role="alertdialog"`, `aria-labelledby`, `aria-live="polite"` en filtros, contadores y formularios; `aria-hidden` en elementos decorativos.
+- **Labels accesibles** — todos los inputs tienen `<label>` asociado (visible o `.sr-only`).
+- **Jerarquía de headings** correcta en todas las páginas (h1 → h2 → h3 sin saltos).
+- **Cursor táctil** — en dispositivos sin ratón (`hover: none`) se restaura el cursor nativo y se oculta el cursor personalizado.
+- **Contraste AA** — `--text-3` oscurecido a `#706860` (~4.5:1) y usos de `--gold` sobre fondo claro sustituidos por `--gold-text` (#8a6510).
 
 ### Rendimiento
 - **Astro SSG** — cada ruta genera HTML estático; el JS de React solo se carga por página.
@@ -232,6 +244,16 @@ El cliente real es la bodega familiar *El Hato y el Garabato*. Su web original e
 
 **Guillermo** — Alumno de DAW  
 [github.com/Marsdix](https://github.com/Marsdix) · 2025–2026
+
+---
+
+## Ramas principales
+
+| Rama | Propósito |
+|---|---|
+| `main` | Producción — se despliega automáticamente a GitHub Pages |
+| `accesibilidad` | Implementación WCAG AA completa (pendiente de merge a main) |
+| `wordpress` | Tema WordPress que sirve los HTML estáticos de Astro (experimental) |
 
 ---
 
