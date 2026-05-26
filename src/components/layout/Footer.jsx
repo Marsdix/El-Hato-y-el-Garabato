@@ -107,7 +107,7 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t("footer.col1.title")}</h4>
-          <ul>
+          <ul aria-label={t("footer.col1.title")}>
             <li>
               <a href={siteUrl("nosotros")}>{t("footer.col1.nosotros")}</a>
             </li>
@@ -125,7 +125,7 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t("footer.col2.title")}</h4>
-          <ul>
+          <ul aria-label={t("footer.col2.title")}>
             <li>
               <a href={siteUrl("tienda")}>{t("footer.col2.tienda")}</a>
             </li>
@@ -143,7 +143,7 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t("footer.col3.title")}</h4>
-          <ul>
+          <ul aria-label={t("footer.col3.title")}>
             <li>
               <a href={siteUrl("aviso-legal")}>{t("footer.col3.aviso")}</a>
             </li>

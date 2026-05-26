@@ -51,7 +51,7 @@
   /* Texto */
   --text:      #1c1510;
   --text-2:    #5a4f48;
-  --text-3:    #9a9085;
+  --text-3:    #706860;
 
   /* Acento dorado */
   --gold:      #c8a255;
@@ -103,6 +103,14 @@ body {
   z-index: 10001;
   transform: translate(-50%, -50%);
   transition: transform 0.4s var(--ease-out);
+}
+@media (hover: none) and (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring { transition: none; }
 }
 
 /* ─── NAVEGACIÓN ───────────────────────────────────────────────── */
@@ -1485,7 +1493,7 @@ footer {
   align-items: center;
   gap: 12px;
 }
-.nosotros-intro-feats li span { color: var(--gold); flex-shrink: 0; }
+.nosotros-intro-feats li span { color: var(--gold-text); flex-shrink: 0; }
 .nosotros-intro-photo { overflow: hidden; }
 .nosotros-intro-photo img {
   width: 100%;
@@ -3182,7 +3190,7 @@ nav.scrolled .nav-cart {
   font-family: var(--ff-caps);
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--gold);
+  color: var(--gold-text);
   min-width: 28px;
   flex-shrink: 0;
 }

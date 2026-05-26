@@ -340,6 +340,7 @@ export default function TerminosSection() {
 
   return (
     <section className="legal-section">
+      <h2 className="sr-only">{language === 'en' ? 'Terms and Conditions' : 'Términos y Condiciones'}</h2>
       <p className="legal-intro">{pick(INTRO)}</p>
       <StaggerList className="legal-cards" as="div" amount={0.1}>
         {SECTIONS.map(({ num, title, content }) => (

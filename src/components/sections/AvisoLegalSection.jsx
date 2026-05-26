@@ -305,6 +305,7 @@ export default function AvisoLegalSection() {
 
   return (
     <section className="legal-section">
+      <h2 className="sr-only">{language === 'en' ? 'Legal Notice' : 'Aviso Legal'}</h2>
       <p className="legal-intro">{pick(INTRO)}</p>
       <StaggerList className="legal-cards" as="div" amount={0.1}>
         {SECTIONS.map(({ num, title, content }) => (

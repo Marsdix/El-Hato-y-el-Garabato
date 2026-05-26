@@ -138,7 +138,9 @@ export default function ReservaVisita({ tipo }) {
               <form onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
+                    <label htmlFor="reserva-nombre" className="sr-only">{t({ es: 'Tu nombre', en: 'Your name' })}</label>
                     <input
+                      id="reserva-nombre"
                       type="text" name="nombre"
                       placeholder={t({ es: 'Tu nombre *', en: 'Your name *' })}
                       value={form.nombre} onChange={handleChange}
@@ -146,7 +148,9 @@ export default function ReservaVisita({ tipo }) {
                     />
                   </div>
                   <div className="form-group">
+                    <label htmlFor="reserva-email" className="sr-only">{t({ es: 'Tu email', en: 'Your email' })}</label>
                     <input
+                      id="reserva-email"
                       type="email" name="email"
                       placeholder={t({ es: 'Tu email *', en: 'Your email *' })}
                       value={form.email} onChange={handleChange}
@@ -156,7 +160,9 @@ export default function ReservaVisita({ tipo }) {
                 </div>
 
                 <div className="form-group">
+                  <label htmlFor="reserva-telefono" className="sr-only">{t({ es: 'Teléfono (opcional)', en: 'Phone (optional)' })}</label>
                   <input
+                    id="reserva-telefono"
                     type="tel" name="telefono"
                     placeholder={t({ es: 'Teléfono (opcional)', en: 'Phone (optional)' })}
                     value={form.telefono} onChange={handleChange}
@@ -166,31 +172,32 @@ export default function ReservaVisita({ tipo }) {
 
                 <div className="form-row">
                   <div className="form-group">
+                    <label htmlFor="reserva-fecha" className="sr-only">{t({ es: 'Fecha de visita', en: 'Visit date' })}</label>
                     <input
+                      id="reserva-fecha"
                       type="date" name="fecha"
                       value={form.fecha} onChange={handleChange}
                       min={today} required disabled={status === 'sending'}
-                      aria-label={t({ es: 'Fecha de visita', en: 'Visit date' })}
                     />
                   </div>
                   <div className="form-group">
                     <div className="personas-counter">
-                      <span className="personas-label">
+                      <span className="personas-label" id="personas-label">
                         {t({ es: 'Personas', en: 'People' })}
                       </span>
-                      <div className="personas-control">
+                      <div className="personas-control" role="group" aria-labelledby="personas-label">
                         <button
                           type="button" className="personas-btn"
                           onClick={() => setPersonas(-1)}
                           disabled={form.personas <= 1 || status === 'sending'}
-                          aria-label="Menos una persona"
+                          aria-label={t({ es: 'Menos una persona', en: 'One fewer person' })}
                         >−</button>
-                        <span className="personas-num">{form.personas}</span>
+                        <span className="personas-num" aria-live="polite" aria-atomic="true">{form.personas}</span>
                         <button
                           type="button" className="personas-btn"
                           onClick={() => setPersonas(1)}
                           disabled={form.personas >= 20 || status === 'sending'}
-                          aria-label="Más una persona"
+                          aria-label={t({ es: 'Más una persona', en: 'One more person' })}
                         >+</button>
                       </div>
                     </div>
@@ -198,7 +205,9 @@ export default function ReservaVisita({ tipo }) {
                 </div>
 
                 <div className="form-group">
+                  <label htmlFor="reserva-mensaje" className="sr-only">{t({ es: 'Comentarios o preguntas', en: 'Comments or questions' })}</label>
                   <textarea
+                    id="reserva-mensaje"
                     name="mensaje" rows="4"
                     placeholder={t({ es: 'Comentarios o preguntas (opcional)', en: 'Comments or questions (optional)' })}
                     value={form.mensaje} onChange={handleChange}

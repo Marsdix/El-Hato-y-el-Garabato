@@ -39,9 +39,9 @@ function AddButton({ vino, t }) {
   return (
     <div className="add-cart-row">
       <div className="add-cart-stepper">
-        <button onClick={dec} aria-label="Reducir cantidad">−</button>
-        <span>{qty}</span>
-        <button onClick={inc} aria-label="Aumentar cantidad">+</button>
+        <button onClick={dec} aria-label={`Reducir cantidad de ${vino.nombre}`}>−</button>
+        <span aria-live="polite" aria-atomic="true">{qty}</span>
+        <button onClick={inc} aria-label={`Aumentar cantidad de ${vino.nombre}`}>+</button>
       </div>
       <button
         className="btn-add-cart"

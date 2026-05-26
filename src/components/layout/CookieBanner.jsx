@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../hooks/useLanguage'
 import { setConsent } from '../../stores/consent'
@@ -21,6 +22,11 @@ const variants = {
 export default function CookieBanner({ onDecide }) {
   const { language } = useLanguage()
   const p = (obj) => obj[language] ?? obj.es
+  const firstBtnRef = useRef(null)
+
+  useEffect(() => {
+    firstBtnRef.current?.focus()
+  }, [])
 
   const handle = (value) => {
     setConsent(value)
@@ -34,16 +40,16 @@ export default function CookieBanner({ onDecide }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      role="dialog"
-      aria-label={p(COPY.label)}
+      role="alertdialog"
+      aria-labelledby="cookie-banner-title"
     >
-      <p className="cookie-banner__label">{p(COPY.label)}</p>
+      <p id="cookie-banner-title" className="cookie-banner__label">{p(COPY.label)}</p>
       <p
         className="cookie-banner__desc"
         dangerouslySetInnerHTML={{ __html: p(COPY.desc) }}
       />
       <div className="cookie-banner__btns">
-        <button className="btn-primary" onClick={() => handle(true)}>
+        <button ref={firstBtnRef} className="btn-primary" onClick={() => handle(true)}>
           {p(COPY.accept)}
         </button>
         <button className="cookie-banner__btn-decline" onClick={() => handle(false)}>

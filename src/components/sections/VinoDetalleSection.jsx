@@ -53,7 +53,7 @@ export default function VinoDetalleSection({ vino }) {
                 {!added && (
                   <div className="add-cart-stepper add-cart-stepper--lg">
                     <button onClick={() => setQty(q => Math.max(1, q - 1))} aria-label="Reducir cantidad">−</button>
-                    <span>{qty}</span>
+                    <span aria-live="polite" aria-atomic="true">{qty}</span>
                     <button onClick={() => setQty(q => Math.min(12, q + 1))} aria-label="Aumentar cantidad">+</button>
                   </div>
                 )}

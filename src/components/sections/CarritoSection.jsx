@@ -9,9 +9,9 @@ import GoldLine from '../ui/GoldLine'
 function QtyControl({ item, updateCantidad, removeItem }) {
   return (
     <div className="carrito-qty">
-      <button onClick={() => updateCantidad(item.id, -1)} aria-label="Reducir cantidad">−</button>
-      <span>{item.cantidad}</span>
-      <button onClick={() => updateCantidad(item.id, 1)} aria-label="Aumentar cantidad">+</button>
+      <button onClick={() => updateCantidad(item.id, -1)} aria-label={`Reducir cantidad de ${item.nombre}`}>−</button>
+      <span aria-live="polite" aria-atomic="true">{item.cantidad}</span>
+      <button onClick={() => updateCantidad(item.id, 1)} aria-label={`Aumentar cantidad de ${item.nombre}`}>+</button>
     </div>
   )
 }
