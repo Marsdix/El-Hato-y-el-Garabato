@@ -5,3 +5,11 @@ dist
 .DS_Store
 studio/node_modules
 studio/dist
+
+# Tool files
+agentdb.rvf
+agentdb.rvf.lock
+ruvector.db
+.superpowers/
+CLAUDE.original.md
+docs/superpowers/

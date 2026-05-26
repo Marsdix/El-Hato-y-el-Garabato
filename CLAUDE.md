@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code (claude.ai/code) in this repo.
 
 ## Quick Commands
 
@@ -12,22 +12,22 @@ npm run preview   # Preview production build locally
 
 ## Architecture Overview
 
-**El Hato y el Garabato** is an Astro SSG site backed by React components. It's a course capstone project built for a family winery, migrated from a React+Vite SPA.
+**El Hato y el Garabato** — Astro SSG + React. Course capstone for family winery, migrated from React+Vite SPA.
 
 ### Core Stack
-- **Astro 6** — Static site generator; handles routing, builds, and HTML generation
-- **React 18.3** — UI components rendered client-side via `client:only="react"`
-- **Framer Motion** — Animations and page transitions
+- **Astro 6** — SSG; routing, builds, HTML gen
+- **React 18.3** — UI components, client-side via `client:only="react"`
+- **Framer Motion** — Animations, page transitions
 - **Lenis** — Smooth scroll
-- **Sanity CMS** — Blog posts and vino data fetched via `@sanity/client`
+- **Sanity CMS** — Blog + vino data via `@sanity/client`
 - **Nanostores** — Shared client state (cart, UI) between React islands
-- **CSS** — Custom CSS with CSS variables (no Tailwind, no CSS Modules)
+- **CSS** — Custom CSS + CSS vars (no Tailwind, no CSS Modules)
 - **Google Fonts** — Cormorant Garamond (serif), Cinzel (caps), Jost (sans)
 
 ### Key Architectural Patterns
 
 #### 1. Astro Pages + React Islands
-Each route is an `.astro` file in `src/pages/`. The page imports a `*Client.jsx` React component and mounts it with `client:only="react"`. This means all React runs client-side only — no SSR hydration.
+Each route = `.astro` file in `src/pages/`. Imports `*Client.jsx`, mounts with `client:only="react"`. All React runs client-side only — no SSR hydration.
 
 ```astro
 ---
@@ -41,7 +41,7 @@ import BodegaClient from '../components/pages/BodegaClient.jsx'
 ```
 
 #### 2. Client Component Wrappers (`src/components/pages/`)
-Each `*Client.jsx` provides the React context tree (Language, Cart, Section) and mounts the page content. Most delegate to a `src/react-pages/` component; `HomeClient` composes sections directly.
+Each `*Client.jsx` provides React context tree (Language, Cart, Section), mounts page content. Most delegate to `src/react-pages/`; `HomeClient` composes sections directly.
 
 ```jsx
 // src/components/pages/BodegaClient.jsx
@@ -61,24 +61,24 @@ export default function BodegaClient() {
 ```
 
 #### 3. Global Client Components (`AstroGlobalWrapper`)
-`src/components/layout/AstroGlobalWrapper.jsx` is mounted once in `src/layouts/Layout.astro` with `client:only="react"`. It manages: Lenis smooth scroll, custom cursor, splash screen, age gate, scroll progress bar, and back-to-top button.
+`src/components/layout/AstroGlobalWrapper.jsx` mounted once in `src/layouts/Layout.astro` via `client:only="react"`. Manages: Lenis scroll, cursor, splash screen, age gate, scroll progress bar, back-to-top.
 
 #### 4. Data Separation
-Content is strictly separated from components. All data lives in `src/data/`:
-- `vinos.js` — Wine catalog with `featured` flag (controls which appear on Home)
+Content strictly separated from components. All data in `src/data/`:
+- `vinos.js` — Wine catalog; `featured` flag controls Home display
 - `bodega.js`, `visitas.js`, `equipo.js` — Page-specific content
-- `navigation.js` — Nav links and external URLs (Instagram, Facebook, etc.)
+- `navigation.js` — Nav links + external URLs (Instagram, Facebook, etc.)
 - `images.js` — Central image path management
 - `medios.js`, `press.js` — Winery branding/press references
 - `blog.js`, `maridajes.js`, `translations.js` — Blog, food pairings, i18n strings
 
-Never hardcode content in components. Always import from `src/data/`.
+Never hardcode content in components. Import from `src/data/`.
 
 #### 5. Sanity CMS
-Blog posts and vino data can come from Sanity. Client is in `src/lib/sanityClient.js`, queries in `src/lib/queries.js`, and the `useSanityFetch` hook in `src/hooks/` handles fetching with loading/error state.
+Blog + vino data from Sanity. Client: `src/lib/sanityClient.js`, queries: `src/lib/queries.js`, `useSanityFetch` hook in `src/hooks/` handles fetch with loading/error.
 
 #### 6. Shared State (Nanostores)
-`src/stores/cart.js` and `src/stores/ui.js` use nanostores for state shared between React islands (e.g., cart count in Navbar while cart logic lives in another island).
+`src/stores/cart.js` + `src/stores/ui.js` — nanostores for cross-island state (e.g., cart count in Navbar, cart logic in another island).
 
 ### Directory Structure
 
@@ -113,7 +113,7 @@ vercel.json                        # Vercel deployment config
 
 ## Routing & Pages
 
-All routes are Astro pages in `src/pages/`. Each mounts a React `*Client.jsx` island.
+All routes = Astro pages in `src/pages/`. Each mounts React `*Client.jsx` island.
 
 | Route | Astro file | Client component |
 |---|---|---|
@@ -153,7 +153,7 @@ All routes are Astro pages in `src/pages/`. Each mounts a React `*Client.jsx` is
 }
 ```
 
-All styles are in `src/App.css` (imported in `Layout.astro`). Use CSS variables for colors and fonts. No Tailwind or CSS Modules.
+All styles in `src/App.css` (imported in `Layout.astro`). Use CSS vars for colors/fonts. No Tailwind, no CSS Modules.
 
 ## Deployment
 
@@ -168,20 +168,20 @@ npm run build
 ## Important Notes
 
 ### Images
-Images live in `src/assets/images/`. All paths are centralized in `src/data/images.js` — never hardcode image paths in components.
+Images in `src/assets/images/`. Paths centralized in `src/data/images.js` — never hardcode in components.
 
 ### Tienda (Shop)
-`/tienda` is a static catalog. Individual vino pages at `/tienda/:id` are statically generated. Purchases link out to WooCommerce (external URLs in vino data objects).
+`/tienda` = static catalog. `/tienda/:id` pages statically generated. Purchases link to WooCommerce (URLs in vino data).
 
 ### Contact Form
-`ContactoSection.jsx` uses a Google Maps iframe and a contact form. Formspree integration is an option (see `.env.example`).
+`ContactoSection.jsx` — Google Maps iframe + contact form. Formspree optional (see `.env.example`).
 
 ### i18n
-Language switching is handled by `LanguageContext` + `src/data/translations.js`. The `useLanguage()` hook provides `t('key')` throughout React components.
+Language switching via `LanguageContext` + `src/data/translations.js`. `useLanguage()` hook provides `t('key')` in React components.
 
 ## Git & Versioning
 
-Course capstone project (Técnico Superior en Desarrollo de Aplicaciones Web). Key files:
+Course capstone (Técnico Superior en Desarrollo de Aplicaciones Web). Key files:
 - `README.md` — Project overview
 - `.env.example` — Template for environment variables
 
@@ -191,5 +191,5 @@ Course capstone project (Técnico Superior en Desarrollo de Aplicaciones Web). K
 - **Data files:** UPPER_CASE exports (`VINOS`, `NAV_LINKS`)
 - **CSS classes:** kebab-case (`.vino-card`, `.reveal-left`)
 - **Files:** PascalCase for components, lowercase for hooks/utils/data
-- **Comments:** Spanish in data files, English/Spanish in code as context requires
+- **Comments:** Spanish in data files, English/Spanish in code as needed
 - **No hardcoding:** All content goes to `src/data/`
