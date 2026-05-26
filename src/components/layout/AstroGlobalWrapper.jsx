@@ -35,10 +35,16 @@ function LenisManager() {
       history.scrollRestoration = 'manual'
     }
 
+    function onPageLoad() {
+      lenis.scrollTo(0, { immediate: true })
+    }
+    document.addEventListener('astro:page-load', onPageLoad)
+
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
       lenisRef.current = null
+      document.removeEventListener('astro:page-load', onPageLoad)
     }
   }, [])
 
