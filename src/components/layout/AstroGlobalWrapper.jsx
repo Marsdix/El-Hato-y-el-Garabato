@@ -52,11 +52,11 @@ function LenisManager() {
 }
 
 const SESSION_SPLASH = 'hato-splash'
-const SESSION_AGE    = 'hato-age-verified'
 
 export default function AstroGlobalWrapper() {
   const [splashDone,       setSplashDone]       = useState(() => sessionStorage.getItem(SESSION_SPLASH) === '1')
-  const [ageVerified,      setAgeVerified]      = useState(() => sessionStorage.getItem(SESSION_AGE) === '1')
+  // Age gate never persists — shows on every page load
+  const [ageVerified,      setAgeVerified]      = useState(false)
   const [showCookieBanner, setShowCookieBanner] = useState(false)
   const consent = useStore($cookieConsent)
 
@@ -82,7 +82,6 @@ export default function AstroGlobalWrapper() {
   }, [])
 
   const handleAgeVerified = useCallback(() => {
-    sessionStorage.setItem(SESSION_AGE, '1')
     setAgeVerified(true)
   }, [])
 
