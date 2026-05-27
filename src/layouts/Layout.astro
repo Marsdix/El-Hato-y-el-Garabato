@@ -10,7 +10,8 @@ const {
   description = 'Vinos artesanales de variedades ancestrales. 8 hectáreas de viñas centenarias en el Parque Natural Arribes del Duero, Zamora.',
 } = Astro.props
 
-const base = import.meta.env.BASE_URL
+// Ensure trailing slash so ${base}asset works for both '' and '/path' bases
+const base = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/')
 ---
 
 <!DOCTYPE html>
