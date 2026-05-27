@@ -42,9 +42,12 @@ function hato_serve_astro_page(): void {
 
     $html = file_get_contents($html_file);
 
-    // Fix root-relative asset paths → theme/dist/
-    $html = str_replace('="/_astro/',        '="' . $base . '/dist/_astro/',        $html);
-    $html = str_replace('href="/favicon.png"', 'href="' . $base . '/dist/favicon.png"', $html);
+    // Fallback path fixes (build-wp-theme.mjs patches these at build time;
+    // these str_replace calls are a safety net for any residual occurrences).
+    $html = str_replace('="/_astro/',         '="' . $base . '/dist/_astro/',         $html);
+    $html = str_replace('src="/_astro/',      'src="' . $base . '/dist/_astro/',      $html);
+    $html = str_replace('href="/favicon.png"','href="' . $base . '/dist/favicon.png"', $html);
+    $html = str_replace('src="/favicon.png"', 'src="'  . $base . '/dist/favicon.png"', $html);
 
     status_header(200);
     header('Content-Type: text/html; charset=UTF-8');
