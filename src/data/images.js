@@ -29,6 +29,7 @@ import imgSobremesa    from "../assets/images/sobremesa-periodico.png";
 import imgAbc          from "../assets/images/abc-periodico.jpg";
 import imgSpanishWine  from "../assets/images/spanish-wine-periodico.png";
 import imgHola         from "../assets/images/hola-periodico.jpg";
+import imgPenin        from "../assets/images/penin-periodico.png";
 
 // ── Nosotros / Heroes ─────────────────────────────────────────────
 import imgNosotrosHero from "../assets/images/nosotros-hero.jpg";
@@ -111,6 +112,7 @@ export const IMAGES = {
       abc:          w(imgAbc,          'abc-periodico'),
       spanishWine:  w(imgSpanishWine,  'spanish-wine-periodico'),
       hola:         w(imgHola,         'hola-periodico'),
+      penin:        w(imgPenin,        'penin-periodico'),
     },
   },
 

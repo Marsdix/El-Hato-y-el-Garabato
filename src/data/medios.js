@@ -54,4 +54,9 @@ export const MEDIOS = [
     logo: IMAGES.nosotros.medios.hola,
     href: "/blog/hola",
   },
+  {
+    nombre: "Guía Peñín",
+    logo: IMAGES.nosotros.medios.penin,
+    href: null,
+  },
 ];
