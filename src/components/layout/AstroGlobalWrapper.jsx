@@ -66,6 +66,16 @@ export default function AstroGlobalWrapper() {
     }
   }, [ageVerified, consent])
 
+  useEffect(() => {
+    const main = document.querySelector('main')
+    if (!main) return
+    if (!splashDone) {
+      main.setAttribute('aria-busy', 'true')
+    } else {
+      main.removeAttribute('aria-busy')
+    }
+  }, [splashDone])
+
   const handleSplashComplete = useCallback(() => {
     sessionStorage.setItem(SESSION_SPLASH, '1')
     setSplashDone(true)

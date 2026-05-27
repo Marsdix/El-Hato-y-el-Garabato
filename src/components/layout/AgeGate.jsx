@@ -62,7 +62,7 @@ export default function AgeGate({ onVerified }) {
   }
 
   return (
-    <div className="age-gate" role="dialog" aria-modal="true">
+    <div className="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
       {/* Background image */}
       <div className="age-gate__bg" style={{ backgroundImage: `url('${imgBg}')` }} />
 
@@ -88,7 +88,7 @@ export default function AgeGate({ onVerified }) {
 
             <GrapeIcon />
 
-            <h2 className="age-gate__question">
+            <h2 id="age-gate-title" className="age-gate__question">
               {p(COPY.question).split('\n').map((line, i) => (
                 <span key={i}>{line}<br /></span>
               ))}

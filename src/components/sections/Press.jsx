@@ -1,5 +1,6 @@
 import { PRESS_LOGOS } from '../../data/press'
 import { useLanguage } from '../../hooks/useLanguage'
+import { siteUrl } from '../../utils/url'
 
 export default function Press() {
   const { t } = useLanguage()
@@ -14,9 +15,7 @@ export default function Press() {
             <span key={i} className="press-entry">
               {item.href ? (
                 <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={siteUrl(item.href)}
                   className="press-logo press-logo--link"
                 >
                   {item.nombre}

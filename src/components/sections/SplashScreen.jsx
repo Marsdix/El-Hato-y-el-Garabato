@@ -63,6 +63,7 @@ export default function SplashScreen({ onComplete }) {
   return (
     <motion.div
       className="splash-screen"
+      aria-hidden="true"
       initial={{ opacity: 1 }}
       exit={
         prefersReduced

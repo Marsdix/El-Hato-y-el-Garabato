@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MARIDAJES, CATEGORIAS } from '../../data/maridajes'
+import { siteUrl } from '../../utils/url'
 
 function MaridajeCard({ vino, language, t }) {
   const [videoVisible, setVideoVisible] = useState(false)
@@ -11,7 +12,7 @@ function MaridajeCard({ vino, language, t }) {
   return (
     <article className="maridaje-card">
       {/* Imagen — mismo tratamiento que tienda */}
-      <a href={vino.href} target="_blank" rel="noopener noreferrer"
+      <a href={siteUrl(`tienda/${vino.id}`)}
          className="maridaje-img-wrap" aria-label={vino.nombre}>
         <img src={vino.imagen} alt={vino.nombre} loading="lazy" />
       </a>
@@ -40,7 +41,7 @@ function MaridajeCard({ vino, language, t }) {
         </div>
 
         <div className="maridaje-footer">
-          <a href={vino.href} target="_blank" rel="noopener noreferrer"
+          <a href={siteUrl(`tienda/${vino.id}`)}
              className="btn-ghost maridaje-btn-tienda">
             {t('maridajes.comprar')}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"

@@ -6,6 +6,8 @@ wp-theme-dist
 .DS_Store
 studio/node_modules
 studio/dist
+wp-theme-dist
+.astro
 
 # Tool files
 agentdb.rvf
