@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import { BODEGA_VINAS } from '../../data/bodega'
 import { IMAGES } from '../../data/images'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -14,20 +15,29 @@ export default function BodegaVinasSection() {
   const { parrafos, stats, variedadesTintas, variedadesBlancas } = BODEGA_VINAS
   const imagen = IMAGES.bodega.vinas
   const { ref: colorRef, filter } = useScrollColor(1)
+  const imgRevealRef = useRef(null)
+  const imgInView = useInView(imgRevealRef, { once: true, amount: 0.15 })
 
   return (
     <section className="bodega-vinas-section" id="bodega-vinas">
       <div className="bodega-vinas-inner">
 
-        <ScrollReveal variant={imageRevealUp} className="bodega-vinas-image" amount={0.15}>
-          <motion.img
-            ref={colorRef}
-            src={imagen}
-            alt={t('bodega.img.alt')}
-            loading="lazy"
-            style={{ filter }}
-          />
-        </ScrollReveal>
+        <div className="bodega-vinas-image">
+          <motion.div
+            ref={imgRevealRef}
+            variants={imageRevealUp}
+            initial="hidden"
+            animate={imgInView ? 'visible' : 'hidden'}
+          >
+            <motion.img
+              ref={colorRef}
+              src={imagen}
+              alt={t('bodega.img.alt')}
+              loading="lazy"
+              style={{ filter }}
+            />
+          </motion.div>
+        </div>
 
         <div className="bodega-vinas-text">
           <ScrollReveal amount={0.15}>
