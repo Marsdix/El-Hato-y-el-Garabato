@@ -69,7 +69,7 @@ export default function Navbar() {
         style={{ background: navBg, backdropFilter: navBlur }}
         aria-label="Navegación principal"
       >
-        <a href={siteUrl("")} className="nav-logo" onClick={(e) => handleLinkClick(e, "/")}>
+        <a href={siteUrl("/")} className="nav-logo" onClick={(e) => handleLinkClick(e, "/")}>
           El Hato y el Garabato
           <span>{t("nav.tagline")}</span>
         </a>

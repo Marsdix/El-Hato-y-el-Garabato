@@ -70,7 +70,7 @@ export default function Footer() {
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
-          <a href={siteUrl("")} className="brand-name">
+          <a href={siteUrl("/")} className="brand-name">
             El Hato y el Garabato
           </a>
           <p>{t("footer.brand.desc")}</p>
@@ -131,12 +131,6 @@ export default function Footer() {
             </li>
             <li>
               <a href={siteUrl("maridajes")}>{t("footer.col2.maridajes")}</a>
-            </li>
-            <li>
-              <a href={siteUrl("tienda/eclectico-barrica-2023")}>Ecléctico Barrica</a>
-            </li>
-            <li>
-              <a href={siteUrl("tienda/de-buena-jera-2022")}>De Buena Jera</a>
             </li>
           </ul>
         </div>
