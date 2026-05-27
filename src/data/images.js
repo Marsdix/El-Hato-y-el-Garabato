@@ -36,7 +36,7 @@ import imgEquipoGrupo  from "../assets/images/equipo-grupo-jose.jpeg";
 
 // ── Bodega ────────────────────────────────────────────────────────
 import imgBodegaHero   from "../assets/images/bodega-vina-hero.JPG";
-import imgJoseConVina  from "../assets/images/jose-con-viña.JPG";
+import imgJoseConVina  from "../assets/images/jose-con-vina.JPG";
 
 // ── Tienda / Vinos ────────────────────────────────────────────────
 import imgTiendaHero      from "../assets/images/cotexa-tumbada.jpeg";
@@ -117,7 +117,7 @@ export const IMAGES = {
   // ── BODEGA Y VIÑAS ( /bodega ) ────────────────────────────────────
   bodega: {
     hero:  w(imgBodegaHero,  'bodega-vina-hero'),
-    vinas: w(imgJoseConVina, 'jose-con-viña'),
+    vinas: w(imgJoseConVina, 'jose-con-vina'),
   },
 
   // ── TIENDA ( /tienda ) ────────────────────────────────────────────
