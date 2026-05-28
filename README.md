@@ -4,7 +4,7 @@
 ![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white&labelColor=20232A)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-black?logo=framer&logoColor=white)
 ![Sanity](https://img.shields.io/badge/Sanity_CMS-7-F03E2F?logo=sanity&logoColor=white&labelColor=1a1a2e)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-deployed-22272E?logo=github&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-deployed-000000?logo=vercel&logoColor=white)
 
 **Proyecto de Fin de Curso · Técnico Superior en Desarrollo de Aplicaciones Web**
 
@@ -14,9 +14,9 @@
 
 ## Demo en vivo
 
-**[marsdix.github.io/El-Hato-y-el-Garabato](https://marsdix.github.io/El-Hato-y-el-Garabato/)**
+**[elhatoyelgarabato.com](https://elhatoyelgarabato.com)**
 
-Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
+Se actualiza automáticamente con cada push a `main` mediante Vercel.
 
 ---
 
@@ -60,14 +60,14 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 ## Funcionalidades
 
 ### Acceso y legal
-- **Verificación de edad (+18)** — pantalla de bienvenida obligatoria antes de acceder al sitio. Persiste durante la sesión de navegación y vuelve a aparecer al refrescar o abrir nueva pestaña. Diseño premium con imagen de viñedo de fondo, tarjeta con borde dorado y cursor personalizado visible desde el primer momento.
+- **Verificación de edad (+18)** — pantalla de bienvenida obligatoria antes de acceder al sitio. Aparece en cada visita. Diseño premium con imagen de viñedo de fondo, tarjeta con borde dorado y cursor personalizado visible desde el primer momento.
 
 ### Animaciones e interacción
 - **Parallax en heroes** — el fondo se desplaza a velocidad reducida con `useScroll` + `useTransform` de Framer Motion.
 - **Scroll reveals** — elementos aparecen con fade, slide o clip-path al entrar en el viewport (`ScrollReveal`, `StaggerList`).
 - **Animaciones de imagen mixtas** — cada sección usa el efecto más adecuado a su contexto:
   - Gris → color al hacer scroll (bodega interior, viñedo, fotos de equipo).
-  - Wipe clip-path ascendente en la foto del viñedo.
+  - Wipe clip-path ascendente en la foto del viñedo (usando `useInView` para compatibilidad con `position: sticky`).
   - Tilt 3D al mover el ratón sobre las fotos de equipo (`useTilt` con Framer Motion springs).
   - Zoom + marco dorado al hover en tarjetas de vino y maridajes.
 - **CountUp animado** — estadísticas numéricas cuentan desde un valor inicial con easing cúbico al entrar en pantalla.
@@ -101,6 +101,7 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 
 ### Rendimiento
 - **Astro SSG** — cada ruta genera HTML estático; el JS de React solo se carga por página.
+- **WebP automático** — `src/data/images.js` sirve `.webp` si existe junto al original; fallback al JPG/PNG importado por Vite.
 - **Diseño responsive** — navbar con menú hamburguesa, tipografía fluida (`clamp`) y layouts adaptativos.
 
 ### SEO
@@ -158,14 +159,14 @@ src/
 │   ├── maridajes.js               # Vinos con maridajes, categorías y videos
 │   ├── medios.js                  # Logos de medios donde aparece la bodega
 │   ├── navigation.js              # Links de navegación y URLs externas
-│   ├── images.js                  # Gestión centralizada de rutas de imágenes
+│   ├── images.js                  # Gestión centralizada de rutas de imágenes (+ WebP auto)
 │   └── translations.js            # Diccionario ES / EN
 ├── hooks/
 │   ├── useCursor.js               # Cursor personalizado con requestAnimationFrame
 │   ├── useLanguage.js             # Acceso al contexto de idioma y tema
 │   ├── usePageTitle.js            # Actualiza document.title por página (ES/EN)
 │   ├── useSanityFetch.js          # Fetch de datos desde Sanity con loading/error
-│   ├── useScrollColor.js          # Color de navbar según posición de scroll
+│   ├── useScrollColor.js          # Efecto gris→color en imágenes al hacer scroll
 │   └── useTilt.js                 # Tilt 3D con Framer Motion springs
 ├── lib/
 │   ├── sanityClient.js            # Cliente Sanity configurado
@@ -176,10 +177,21 @@ src/
 
 public/
 ├── sitemap.xml                    # Sitemap completo (rutas, vinos, blog)
-├── CNAME                          # Dominio personalizado para GitHub Pages
+├── CNAME                          # Dominio personalizado (elhatoyelgarabato.com)
 ├── og-cover.jpg                   # Imagen Open Graph (1200×630)
 ├── robots.txt                     # Directivas para crawlers
 └── _headers                       # Cabeceras de seguridad para Netlify/Cloudflare
+
+scripts/
+└── build-wp-theme.mjs             # Script que empaqueta el build de Astro como tema WordPress
+
+wp-theme/                          # Ficheros PHP del tema WordPress (fuente)
+│   ├── functions.php              # Enruta peticiones a los HTML de Astro; parchea rutas /_astro/
+│   ├── front-page.php             # Fallback para la portada
+│   ├── index.php                  # Requerido por WordPress
+│   └── style.css                  # Cabecera de tema (nombre, versión, autor)
+
+wp-theme-dist/                     # Output del tema listo para subir a WordPress (generado, no commitear)
 ```
 
 ---
@@ -218,17 +230,86 @@ npm run dev          # http://localhost:4321
 # Otros comandos
 npm run build        # Genera /dist listo para producción
 npm run preview      # Previsualiza la build en local
+npm run build:wp     # Genera el tema WordPress en wp-theme-dist/
 ```
 
 ---
 
 ## Despliegue
 
-**GitHub Pages** — el workflow `.github/workflows/deploy.yml` compila con Node.js y publica automáticamente en cada push a `main`. Requiere activar *GitHub Pages → Source: GitHub Actions* en los ajustes del repositorio.
+### Vercel (producción)
+Conectar el repositorio en [vercel.com](https://vercel.com). El archivo `vercel.json` gestiona cabeceras de seguridad y enrutado sin configuración adicional. Cada push a `main` despliega automáticamente a `elhatoyelgarabato.com`.
 
-**Vercel** — conectar el repositorio en [vercel.com](https://vercel.com). El archivo `vercel.json` gestiona el enrutado y las cabeceras de seguridad sin configuración adicional.
+### GitHub Pages (espejo)
+El workflow `.github/workflows/deploy.yml` compila y publica en cada push a `main`. Requiere activar *GitHub Pages → Source: GitHub Actions* en los ajustes del repositorio. La build detecta `GITHUB_ACTIONS=true` y mantiene `base: ''` (dominio propio vía CNAME).
 
-> **Nota sobre el dominio propio:** cuando `elhatoyelgarabato.com` esté apuntando al hosting, actualizar `site` en `astro.config.mjs` y las URLs en `sitemap.xml` y `robots.txt`.
+---
+
+## Ramas principales
+
+| Rama | Propósito |
+|---|---|
+| `main` | Producción — despliega automáticamente a Vercel y GitHub Pages |
+| `wordpress` | Tema WordPress que sirve los HTML estáticos generados por Astro (ver abajo) |
+
+---
+
+## Rama `wordpress` — Tema WordPress
+
+Esta rama contiene una integración que permite servir el sitio Astro desde una instalación WordPress existente, **sin reescribir el frontend**: WordPress actúa como servidor PHP que lee los HTML generados por Astro y parchea las rutas de assets en tiempo de ejecución.
+
+### Cómo funciona
+
+```
+npm run build:wp
+       │
+       ├── 1. Ejecuta npm run build (Astro SSG → dist/)
+       ├── 2. Copia dist/ → wp-theme-dist/mi-tema-astro/dist/
+       ├── 3. Reemplaza /_astro/ → /wp-content/themes/mi-tema-astro/dist/_astro/
+       │      en todos los bundles JS/CSS y archivos HTML
+       └── 4. Copia los ficheros PHP del tema (wp-theme/)
+              → wp-theme-dist/mi-tema-astro/
+```
+
+`functions.php` intercepta todas las peticiones con `template_redirect` y sirve el HTML de Astro correspondiente a la ruta solicitada. La sustitución de rutas garantiza que los assets (imágenes, JS, CSS) se resuelven correctamente bajo `/wp-content/themes/`.
+
+### Despliegue del tema
+
+```bash
+# 1. Generar el tema
+npm run build:wp
+# Output: wp-theme-dist/mi-tema-astro/
+
+# 2. Crear ZIP para subir desde WP Admin
+cd wp-theme-dist && zip -r ../mi-tema-astro.zip mi-tema-astro/
+
+# 3. WordPress Admin → Apariencia → Temas → Subir tema → Activar
+```
+
+> **Nota:** `wp-theme-dist/` y `mi-tema-astro.zip` no se commitean al repositorio (se regeneran con `build:wp`).
+
+### Limitaciones conocidas
+- El ZIP generado (~120 MB) puede superar el límite de subida de PHP en algunos hostings. Solución: subir vía SFTP o aumentar `upload_max_filesize` en `php.ini`.
+- Las rutas de assets se hardcodean con el nombre de tema `mi-tema-astro` en el script de build. Si se cambia el nombre, actualizar `THEME_NAME` en `scripts/build-wp-theme.mjs`.
+
+---
+
+## Imágenes personalizables
+
+Todas las imágenes se gestionan en `src/data/images.js`. Para cambiar cualquier hero basta con sustituir el import correspondiente. Si existe un archivo `.webp` con el mismo nombre en `src/assets/images/`, se usa automáticamente como versión optimizada.
+
+| Sección | Variable |
+|---|---|
+| Home hero | `imgHomeHero` |
+| Nosotros hero | `imgNosotrosHero` |
+| Bodega hero | `imgBodegaVinaHero` |
+| Tienda hero | `imgCotexaTumbada` |
+| Vino detalle hero | `imgVinoDetalleHero` |
+| Blog hero | `imgBlogHero` |
+| Maridajes hero | `imgVinas` |
+| Visita hero | `imgVisitaHero` |
+| Contacto hero | `imgContactoHero` |
+| OG cover (redes sociales) | `public/og-cover.jpg` |
 
 ---
 
@@ -244,32 +325,3 @@ El cliente real es la bodega familiar *El Hato y el Garabato*. Su web original e
 
 **Guillermo** — Alumno de DAW  
 [github.com/Marsdix](https://github.com/Marsdix) · 2025–2026
-
----
-
-## Ramas principales
-
-| Rama | Propósito |
-|---|---|
-| `main` | Producción — se despliega automáticamente a GitHub Pages |
-| `accesibilidad` | Implementación WCAG AA completa (pendiente de merge a main) |
-| `wordpress` | Tema WordPress que sirve los HTML estáticos de Astro (experimental) |
-
----
-
-## Imágenes personalizables
-
-Todas las imágenes del proyecto se gestionan en `src/data/images.js`. Para cambiar cualquier hero basta con sustituir el import correspondiente por el de la nueva imagen:
-
-| Sección | Variable |
-|---|---|
-| Home hero | `imgHomeHero` |
-| Nosotros hero | `imgNosotrosHero` |
-| Bodega hero | `imgBodegaVinaHero` |
-| Tienda hero | `imgCotexaTumbada` |
-| Vino detalle hero | `imgVinoDetalleHero` |
-| Blog hero | `imgBlogHero` |
-| Maridajes hero | `imgVinas` |
-| Visita hero | `imgVisitaHero` |
-| Contacto hero | `imgContactoHero` |
-| OG cover (redes sociales) | `public/og-cover.jpg` |
