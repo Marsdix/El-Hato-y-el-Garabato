@@ -16,7 +16,7 @@
 
 **[marsdix.github.io/El-Hato-y-el-Garabato](https://marsdix.github.io/El-Hato-y-el-Garabato/)**
 
-Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
+Se actualiza automáticamente con cada push a `github-pages` mediante GitHub Actions.
 
 ---
 
@@ -60,7 +60,7 @@ Se actualiza automáticamente con cada push a `main` mediante GitHub Actions.
 ## Funcionalidades
 
 ### Acceso y legal
-- **Verificación de edad (+18)** — pantalla de bienvenida obligatoria antes de acceder al sitio. Persiste durante la sesión de navegación y vuelve a aparecer al refrescar o abrir nueva pestaña. Diseño premium con imagen de viñedo de fondo, tarjeta con borde dorado y cursor personalizado visible desde el primer momento.
+- **Verificación de edad (+18)** — pantalla de bienvenida obligatoria antes de acceder al sitio. Aparece en cada carga de página (sin persistencia en sessionStorage). Diseño premium con imagen de viñedo de fondo, tarjeta con borde dorado y cursor personalizado visible desde el primer momento.
 
 ### Animaciones e interacción
 - **Parallax en heroes** — el fondo se desplaza a velocidad reducida con `useScroll` + `useTransform` de Framer Motion.
@@ -224,7 +224,7 @@ npm run preview      # Previsualiza la build en local
 
 ## Despliegue
 
-**GitHub Pages** — el workflow `.github/workflows/deploy.yml` compila con Node.js y publica automáticamente en cada push a `main`. Requiere activar *GitHub Pages → Source: GitHub Actions* en los ajustes del repositorio.
+**GitHub Pages** — el workflow `.github/workflows/deploy.yml` compila con Node.js y publica automáticamente en cada push a `github-pages`. Requiere activar *GitHub Pages → Source: GitHub Actions* en los ajustes del repositorio.
 
 **Vercel** — conectar el repositorio en [vercel.com](https://vercel.com). El archivo `vercel.json` gestiona el enrutado y las cabeceras de seguridad sin configuración adicional.
 
@@ -235,8 +235,8 @@ npm run preview      # Previsualiza la build en local
 
 | Rama | Propósito |
 |---|---|
-| `main` | Producción — se despliega automáticamente a GitHub Pages |
-| `accesibilidad` | Implementación WCAG AA completa (pendiente de merge a main) |
+| `main` | Desarrollo — base `/` para entorno local, sin prefijo de subdirectorio |
+| `github-pages` | Producción — deploy automático a GitHub Pages con `base = '/El-Hato-y-el-Garabato'` |
 | `wordpress` | Tema WordPress que sirve los HTML estáticos de Astro (experimental) |
 
 ---
