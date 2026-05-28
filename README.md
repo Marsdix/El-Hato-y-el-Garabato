@@ -231,22 +231,6 @@ npm run preview      # Previsualiza la build en local
 > **Nota sobre el dominio propio:** cuando `elhatoyelgarabato.com` esté apuntando al hosting, actualizar `site` en `astro.config.mjs` y las URLs en `sitemap.xml` y `robots.txt`.
 
 ---
-
-## Contexto académico
-
-Trabajo de Fin de Ciclo del título **Técnico Superior en Desarrollo de Aplicaciones Web (DAW)**.
-
-El cliente real es la bodega familiar *El Hato y el Garabato*. Su web original en WordPress ha servido como referencia de contenido. Todo el código ha sido escrito desde cero aplicando los conocimientos adquiridos durante el ciclo: arquitectura Astro SSG con islas React, gestión de estado con Context API y Nanostores, animaciones con Framer Motion, integración con Sanity CMS y preparación para producción.
-
----
-
-## Autor
-
-**Guillermo** — Alumno de DAW  
-[github.com/Marsdix](https://github.com/Marsdix) · 2025–2026
-
----
-
 ## Ramas principales
 
 | Rama | Propósito |
@@ -273,3 +257,20 @@ Todas las imágenes del proyecto se gestionan en `src/data/images.js`. Para camb
 | Visita hero | `imgVisitaHero` |
 | Contacto hero | `imgContactoHero` |
 | OG cover (redes sociales) | `public/og-cover.jpg` |
+
+---
+
+## Contexto académico
+
+Trabajo de Fin de Ciclo del título **Técnico Superior en Desarrollo de Aplicaciones Web (DAW)**.
+
+El cliente real es la bodega familiar *El Hato y el Garabato*. Su web original en WordPress ha servido como referencia de contenido. Todo el código ha sido escrito desde cero aplicando los conocimientos adquiridos durante el ciclo: arquitectura Astro SSG con islas React, gestión de estado con Context API y Nanostores, animaciones con Framer Motion, integración con Sanity CMS y preparación para producción.
+
+---
+
+## Autor
+
+**Guillermo** — Alumno de DAW  
+[github.com/Marsdix](https://github.com/Marsdix) · 2025–2026
+
+---
